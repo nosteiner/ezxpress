@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+}
+
+
+agm-map {
+    height: 650px;
+    width: 950px;
+   
+
+  }
+
+.container {
+
+  display: flex;
+}

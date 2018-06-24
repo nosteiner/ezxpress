@@ -1,0 +1,16 @@
+img {
+    height: 80px;
+    width: 80px;
+}
+
+.order-container {
+    width: 200px;
+    margin-left:0px;
+    text-align: left;
+    border: 1px solid yellowgreen;
+
+}
+
+.container {
+    display: flex;
+}

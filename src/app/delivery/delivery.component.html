@@ -1,0 +1,39 @@
+<div class="container" fxLayout="row" >
+    <div class="order-container">
+    <h2> From </h2>
+    
+      <mat-form-field>
+        <input matInput [(ngModel)]="order.localAddress" (ngModelChange)="checkAddress(order.localAddress)" placeholder="Your Local Place">
+      </mat-form-field>
+    <br>
+      <mat-form-field>
+        <input matInput [(ngModel)]="addComment" placeholder="What to do ?">
+      </mat-form-field>
+    <br>
+    <h2> Destination </h2>
+      <mat-form-field>
+          <input matInput [(ngModel)]="order.destAddress" placeholder="Destination Addres">
+      </mat-form-field>
+    <br>
+      <mat-form-field>
+        <input matInput [(ngModel)]="order.contactDestination" placeholder="Ask to Whom">
+      </mat-form-field>
+
+      <br>
+      <button class="btn" (click)='addReturn()' mat-raised-button color="accent">Add Return</button>
+      <br>
+      <div type-cargo>
+        <p> Type of Delivery</p>
+        <span> <img src="https://cdn.pixabay.com/photo/2013/07/13/10/52/file-157955__480.png" alt="Smiley face">Envelope </span> 
+          
+        <span> <img src="https://cdn.pixabay.com/photo/2014/03/25/15/25/cardboard-box-296818__480.png" alt="Smiley face">Box </span> 
+      </div>
+      <button class="btn" (click)='calculateRate(order)' mat-raised-button color="primary">Calculate</button>
+
+    </div>
+    <app-map></app-map>
+</div>
+
+
+  
+

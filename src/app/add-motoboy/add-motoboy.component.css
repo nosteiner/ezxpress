@@ -1,0 +1,20 @@
+
+.motoboy-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .motoboy-container > * {
+    width: 30%;
+  }
+
+  span {
+  color: #5f7a7a;
+    text-align: left;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+
+.btn {
+  margin-top: 2%;
+}
