@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MotoService } from '../moto.service';
+import { MotoBoy } from '../MotoBoy';
 
 @Component({
   selector: 'app-moto-share-live-location',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MotoShareLiveLocationComponent implements OnInit {
 
-  constructor() { }
+  currentMotoEmail: string;
+ 
+  constructor(private motoService: MotoService, ) { }
 
   ngOnInit() {
+    // this.motoService.singleMotoObservable.subscribe((data) => {
+    //   this.currentMoto = data;
+    //   console.log(this.currentMoto)
+    // })
+  }
+
+  submit() {
+    this.motoService.shareLiveLocation(this.currentMotoEmail)
   }
 
 }

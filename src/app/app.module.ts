@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http'; 
 
 
 
@@ -43,6 +44,7 @@ import { MotoShareLiveLocationComponent } from './moto-share-live-location/moto-
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g'
     }),
+    HttpClientModule,
     MatToolbarModule,
     FlexLayoutModule
     

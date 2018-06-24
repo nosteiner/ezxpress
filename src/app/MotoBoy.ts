@@ -5,6 +5,7 @@ export class MotoBoy{
     firsName : string;
     lastName : string;
     phone    : number;
+    email    : string;
     rate     : number;
     photo    : string;
     idPhoto  : string;
