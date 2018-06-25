@@ -3,8 +3,8 @@ export class MotoBoy{
     idNumber : string;
     firsName : string;
     lastName : string;
-    email :string;
-    phoneNumber   : number;
+    email    : string;
+    phoneNumber : number;
     rate     : number;
     photo    : string;
     latitude : Number;
