@@ -1,14 +1,12 @@
 export class MotoBoy{
-
-    userName : string;
-    idNumber : number;
+    motoboyId :number;
+    idNumber : string;
     firsName : string;
     lastName : string;
-    phone    : number;
     email    : string;
+    phoneNumber : number;
     rate     : number;
     photo    : string;
-    idPhoto  : string;
     latitude : Number;
     longitude: Number;
     icon: string;
