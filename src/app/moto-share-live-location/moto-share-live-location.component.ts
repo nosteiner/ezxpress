@@ -9,7 +9,7 @@ import { MotoBoy } from '../MotoBoy';
 })
 export class MotoShareLiveLocationComponent implements OnInit {
 
-  currentMotoEmail: string;
+  currentMotoId: string;
  
   constructor(private motoService: MotoService, ) { }
 
@@ -21,7 +21,7 @@ export class MotoShareLiveLocationComponent implements OnInit {
   }
 
   submit() {
-    this.motoService.shareLiveLocation(this.currentMotoEmail)
+    this.motoService.shareLiveLocation(this.currentMotoId)
   }
 
 }

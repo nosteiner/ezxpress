@@ -23,8 +23,8 @@ export class MotoService {
     this.singleMotoObservable = this.singleMotoSubject.asObservable();
   }
 
-  async getMoto(email) {
-    this.http.get<MotoBoy>('https://api/motoBoys?email=' + email).subscribe(data => {
+  getMoto(id) {
+    this.http.get<MotoBoy>('https://localhost:3000/motoboysApi/' + id).subscribe(data => {
       this.currentMotoBoy = data;
       this.singleMotoSubject.next(data)
       console.log(this.currentMotoBoy)

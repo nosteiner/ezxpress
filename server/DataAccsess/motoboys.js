@@ -29,6 +29,14 @@ class MotoBoy {
     getAll() {
         return this.model.findAll();
     }
+    getOneById(ID) {
+        console.log(ID)
+        return this.model.findAll({
+            where: {
+                motoboyId: ID
+            }
+        });
+    }
     create(data){
         return this.model.create(data);
     }

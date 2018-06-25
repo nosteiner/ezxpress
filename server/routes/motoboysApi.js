@@ -7,6 +7,14 @@ router.get('/', (req, res) => {
     res.send(JSON.stringify(data));
     })
 });
+router.get('/:id', (req, res) => {
+    var motoBoy = motoboyDA.getOneById(req.params.id).then((data)=>{
+        console.log(data)
+        res.send(data);
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
+  });
 
 router.post('/add', (req, res) => {
     motoboy.create(req.body).then(data => {
