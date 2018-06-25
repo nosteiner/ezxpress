@@ -22,29 +22,30 @@ export class MotoService {
 
   getMoto(id) {
     this.http.get<MotoBoy>('motoboysApi/' + id).subscribe(data => {
-      this.currentMotoBoy = data;
-      this.singleMotoSubject.next(data)
+      this.currentMotoBoy = data[0];
+      this.singleMotoSubject.next(data[0])
       console.log(this.currentMotoBoy)
       console.log("a")
      })
   }
 
-  shareLiveLocation(email) {
+  shareLiveLocation(id) {
     this.singleMotoObservable.subscribe(()=>{
       setInterval(this.getMotoCurrentLocation(),5000);
     })
-    this.getMoto(email);
+    this.getMoto(id);
   }
 
   
 
   postMotoLocation(currentMotoBoy) {
+    console.log("d")
     let id = currentMotoBoy.idNumber
-    this.http.put<MotoBoy>('https://api/motoBoys/updateMotoBoy/' + id, { motoBoy: currentMotoBoy }).subscribe((data) => {
+    this.http.put<MotoBoy>('motoboysApi/update/' + id, { motoBoy: currentMotoBoy }).subscribe((data) => {
       //update motoboys array
       this.currentMotoBoy = data;
       this.singleMotoSubject.next(data);
-      console.log("d")
+     
     })
   }
 
@@ -55,6 +56,7 @@ getMotoCurrentLocation(){
       this.currentMotoBoy.longitude = position.coords.longitude;
       this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
       this.postMotoLocation(this.currentMotoBoy)
+
     })
   }    
 }
