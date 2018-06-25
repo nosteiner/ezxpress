@@ -40,7 +40,7 @@ export class MotoService {
 
   putMotoLocation(currentMotoBoy) {
     console.log("d")
-    let id = currentMotoBoy.idNumber
+    let id = currentMotoBoy.motoboyId
     this.http.put<MotoBoy>('motoboysApi/update/' + id, { motoBoy: currentMotoBoy }).subscribe((data) => {
       //update motoboys array
       this.currentMotoBoy = data;
