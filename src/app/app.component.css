@@ -1,0 +1,15 @@
+.head {
+    font-family: 'Roboto', serif;
+    text-align: center;
+    letter-spacing: 5px;
+    width: 100%;
+}
+
+.menu {
+    
+    text-align: left;
+}
+
+.white-icon {
+    color: white;
+}

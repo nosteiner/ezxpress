@@ -1,18 +1,31 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar>
-    <button mat-button routerLink="/">Home</button>
-    <button mat-button routerLink="/add-motoboy">Register Motoboy</button>
-    <button mat-button routerLink="/add-client">New Client</button>
-    <button mat-button routerLink="/add-delivery">Xpress Delivery</button>
- 
-</mat-toolbar>
-<div style="text-align:center">
-  
-      
-   <app-delivery></app-delivery> 
-  <!-- <add-motoboy></add-motoboy> -->
-  <!-- <app-map></app-map> -->
- <!-- <app-moto-share-live-location></app-moto-share-live-location> -->
-
-
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-indigo.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+<div class="w3-theme" id="container">
+<div class="head">
+    <h1>EzExpress</h1>
+    <h2>Because it's easy to receive your packet with our service</h2>
+</div>
+<button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon >more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="w3-theme">
+    <button class="white-icon" mat-menu-item routerLink="">
+        <mat-icon >home</mat-icon>
+        <span >Home Page</span>
+    </button>  
+    <button class="white-icon" mat-menu-item routerLink="/add-customer">
+        <mat-icon>add_to_photos</mat-icon>
+        <span>New Customer</span>
+    </button>
+    <button class="white-icon" mat-menu-item routerLink="/add-motoboy">
+        <mat-icon>motorcycle</mat-icon>
+        <span>Register Motoboy</span>
+    </button>
+    <button class="white-icon" mat-menu-item routerLink="/add-delivery">
+        <mat-icon>send</mat-icon>
+        <span>Xpress Delivery</span>
+    </button>
+  </mat-menu>
+</div>
+<router-outlet></router-outlet>
   
