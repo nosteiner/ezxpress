@@ -9,9 +9,6 @@ import { Observable, Subject } from 'rxjs';
 })
 export class MotoService {
 
-  lat: number //= 51.678418;
-  lng: number //= 7.809007;
-
   motoBoys: MotoBoy[] = [];
   currentMotoBoy: MotoBoy = new MotoBoy();
 
@@ -24,7 +21,7 @@ export class MotoService {
   }
 
   getMoto(id) {
-    this.http.get<MotoBoy>('https://localhost:3000/motoboysApi/' + id).subscribe(data => {
+    this.http.get<MotoBoy>('motoboysApi/' + id).subscribe(data => {
       this.currentMotoBoy = data;
       this.singleMotoSubject.next(data)
       console.log(this.currentMotoBoy)
@@ -56,7 +53,7 @@ getMotoCurrentLocation(){
     navigator.geolocation.getCurrentPosition(position => {
       this.currentMotoBoy.latitude = position.coords.latitude;
       this.currentMotoBoy.longitude = position.coords.longitude;
-      this.reverseAddress(this.lat, this.lng);
+      this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
       this.postMotoLocation(this.currentMotoBoy)
     })
   }    
@@ -66,9 +63,9 @@ getMotoCurrentLocation(){
     var geocoder: google.maps.Geocoder = new google.maps.Geocoder;
     console.log(localAddress)
     geocoder.geocode({ address: localAddress }, (results) => {
-      this.lat = Number(results[0].geometry.location.lat);
-      this.lng = Number(results[0].geometry.location.lat);
-      console.log(this.lat)
+      this.currentMotoBoy.latitude = Number(results[0].geometry.location.lat);
+      this.currentMotoBoy.longitude = Number(results[0].geometry.location.lat);
+      console.log(this.currentMotoBoy.latitude)
     })
   }
 

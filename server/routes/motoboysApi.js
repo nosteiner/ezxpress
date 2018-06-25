@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     })
 });
 router.get('/:id', (req, res) => {
-    var motoBoy = motoboyDA.getOneById(req.params.id).then((data)=>{
+    var motoBoy = motoboy.getOneById(req.params.id).then((data)=>{
         console.log(data)
         res.send(data);
     }).catch((error) => {

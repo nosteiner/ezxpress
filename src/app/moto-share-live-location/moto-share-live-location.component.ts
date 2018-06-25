@@ -14,13 +14,11 @@ export class MotoShareLiveLocationComponent implements OnInit {
   constructor(private motoService: MotoService, ) { }
 
   ngOnInit() {
-    // this.motoService.singleMotoObservable.subscribe((data) => {
-    //   this.currentMoto = data;
-    //   console.log(this.currentMoto)
-    // })
+
   }
 
   submit() {
+    console.log(this.currentMotoId)
     this.motoService.shareLiveLocation(this.currentMotoId)
   }
 
