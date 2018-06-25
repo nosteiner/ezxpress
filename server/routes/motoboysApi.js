@@ -22,8 +22,8 @@ router.post('/add', (req, res) => {
   })
 });
 router.put('/update/:id', (req, res) => {
-    motoboy.update(req.body, req.params.id).then(() => {
-        res.send("changes saved");
+    motoboy.update(req.body.motoboy, req.params.id).then(() => {
+        res.send(JSON.stringify(req.body.motoboy));
     }).catch((error) => {
         res.send("error:" + error)
     });

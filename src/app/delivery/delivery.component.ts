@@ -16,10 +16,10 @@ map : MapComponent
   order: Order;
   constructor(private mapService: MapService) { 
     
-    this.localAddress = "ttttt"
+    ////this.localAddress = "ttttt"
     this.order = new Order();
     this.mapService.addressUpdated.subscribe( (data) => {
-      this.localAddress = data
+    // // this.localAddress = data
       console.log(this.localAddress)})
     
     //this.order.localAddress = "test"
@@ -39,7 +39,7 @@ map : MapComponent
 
   ngOnInit() {
     this.mapService.addressUpdated.subscribe( (data) => {
-      this.order.localAddress = data
+      ////this.order.localAddress = data
       console.log(data)})
   }
 

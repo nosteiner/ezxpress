@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MotoBoy } from './MotoBoy';
-import { Client } from './Client';
+import { Customer } from './customer';
 import { Order } from './Order';
 
 

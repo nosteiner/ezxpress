@@ -6,7 +6,7 @@ class MotoBoy {
         this.model = this.initMotoBoy();
     }
     initMotoBoy() {
-        let Motoboy = DA.connection.define('motoboys', {
+        let motoboy = DA.connection.define('motoboys', {
             motoboyId: { type: Sequelize.INTEGER, primaryKey: true },
             idNumber: Sequelize.STRING,
             firstName: Sequelize.STRING,
@@ -24,7 +24,7 @@ class MotoBoy {
            //customer.belongsTo(Company.model, { foreignKey: 'company_id' });
            // Company.model.hasMany(customer, { foreignKey: 'company_id' });
 
-        return Motoboy;
+        return motoboy;
     }
     getAll() {
         return this.model.findAll();

@@ -1,15 +1,21 @@
 export class Order{
-
-    clientId : string;
-    localAddress : string;
-    destAddress  : string;
-    motoboyId : string;
-    price   : number;
-    dateOrder  : Date;
-    dateCollect : Date;
-    dateDelivery : Date;
-    contactDestination : string;
-    phoneDestination : string;
+    
+    orderId : number;
+    customerId : number;
+    motoboyId : number;
+    latitudeOriginAddress : number;
+    longitudeOriginAddress:number;
+    latitudeDestAddress:number;
+    longitudeDestAddress:number;
+    price: number;
+    orderDate: Date ;
+    collectDate: Date ;
+    deliveryDate: Date ;
+    contactDestination: string ;
+    phoneDestination: string ;
+    phoneNumber: string ;
+    deliveryType: string ;
+    status: string ;
 
     constructor() {}
 
