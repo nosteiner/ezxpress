@@ -38,7 +38,7 @@ export class MotoService {
 
   
 
-  postMotoLocation(currentMotoBoy) {
+  putMotoLocation(currentMotoBoy) {
     console.log("d")
     let id = currentMotoBoy.idNumber
     this.http.put<MotoBoy>('motoboysApi/update/' + id, { motoBoy: currentMotoBoy }).subscribe((data) => {
@@ -55,7 +55,7 @@ getMotoCurrentLocation(){
       this.currentMotoBoy.latitude = position.coords.latitude;
       this.currentMotoBoy.longitude = position.coords.longitude;
       this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
-      this.postMotoLocation(this.currentMotoBoy)
+      this.putMotoLocation(this.currentMotoBoy)
 
     })
   }    
