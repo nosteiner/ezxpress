@@ -48,11 +48,9 @@ export class MotoService {
 
   shareLiveLocation(email) {
     this.singleMotoObservable.subscribe(()=>{
-      this.getMotoCurrentLocation()
+      setInterval(this.getMotoCurrentLocation(),5000);
     })
-
     this.getMoto(email);
-
   }
 
   
