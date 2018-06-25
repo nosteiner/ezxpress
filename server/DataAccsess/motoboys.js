@@ -16,7 +16,8 @@ class MotoBoy {
             rate: Sequelize.INTEGER,
             photo: Sequelize.STRING,
             latitude: Sequelize.FLOAT,
-            longitude: Sequelize.FLOAT
+            longitude: Sequelize.FLOAT,
+            active : Sequelize.BOOLEAN
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });

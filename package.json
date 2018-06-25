@@ -30,6 +30,7 @@
     "core-js": "^2.5.4",
     "mysql2": "^1.5.3",
     "ng-file-manager": "^0.1.7",
+    "nodets": "0.0.1",
     "rxjs": "^6.0.0",
     "sequelize": "^4.38.0",
     "zone.js": "^0.8.26"

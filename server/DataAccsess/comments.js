@@ -17,6 +17,7 @@ class Comment {
             motoboyId: { type: Sequelize.INTEGER, references: { model: motoboys, key: 'motoboyId' }},
             orderId: { type: Sequelize.INTEGER, references: { model: orders, key: 'orders' }},
             rate: Sequelize.INTEGER,
+            active : Sequelize.BOOLEAN
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });

@@ -10,7 +10,10 @@ export class MotoBoy{
     latitude : Number;
     longitude: Number;
     icon: string;
+    active : boolean;
     constructor() {
+        this.active = true; 
+        this.rate = null ;
         this.icon = "https://png.icons8.com/color/50/000000/motorcycle.png"
     }
 

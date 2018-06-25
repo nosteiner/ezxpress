@@ -12,6 +12,8 @@ export class MotoService {
   motoBoys: MotoBoy[] = [];
   currentMotoBoy: MotoBoy = new MotoBoy();
 
+ 
+
 
   public singleMotoObservable: Observable<MotoBoy>;
   private singleMotoSubject: Subject<MotoBoy> = new Subject<MotoBoy>();
@@ -48,6 +50,19 @@ export class MotoService {
      
     })
   }
+  
+  unActivatMotoboy(currentMotoBoy) {
+    console.log("d")
+    let id = currentMotoBoy.motoboyId
+    currentMotoBoy.active = false;
+    this.http.put<MotoBoy>('motoboysApi/update/' + id, { motoboy: currentMotoBoy }).subscribe((data) => {
+      //update motoboys array
+      this.currentMotoBoy = data;
+      this.singleMotoSubject.next(data);
+     
+    })
+  }
+
 
 getMotoCurrentLocation(){
   if (navigator.geolocation) {
@@ -73,6 +88,15 @@ getMotoCurrentLocation(){
 
   reverseAddress(lat, lng) {
     this.mapService.reverseAddress(lat, lng);
+  }
+
+  addMotoBoy(motoboy){
+    console.log("inside Add")
+    this.http.post<MotoBoy>('motoboysApi/add',motoboy).subscribe((data) => {
+      //update motoboys array?
+      this.currentMotoBoy = data;
+    })
+
   }
 
 }

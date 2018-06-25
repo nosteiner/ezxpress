@@ -24,9 +24,7 @@ export class EzxpressService {
     
   }
 
-  addNewClient(client){
-    this.client.push(client)
-  }
+ 
 
   
 }

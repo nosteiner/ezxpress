@@ -6,7 +6,8 @@ CREATE TABLE customers (
   phoneNumber VARCHAR(20) ,
   firstName VARCHAR(20),
   lastName VARCHAR(20), 
-  address VARCHAR(20)
+  address VARCHAR(20),
+  active BOOLEAN
   
 );
 
@@ -17,10 +18,11 @@ CREATE TABLE motoboys (
   lastName VARCHAR(20),
   email VARCHAR(40),
   phoneNumber VARCHAR(20) ,
-  rate TINYINT,
+  rate INT,
   photo  VARCHAR(20),
   latitude FLOAT,
-  longitude FLOAT
+  longitude FLOAT,
+  active BOOLEAN
 );
  
 CREATE TABLE orders (
@@ -39,6 +41,7 @@ CREATE TABLE orders (
  phoneDestination  VARCHAR(20),
  deliveryType VARCHAR(20),
  status VARCHAR(20),
+ active BOOLEAN,
  FOREIGN KEY(customerId) REFERENCES customers(customerId),
  FOREIGN KEY(motoboyId) REFERENCES motoboys(motoboyId)
 );
@@ -48,7 +51,8 @@ CREATE TABLE comments (
  customerId INT,
  motoboyId INT,
  orderId INT,
- rate tinyint,
+ rate INT,
+ active BOOLEAN,
  FOREIGN KEY(customerId) REFERENCES customers(customerId),
  FOREIGN KEY(motoboyId) REFERENCES motoboys(motoboyId),
  FOREIGN KEY(orderId) REFERENCES orders(orderId)

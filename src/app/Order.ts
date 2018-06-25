@@ -16,6 +16,7 @@ export class Order{
     phoneNumber: string ;
     deliveryType: string ;
     status: string ;
+    active : boolean;
 
     constructor() {}
 

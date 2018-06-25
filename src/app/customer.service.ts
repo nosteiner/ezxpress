@@ -46,6 +46,17 @@ export class CustomerService {
     
   }
 
+  deleteCustomer(currentCustomer) {
+    console.log("inside delete")
+    let id = currentCustomer.customerId
+    currentCustomer.active =false ;
+    this.http.put<Customer>('customersApi/delete/' + id, { customer: currentCustomer }).subscribe((data) => {
+      //update motoboys array
+      this.currentCustomer = data;
+      this.singleCustomerSubject.next(data);
+     
+    })
+  }
   // shareLiveLocation(id) {
   //   this.singleCustomerObservable.subscribe(()=>{
   //     setInterval(this.getMotoCurrentLocation(),5000);

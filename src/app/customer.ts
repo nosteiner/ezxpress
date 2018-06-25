@@ -6,7 +6,7 @@ export class Customer{
     firstName: string ;
     lastName: string ;
     address: string ;
-    
+    active : boolean;
 
     constructor() {}
 
