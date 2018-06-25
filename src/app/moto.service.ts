@@ -24,26 +24,12 @@ export class MotoService {
   }
 
   async getMoto(email) {
-    // this.http.get<MotoBoy>('https://api/motoBoys?email=' + email).subscribe(data => {
-      let data = {
-        userName : "moshe1",
-    idNumber : 1,
-    firsName : "moshe",
-    lastName : "israel",
-    phone    : 525555555,
-    email    : "email",
-    rate     : 0,
-    photo    : "https://png.icons8.com/color/50/000000/motorcycle.png",
-    idPhoto  : "https://png.icons8.com/color/50/000000/motorcycle.png",
-    latitude : null,
-    longitude: null,
-    icon: "https://png.icons8.com/color/50/000000/motorcycle.png"
-      }
+    this.http.get<MotoBoy>('https://api/motoBoys?email=' + email).subscribe(data => {
       this.currentMotoBoy = data;
       this.singleMotoSubject.next(data)
       console.log(this.currentMotoBoy)
       console.log("a")
-    // })
+     })
   }
 
   shareLiveLocation(email) {
