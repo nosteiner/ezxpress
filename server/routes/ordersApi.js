@@ -5,13 +5,17 @@ const order = require('../DataAccsess/orders');
 router.get('/', (req, res) => { 
     order.getAll().then(data => {
     res.send(JSON.stringify(data));
-    })
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
 });
 
 router.post('/add', (req, res) => {
     order.create(req.body).then(data => {
     res.send(JSON.stringify(data));
-  })
+  }).catch((error) => {
+    res.send("error:" + error)
+});
 });
 
  router.put('/update/:id',(req,res)=>{
@@ -33,7 +37,9 @@ router.post('/add', (req, res) => {
 router.delete('/delete/:id', (req, res) => {
     order.delete(req.params.id).then(data => {
     res.send(JSON.stringify(data));
-    })
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
 });
 
 module.exports = router;

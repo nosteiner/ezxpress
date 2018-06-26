@@ -13,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatTableModule } from '@angular/material';
+import {MatSortModule} from '@angular/material/sort';
 
 
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { DestinationComponent } from './destination/destination.component';
 import { MaprouteComponent } from './maproute/maproute.component';
 import { MotoShareLiveLocationComponent } from './moto-share-live-location/moto-share-live-location.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { TableComponent } from './table/table.component';
 
 
 
@@ -41,7 +43,8 @@ import { AppRoutingModule } from './/app-routing.module';
     DeliveryComponent,
     DestinationComponent,
     MaprouteComponent,
-    MotoShareLiveLocationComponent
+    MotoShareLiveLocationComponent,
+    TableComponent
 
   ],
   imports: [
@@ -64,8 +67,10 @@ import { AppRoutingModule } from './/app-routing.module';
     MatToolbarModule,
     FlexLayoutModule,
     AppRoutingModule,
-    GooglePlaceModule
-    
+    GooglePlaceModule,
+    MatTableModule, 
+    MatSortModule,
+ 
 
     
   ],
