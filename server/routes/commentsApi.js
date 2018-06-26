@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const comments = require('../DataAccsess/comments');
+const customer = require('../DataAccsess/customers');
+const motoboy = require('../DataAccsess/motoboys');
 
 router.get('/', (req, res) => { 
     comments.getAll().then(data => {
+        console.log('gggg'+ data)
     res.send(JSON.stringify(data));
     })
 });
