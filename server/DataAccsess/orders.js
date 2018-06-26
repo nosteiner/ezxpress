@@ -34,13 +34,15 @@ class Order {
 
             order.belongsTo(Customer.model, {foreignKey: 'customerId'});
             Customer.model.hasMany(order, {foreignKey: 'orderId'})
+            order.belongsTo(Motoboy.model, {foreignKey: 'motoboyId'});
+            Motoboy.model.hasMany(order, {foreignKey: 'orderId'})
 
         return order;
     }
 
 
     getAll() {
-        return this.model.findAll({ include: [Customer.model] });
+        return this.model.findAll({ include: [Customer.model, Motoboy.model] });
     }
     create(data){
         return this.model.create(data);
