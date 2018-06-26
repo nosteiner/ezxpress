@@ -1,15 +1,14 @@
 export class MotoBoy{
-
-    userName : string;
-    idNumber : number;
+    motoboyId :number;
+    idNumber : string;
     firsName : string;
     lastName : string;
-    phone    : number;
+    email    : string;
+    phoneNumber : number;
     rate     : number;
     photo    : string;
-    idPhoto  : string;
-    latitude : number;
-    longitude: number;
+    latitude : Number;
+    longitude: Number;
     icon: string;
     constructor() {
         //this.icon = "https://png.icons8.com/color/50/000000/motorcycle.png"
