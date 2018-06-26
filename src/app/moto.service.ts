@@ -12,7 +12,7 @@ export class MotoService {
   motoBoys: MotoBoy[] = [];
   currentMotoBoy: MotoBoy = new MotoBoy();
 
- 
+
 
 
   public singleMotoObservable: Observable<MotoBoy>;
@@ -27,62 +27,53 @@ export class MotoService {
       this.currentMotoBoy = data[0];
       this.singleMotoSubject.next(data[0])
       console.log(this.currentMotoBoy)
-      console.log("a")
-     })
+   
+    })
   }
 
   shareLiveLocation(id) {
-    this.singleMotoObservable.subscribe(()=>{
-      setInterval(this.getMotoCurrentLocation(),5000);
+    this.singleMotoObservable.subscribe(() => {
+      setInterval(this.getMotoCurrentLocation(), 5000);
     })
     this.getMoto(id);
   }
 
-  
 
-  putMotoLocation(currentMotoBoy) {
-    console.log("d")
+
+  updateMotoBoy(currentMotoBoy) {
     let id = currentMotoBoy.motoboyId
     this.http.put<MotoBoy>('motoboysApi/update/' + id, { motoboy: currentMotoBoy }).subscribe((data) => {
       //update motoboys array
       this.currentMotoBoy = data;
       this.singleMotoSubject.next(data);
-     
+
     })
   }
-  
+
   unActivatMotoboy(currentMotoBoy) {
-    console.log("d")
-    let id = currentMotoBoy.motoboyId
     currentMotoBoy.active = false;
-    this.http.put<MotoBoy>('motoboysApi/update/' + id, { motoboy: currentMotoBoy }).subscribe((data) => {
-      //update motoboys array
-      this.currentMotoBoy = data;
-      this.singleMotoSubject.next(data);
-     
-    })
+    this.updateMotoBoy(currentMotoBoy);
   }
 
+  getMotoCurrentLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.currentMotoBoy.latitude = position.coords.latitude;
+        this.currentMotoBoy.longitude = position.coords.longitude;
+        this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
+        this.updateMotoBoy(this.currentMotoBoy)
 
-getMotoCurrentLocation(){
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      this.currentMotoBoy.latitude = position.coords.latitude;
-      this.currentMotoBoy.longitude = position.coords.longitude;
-      this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
-      this.putMotoLocation(this.currentMotoBoy)
-
-    })
-  }    
-}
+      })
+    }
+  }
 
   checkGoogleAddress(localAddress) {
     var geocoder: google.maps.Geocoder = new google.maps.Geocoder;
-    console.log(localAddress)
+    // console.log(localAddress)
     geocoder.geocode({ address: localAddress }, (results) => {
       this.currentMotoBoy.latitude = Number(results[0].geometry.location.lat);
       this.currentMotoBoy.longitude = Number(results[0].geometry.location.lat);
-      console.log(this.currentMotoBoy.latitude)
+      // console.log(this.currentMotoBoy.latitude)
     })
   }
 
@@ -90,13 +81,12 @@ getMotoCurrentLocation(){
     this.mapService.reverseAddress(lat, lng);
   }
 
-  addMotoBoy(motoboy){
+  addMotoBoy(motoboy) {
     console.log("inside Add")
-    this.http.post<MotoBoy>('motoboysApi/add',motoboy).subscribe((data) => {
+    this.http.post<MotoBoy>('motoboysApi/add', motoboy).subscribe((data) => {
       //update motoboys array?
       this.currentMotoBoy = data;
     })
 
   }
-
 }

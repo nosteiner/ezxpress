@@ -33,7 +33,9 @@
     </ng-container>
     <ng-container matColumnDef="active">
       <mat-header-cell *matHeaderCellDef> isActive </mat-header-cell>
-      <mat-cell *matCellDef="let order"> {{order.active}} </mat-cell>
+      <mat-cell *matCellDef="let order">
+          <button (click)="handleAsignToOrder(order.id)" >assign</button>
+      </mat-cell>
     </ng-container>
     
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

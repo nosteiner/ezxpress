@@ -40,10 +40,38 @@ export class OrdersService {
   //   })
   // }
 
+  
+
   getOrderById(id: number): void{
     this.http.get<Order>(this.OrdersServiceUrl + `/${id}`).subscribe((order) => {
       // this.selectedOrder = order;
       // this.selectedOrderSubject.next(order)
     });
+  }
+
+  updateOrder(order, motoboy) {
+    let id = motoboy.motoboyId
+    this.http.put<Order>('ordersApi/update/' + id, { order: order }).subscribe((data) => {
+      this.getAllOrders();
+      //update motoboys array
+      // this.currentMotoBoy = data;
+      // this.singleMotoSubject.next(data);
+
+    })
+  }
+  asingToOrder(order, motoBoy) {
+    if (order.motoboy == null) {
+      order.motoboy = motoBoy
+      order.status = 2;
+      //Needs to be define 
+      //sendNotificationToclient(order){}
+    }
+  }
+  
+  cancelAsignToOrder(order) {
+    order.motoboy = null;
+    order.status = 1;
+    //Needs to be define 
+    //sendNotificationToclient(order){}
   }
 }
