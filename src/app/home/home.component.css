@@ -1,0 +1,31 @@
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    height: auto;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.img-card {
+    max-height: 30vw;
+    min-height: 30vw;
+    max-width: 30vw;
+    min-width: 30vw;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
