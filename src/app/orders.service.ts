@@ -1,0 +1,40 @@
+import { Injectable } from '@angular/core';
+import { Order } from './Order';
+import { Subject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OrdersService {
+
+  allOrders: Array<Order> = [];
+  allOrdersSbject: Subject<Order[]> = new Subject<Order[]>();
+  allOrdersObservable: Observable<Order[]>;
+
+  constructor(private http: HttpClient) {
+    this.allOrdersObservable = this.allOrdersSbject.asObservable();
+   }
+
+   private OrdersServiceUrl = '/ordersApi'
+
+   getAllOrders(): void {
+    this.http.get<Order[]>(this.OrdersServiceUrl).subscribe((orders) => {
+      this.allOrders = orders;
+      this.allOrdersSbject.next(orders)
+    })
+  }
+  
+  addNewOrder(newOrder: Order): void{
+    this.http.post<Order>(this.OrdersServiceUrl+'/add',{order: newOrder}).subscribe(() => {
+     this.getAllOrders();
+    })
+  }
+
+  getOrderById(id: number): void{
+    this.http.get<Order>(this.OrdersServiceUrl + `/${id}`).subscribe((order) => {
+      // this.selectedOrder = order;
+      // this.selectedOrderSubject.next(order)
+    });
+  }
+}
