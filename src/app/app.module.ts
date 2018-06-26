@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material';
 import {MatSortModule} from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { MaprouteComponent } from './maproute/maproute.component';
 import { MotoShareLiveLocationComponent } from './moto-share-live-location/moto-share-live-location.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { TableComponent } from './table/table.component';
+import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 
 
 
@@ -44,7 +46,8 @@ import { TableComponent } from './table/table.component';
     DestinationComponent,
     MaprouteComponent,
     MotoShareLiveLocationComponent,
-    TableComponent
+    TableComponent,
+    OrderDialogComponent
 
   ],
   imports: [
@@ -70,9 +73,10 @@ import { TableComponent } from './table/table.component';
     GooglePlaceModule,
     MatTableModule, 
     MatSortModule,
- 
+    MatDialogModule
     
   ],
+  entryComponents: [OrderDialogComponent],
   providers: [EzxpressService, MapService],
   bootstrap: [AppComponent]
 })
