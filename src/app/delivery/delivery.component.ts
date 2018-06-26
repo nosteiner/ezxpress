@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef, NgZone, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
 import { Order } from '../Order';
 import { MaprouteComponent } from '../maproute/maproute.component'
 import { MapService } from '../map.service';
-import { EzxpressService } from '../ezxpress.service';
 import { MapsAPILoader } from "@agm/core"
+import { OrdersService } from '../orders.service';
+import { MatDialog } from '@angular/material';
+import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 
 
 
@@ -17,14 +19,12 @@ export class DeliveryComponent implements OnInit {
   @ViewChild(MaprouteComponent) mapRoute: MaprouteComponent; 
 
 localAddress : string
- 
-//@Input() address: string;
 
-
-//@Output() showRoutes: EventEmitter<any> = new EventEmitter();
   order: Order;
-  // userSettings : Object;
-  constructor(private ezxpressService : EzxpressService, private mapService: MapService, private mapsApiLoader: MapsAPILoader, private ngZone: NgZone) { 
+  
+  constructor(private orderService : OrdersService, private mapService: MapService, 
+    private mapsApiLoader: MapsAPILoader, private ngZone: NgZone, public dialog: MatDialog)
+  { 
         
     this.order = new Order();
     this.mapService.addressUpdated.subscribe( (data) => {
@@ -42,7 +42,7 @@ localAddress : string
 
   calculateRate(){
     
-    console.log(this.order)
+   
     var localAddress = new google.maps.LatLng(this.order.latitudeOriginAddress,this.order.longitudeDestAddress)
     var destAddress = new google.maps.LatLng(this.order.latitudeDestAddress, this.order.longitudeDestAddress)
     var travelway = google.maps.TravelMode.DRIVING
@@ -64,14 +64,23 @@ localAddress : string
         else
            var multPrice = 0.007
         this.order.price = (dist) * multPrice;
-        console.log(this.order.price)
+        
         this.mapRoute.showRoutes(result)
     })
   }
 
-  submitNewOrder(){
-    console.log("kkkgfgfgdfgfd" + this.order);
-    this.ezxpressService.addNewOrder(this.order)
+  confirmOrder(){
+    this.order.deliveryDate = new Date();
+    this.orderService.addNewOrder(this.order)
+    
+    let dialogRef = this.dialog.open(OrderDialogComponent, {
+      width: '500px'
+     
+    });
+
+    dialogRef.afterClosed().subscribe( result => {
+      
+    });
 
         //directionsDisplay.setDirections(result);
   }

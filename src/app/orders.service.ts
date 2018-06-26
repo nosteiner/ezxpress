@@ -14,6 +14,7 @@ export class OrdersService {
 
   constructor(private http: HttpClient) {
     this.allOrdersObservable = this.allOrdersSbject.asObservable();
+    this.getAllOrders()
    }
 
    private OrdersServiceUrl = '/ordersApi'
@@ -27,7 +28,7 @@ export class OrdersService {
   
   addNewOrder(newOrder: Order): void{
     this.http.post<Order>(this.OrdersServiceUrl+'/add',{order: newOrder}).subscribe(() => {
-     this.getAllOrders();
+     this.allOrders.push(newOrder);
     })
   }
 
