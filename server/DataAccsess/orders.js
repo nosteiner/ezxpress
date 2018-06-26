@@ -1,18 +1,20 @@
 var Sequelize = require('sequelize');
 var DA = require('./dataAccess');
-var customers = require('./customers');
-var motoboyId = require('./motoboys');
+var Customer = require('./customers');
+var Motoboy = require('./motoboys');
+
 
 
 class Order {
     constructor() {
         this.model = this.initCustomer();
+        
     }
     initCustomer() {
         let order = DA.connection.define('orders', {
             orderId: { type: Sequelize.INTEGER, primaryKey: true },
-            customerId: { type: Sequelize.INTEGER, references: { model: customers, key: 'customer_id' }},
-            motoboyId: { type: Sequelize.INTEGER, references: { model: customers, key: 'customer_id' }},
+            customerId: { type: Sequelize.INTEGER, references: { model: Customer, key: 'customerId' }},
+            motoboyId: { type: Sequelize.INTEGER, references: { model: Motoboy, key: 'motoboyId' }},
             latitudeOriginAddress:Sequelize.FLOAT,
             longitudeOriginAddress:Sequelize.FLOAT,
             latitudeDestAddress:Sequelize.FLOAT,
@@ -30,13 +32,15 @@ class Order {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
 
-           //customer.belongsTo(Company.model, { foreignKey: 'company_id' });
-           //order.model.hasOne(comment, { foreignKey: 'company_id' });
+            order.belongsTo(Customer.model, {foreignKey: 'customerId'});
+            Customer.model.hasMany(order, {foreignKey: 'orderId'})
 
         return order;
     }
+
+
     getAll() {
-        return this.model.findAll();
+        return this.model.findAll({ include: [Customer.model] });
     }
     create(data){
         return this.model.create(data);
