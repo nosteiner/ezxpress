@@ -30,8 +30,8 @@ export class DestinationComponent implements OnInit {
           if (place.geometry === undefined || place.geometry === null){
             return
           }
-          this.order.destLat = place.geometry.location.lat();
-          this.order.destLng = place.geometry.location.lng();
+          this.order.latitudeDestAddress = place.geometry.location.lat();
+          this.order.longitudeDestAddress = place.geometry.location.lng();
           
             
         })

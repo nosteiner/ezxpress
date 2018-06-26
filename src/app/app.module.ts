@@ -38,7 +38,7 @@ import { MotoShareLiveLocationComponent } from './moto-share-live-location/moto-
     HomeComponent,
     DeliveryComponent,
     DestinationComponent,
-    MaprouteComponent
+    MaprouteComponent,
     MotoShareLiveLocationComponent
 
   ],

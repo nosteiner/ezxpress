@@ -7,8 +7,8 @@ export class MotoBoy{
     phoneNumber : number;
     rate     : number;
     photo    : string;
-    latitude : Number;
-    longitude: Number;
+    latitude : number;
+    longitude: number;
     icon: string;
     active : boolean;
     constructor() {
