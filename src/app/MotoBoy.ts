@@ -12,9 +12,11 @@ export class MotoBoy{
     icon: string;
     active : boolean;
     constructor() {
+
         this.active = true; 
         this.rate = null ;
-        this.icon = "https://png.icons8.com/color/50/000000/motorcycle.png"
+        this.icon = "https://png.icons8.com/ios/40/3CBC32/cycling-road-filled.png"
+
     }
 
 }

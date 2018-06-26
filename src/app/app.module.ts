@@ -8,7 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { HttpClientModule } from '@angular/common/http'; 
+
 
 
 
@@ -20,7 +23,10 @@ import { NewclientComponent } from './newclient/newclient.component';
 import { HomeComponent } from './home/home.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { MapService } from './map.service';
+import { DestinationComponent } from './destination/destination.component';
+import { MaprouteComponent } from './maproute/maproute.component';
 import { MotoShareLiveLocationComponent } from './moto-share-live-location/moto-share-live-location.component';
+
 
 
 @NgModule({
@@ -31,7 +37,10 @@ import { MotoShareLiveLocationComponent } from './moto-share-live-location/moto-
     NewclientComponent,
     HomeComponent,
     DeliveryComponent,
+    DestinationComponent,
+    MaprouteComponent
     MotoShareLiveLocationComponent
+
   ],
   imports: [
     BrowserModule,
@@ -42,11 +51,14 @@ import { MotoShareLiveLocationComponent } from './moto-share-live-location/moto-
     MatInputModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g'
+      apiKey: 'AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g',
+      libraries: ["places"]
     }),
     HttpClientModule,
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    GooglePlaceModule,
+    Ng4GeoautocompleteModule.forRoot()
     
   ],
   providers: [EzxpressService, MapService],

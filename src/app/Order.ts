@@ -1,4 +1,5 @@
 export class Order{
+
     
     orderId : number;
     customerId : number;
@@ -17,6 +18,8 @@ export class Order{
     deliveryType: string ;
     status: string ;
     active : boolean;
+
+
 
     constructor() {}
 

@@ -30,6 +30,7 @@ class MotoBoy {
     getAll() {
         return this.model.findAll();
     }
+
     getOneById(ID) {
         console.log(ID)
         return this.model.findAll({
