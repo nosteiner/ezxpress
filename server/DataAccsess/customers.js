@@ -1,9 +1,11 @@
 var Sequelize = require('sequelize');
 var DA = require('./dataAccess');
 
+
 class Customer {
     constructor() {
         this.model = this.initCustomer();
+
     }
     initCustomer() {
         let customer = DA.connection.define('customers', {

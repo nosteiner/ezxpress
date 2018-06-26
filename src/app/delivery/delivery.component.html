@@ -7,10 +7,7 @@
       </mat-form-field>
     </div>
     <br>
-    <mat-form-field>
-      <input matInput [(ngModel)]="addComment" placeholder="What to do ?">
-    </mat-form-field>
-    <br>
+    
     <h2> Destination </h2>
     <app-destination></app-destination>
     <br>
@@ -30,11 +27,12 @@
           <p class="legendDelivery1">Up to 5Kg</p>
         </label>
       </div>
-      <button class="btn" *ngIf="this.order.price == undefined" (click)='calculateRate()' mat-raised-button color="primary">Calculate</button>
+      <button class="btn" *ngIf="(this.order.deliveryType != undefined)" (click)='calculateRate()' mat-raised-button color="primary">Calculate</button>
     </div>
     <div id="price" *ngIf="this.order.price > 0">
       <h2> Price : {{ order.price | currency:"₪"}} </h2>
       <button class="btn" (click)='confirmOrder()' mat-raised-button color="primary">Confirm</button>
+      <button class="btn" routerLink='/' mat-raised-button color="accent">Cancel</button>
     </div>
 
   </div>
