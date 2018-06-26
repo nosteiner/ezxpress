@@ -1,16 +1,6 @@
-.form {
-  display: flex;
-}
-
-
 agm-map {
     height: 650px;
-    width: 950px;
+    width: 1050px;
    
-
-  }
-
-.container {
-
-  display: flex;
 }
+
