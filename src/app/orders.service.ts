@@ -21,6 +21,7 @@ export class OrdersService {
    getAllOrders(): void {
     this.http.get<Order[]>(this.OrdersServiceUrl).subscribe((orders) => {
       this.allOrders = orders;
+      console.log(orders)
       this.allOrdersSbject.next(orders)
     })
   }
