@@ -20,13 +20,17 @@ router.put('/update/:id',(req,res)=>{
     console.log(req);
     customer.update(req.body,req.params.id).then(data => {
        console.log(data);
-       res.send(JSON.stringify(data));
+       res.send(JSON.stringify(data));  
        })   
 });
-router.delete('/delete/:id', (req, res) => {
-    customer.delete(req.params.id).then(data => {
-    res.send(JSON.stringify(data));
-    })
+
+//delete
+router.put('/delete/:id', (req, res) => {
+    motoboy.update(req.body.motoboy, req.params.id).then(() => {
+        res.send(JSON.stringify(req.body.motoboy));
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
 });
 
 module.exports = router;

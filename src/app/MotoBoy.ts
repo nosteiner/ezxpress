@@ -7,11 +7,16 @@ export class MotoBoy{
     phoneNumber : number;
     rate     : number;
     photo    : string;
-    latitude : Number;
-    longitude: Number;
+    latitude : number;
+    longitude: number;
     icon: string;
+    active : boolean;
     constructor() {
-        this.icon = "https://png.icons8.com/color/50/000000/motorcycle.png"
+
+        this.active = true; 
+        this.rate = null ;
+        this.icon = "https://png.icons8.com/ios/40/3CBC32/cycling-road-filled.png"
+
     }
 
 }

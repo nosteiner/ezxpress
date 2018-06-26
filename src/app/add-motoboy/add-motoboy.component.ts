@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EzxpressService } from '../ezxpress.service'
+import { MotoService } from '../moto.service'
 import { MotoBoy } from '../MotoBoy'
 
 @Component({
@@ -10,7 +10,7 @@ import { MotoBoy } from '../MotoBoy'
 export class AddMotoboyComponent implements OnInit {
   selectPhoto = "";
   motoboy : MotoBoy = new MotoBoy();
-  constructor(private ezxpressService: EzxpressService) { }
+  constructor(private motoService: MotoService) { }
 
   onPhotofile(event) {
     console.log(event)
@@ -22,7 +22,7 @@ export class AddMotoboyComponent implements OnInit {
   submitMotoBoy() {
     this.motoboy.photo = this.selectPhoto;
     
-    this.ezxpressService.addMotoBoy(this.motoboy);
+    this.motoService.addMotoBoy(this.motoboy);
 
   }
 

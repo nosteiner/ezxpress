@@ -2,9 +2,8 @@
   <h1>Please Enter your e-mail to share live location</h1>
   <div class="form">
     <mat-form-field>
-      <input matInput [(ngModel)]="currentMotoEmail" placeholder="your e-mail">
+      <input matInput [(ngModel)]="currentMotoId" placeholder="your id">
     </mat-form-field>
     <button mat-button (click)="submit()">SHARE LIVE LOCATION</button>
   </div>
-  <h1 *ngIf="currentMoto.idNumber != null ">Hello {{currentMoto.firsName}}</h1>
 </div>

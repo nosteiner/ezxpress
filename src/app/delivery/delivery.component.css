@@ -1,6 +1,10 @@
+.container {
+  display: flex;
+}
+
 img {
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
 }
 
 .order-container {
@@ -11,6 +15,33 @@ img {
 
 }
 
-.container {
-    display: flex;
+.legendDelivery{
+ font-size: 12px;
+ padding-left: 7px;
+ 
+
 }
+
+.legendDelivery1{
+  font-size: 12px;
+  padding-left: 10px;
+  
+ 
+ }
+
+
+
+
+ 
+
+  label > input{ /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+  }
+  label > input + img{ /* IMAGE STYLES */
+    cursor:pointer;
+    border:2px solid transparent;
+  }
+  label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+    border:2px solid #E3C298;
+  }
