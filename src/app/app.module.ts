@@ -9,7 +9,6 @@ import { AgmCoreModule } from '@agm/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
-import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { HttpClientModule } from '@angular/common/http'; 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -65,8 +64,8 @@ import { AppRoutingModule } from './/app-routing.module';
     MatToolbarModule,
     FlexLayoutModule,
     AppRoutingModule,
-    GooglePlaceModule,
-    Ng4GeoautocompleteModule.forRoot()
+    GooglePlaceModule
+    
 
     
   ],

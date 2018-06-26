@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "nodemon server.js",
+    "start": "concurrently \"ng build --watch\" \"nodemon server.js\"",
     "build": "ng build --watch",
     "test": "ng test",
     "lint": "ng lint",
@@ -27,12 +27,13 @@
     "@types/google-maps": "^3.2.0",
     "@types/googlemaps": "^3.30.9",
     "angular-material-fileupload": "0.0.11",
+    "concurrently": "^3.6.0",
     "core-js": "^2.5.4",
     "mysql2": "^1.5.3",
     "ng-file-manager": "^0.1.7",
-    "nodets": "0.0.1",
     "ng4-geoautocomplete": "^0.1.0",
     "ngx-google-places-autocomplete": "^2.0.1",
+    "nodets": "0.0.1",
     "rxjs": "^6.0.0",
     "sequelize": "^4.38.0",
     "zone.js": "^0.8.26"

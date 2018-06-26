@@ -69,11 +69,12 @@ localAddress : string
     })
   }
 
-  submitNewOrder(){
-    console.log("kkkgfgfgdfgfd" + this.order);
+  confirmOrder(){
+    this.order.deliveryDate = new Date();
+    
     this.ezxpressService.addNewOrder(this.order)
 
-        //directionsDisplay.setDirections(result);
+        
   }
 
   

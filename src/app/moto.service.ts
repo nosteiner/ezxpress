@@ -12,15 +12,27 @@ export class MotoService {
   motoBoys: MotoBoy[] = [];
   currentMotoBoy: MotoBoy = new MotoBoy();
 
- 
-
-
   public singleMotoObservable: Observable<MotoBoy>;
   private singleMotoSubject: Subject<MotoBoy> = new Subject<MotoBoy>();
 
+  public allMotoObservable: Observable<Array<MotoBoy>>;
+  private allMotoSubject: Subject<Array<MotoBoy>> = new Subject<Array<MotoBoy>>();
+
   constructor(private mapService: MapService, private http: HttpClient) {
     this.singleMotoObservable = this.singleMotoSubject.asObservable();
+    this.allMotoObservable = this.allMotoSubject.asObservable();
+    this.getAllMoto();
   }
+
+  getAllMoto() {
+    this.http.get<Array<MotoBoy>>('motoboysApi/').subscribe(data => {
+      this.motoBoys = data
+      this.allMotoSubject.next(this.motoBoys)
+      
+     })
+
+  }
+
 
   getMoto(id) {
     this.http.get<MotoBoy>('motoboysApi/' + id).subscribe(data => {
@@ -45,8 +57,7 @@ export class MotoService {
     let id = currentMotoBoy.motoboyId
     this.http.put<MotoBoy>('motoboysApi/update/' + id, { motoboy: currentMotoBoy }).subscribe((data) => {
       //update motoboys array
-      this.currentMotoBoy = data;
-      this.singleMotoSubject.next(data);
+      this.updateMotoBoys(currentMotoBoy)
      
     })
   }
@@ -57,12 +68,18 @@ export class MotoService {
     currentMotoBoy.active = false;
     this.http.put<MotoBoy>('motoboysApi/update/' + id, { motoboy: currentMotoBoy }).subscribe((data) => {
       //update motoboys array
+      this.updateMotoBoys(currentMotoBoy)
       this.currentMotoBoy = data;
       this.singleMotoSubject.next(data);
      
     })
   }
 
+updateMotoBoys(currentMotoBoy){
+  var ind = this.motoBoys.findIndex( x =>  (x.motoboyId == currentMotoBoy.motoboyId) )
+      this.motoBoys[ind] = currentMotoBoy;
+      this.allMotoSubject.next(this.motoBoys);
+}
 
 getMotoCurrentLocation(){
   if (navigator.geolocation) {
@@ -94,6 +111,7 @@ getMotoCurrentLocation(){
     console.log("inside Add")
     this.http.post<MotoBoy>('motoboysApi/add',motoboy).subscribe((data) => {
       //update motoboys array?
+      
       this.currentMotoBoy = data;
     })
 

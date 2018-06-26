@@ -4,6 +4,7 @@ import { Subject, Observable } from 'rxjs';
 
 import {} from '@types/google-maps';
 import { MapService } from '../map.service';
+import { MotoService } from '../moto.service';
 
 
 
@@ -27,25 +28,28 @@ export class MapComponent  {
   latLng :  {lat : number, lng: number}
   lat: number //= 51.678418;
   lng: number //= 7.809007;
-  moto1 = new MotoBoy();
-  moto2 = new MotoBoy();
-  moto3 = new MotoBoy();
+  
+  // moto1 = new MotoBoy();
+  // moto2 = new MotoBoy();
+  // moto3 = new MotoBoy();
   motoBoys: Array<MotoBoy>
   motoBoyIcon: string;
   localAddress :string;
   
-  constructor(private mapService: MapService) {  
+  constructor(private mapService: MapService, private motoService: MotoService) {  
 
+    this.motoService.allMotoObservable.subscribe( data => {
+        this.motoBoys = data
+    })
+    // this.moto1.latitude = 32.051663;
+    // this.moto1.longitude = 34.765952;
     
-    this.moto1.latitude = 32.051663;
-    this.moto1.longitude = 34.765952;
+    // this.moto2.latitude = 32.051750;
+    // this.moto2.longitude = 34.768724;
     
-    this.moto2.latitude = 32.051750;
-    this.moto2.longitude = 34.768724;
-    
-    this.moto3.latitude = 32.048731;
-    this.moto3.longitude = 34.763552;
-    this.motoBoys = [this.moto1, this.moto2, this.moto3]
+    // this.moto3.latitude = 32.048731;
+    // this.moto3.longitude = 34.763552;
+    // this.motoBoys = [this.moto1, this.moto2, this.moto3]
     
     this.mapService.latLngUpdated.subscribe( data => {
       this.lat = data.lat;
@@ -90,15 +94,7 @@ export class MapComponent  {
     
   }
     
-    
-  refreshsubmit(){
-    this.lat = 32.050340;
-    this.lng = 34.766323;
-  }
-
   
-  
-
   ngOnInit() {
     this.getUserLocation();
     // this.mapService.getCurrPosition();
@@ -112,8 +108,8 @@ export class MapComponent  {
     setInterval( () => {
      
       let inc = 0.001
-      this.moto1.latitude +=  inc
-      this.moto1.longitude += inc
+      this.motoBoys[0].latitude +=  inc
+      this.motoBoys[0].longitude += inc
     }, 4000 )
   }
 
