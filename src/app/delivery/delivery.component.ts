@@ -2,8 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef, NgZone, Output, EventEmitter 
 import { Order } from '../Order';
 import { MaprouteComponent } from '../maproute/maproute.component'
 import { MapService } from '../map.service';
+import { EzxpressService } from '../ezxpress.service';
 import { MapsAPILoader } from "@agm/core"
-//import {} from "@tpes/googlemaps"
+
+
 
 @Component({
   selector: 'app-delivery',
@@ -17,6 +19,8 @@ export class DeliveryComponent implements OnInit {
 localAddress : string
  
 //@Input() address: string;
+
+
 //@Output() showRoutes: EventEmitter<any> = new EventEmitter();
   order: Order;
   // userSettings : Object;
@@ -28,6 +32,7 @@ localAddress : string
       
       })
     
+
     
   }
 
@@ -62,14 +67,20 @@ localAddress : string
         debugger
         this.mapRoute.showRoutes(result)
 
+  submitNewOrder(){
+    console.log("kkkgfgfgdfgfd" + this.order);
+    this.ezxpressService.addNewOrder(this.order)
+
         //directionsDisplay.setDirections(result);
       
     })
+
   }
 
   
 
   ngOnInit() {
+
     this.mapsApiLoader.load().then( () => 
   {
     let autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement, {types:["address"]})
@@ -89,5 +100,6 @@ localAddress : string
   })
     
   }   
+
 
 }

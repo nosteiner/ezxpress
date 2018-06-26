@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from '../Client';
-import { EzxpressService } from '../ezxpress.service';
+import { Customer } from '../customer';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-newclient',
@@ -8,11 +8,13 @@ import { EzxpressService } from '../ezxpress.service';
   styleUrls: ['./newclient.component.css']
 })
 export class NewclientComponent implements OnInit {
-  newClient: Client = new Client();
-  constructor(private ezxpressService: EzxpressService) { }
 
-  submitNewClient(client){
-    this.ezxpressService.addNewClient(client)
+  newClient: Customer = new Customer();
+  constructor(private customerService: CustomerService) { }
+
+  submitNewClient(){
+    console.log("kkkgfgfgdfgfd" + this.newClient);
+    this.customerService.addNewClient(this.newClient)
   }
 
   ngOnInit() {

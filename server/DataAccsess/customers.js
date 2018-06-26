@@ -13,6 +13,7 @@ class Customer {
             firstName: Sequelize.STRING,
             lastName: Sequelize.STRING,
             address: Sequelize.STRING,
+            active : Sequelize.BOOLEAN
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });

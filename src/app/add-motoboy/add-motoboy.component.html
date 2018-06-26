@@ -1,8 +1,12 @@
 
 
+
+
+
+
 <div class="motoboy-container">
   <mat-form-field>
-    <input matInput [(ngModel)]= motoboy.userName placeholder="User Name">
+    <input matInput [(ngModel)]= motoboy.email placeholder="Email">
   </mat-form-field>
 
   <mat-form-field>
@@ -18,16 +22,16 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]= motoboy.phone placeholder="Phone Number">
+    <input matInput [(ngModel)]= motoboy.phoneNumber placeholder="Phone Number">
   </mat-form-field>
+
 
   <span>Photo</span>
     <input classe=" inputFile" (change)="onPhotofile($event)" type="file">
 
-    
 
-   <span>PhotoID</span>
-    <input classe=" inputFile" type="file">
+   <!-- <span>PhotoID</span>
+    <input classe=" inputFile" type="file"> -->
 
   <!-- <mat-form-field>
     <input matInput [(ngModel)]= motoboy.photoId placeholder="Photo ID">

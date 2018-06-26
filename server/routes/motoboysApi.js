@@ -21,20 +21,30 @@ router.post('/add', (req, res) => {
     res.send(JSON.stringify(data));
   })
 });
+router.put('/update/:id', (req, res) => {
+    motoboy.update(req.body.motoboy, req.params.id).then(() => {
+        res.send(JSON.stringify(req.body.motoboy));
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
+});
 
- router.put('/update/:id',(req,res)=>{
-     console.log('inside API : '+ req.params.id + req.body.motoboy);
-     motoboyToUpdate = req.body.motoboy;
-     console.log (motoboyToUpdate);
-     motoboyId = req.params.Id;
-     console.log (req.params.id);
-     motoboy.update(motoboyToUpdate,motoboy).then(data => {
-        res.send(JSON.stringify(data));
-        })  
-        err => {
-            console.error(err)
-          } 
- });
+
+
+
+//  router.put('/update/:id',(req,res)=>{
+//      console.log('inside API : '+ req.params.id + req.body.motoboy);
+//      motoboyToUpdate = req.body.motoboy;
+//      console.log (motoboyToUpdate);
+//      motoboyId = req.params.Id;
+//      console.log (req.params.id);
+//      motoboy.update(motoboyToUpdate,motoboy).then(data => {
+//         res.send(JSON.stringify(data));
+//         })  
+//         err => {
+//             console.error(err)
+//           } 
+//  });
 
  
 

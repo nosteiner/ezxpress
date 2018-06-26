@@ -6,7 +6,7 @@ class MotoBoy {
         this.model = this.initMotoBoy();
     }
     initMotoBoy() {
-        let Motoboy = DA.connection.define('motoboys', {
+        let motoboy = DA.connection.define('motoboys', {
             motoboyId: { type: Sequelize.INTEGER, primaryKey: true },
             idNumber: Sequelize.STRING,
             firstName: Sequelize.STRING,
@@ -16,7 +16,8 @@ class MotoBoy {
             rate: Sequelize.INTEGER,
             photo: Sequelize.STRING,
             latitude: Sequelize.FLOAT,
-            longitude: Sequelize.FLOAT
+            longitude: Sequelize.FLOAT,
+            active : Sequelize.BOOLEAN
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
@@ -24,12 +25,12 @@ class MotoBoy {
            //customer.belongsTo(Company.model, { foreignKey: 'company_id' });
            // Company.model.hasMany(customer, { foreignKey: 'company_id' });
 
-        return Motoboy;
+        return motoboy;
     }
     getAll() {
         return this.model.findAll();
     }
-    
+
     getOneById(ID) {
         console.log(ID)
         return this.model.findAll({

@@ -1,31 +1,28 @@
 
-
 <div class="client-container">
   <mat-form-field>
-    <input matInput [(ngModel)]= client.userName placeholder="User Name">
+    <input matInput [(ngModel)]= newClient.email placeholder="User Name">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]= client.firstName placeholder="First Name">
+    <input matInput [(ngModel)]= newClient.firstName placeholder="First Name">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]= client.lastName placeholder="Last Name">
+    <input matInput [(ngModel)]= newClient.lastName placeholder="Last Name">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]= client.idNumber placeholder="ID Number">
+    <input matInput [(ngModel)]= newClient.phoneNumber placeholder="ID Number">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]= client.phone placeholder="Phone Number">
+    <input matInput [(ngModel)]= newClient.address placeholder="Phone Number">
   </mat-form-field>
 
-  <mat-form-field>
-    <input matInput [(ngModel)]= client.address placeholder="Address">
-  </mat-form-field>
+ 
 
 
-  <button class="btn" (click)='submitclient()' mat-raised-button color="accent">Submit</button>
+  <button class="btn" (click)='submitNewClient()' mat-raised-button color="accent">Submit</button>
 </div>
 
