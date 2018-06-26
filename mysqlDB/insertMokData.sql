@@ -49,30 +49,52 @@ insert into motoboys
 (idNumber,firstName,lastName,email,phoneNumber,rate,active)
 values
 ('301459848','Lavi','Dan','morangozlan@hotmail.com','053-4740090',5,true);
-insert into motoboys
-(idNumber,firstName,lastName,email,phoneNumber,rate,active)
+
+ insert into status
+(statusId,name)
 values
-('301459848','Haim','Hen','morangozlan@hotmail.com','053-4740090',4,true);
+(1,'open');
+
+ insert into status
+(statusId,name)
+values
+(2,'wating for a Motoboy');
+
+ insert into status
+(statusId,name)
+values
+(3, 'on the way');
+
+ insert into status
+(statusId,name)
+values
+(4, 'ressived');
+
+insert into status
+(statusId,name)
+values
+(5, 'closed');
+
+insert into status
+(statusId,name)
+values
+(6, 'Canceled');
 
 insert into orders
-(customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,status,active)
+(customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,statusId,active)
 values
-(1,1,50,'2018-01-01','2018-01-01','2018-01-01','haim','0524546670','small', 'close',true);
+(1,1,50,'2018-01-01','2018-01-01','2018-01-01','haim','0524546670','small', 3,true);
 
 insert into orders
-(customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,status,active)
+(customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,statusId,active)
 values
-(2,2,50,'2018-04-01','2018-04-01','2018-04-01','Dina','0524546670','small', 'close',true);
+(2,2,50,'2018-04-01','2018-04-01','2018-04-01','Dina','0524546670','small', 2,true);
 
 insert into orders
-(customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,status,active)
+(customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,statusId,active)
 values
-(3,3,50,'2018-06-01','2018-01-02','2018-01-01','Ziv','0524546670','small', 'close',true);
+(3,3,50,'2018-06-01','2018-01-02','2018-01-01','Ziv','0524546670','small', 1,true);
 
-insert into orders
-(customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,status,active)
-values
-(4,4,50,'2018-06-24','2018-06-24',null,'Ziv','0524546670','small', 'Waiting for motoboy',true);
 
 insert into comments
 (comment,customerId,motoboyId,orderId,rate,active)

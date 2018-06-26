@@ -74,6 +74,7 @@ import { OrderDialogComponent } from './order-dialog/order-dialog.component';
     MatTableModule, 
     MatSortModule,
     MatDialogModule
+
     
   ],
   entryComponents: [OrderDialogComponent],

@@ -15,20 +15,24 @@ class Comment {
             comment: Sequelize.STRING,
             customerId: { type: Sequelize.INTEGER, references: { model: customers, key: 'customerId' }},
             motoboyId: { type: Sequelize.INTEGER, references: { model: motoboys, key: 'motoboyId' }},
-            orderId: { type: Sequelize.INTEGER, references: { model: orders, key: 'orders' }},
+            orderId: { type: Sequelize.INTEGER, references: { model: orders, key: 'orderId' }},
             rate: Sequelize.INTEGER,
             active : Sequelize.BOOLEAN
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
-
+           comment.belongsTo(customers.model, { foreignKey: 'customerId' });
            comment.belongsTo(orders.model, { foreignKey: 'orderId' });
+           comment.belongsTo(motoboys.model, { foreignKey: 'motoboyId' });
            // Company.model.hasMany(customer, { foreignKey: 'company_id' });
 
         return comment;
     }
-    getAll() {
-        return this.model.findAll();
+    getAll(){
+        return this.model.findAll({
+            include: 
+               { model : motoboys.model }
+          });
     }
     create(data){
         return this.model.create(data);

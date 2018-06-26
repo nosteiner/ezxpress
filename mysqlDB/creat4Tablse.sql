@@ -24,24 +24,31 @@ CREATE TABLE motoboys (
   longitude FLOAT,
   active BOOLEAN
 );
+
+ CREATE TABLE status (
+ statusId INT PRIMARY KEY, 
+ name  VARCHAR(20)
+ );
  
 CREATE TABLE orders (
  orderId INT not null  AUTO_INCREMENT PRIMARY KEY, 
  customerId INT,
  motoboyId INT,
+ localAddress VARCHAR(40),
  latitudeOriginAddress float,
  longitudeOriginAddress float,
  latitudeDestAddress float,
  longitudeDestAddress float,
- price int ,
+ price INT ,
  orderDate DATE,
  collectDate DATE,
  deliveryDate DATE,
  contactDestination  VARCHAR(20),
  phoneDestination  VARCHAR(20),
  deliveryType VARCHAR(20),
- status VARCHAR(20),
+ statusId INT,
  active BOOLEAN,
+ FOREIGN KEY(statusId) REFERENCES status(statusId),
  FOREIGN KEY(customerId) REFERENCES customers(customerId),
  FOREIGN KEY(motoboyId) REFERENCES motoboys(motoboyId)
 );
@@ -57,3 +64,4 @@ CREATE TABLE comments (
  FOREIGN KEY(motoboyId) REFERENCES motoboys(motoboyId),
  FOREIGN KEY(orderId) REFERENCES orders(orderId)
  );
+ 
