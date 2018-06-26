@@ -26,11 +26,18 @@ export class OrdersService {
     })
   }
   
-  addNewOrder(newOrder: Order): void{
-    this.http.post<Order>(this.OrdersServiceUrl+'/add',{order: newOrder}).subscribe(() => {
-     this.allOrders.push(newOrder);
+  addNewOrder(order){
+    console.log("inside Add")
+    this.http.post<Order>('ordersApi/add',order).subscribe((data) => {
+      this.allOrders.push(order);
+      
     })
   }
+  // addNewOrder(newOrder: Order): void{
+  //   this.http.post<Order>(this.OrdersServiceUrl+'/add',{order: newOrder}).subscribe(() => {
+  //    this.allOrders.push(newOrder);
+  //   })
+  // }
 
   getOrderById(id: number): void{
     this.http.get<Order>(this.OrdersServiceUrl + `/${id}`).subscribe((order) => {
