@@ -36,8 +36,9 @@ export class TableComponent implements OnInit {
       console.log(this.currentMotoBoy)
     })
   }
-  handleAsignToOrder(orderId) {
-
+  handleAsignToOrder(order) {
+    console.log(order)
+this.ordersService.assignToOrder(order,this.currentMotoBoy);
   }
   applyFilter(filterValue: string) {
     console.log(filterValue)

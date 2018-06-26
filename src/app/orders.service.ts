@@ -50,25 +50,28 @@ export class OrdersService {
   }
 
   updateOrder(order, motoboy) {
-    let id = motoboy.motoboyId
+    let id = order.orderId
     this.http.put<Order>('ordersApi/update/' + id, { order: order }).subscribe((data) => {
       this.getAllOrders();
+      
       //update motoboys array
       // this.currentMotoBoy = data;
       // this.singleMotoSubject.next(data);
-
     })
   }
-  asingToOrder(order, motoBoy) {
+  assignToOrder(order, motoBoy) {
     if (order.motoboy == null) {
       order.motoboy = motoBoy
       order.status = 2;
+      console.log(order+"order")
+      this.updateOrder(order, motoBoy);
+    
       //Needs to be define 
       //sendNotificationToclient(order){}
     }
   }
   
-  cancelAsignToOrder(order) {
+  cancelAssignToOrder(order) {
     order.motoboy = null;
     order.status = 1;
     //Needs to be define 

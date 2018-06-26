@@ -32,9 +32,9 @@ export class MotoService {
   }
 
   shareLiveLocation(id) {
-    this.singleMotoObservable.subscribe(() => {
-      setInterval(this.getMotoCurrentLocation(), 5000);
-    })
+    // this.singleMotoObservable.subscribe(() => {
+    //   setInterval(this.getMotoCurrentLocation(), 5000);
+    // })
     this.getMoto(id);
   }
 
