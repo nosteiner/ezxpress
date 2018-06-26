@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { MotoBoy } from '../MotoBoy';
 import { Subject, Observable } from 'rxjs';
 
@@ -19,9 +19,12 @@ import { MapService } from '../map.service';
 export class MapComponent  {
   @Input() newLat: number; 
   @Input() newLng: number;
+  @ViewChild('mapDiv') mapDiv: ElementRef;
   public addressUpdated : Observable<any>;
   public addressSubject: Subject<any>;
+  map: google.maps.Map;
 
+  latLng :  {lat : number, lng: number}
   lat: number //= 51.678418;
   lng: number //= 7.809007;
   moto1 = new MotoBoy();
@@ -33,32 +36,36 @@ export class MapComponent  {
   
   constructor(private mapService: MapService) {  
 
-    // this.addressSubject = new Subject<any>();
-    // this.addressUpdated = this.addressSubject.asObservable();
-    // this.addressSubject.next("test")
     
     this.moto1.latitude = 32.051663;
     this.moto1.longitude = 34.765952;
-    //this.moto1.icon = "https://png.icons8.com/color/50/000000/motorcycle.png"
+    
     this.moto2.latitude = 32.051750;
     this.moto2.longitude = 34.768724;
-    //this.moto2.icon = this.moto
+    
     this.moto3.latitude = 32.048731;
     this.moto3.longitude = 34.763552;
     this.motoBoys = [this.moto1, this.moto2, this.moto3]
-    //this.motoBoyIcon = "C:/Users/lptop/Desktop/Project1/ezxpress/src/baseline_motorcycle_black_18dp.png"
+    
+    this.mapService.latLngUpdated.subscribe( data => {
+      this.lat = data.lat;
+      this.lng = data.lng
+    })
     
   }
   
   
   getUserLocation() {
-    
+  
+      
+
     if (navigator.geolocation){
       navigator.geolocation.getCurrentPosition(position => 
         {
+        
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
-         this.reverseAddress(this.lat, this.lng);
+         this.mapService.reverseAddress(this.lat, this.lng);
         })
     }
     
@@ -80,33 +87,34 @@ export class MapComponent  {
 
   reverseAddress(lat, lng){
     this.mapService.reverseAddress(lat, lng);
-    // var geocoder: google.maps.Geocoder = new google.maps.Geocoder; 
-    // //alert("teste "+ lat + ' ' + lng)
-    // //var latlng = new google.maps.LatLng(31.813506, 35.216292);
-    // //var request = { latLng: latlng };
-    // var latlng = {lat: 32.050011 , lng: 34.775276};
-    // geocoder.geocode({"location": latlng }, (results, status) => {
-    //     console.log(results)
-     
-    //     this.localAddress = results[0].formatted_address
-    //     console.log(this.localAddress)
-    //     this.addressSubject.next(this.localAddress)
-        
-     
     
-    //   });
   }
     
     
+  refreshsubmit(){
+    this.lat = 32.050340;
+    this.lng = 34.766323;
+  }
 
-
-
+  
   
 
   ngOnInit() {
-    //this.reverseAddress(lat, lng)
     this.getUserLocation();
+    // this.mapService.getCurrPosition();
+    // debugger
+    this.mapService.latLngUpdated.subscribe( data => {
+     
+      this.lat = data.lat;
+      this.lng = data.lng
+    })
 
+    setInterval( () => {
+     
+      let inc = 0.001
+      this.moto1.latitude +=  inc
+      this.moto1.longitude += inc
+    }, 4000 )
   }
 
 }

@@ -1,13 +1,10 @@
 <div class="container">
-  
-<div class="map">
-<agm-map  [latitude]="lat" [longitude]="lng" [zoom]="15" >
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  <agm-marker class="mapMarker" *ngFor="let motoBoy of motoBoys" 
-   [latitude]="motoBoy.latitude" [longitude]="motoBoy.longitude" [iconUrl]='motoBoy.icon'>      
-  </agm-marker>
-</agm-map>
-</div>
-
-
+  <div class="map">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      <agm-marker class="mapMarker" *ngFor="let motoBoy of motoBoys" [latitude]="motoBoy.latitude" [longitude]="motoBoy.longitude"
+        [iconUrl]='motoBoy.icon'>
+      </agm-marker>
+    </agm-map>
+  </div>
 </div>

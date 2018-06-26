@@ -1,7 +1,9 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone, Output, EventEmitter } from '@angular/core';
 import { Order } from '../Order';
-import { MapComponent } from '../map/map.component'
+import { MaprouteComponent } from '../maproute/maproute.component'
 import { MapService } from '../map.service';
+import { MapsAPILoader } from "@agm/core"
+//import {} from "@tpes/googlemaps"
 
 @Component({
   selector: 'app-delivery',
@@ -9,38 +11,83 @@ import { MapService } from '../map.service';
   styleUrls: ['./delivery.component.css']
 })
 export class DeliveryComponent implements OnInit {
+  @ViewChild('search') public searchElement: ElementRef;
+  @ViewChild(MaprouteComponent) mapRoute: MaprouteComponent; 
+
 localAddress : string
-map : MapComponent 
+ 
 //@Input() address: string;
-//@Output() checkGoogleAddress: EventEmitter<String> = new EventEmitter();
+//@Output() showRoutes: EventEmitter<any> = new EventEmitter();
   order: Order;
-  constructor(private mapService: MapService) { 
-    
-    this.localAddress = "ttttt"
+  // userSettings : Object;
+  constructor(private mapService: MapService, private mapsApiLoader: MapsAPILoader, private ngZone: NgZone) { 
+        
     this.order = new Order();
     this.mapService.addressUpdated.subscribe( (data) => {
-      this.localAddress = data
-      console.log(this.localAddress)})
+      this.order.localAddress = data
+      
+      })
     
-    //this.order.localAddress = "test"
+    
   }
 
-  checkAddress(localAddress) {
-     debugger
-     console.log(localAddress)
-     //this.checkGoogleAddress.emit(localAddress);
+  setValue(value){
+    this.order.typeDelivery = value;
   }
+
+  calculateRate(){
+    
+    console.log(this.order)
+    var localAddress = new google.maps.LatLng(this.order.localLat,this.order.localLng)
+    var destAddress = new google.maps.LatLng(this.order.destLat, this.order.destLng)
+    var travelway = google.maps.TravelMode.DRIVING
+    var directionsService = new google.maps.DirectionsService();
   
-  calculateRate(newOrder){
-    console.log(newOrder)
+    var directionsRequest = {
+      origin: localAddress,
+      destination: destAddress,
+      travelMode: travelway, 
+      avoidHighways: true
+    }
+    directionsService.route(directionsRequest, (result, status) => {
+      //if (status === 'OK') 
+        
+        var dist = result.routes[0].legs[0].distance.value
+        
+        if (this.order.typeDelivery == "envelope") 
+           var multPrice = 0.005
+        else
+           var multPrice = 0.007
+        this.order.price = (dist) * multPrice;
+        debugger
+        this.mapRoute.showRoutes(result)
+
+        //directionsDisplay.setDirections(result);
+      
+    })
   }
 
-
+  
 
   ngOnInit() {
-    this.mapService.addressUpdated.subscribe( (data) => {
-      this.order.localAddress = data
-      console.log(data)})
-  }
+    this.mapsApiLoader.load().then( () => 
+  {
+    let autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement, {types:["address"]})
+    autocomplete.addListener("place_changed", () => {
+      this.ngZone.run( () => {
+        let place : google.maps.places.PlaceResult = autocomplete.getPlace();
+        if (place.geometry === undefined || place.geometry === null){
+          return
+        }
+        this.mapService.latLngSubject.next({lat: place.geometry.location.lat(), lng:place.geometry.location.lng()} )
+        this.order.localLat = place.geometry.location.lat();
+        this.order.localLng = place.geometry.location.lng();
+        
+          
+      })
+    })
+  })
+    
+  }   
 
 }

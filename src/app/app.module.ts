@@ -8,7 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {FlexLayoutModule} from '@angular/flex-layout';
-
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
+ 
 
 
 import { AppComponent } from './app.component';
@@ -19,6 +21,8 @@ import { NewclientComponent } from './newclient/newclient.component';
 import { HomeComponent } from './home/home.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { MapService } from './map.service';
+import { DestinationComponent } from './destination/destination.component';
+import { MaprouteComponent } from './maproute/maproute.component';
 
 
 @NgModule({
@@ -28,7 +32,9 @@ import { MapService } from './map.service';
     MapComponent,
     NewclientComponent,
     HomeComponent,
-    DeliveryComponent
+    DeliveryComponent,
+    DestinationComponent,
+    MaprouteComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +45,13 @@ import { MapService } from './map.service';
     MatInputModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g'
+      apiKey: 'AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g',
+      libraries: ["places"]
     }),
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    GooglePlaceModule,
+    Ng4GeoautocompleteModule.forRoot()
     
   ],
   providers: [EzxpressService, MapService],
