@@ -30,6 +30,8 @@ router.put('/update/:id', (req, res) => {
 });
 
 
+
+
 //  router.put('/update/:id',(req,res)=>{
 //      console.log('inside API : '+ req.params.id + req.body.motoboy);
 //      motoboyToUpdate = req.body.motoboy;

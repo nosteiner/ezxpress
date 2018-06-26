@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MotoBoy } from './MotoBoy';
 import { Customer } from './customer';
 import { Order } from './Order';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -9,10 +10,11 @@ import { Order } from './Order';
 })
 export class EzxpressService {
 
+
   motoBoy = []
   client = [];
-
-  constructor() { }
+  order = [] ;
+  constructor(private http:HttpClient) { }
 
   getMotoBoy(){
     return this.motoBoy;
@@ -24,7 +26,13 @@ export class EzxpressService {
     
   }
 
- 
 
+  addNewOrder(order){
+    console.log("inside Add")
+    this.http.post<Order>('ordersApi/add',order).subscribe((data) => {
+      //update  array?
+      //this.order = data;
+    })
+  }
   
 }
