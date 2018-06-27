@@ -2,6 +2,7 @@
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
+      <button (click)="refresh()">refresh</button>
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="orderId">
       <mat-header-cell *matHeaderCellDef> Order Id </mat-header-cell>
@@ -33,8 +34,9 @@
     </ng-container>
     <ng-container matColumnDef="active">
       <mat-header-cell *matHeaderCellDef> isActive </mat-header-cell>
-      <mat-cell *matCellDef="let order">
-          <button (click)="handleAsignToOrder(order)" >assign</button>
+      <mat-cell  *matCellDef="let order">
+      <button *ngIf="order.motoboy === null" (click)="handleAsignToOrder(order)" >assign</button>
+         
       </mat-cell>
     </ng-container>
     
