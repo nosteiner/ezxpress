@@ -2,6 +2,8 @@
   <div class="map">
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      <agm-direction [origin]="origin" [destination]="destination">
+      </agm-direction>
       <agm-marker class="mapMarker" *ngFor="let motoBoy of motoBoys" [latitude]="motoBoy.latitude" [longitude]="motoBoy.longitude"
         [iconUrl]='motoBoy.icon'>
       </agm-marker>

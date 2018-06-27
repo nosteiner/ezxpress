@@ -98,7 +98,8 @@ export class MotoService {
 
     this.http.get<Array<MotoBoy>>('motoboysApi/getClosesMoto/' + lat + '/' + lng).subscribe(data => {
       // send SMS to deliveries in data if dat.length > 0
-      console.log(data)
+      // console.log(data)
+             
     })
   }
 }

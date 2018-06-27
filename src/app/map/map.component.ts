@@ -27,9 +27,9 @@ export class MapComponent  {
   latLng :  {lat : number, lng: number}
   lat: number //= 51.678418;
   lng: number //= 7.809007;
-  moto1 = new MotoBoy();
-  moto2 = new MotoBoy();
-  moto3 = new MotoBoy();
+  // moto1 = new MotoBoy();
+  // moto2 = new MotoBoy();
+  // moto3 = new MotoBoy();
   motoBoys: Array<MotoBoy>
   motoBoyIcon: string;
   localAddress :string;
@@ -37,15 +37,15 @@ export class MapComponent  {
   constructor(private mapService: MapService) {  
 
     
-    this.moto1.latitude = 32.051663;
-    this.moto1.longitude = 34.765952;
+    // this.moto1.latitude = 32.051663;
+    // this.moto1.longitude = 34.765952;
     
-    this.moto2.latitude = 32.051750;
-    this.moto2.longitude = 34.768724;
+    // this.moto2.latitude = 32.051750;
+    // this.moto2.longitude = 34.768724;
     
-    this.moto3.latitude = 32.048731;
-    this.moto3.longitude = 34.763552;
-    this.motoBoys = [this.moto1, this.moto2, this.moto3]
+    // this.moto3.latitude = 32.048731;
+    // this.moto3.longitude = 34.763552;
+    // this.motoBoys = [this.moto1, this.moto2, this.moto3]
     
     this.mapService.latLngUpdated.subscribe( data => {
       this.lat = data.lat;
