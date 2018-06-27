@@ -36,7 +36,6 @@
     "nodets": "0.0.1",
     "rxjs": "^6.0.0",
     "sequelize": "^4.38.0",
-    "twilio": "^3.17.4",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
