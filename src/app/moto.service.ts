@@ -27,7 +27,7 @@ export class MotoService {
       this.currentMotoBoy = data[0];
       this.singleMotoSubject.next(data[0])
       console.log(this.currentMotoBoy)
-   
+
     })
   }
 
@@ -60,24 +60,15 @@ export class MotoService {
       navigator.geolocation.getCurrentPosition(position => {
         this.currentMotoBoy.latitude = position.coords.latitude;
         this.currentMotoBoy.longitude = position.coords.longitude;
+        this.currentMotoBoy.position = {
+          type: 'Point',
+          coordinates: [this.currentMotoBoy.longitude, this.currentMotoBoy.latitude]
+        }
         this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
         this.updateMotoBoy(this.currentMotoBoy)
-
-
-getMotoCurrentLocation(){
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      this.currentMotoBoy.latitude = position.coords.latitude;
-      this.currentMotoBoy.longitude = position.coords.longitude;
-      this.currentMotoBoy.position =  {
-        type: 'Point',
-        coordinates: [this.currentMotoBoy.longitude, this.currentMotoBoy.latitude]}
-      this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
-      this.putMotoLocation(this.currentMotoBoy)
-
-    })
-  }    
-}
+      })
+    }
+  }
 
 
   checkGoogleAddress(localAddress) {
@@ -100,17 +91,14 @@ getMotoCurrentLocation(){
       //update motoboys array?
       this.currentMotoBoy = data;
     })
-
   }
 
 
-  getClosesMoto(lat,lng){
-    
-    this.http.get<Array<MotoBoy>>('motoboysApi/getClosesMoto/'+lat+'/'+lng).subscribe(data => {
-      // send SMS to deliveries in data if dat.length > 0
-        console.log(data)
-      
-     })
-    }
+  getClosesMoto(lat, lng) {
 
+    this.http.get<Array<MotoBoy>>('motoboysApi/getClosesMoto/' + lat + '/' + lng).subscribe(data => {
+      // send SMS to deliveries in data if dat.length > 0
+      console.log(data)
+    })
+  }
 }
