@@ -63,9 +63,22 @@ export class MotoService {
         this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
         this.updateMotoBoy(this.currentMotoBoy)
 
-      })
-    }
-  }
+
+getMotoCurrentLocation(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.currentMotoBoy.latitude = position.coords.latitude;
+      this.currentMotoBoy.longitude = position.coords.longitude;
+      this.currentMotoBoy.position =  {
+        type: 'Point',
+        coordinates: [this.currentMotoBoy.longitude, this.currentMotoBoy.latitude]}
+      this.reverseAddress(this.currentMotoBoy.latitude, this.currentMotoBoy.longitude);
+      this.putMotoLocation(this.currentMotoBoy)
+
+    })
+  }    
+}
+
 
   checkGoogleAddress(localAddress) {
     var geocoder: google.maps.Geocoder = new google.maps.Geocoder;
@@ -89,4 +102,15 @@ export class MotoService {
     })
 
   }
+
+
+  getClosesMoto(lat,lng){
+    
+    this.http.get<Array<MotoBoy>>('motoboysApi/getClosesMoto/'+lat+'/'+lng).subscribe(data => {
+      // send SMS to deliveries in data if dat.length > 0
+        console.log(data)
+      
+     })
+    }
+
 }

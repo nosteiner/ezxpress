@@ -17,7 +17,8 @@ class MotoBoy {
             photo: Sequelize.STRING,
             latitude: Sequelize.FLOAT,
             longitude: Sequelize.FLOAT,
-            active : Sequelize.BOOLEAN
+            active : Sequelize.BOOLEAN,
+            position : Sequelize.GEOMETRY
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
@@ -49,6 +50,27 @@ class MotoBoy {
         return this.model.destroy({ where:{motoboyId: id}
           });
     }
+
+    getClosesMoto(lat, lng) {
+    //  console.log("dentro do model")
+    //     this.model.findAll().then( data => console.log(data))
+
+     var attributes = Object.keys(this.model.attributes);
+     var location = Sequelize.literal(`ST_GeomFromText('POINT(${lng} ${lat})')`);
+     var distance = Sequelize.fn('ST_Distance_Sphere', Sequelize.literal('position'), location);
+     attributes.push([distance,'distance']);
+ 
+      return this.model.findAll({  
+       attributes: attributes,
+       order: distance,
+       where: Sequelize.where(distance, {$lte: 1000}),
+       logging: console.log
+     })
+     
+    
+    }
+
+   
 }
 const motoboy = new MotoBoy();
 

@@ -1,3 +1,5 @@
+import { Geometry } from "ngx-google-places-autocomplete/objects/geometry";
+
 export class MotoBoy{
     motoboyId :number;
     idNumber : string;
@@ -11,6 +13,7 @@ export class MotoBoy{
     longitude: number;
     icon: string;
     active : boolean;
+    position : Object;
     constructor() {
 
         this.active = true; 

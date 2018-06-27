@@ -19,7 +19,7 @@ export class MaprouteComponent implements OnInit {
 
 
   showRoutes(result){
-    debugger
+    
     var lat = 32.0503025, lng = 34.76668559999996
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var centerMap = new google.maps.LatLng(lat, lng);

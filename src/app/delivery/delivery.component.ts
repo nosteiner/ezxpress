@@ -6,6 +6,7 @@ import { MapsAPILoader } from "@agm/core"
 import { OrdersService } from '../orders.service';
 import { MatDialog } from '@angular/material';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
+import { MotoService } from '../moto.service';
 
 
 
@@ -23,7 +24,8 @@ localAddress : string
   order: Order;
   
   constructor(private orderService : OrdersService, private mapService: MapService, 
-    private mapsApiLoader: MapsAPILoader, private ngZone: NgZone, public dialog: MatDialog)
+    private motoService: MotoService, private mapsApiLoader: MapsAPILoader, private ngZone: NgZone,
+     public dialog: MatDialog)
   { 
         
     this.order = new Order();
@@ -41,6 +43,7 @@ localAddress : string
   }
 
   calculateRate(){
+    console.log(localAddress)
     
    
     var localAddress = new google.maps.LatLng(this.order.latitudeOriginAddress,this.order.longitudeDestAddress)
@@ -66,7 +69,7 @@ localAddress : string
         this.order.price = (dist) * multPrice;
         
         this.mapRoute.showRoutes(result)
-    })
+    }) 
   }
 
   confirmOrder(){
@@ -79,10 +82,11 @@ localAddress : string
     });
 
     dialogRef.afterClosed().subscribe( result => {
+      this.motoService.getClosesMoto(this.order.latitudeOriginAddress,this.order.longitudeOriginAddress)
       
     });
 
-        //directionsDisplay.setDirections(result);
+        
   }
 
   
