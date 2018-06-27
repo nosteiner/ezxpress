@@ -29,9 +29,9 @@ export class OrdersService {
   
   addNewOrder(order){
     console.log("inside Add")
-    this.http.post<Order>('ordersApi/add',order).subscribe((data) => {
-      this.allOrders.push(order);
-      
+    this.http.post<Order>('ordersApi/add',order).subscribe(() => {
+      // this.allOrders.push(order);
+      this.getAllOrders();
     })
   }
   // addNewOrder(newOrder: Order): void{
