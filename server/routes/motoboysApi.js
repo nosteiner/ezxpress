@@ -17,6 +17,7 @@ router.get('/:id', (req, res) => {
   });
 
 router.post('/add', (req, res) => {
+    console.log('add new moto' + req.body.position)
     motoboy.create(req.body).then(data => {
     res.send(JSON.stringify(data));
   })
@@ -28,6 +29,21 @@ router.put('/update/:id', (req, res) => {
         res.send("error:" + error)
     });
 });
+
+router.get('/getClosesMoto/:lat/:lng', (req, res) => {
+    
+    motoboy.getClosesMoto(req.params.lat,req.params.lng)
+           .then((data) => {
+                res.send(data);
+            })
+            .catch((error) => {
+                res.send("error:" + error)  
+            });
+    })
+     
+    // .then(function(instance){
+    //     return res.json(200, instance);
+    //   })
 
 
 
