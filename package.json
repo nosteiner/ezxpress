@@ -29,12 +29,14 @@
     "angular-material-fileupload": "0.0.11",
     "core-js": "^2.5.4",
     "mysql2": "^1.5.3",
+    "nexmo": "^2.3.2",
     "ng-file-manager": "^0.1.7",
-    "nodets": "0.0.1",
     "ng4-geoautocomplete": "^0.1.0",
     "ngx-google-places-autocomplete": "^2.0.1",
+    "nodets": "0.0.1",
     "rxjs": "^6.0.0",
     "sequelize": "^4.38.0",
+    "twilio": "^3.17.4",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

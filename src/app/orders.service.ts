@@ -51,23 +51,32 @@ export class OrdersService {
 
   updateOrder(order, motoboy) {
     let id = order.orderId
-    this.http.put<Order>('ordersApi/update/' + id, { order: order }).subscribe((data) => {
+    this.http.put<Order>('ordersApi/update/' + id, { order: order }).subscribe(() => {
       this.getAllOrders();
-      
       //update motoboys array
       // this.currentMotoBoy = data;
       // this.singleMotoSubject.next(data);
     })
   }
+
+  sendSmsToCustomer(order: Order){
+     this.http.post('/send', {
+      from: 'Acme Inc',
+      to: order.phoneNumber,
+      text: 'motoBoy on the way!'
+    }).subscribe((data) => {
+      console.log(data)
+    })
+  }
+
   assignToOrder(order, motoBoy) {
     if (order.motoboy == null) {
       order.motoboy = motoBoy
       order.status = 2;
-      console.log(order+"order")
-      this.updateOrder(order, motoBoy);
-    
+      this.updateOrder(order, motoBoy)
+      // this.sendSmsToCustomer(order);----------------------------------SMS----------------------
       //Needs to be define 
-      //sendNotificationToclient(order){}
+    
     }
   }
   
