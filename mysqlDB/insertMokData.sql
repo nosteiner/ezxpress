@@ -53,32 +53,26 @@ values
  insert into status
 (statusId,name)
 values
-(1,'open');
+(1,'New Order');
 
  insert into status
 (statusId,name)
 values
-(2,'wating for a Motoboy');
+(2,'wating for pickUp');
 
  insert into status
 (statusId,name)
 values
-(3, 'on the way');
-
+(3, 'On the way');
  insert into status
 (statusId,name)
 values
-(4, 'ressived');
-
+(4, 'deliverd');
 insert into status
 (statusId,name)
 values
-(5, 'closed');
+(888, 'Canceled');
 
-insert into status
-(statusId,name)
-values
-(6, 'Canceled');
 
 insert into orders
 (customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,statusId,active)
