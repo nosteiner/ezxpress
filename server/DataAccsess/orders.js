@@ -26,7 +26,7 @@ class Order {
             contactDestination: Sequelize.STRING,
             phoneDestination: Sequelize.STRING,
             deliveryType: Sequelize.STRING,
-            status: Sequelize.STRING,
+            statusId: Sequelize.STRING,
             active : Sequelize.BOOLEAN
             }, {
                 freezeTableName: true // Model tableName will be the same as the model name
