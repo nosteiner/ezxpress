@@ -8,18 +8,38 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class MotoService {
+  
+  localAddress : string;
+  lat: number //= 51.678418;
+  lng: number
 
   motoBoys: MotoBoy[] = [];
   currentMotoBoy: MotoBoy = new MotoBoy();
 
-
-
+  public allMotoObservable: Observable<Array<MotoBoy>>;
+  private allMotoSubject: Subject<Array<MotoBoy>> = new Subject<Array<MotoBoy>>();
 
   public singleMotoObservable: Observable<MotoBoy>;
   private singleMotoSubject: Subject<MotoBoy> = new Subject<MotoBoy>();
 
+  public addressUpdated : Observable<any>;
+  public addressSubject: Subject<any>;
+
   constructor(private mapService: MapService, private http: HttpClient) {
     this.singleMotoObservable = this.singleMotoSubject.asObservable();
+    this.allMotoObservable = this.allMotoSubject.asObservable();
+    this.getAllMoto();
+    this.addressSubject = new Subject<any>();
+    this.addressUpdated = this.addressSubject.asObservable();
+  }
+
+  getAllMoto() {
+    this.http.get<Array<MotoBoy>>('motoboysApi/').subscribe(data => {
+      this.motoBoys = data
+      this.allMotoSubject.next(this.motoBoys)
+      
+     })
+
   }
 
   getMoto(id) {
@@ -71,18 +91,30 @@ export class MotoService {
   }
 
 
-  checkGoogleAddress(localAddress) {
-    var geocoder: google.maps.Geocoder = new google.maps.Geocoder;
-    // console.log(localAddress)
-    geocoder.geocode({ address: localAddress }, (results) => {
-      this.currentMotoBoy.latitude = Number(results[0].geometry.location.lat);
-      this.currentMotoBoy.longitude = Number(results[0].geometry.location.lat);
-      // console.log(this.currentMotoBoy.latitude)
-    })
-  }
+  // checkGoogleAddress(localAddress) {
+  //   var geocoder: google.maps.Geocoder = new google.maps.Geocoder;
+  //   // console.log(localAddress)
+  //   geocoder.geocode({ address: localAddress }, (results) => {
+  //     this.currentMotoBoy.latitude = Number(results[0].geometry.location.lat);
+  //     this.currentMotoBoy.longitude = Number(results[0].geometry.location.lat);
+  //     // console.log(this.currentMotoBoy.latitude)
+  //   })
+  // }
 
-  reverseAddress(lat, lng) {
-    this.mapService.reverseAddress(lat, lng);
+  reverseAddress(lat, lng){
+   
+    var geocoder: google.maps.Geocoder = new google.maps.Geocoder; 
+    var latlng = {lat: lat , lng: lng};
+    geocoder.geocode({"location": latlng }, (results, status) => {
+        console.log(results)
+     
+        this.localAddress = results[0].formatted_address
+        console.log(this.localAddress)
+        this.addressSubject.next({localAddress: this.localAddress, lat: lat, lng: lng})
+        
+     
+    
+      });
   }
 
   addMotoBoy(motoboy) {

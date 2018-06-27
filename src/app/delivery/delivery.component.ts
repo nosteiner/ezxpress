@@ -30,7 +30,9 @@ localAddress : string
         
     this.order = new Order();
     this.mapService.addressUpdated.subscribe( (data) => {
-      this.order.localAddress = data
+      this.order.localAddress = data.localAddress;
+      this.order.latitudeOriginAddress = data.lat;
+      this.order.longitudeDestAddress = data.lng;
       
       })
     
