@@ -3,7 +3,7 @@ import { MotoBoy } from '../MotoBoy';
 import { Subject, Observable } from 'rxjs';
 
 import {} from '@types/google-maps';
-import { MapService } from '../map.service';
+
 
 @Component({
   selector: 'app-maproute',

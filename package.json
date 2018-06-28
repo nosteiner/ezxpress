@@ -36,6 +36,7 @@
     "ng4-geoautocomplete": "^0.1.0",
     "ngx-google-places-autocomplete": "^2.0.1",
     "nodets": "0.0.1",
+    "primeng": "^6.0.0",
     "rxjs": "^6.0.0",
     "sequelize": "^4.38.0",
     "zone.js": "^0.8.26"

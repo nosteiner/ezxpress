@@ -17,6 +17,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material';
 import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
+//import {AccordionModule} from 'primeng/accordion';  
+import {FileUploadModule} from 'primeng/fileupload';
 
 
 import { AppComponent } from './app.component';
@@ -76,7 +78,9 @@ import { OrdersService } from './orders.service';
     GooglePlaceModule,
     MatTableModule, 
     MatSortModule,
-    MatDialogModule
+    MatDialogModule,
+    FileUploadModule
+
 
     
   ],
