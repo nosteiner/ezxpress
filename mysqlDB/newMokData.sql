@@ -1,8 +1,7 @@
 insert into customers
-( email,phoneNumber,firstName,lastName,address,active)
+(email,phoneNumber,firstName,lastName,address,active)
 values
 ('morangozlan@hotmail.com','0524340050','Moran','Gozlan','Tel Aviv',true);
-
 insert into customers
 ( email,phoneNumber,firstName,lastName,address,active)
 values
@@ -37,9 +36,9 @@ values
 ('morangozlan@hotmail.com','0524340057','David','Gir','Tel Aviv',true);
 
 insert into motoboys
-(idNumber,firstName,lastName,email,phoneNumber,rate,active)
+(firstName,lastName,email,phoneNumber,rate,active)
 values
-('301459848','Tamar','Dir','morangozlan@hotmail.com','053-4740090',4,true);
+('Tamar','Dir','morangozlan@hotmail.com','053-4740090',4,true);
 
 insert into motoboys
 (idNumber,firstName,lastName,email,phoneNumber,rate,active)
@@ -77,17 +76,17 @@ values
 insert into orders
 (customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,statusId,active)
 values
-(1,1,50,'2018-01-01','2018-01-01','2018-01-01','haim','0524546670','small', 3,true);
+(1,1,50,'haim','0524546670','small', 3,true);
 
 insert into orders
 (customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,statusId,active)
 values
-(2,2,50,'2018-04-01','2018-04-01','2018-04-01','Dina','0524546670','small', 2,true);
+(2,2,50,'Dina','0524546670','small', 2,true);
 
 insert into orders
 (customerId,motoboyId,price,orderDate,collectDate,deliveryDate,contactDestination,phoneDestination,deliveryType,statusId,active)
 values
-(3,3,50,'2018-06-01','2018-01-02','2018-01-01','Ziv','0524546670','small', 1,true);
+(3,3,50,'0524546670','small', 1,true);
 
 
 insert into comments

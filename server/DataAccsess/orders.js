@@ -26,6 +26,7 @@ class Order {
             deliveryDate: Sequelize.DATETIME,
             contactDestination: Sequelize.STRING,
             phoneDestination: Sequelize.STRING,
+            description: Sequelize.STRING,
             deliveryType: Sequelize.STRING,
             statusId: Sequelize.STRING,
             active : Sequelize.BOOLEAN

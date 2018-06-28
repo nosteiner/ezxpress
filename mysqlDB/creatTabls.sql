@@ -12,24 +12,31 @@ CREATE TABLE customers (
 
 CREATE TABLE motoboys (
   motoboyId INT AUTO_INCREMENT PRIMARY KEY, 
-  idNumber VARCHAR(9),
   firstName VARCHAR(20),
   lastName VARCHAR(20),
   email VARCHAR(40),
   phoneNumber VARCHAR(20) ,
   rate INT,
-  photo  VARCHAR(20),
+  photo  VARCHAR(150),
   latitude FLOAT,
   longitude FLOAT,
   active BOOLEAN,
   position GEOMETRY
 );
 
- CREATE TABLE status (
- statusId INT PRIMARY KEY, 
- password  VARCHAR(20),
+ CREATE TABLE users (
+ userId   INT AUTO_INCREMENT PRIMARY KEY,
+ userName VARCHAR(10), 
+ password  VARCHAR(5),
+ customerId INT,
+ motoboyId INT, 
  FOREIGN KEY(customerId) REFERENCES customers(customerId),
  FOREIGN KEY(motoboyId) REFERENCES motoboys(motoboyId)
+ );
+
+ CREATE TABLE status (
+ statusId INT PRIMARY KEY, 
+ name  VARCHAR(20)
  );
  
 CREATE TABLE orders (
@@ -42,12 +49,13 @@ CREATE TABLE orders (
  latitudeDestAddress float,
  longitudeDestAddress float,
  price INT ,
- orderDate DATE,
- collectDate DATE,
- deliveryDate DATE,
+ orderDate DATETIME,
+ collectDate DATETIME,
+ deliveryDate DATETIME,
  contactDestination  VARCHAR(20),
  phoneDestination  VARCHAR(20),
  deliveryType VARCHAR(20),
+ description VARCHAR(100),
  statusId INT,
  active BOOLEAN,
  FOREIGN KEY(statusId) REFERENCES status(statusId),
