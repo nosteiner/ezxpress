@@ -37,6 +37,7 @@ app.post('/send', (req, res) => {
   nexmo.message.sendSms(req.body.from, req.body.to, req.body.text)
 });
 
+
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
   console.log('yooooo')

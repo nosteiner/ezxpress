@@ -6,6 +6,7 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
@@ -66,6 +67,7 @@ import { OrderDialogComponent } from './order-dialog/order-dialog.component';
       apiKey: 'AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g',
       libraries: ["places"]
     }),
+    AgmDirectionModule,
     HttpClientModule,
     MatToolbarModule,
     FlexLayoutModule,
