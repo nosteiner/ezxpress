@@ -67,13 +67,15 @@ export class MapComponent  {
   getUserLocation() {
   
       
-
+    debugger
     if (navigator.geolocation){
       navigator.geolocation.getCurrentPosition(position => 
         {
         
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
+        this.origin = { lat: this.order.latitudeOriginAddress, lng: this.order.longitudeOriginAddress }    
+        //this.destination = { lat: this.order.latitudeDestAddress, lng: this.order.longitudeDestAddress }
          this.motoService.reverseAddress(this.lat, this.lng);
         })
     }
@@ -100,8 +102,7 @@ export class MapComponent  {
   ngOnInit() {
     this.getUserLocation();
 
-    this.origin = { lat: this.order.latitudeOriginAddress, lng: this.order.longitudeOriginAddress }    
-    this.destination = { lat: this.order.latitudeDestAddress, lng: this.order.longitudeDestAddress }
+    
     // this.mapService.getCurrPosition();
     // debugger
     // this.mapService.latLngUpdated.subscribe( data => {
@@ -112,13 +113,17 @@ export class MapComponent  {
 
     setInterval( () => {
       console.log(this.order)
-      this.origin = { lat: this.order.latitudeOriginAddress, lng: this.order.longitudeOriginAddress }    
-    this.destination = { lat: this.order.latitudeDestAddress, lng: this.order.longitudeDestAddress }
+      if (this.order.latitudeOriginAddress != undefined) {
+       this.origin = { lat: this.order.latitudeOriginAddress, lng: this.order.longitudeOriginAddress }    
+       this.destination = { lat: this.order.latitudeDestAddress, lng: this.order.longitudeDestAddress }
       console.log(this.origin)
       console.log(this.destination)
+      }
       let inc = 0.0005
       this.motoBoys[0].latitude +=  inc
       this.motoBoys[0].longitude += inc
+      this.motoBoys[1].latitude -= inc;
+      this.motoBoys[1].longitude += inc;
     }, 4000 )
   }
 
