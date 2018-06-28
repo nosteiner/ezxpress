@@ -1,4 +1,4 @@
-export class Customer{
+export class Comment{
     commentId: number;
     comment: string;
     customerId: number;

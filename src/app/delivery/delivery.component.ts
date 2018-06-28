@@ -29,8 +29,16 @@ localAddress : string
   { 
         
     this.order = new Order();
+<<<<<<< HEAD
     this.mapService.addressUpdated.subscribe( (data) => {
       this.order.localAddress = data 
+=======
+    this.motoService.addressUpdated.subscribe( (data) => {
+      this.order.localAddress = data.localAddress;
+      this.order.latitudeOriginAddress = data.lat;
+      this.order.longitudeOriginAddress = data.lng;
+      
+>>>>>>> a5160854f7c8d75fb5fe445be2238409a4f5a6bb
       })
     
 

@@ -8,7 +8,6 @@ CREATE TABLE customers (
   lastName VARCHAR(20), 
   address VARCHAR(20),
   active BOOLEAN
-  
 );
 
 CREATE TABLE motoboys (
@@ -22,12 +21,15 @@ CREATE TABLE motoboys (
   photo  VARCHAR(20),
   latitude FLOAT,
   longitude FLOAT,
-  active BOOLEAN
+  active BOOLEAN,
+  position GEOMETRY
 );
 
  CREATE TABLE status (
  statusId INT PRIMARY KEY, 
- name  VARCHAR(20)
+ password  VARCHAR(20),
+ FOREIGN KEY(customerId) REFERENCES customers(customerId),
+ FOREIGN KEY(motoboyId) REFERENCES motoboys(motoboyId)
  );
  
 CREATE TABLE orders (
