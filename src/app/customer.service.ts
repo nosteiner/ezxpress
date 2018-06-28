@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MapService } from './map.service';
+import { MotoService } from './moto.service'
 import { HttpClient } from '@angular/common/http';
 import { Customer } from './customer';
 import { Observable, Subject } from 'rxjs';
@@ -17,7 +17,7 @@ export class CustomerService {
   public singleCustomerObservable: Observable<Customer>;
   private singleCustomerSubject: Subject<Customer> = new Subject<Customer>();
 
-  constructor(private mapService: MapService, private http: HttpClient) {
+  constructor( private motoService: MotoService, private http: HttpClient) {
     this.singleCustomerObservable = this.singleCustomerSubject.asObservable();
   }
 
@@ -100,7 +100,7 @@ export class CustomerService {
   // }
 
   reverseAddress(lat, lng) {
-    this.mapService.reverseAddress(lat, lng);
+    this.motoService.reverseAddress(lat, lng);
   }
 
 }
