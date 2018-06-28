@@ -41,7 +41,7 @@ export class MapComponent  {
   
   constructor(private motoService: MotoService) {  
       
-    
+    this.motoService.getAllMoto()
     this.motoService.allMotoObservable.subscribe( data => {
         this.motoBoys = data
         console.log(data)
@@ -66,8 +66,6 @@ export class MapComponent  {
   
   getUserLocation() {
   
-      
-    debugger
     if (navigator.geolocation){
       navigator.geolocation.getCurrentPosition(position => 
         {
