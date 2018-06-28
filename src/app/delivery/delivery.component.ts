@@ -22,8 +22,8 @@ localAddress : string
 
   order: Order;
   
-  constructor(private orderService : OrdersService, private mapService: MapService, 
-    private motoService: MotoService, private mapsApiLoader: MapsAPILoader, private ngZone: NgZone,
+  constructor(private orderService : OrdersService, private motoService: MotoService, 
+     private mapsApiLoader: MapsAPILoader, private ngZone: NgZone,
      public dialog: MatDialog)
   { 
         
@@ -69,7 +69,7 @@ localAddress : string
            var multPrice = 0.007
         this.order.price = (dist) * multPrice;
         
-        this.mapRoute.showRoutes(result)
+        //this.mapRoute.showRoutes(result)
     }) 
   }
 
@@ -107,7 +107,7 @@ localAddress : string
         console.log(place)
         this.order.localAddress = place.formatted_address
         
-        this.mapService.latLngSubject.next({lat: place.geometry.location.lat(), lng:place.geometry.location.lng()} )
+        //this.motoService.latLngSubject.next({lat: place.geometry.location.lat(), lng:place.geometry.location.lng()} )
         this.order.latitudeOriginAddress = place.geometry.location.lat();
         this.order.longitudeOriginAddress = place.geometry.location.lng();
         
