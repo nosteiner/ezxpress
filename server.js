@@ -12,6 +12,7 @@ const commentsAPI = require('./server/routes/commentsApi');
 const customerAPI = require('./server/routes/customersApi');
 const motoboysAPI = require('./server/routes/motoboysApi');
 const ordersAPI = require('./server/routes/ordersApi');
+const usersAPI = require('./server/routes/usersApi');
 
 
 const Sequelize = require('sequelize');
@@ -31,6 +32,7 @@ app.use('/commentsApi', commentsAPI); // use enables the midddleware, which is c
 app.use('/customersApi', customerAPI);
 app.use('/motoboysApi', motoboysAPI);
 app.use('/ordersApi', ordersAPI);
+app.use('/usersApi', usersAPI);
 
 //send SMS
 app.post('/send', (req, res) => {
