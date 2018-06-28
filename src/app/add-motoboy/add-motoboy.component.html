@@ -1,10 +1,8 @@
-
-
-
-
-
-
 <div class="motoboy-container">
+      <mat-form-field>
+        <input matInput [(ngModel)]= user.userName placeholder="User Name">
+      </mat-form-field>
+
   <mat-form-field>
     <input matInput [(ngModel)]= motoboy.email placeholder="Email">
   </mat-form-field>
@@ -18,12 +16,19 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]= motoboy.idNumber placeholder="ID Number">
+    <input matInput [(ngModel)]= motoboy.phoneNumber placeholder="Phone Number">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]= motoboy.phoneNumber placeholder="Phone Number">
+      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
   </mat-form-field>
+
+  <mat-form-field>
+      <input matInput [(ngModel)]= user.password placeholder="Confirm your password" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  </mat-form-field>
+
 
 
   <span>Photo</span>

@@ -3,14 +3,13 @@ var DA = require('./dataAccess');
 var customers = require('./customers');
 var motoboys = require('./motoboys');
 
-
-
 class User {
     constructor() {
         this.model = this.initCustomer();
     }
     initCustomer() {
         let user = DA.connection.define('users', {
+            userId:  { type: Sequelize.INTEGER, primaryKey: true },
             userName: Sequelize.STRING,
             password: Sequelize.STRING,
             customerId: { type: Sequelize.INTEGER, references: { model: customers, key: 'customerId' }},
@@ -24,7 +23,7 @@ class User {
             user.hasOne(motoboys.model, { foreignKey: 'motoboyId' });
            
 
-        return comment;
+        return user;
     }
     getAll(){
         return this.model.findAll({
@@ -36,13 +35,13 @@ class User {
         return this.model.create(data);
     }
     update(newData,id){
-        return this.model.update(newData,{where:{commentId: id}});
+        return this.model.update(newData,{where:{userId: id}});
     }
     delete(id){
-        return this.model.destroy({ where:{commentId: id}
+        return this.model.destroy({ where:{userId: id}
           });
     }
 }
-const comment = new Comment();
+const user = new User();
 
-module.exports = comment;
+module.exports = user;
