@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
 import { Order } from '../Order';
 import { MaprouteComponent } from '../maproute/maproute.component'
-import { MapService } from '../map.service';
 import { MapsAPILoader } from "@agm/core"
 import { OrdersService } from '../orders.service';
 import { MatDialog } from '@angular/material';
@@ -47,9 +46,7 @@ localAddress : string
   }
 
   calculateRate(){
-    console.log(localAddress)
-    
-   
+      
     var localAddress = new google.maps.LatLng(this.order.latitudeOriginAddress,this.order.longitudeDestAddress)
     var destAddress = new google.maps.LatLng(this.order.latitudeDestAddress, this.order.longitudeDestAddress)
     var travelway = google.maps.TravelMode.DRIVING
@@ -77,8 +74,9 @@ localAddress : string
   }
 
   confirmOrder(){
+    
     this.order.orderDate = new Date();
-    console.log( this.orderService.addNewOrder(this.order))
+    
    
     let dialogRef = this.dialog.open(OrderDialogComponent, {
       width: '500px'
@@ -106,6 +104,9 @@ localAddress : string
         if (place.geometry === undefined || place.geometry === null){
           return
         }
+        console.log(place)
+        this.order.localAddress = place.formatted_address
+        
         this.mapService.latLngSubject.next({lat: place.geometry.location.lat(), lng:place.geometry.location.lng()} )
         this.order.latitudeOriginAddress = place.geometry.location.lat();
         this.order.longitudeOriginAddress = place.geometry.location.lng();

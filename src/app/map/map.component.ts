@@ -2,10 +2,11 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { MotoBoy } from '../MotoBoy';
 import { Subject, Observable } from 'rxjs';
 
-import {} from '@types/google-maps';
-import { MapService } from '../map.service';
+
+
 import { MotoService } from '../moto.service';
 import { Order } from '../Order';
+import { LatLng } from '@agm/core';
 
 
 
@@ -36,8 +37,9 @@ export class MapComponent  {
   motoBoys: Array<MotoBoy>
   motoBoyIcon: string;
   localAddress :string;
-  origin: object;
-  destination: object;
+  origin=  { lat :0, lng: 0}
+  destination=  { lat : 0, lng: 0}
+  
   
   constructor(private motoService: MotoService) {  
       
@@ -80,42 +82,18 @@ export class MapComponent  {
     
   }
 
-  
-  // checkGoogleAddress(localAddress)  {
-    
-  //   var geocoder: google.maps.Geocoder = new google.maps.Geocoder; 
-  //   console.log(localAddress)
-  //   geocoder.geocode({address: localAddress}, (results) => {
-  //       this.lat = Number(results[0].geometry.location.lat);
-  //       this.lng = Number(results[0].geometry.location.lat);
-  //       console.log (this.lat)
-        
-    
-  //   })
-  // }
-
-  
+ 
     
   
   ngOnInit() {
     this.getUserLocation();
-
-    
-    // this.mapService.getCurrPosition();
-    // debugger
-    // this.mapService.latLngUpdated.subscribe( data => {
-     
-    //   this.lat = data.lat;
-    //   this.lng = data.lng
-    // })
-
+  
     setInterval( () => {
-      console.log(this.order)
-      if (this.order.latitudeOriginAddress != undefined) {
+      
+      if (this.order.latitudeOriginAddress != undefined && (this.order.latitudeDestAddress != undefined)) {
        this.origin = { lat: this.order.latitudeOriginAddress, lng: this.order.longitudeOriginAddress }    
        this.destination = { lat: this.order.latitudeDestAddress, lng: this.order.longitudeDestAddress }
-      console.log(this.origin)
-      console.log(this.destination)
+      
       }
       let inc = 0.0005
       this.motoBoys[0].latitude +=  inc

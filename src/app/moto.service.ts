@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { MapService } from './map.service';
 import { HttpClient } from '@angular/common/http';
 import { MotoBoy } from './MotoBoy';
 import { Observable, Subject } from 'rxjs';
@@ -25,7 +24,7 @@ export class MotoService {
   public addressUpdated : Observable<any>;
   public addressSubject: Subject<any>;
 
-  constructor(private mapService: MapService, private http: HttpClient) {
+  constructor(private http: HttpClient) {
     this.singleMotoObservable = this.singleMotoSubject.asObservable();
     this.allMotoObservable = this.allMotoSubject.asObservable();
     this.getAllMoto();

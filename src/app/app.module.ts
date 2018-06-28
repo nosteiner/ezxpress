@@ -26,13 +26,14 @@ import { MapComponent } from './map/map.component';
 import { NewclientComponent } from './newclient/newclient.component';
 import { HomeComponent } from './home/home.component';
 import { DeliveryComponent } from './delivery/delivery.component';
-import { MapService } from './map.service';
+import { MotoService } from './moto.service';
 import { DestinationComponent } from './destination/destination.component';
 import { MaprouteComponent } from './maproute/maproute.component';
 import { MotoShareLiveLocationComponent } from './moto-share-live-location/moto-share-live-location.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { TableComponent } from './table/table.component';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
+import { OrdersService } from './orders.service';
 
 
 
@@ -80,7 +81,7 @@ import { OrderDialogComponent } from './order-dialog/order-dialog.component';
     
   ],
   entryComponents: [OrderDialogComponent],
-  providers: [EzxpressService, MapService],
+  providers: [EzxpressService, MotoService, OrdersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
