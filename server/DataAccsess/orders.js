@@ -15,6 +15,7 @@ class Order {
             orderId: { type: Sequelize.INTEGER, primaryKey: true },
             customerId: { type: Sequelize.INTEGER, references: { model: Customer, key: 'customerId' }},
             motoboyId: { type: Sequelize.INTEGER, references: { model: Motoboy, key: 'motoboyId' }},
+            localAddress:Sequelize.STRING,
             latitudeOriginAddress:Sequelize.FLOAT,
             longitudeOriginAddress:Sequelize.FLOAT,
             latitudeDestAddress:Sequelize.FLOAT,

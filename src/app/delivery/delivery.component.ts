@@ -29,11 +29,13 @@ localAddress : string
   { 
         
     this.order = new Order();
+
     this.motoService.addressUpdated.subscribe( (data) => {
       this.order.localAddress = data.localAddress;
       this.order.latitudeOriginAddress = data.lat;
       this.order.longitudeOriginAddress = data.lng;
       
+
       })
     
        
@@ -75,13 +77,13 @@ localAddress : string
   }
 
   confirmOrder(){
-    this.order.deliveryDate = new Date();
-    this.orderService.addNewOrder(this.order)
-    
+    this.order.orderDate = new Date();
+    console.log( this.orderService.addNewOrder(this.order))
+   
     let dialogRef = this.dialog.open(OrderDialogComponent, {
       width: '500px'
      
-    });
+    })
 
     dialogRef.afterClosed().subscribe( result => {
       this.motoService.getClosesMoto(this.order.latitudeOriginAddress,this.order.longitudeOriginAddress)
