@@ -13,8 +13,8 @@ export class AddMotoboyComponent implements OnInit {
   selectPhoto = "";
   motoboy : MotoBoy = new MotoBoy();
   user : User = new User();
-  
-  constructor(private motoService: MotoService, private userService: UsersService,) { }
+
+  constructor(private motoService: MotoService, private userService: UsersService) { }
 
   onPhotofile(event) {
     console.log(event)
