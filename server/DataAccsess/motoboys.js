@@ -7,7 +7,7 @@ class MotoBoy {
     }
     initMotoBoy() {
         let motoboy = DA.connection.define('motoboys', {
-            motoboyId: { type: Sequelize.INTEGER, primaryKey: true },
+            motoboyId: { type: Sequelize.INTEGER, autoIncrement: true,primaryKey: true },
             firstName: Sequelize.STRING,
             lastName: Sequelize.STRING,
             email: Sequelize.STRING,

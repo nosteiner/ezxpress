@@ -17,13 +17,14 @@ export class AddMotoboyComponent implements OnInit {
   constructor(private motoService: MotoService, private userService: UsersService) { }
 
   onPhotofile(event) {
-    console.log(event)
-    this.selectPhoto = event.target.files[0]
     
+    this.selectPhoto = event.target.files[0]
+    //this.motoService.uploadPhoto(this.selectPhoto)
 
   }
 
   submitMotoBoy() {
+    
     this.motoboy.photo = this.selectPhoto;
     this.motoService.addMotoBoy(this.motoboy);
     this.userService.addNewClient(this.user);

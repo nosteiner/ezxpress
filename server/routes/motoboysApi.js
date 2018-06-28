@@ -17,11 +17,16 @@ router.get('/:id', (req, res) => {
   });
 
 router.post('/add', (req, res) => {
-    console.log('add new moto' + req.body.position)
-    motoboy.create(req.body).then(data => {
-    res.send(JSON.stringify(data));
-  })
-});
+    console.log('add new moto' + req.body)
+    motoboy.create(req.body).then((data) => {
+            
+           data.reload().then( (data) =>
+           res.send(JSON.stringify(data) ));
+    })
+            
+    
+})
+
 router.put('/update/:id', (req, res) => {
     motoboy.update(req.body.motoboy, req.params.id).then(() => {
         res.send(JSON.stringify(req.body.motoboy));
