@@ -30,6 +30,7 @@ export class DestinationComponent implements OnInit {
           if (place.geometry === undefined || place.geometry === null){
             return
           }
+          this.order.destAddress = place.formatted_address
           this.order.latitudeDestAddress = place.geometry.location.lat();
           this.order.longitudeDestAddress = place.geometry.location.lng();
           

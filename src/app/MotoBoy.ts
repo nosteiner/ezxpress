@@ -1,4 +1,4 @@
-import { Geometry } from "ngx-google-places-autocomplete/objects/geometry";
+
 
 export class MotoBoy{
     motoboyId :number;

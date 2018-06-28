@@ -15,6 +15,9 @@ export class MotoService {
   motoBoys: MotoBoy[] = [];
   currentMotoBoy: MotoBoy = new MotoBoy();
 
+  formData: any = new FormData();
+  file: File;
+
   public allMotoObservable: Observable<Array<MotoBoy>>;
   private allMotoSubject: Subject<Array<MotoBoy>> = new Subject<Array<MotoBoy>>();
 
@@ -118,9 +121,12 @@ export class MotoService {
 
   addMotoBoy(motoboy) {
     console.log("inside Add")
+    let photo = motoboy.photo;
+    motoboy.photo = " ";
     this.http.post<MotoBoy>('motoboysApi/add', motoboy).subscribe((data) => {
       //update motoboys array?
       this.currentMotoBoy = data;
+      this.uploadPhoto(photo)
     })
   }
 
@@ -132,5 +138,16 @@ export class MotoService {
       // console.log(data)
              
     })
+  }
+
+  uploadPhoto(photoFile) {
+    
+    let photoFileName = this.currentMotoBoy.motoboyId + '.png'
+    this.formData.append("uploads", photoFile, photoFileName);
+    this.http.post('uploadPhoto', this.formData).subscribe((data) => {
+      //update motoboys array?
+      //this.currentMotoBoy = data;
+    })
+    
   }
 }

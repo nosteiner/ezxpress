@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
-
+var multer = require('multer');
 
 
 // Get our API routes
@@ -37,6 +37,25 @@ app.post('/send', (req, res) => {
   nexmo.message.sendSms(req.body.from, req.body.to, req.body.text)
 });
 
+
+//Function used to configure the middleware storage
+var storage = multer.diskStorage({
+  destination: function(req, file, callback){
+      callback(null, './public/uploads'); // set the destination
+  },
+  filename: function(req, file, callback){
+      
+      callback(null, file.originalname); // set the file name and extension
+  }
+});
+var upload = multer({storage: storage});
+
+app.post('/uploadPhoto', upload.single('uploads'), function(req, res, next) {
+  console.log("updating photo ////")
+  console.log(req.body)
+  console.log(req.file)
+   
+});
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
