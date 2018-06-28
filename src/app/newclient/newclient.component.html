@@ -1,8 +1,8 @@
 
 <div class="client-container">
-  <mat-form-field>
-    <input matInput [(ngModel)]= newClient.email placeholder="User Name">
-  </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]= user.userName placeholder="User Name">
+      </mat-form-field>
 
   <mat-form-field>
     <input matInput [(ngModel)]= newClient.firstName placeholder="First Name">
@@ -13,6 +13,10 @@
   </mat-form-field>
 
   <mat-form-field>
+      <input matInput [(ngModel)]= newClient.email placeholder="User Name">
+  </mat-form-field>
+
+  <mat-form-field>
     <input matInput [(ngModel)]= newClient.phoneNumber placeholder="ID Number">
   </mat-form-field>
 
@@ -20,6 +24,15 @@
     <input matInput [(ngModel)]= newClient.address placeholder="Phone Number">
   </mat-form-field>
 
+  <mat-form-field>
+      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput [(ngModel)]= user.password placeholder="Confirm your password" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  </mat-form-field>
  
 
 

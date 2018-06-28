@@ -36,6 +36,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { TableComponent } from './table/table.component';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import { OrdersService } from './orders.service';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -51,7 +52,8 @@ import { OrdersService } from './orders.service';
     MaprouteComponent,
     MotoShareLiveLocationComponent,
     TableComponent,
-    OrderDialogComponent
+    OrderDialogComponent,
+    ProfileComponent
 
   ],
   imports: [
