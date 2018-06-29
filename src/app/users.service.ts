@@ -3,6 +3,7 @@ import { MotoService } from './moto.service'
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { Observable, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,21 @@ export class UsersService {
   public singleUserObservable: Observable<User>;
   private singleUserSubject: Subject<User> = new Subject<User>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router: Router) { }
 
+  Login(userName, password) {
+    this.http.post('usersApi/login', { userName: userName, password: password },{responseType: 'text'}).subscribe((data) => {
+      console.log(data)
+      if (data == 'false') {
+        console.log('sucsses')
+        this.router.navigate([''])        
+      } else {
+        alert('user name or password  is not correct, Please try again')
+        this.router.navigate(['error'])
+      }
+    })
+  }
+//
   getCustomers()  {
     this.http.get<User>('usersApi/').subscribe(data => {
     this.customers = data;

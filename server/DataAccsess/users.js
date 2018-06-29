@@ -9,7 +9,6 @@ class User {
     }
     initCustomer() {
         let user = DA.connection.define('users', {
-            userId:  { type: Sequelize.INTEGER, primaryKey: true },
             userName: Sequelize.STRING,
             password: Sequelize.STRING,
             customerId: { type: Sequelize.INTEGER, references: { model: customers, key: 'customerId' }},
@@ -22,23 +21,48 @@ class User {
             user.hasOne(customers.model, { foreignKey: 'customerId' });
             user.hasOne(motoboys.model, { foreignKey: 'motoboyId' });
            
-
         return user;
     }
+
+    getOneUser(userName, password) {
+        return this.model.findOne({
+          where: {
+            userName: userName,
+            password: password
+          }
+        });
+      }
+
     getAll(){
         return this.model.findAll({
-            include: 
-               { model : motoboys.model }
+            include: [
+               { model : motoboys.model },
+               { model : customer.model }
+            ]
           });
     }
+    getOneUser(userName, password) {
+        return this.model.findOne({
+          where: {
+            userName: userName,
+            password: password
+          }
+        }).then((data) => {
+          return data
+        }, err => {
+          console.error(err)
+        })
+      }
+
+
     create(data){
         return this.model.create(data);
     }
     update(newData,id){
-        return this.model.update(newData,{where:{userId: id}});
+        return this.model.update(newData,{where:{commentId: id}});
     }
     delete(id){
-        return this.model.destroy({ where:{userId: id}
+        return this.model.destroy({ where:{commentId: id}
           });
     }
 }
