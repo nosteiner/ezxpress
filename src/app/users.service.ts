@@ -21,7 +21,7 @@ export class UsersService {
   constructor(private http: HttpClient,private router: Router) { }
 
   Login(userName, password) {
-    this.http.post('usersApi/login', { userName: userName, password: password },{responseType: 'text'}).subscribe((data) => {
+    this.http.post('/login', { userName: userName, password: password },{responseType: 'text'}).subscribe((data) => {
       console.log(data)
       if (data == 'false') {
         console.log('sucsses')
