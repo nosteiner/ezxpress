@@ -1,0 +1,19 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 30%;
+  padding: 30px;
+  padding-top: 30px; 
+}
+.example-container{
+  display: flex;
+  flex-direction: column; 
+}
+.space{
+    width: 35%; 
+}
+h1{
+    text-align: center;
+    color: #3f51b5;;
+}

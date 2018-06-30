@@ -34,14 +34,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/ezxpress')));
 
-//auth-7 lines
-app.use(expressSession({
-  secret: 'thisIsASecret',
-  resave: false,
-  saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+// //auth-7 lines
+// app.use(expressSession({
+//   secret: 'thisIsASecret',
+//   resave: false,
+//   saveUninitialized: false
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Set our api routes
 app.use('/commentsApi', commentsAPI); // use enables the midddleware, which is customerAPI
@@ -50,91 +50,91 @@ app.use('/motoboysApi', motoboysAPI);
 app.use('/ordersApi', ordersAPI);
 app.use('/usersApi', usersAPI);
 
-/////////////////////////////////////////////////////////////////////////authenticat util send SMS
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/index.html'));
-});
+// /////////////////////////////////////////////////////////////////////////authenticat util send SMS
+// app.get('/login', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'src/index.html'));
+// });
 
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login?err',
-  //session: false
-}));
+// app.post('/login', passport.authenticate('local', {
+//   successRedirect: '/',
+//   failureRedirect: '/login?err',
+//   //session: false
+// }));
 
-passport.serializeUser(function (user, done) {
-  console.log(user);
-  return done(null, user);
-});
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
-app.get('/userDetails', function (req, res){
-  if (req.isAuthenticated()){
-    res.send(req.user);
-  } else {
-    res.redirect('/login');
-  }
-});
-passport.use(new LocalStrategy(function(userName, password, done) {
-  if ((userName === "john") && (password === "password")) {
-    return done(null, { userName: userName, id: 1 });
-  } else {
-    return done(null, false);
-  }
-}));
-app.get('/logout', function (req, res) {
-  req.logout();
-  res.send('Logged out!');
-});
+// passport.serializeUser(function (user, done) {
+//   console.log(user);
+//   return done(null, user);
+// });
+// passport.deserializeUser(function(user, done) {
+//   done(null, user);
+// });
+// app.get('/userDetails', function (req, res){
+//   if (req.isAuthenticated()){
+//     res.send(req.user);
+//   } else {
+//     res.redirect('/login');
+//   }
+// });
+// passport.use(new LocalStrategy(function(userName, password, done) {
+//   if ((userName === "john") && (password === "password")) {
+//     return done(null, { userName: userName, id: 1 });
+//   } else {
+//     return done(null, false);
+//   }
+// }));
+// app.get('/logout', function (req, res) {
+//   req.logout();
+//   res.send('Logged out!');
+// });
 
+
+// // passport.use(new LocalStrategy(
+// //   function(userName,password,done){
+// //     user.getOneUser(userName,password).then((user)=>{
+// //       console.log(user)
+// //       // if(err){return done(err)}   
+// //       // else if(!user){return done(null,false)
+// //       // if(!user.verifyPassword(password)){return done(null,false)};
+// //       return done(null,user)
+// //     }
+// //     )}
+// // ))
 
 // passport.use(new LocalStrategy(
-//   function(userName,password,done){
-//     user.getOneUser(userName,password).then((user)=>{
-//       console.log(user)
-//       // if(err){return done(err)}   
-//       // else if(!user){return done(null,false)
-//       // if(!user.verifyPassword(password)){return done(null,false)};
-//       return done(null,user)
-//     }
-//     )}
-// ))
+//   function(userName, password, done) {
+//     user.getOneUser({
+//       userName: userName
+//       }, function(err, user) {
+//         if (err) {
+//           return done(err);
+//         }
 
-passport.use(new LocalStrategy(
-  function(userName, password, done) {
-    user.getOneUser({
-      userName: userName
-      }, function(err, user) {
-        if (err) {
-          return done(err);
-        }
+//         if (!user) {
+//           return done(null, false);
+//         }
 
-        if (!user) {
-          return done(null, false);
-        }
+//         if (user.password != password) {
+//           return done(null, false);
+//         }
+//         return done(null, user);
+//       });
+//   }
+// ));
+// app.post('/',
+//   passport.authenticate('local', { failureRedirect: '/error' }),
+//   function(req, res) {
+//     res.redirect('/success?userName='+req.user.userName);
+//   });
+//   app.get('/login', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'src/error.html'));
+//   });
 
-        if (user.password != password) {
-          return done(null, false);
-        }
-        return done(null, user);
-      });
-  }
-));
-app.post('/',
-  passport.authenticate('local', { failureRedirect: '/error' }),
-  function(req, res) {
-    res.redirect('/success?userName='+req.user.userName);
-  });
-  app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src/error.html'));
-  });
-
-  app.use(express.static(path.join(__dirname, 'dist')));
-/////
-// Catch all other routes and return the index file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname,'src/error.html'));
-});
+//   app.use(express.static(path.join(__dirname, 'dist')));
+// /////
+// // Catch all other routes and return the index file
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname,'src/error.html'));
+// });
 
 //send SMS
 app.post('/send', (req, res) => {
