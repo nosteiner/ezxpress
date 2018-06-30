@@ -41,11 +41,11 @@ values
 ('Tamar','Dir','morangozlan@hotmail.com','053-4740090',4,true);
 
 insert into motoboys
-(idNumber,firstName,lastName,email,phoneNumber,rate,active)
+(firstName,lastName,email,phoneNumber,rate,active)
 values
 ('301459848','Kim','Dror','morangozlan@hotmail.com','053-4740090',3,true);
 insert into motoboys
-(idNumber,firstName,lastName,email,phoneNumber,rate,active)
+(firstName,lastName,email,phoneNumber,rate,active)
 values
 ('301459848','Lavi','Dan','morangozlan@hotmail.com','053-4740090',5,true);
 

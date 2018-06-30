@@ -37,6 +37,7 @@ import { TableComponent } from './table/table.component';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import { OrdersService } from './orders.service';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -53,7 +54,8 @@ import { ProfileComponent } from './profile/profile.component';
     MotoShareLiveLocationComponent,
     TableComponent,
     OrderDialogComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent
 
   ],
   imports: [
