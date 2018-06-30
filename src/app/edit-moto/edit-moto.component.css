@@ -7,15 +7,15 @@
     display: flex;
     flex-direction: row;
   }
-  .client-container {
+  .motoboy-container {
       display: flex;
       flex-direction: column;
       width: 40%;
       padding-top: 2%;
       padding-bottom: 2%;
     }
-    .client-container > * {
-      width: 90%;
+    .motoboy-container > * {
+      width: 100%;
     }
     span {
     color: #5f7a7a;
@@ -30,7 +30,7 @@
   .space1{
     width:30%;
     }
- 
+  
     .space{
       width:10%;
     }

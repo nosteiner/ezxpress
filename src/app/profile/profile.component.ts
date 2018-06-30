@@ -15,7 +15,7 @@ import { CustomerService } from '../customer.service';
 })
 export class ProfileComponent implements OnInit {
   
-  currentUser
+  currentUser = {} ;
 
   rating: number = 3;
   starCount: number = 0;
@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
     this.motoService.singleMotoObservable.subscribe((data) => {
       this.currentUser = data;
       console.log(this.currentUser)
-      this.rating= this.currentUser.rate
+      //this.rating= this.currentUser.rate ;
     })
     
     this.motoService.getMoto(1);

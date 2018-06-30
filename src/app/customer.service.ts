@@ -46,12 +46,20 @@ export class CustomerService {
     
   }
 
+  
+  updateUstomer(currentCustomer) {
+    let id = currentCustomer.customerId
+    this.http.put<Customer>('customersApi/update/' + id, { customer: currentCustomer }).subscribe((data) => {
+      this.currentCustomer = data;
+      this.singleCustomerSubject.next(data);
+    })
+  }
+
   deleteCustomer(currentCustomer) {
     console.log("inside delete")
     let id = currentCustomer.customerId
     currentCustomer.active =false ;
     this.http.put<Customer>('customersApi/delete/' + id, { customer: currentCustomer }).subscribe((data) => {
-      //update motoboys array
       this.currentCustomer = data;
       this.singleCustomerSubject.next(data);
      

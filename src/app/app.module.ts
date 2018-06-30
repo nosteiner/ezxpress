@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatSelectModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction'
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -38,7 +38,8 @@ import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import { OrdersService } from './orders.service';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
-
+import { EditMotoComponent } from './edit-moto/edit-moto.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 
 @NgModule({
@@ -55,8 +56,10 @@ import { LoginComponent } from './login/login.component';
     TableComponent,
     OrderDialogComponent,
     ProfileComponent,
-    LoginComponent
-
+    LoginComponent,
+    EditMotoComponent,
+    EditCustomerComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -83,8 +86,9 @@ import { LoginComponent } from './login/login.component';
     MatTableModule, 
     MatSortModule,
     MatDialogModule,
-    FileUploadModule
-
+    FileUploadModule,
+    ReactiveFormsModule,
+    MatSelectModule,
 
     
   ],
