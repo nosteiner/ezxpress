@@ -17,3 +17,17 @@ h1{
     text-align: center;
     color: #3f51b5;;
 }
+.main2{
+    width: 60%; 
+    display: flex;
+    flex-direction: row; 
+    margin: auto;
+    padding: 30px;
+    padding-top: 60px; 
+}
+.space2{
+    width: 20%; 
+}
+.space3{
+    width: 10%; 
+}

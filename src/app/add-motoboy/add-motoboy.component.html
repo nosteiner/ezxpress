@@ -1,40 +1,53 @@
+<div class="main">
+<div class = "space1"></div>
 <div class="motoboy-container">
-      <mat-form-field>
-        <input matInput [(ngModel)]= user.userName placeholder="User Name">
-      </mat-form-field>
 
+    <h1>Register as a Motoboy</h1>
+
+  <mat-card>
+
+    <div class="row">
+  <mat-form-field>
+       <input matInput [(ngModel)]= user.userName placeholder="User Name">
+  </mat-form-field>
+  <div class = "space"></div>
   <mat-form-field>
     <input matInput [(ngModel)]= motoboy.email placeholder="Email">
   </mat-form-field>
 
-  <mat-form-field>
-    <input matInput [(ngModel)]= motoboy.firstName placeholder="First Name">
-  </mat-form-field>
+  </div>
 
-  <mat-form-field>
-    <input matInput [(ngModel)]= motoboy.lastName placeholder="Last Name">
-  </mat-form-field>
+  <div class="row">
+      <mat-form-field>
+        <input matInput [(ngModel)]= motoboy.firstName placeholder="First Name">
+      </mat-form-field>
+      <div class = "space"></div>
+      <mat-form-field>
+        <input matInput [(ngModel)]= motoboy.lastName placeholder="Last Name">
+      </mat-form-field>
+  </div>
 
-  <mat-form-field>
-    <input matInput [(ngModel)]= motoboy.phoneNumber placeholder="Phone Number">
-  </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]= motoboy.phoneNumber placeholder="Phone Number">
+      </mat-form-field>
+      <div class = "space"></div>
 
-  <mat-form-field>
-      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-  </mat-form-field>
+      <div class="row">
+            <mat-form-field>
+                <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+            <div class = "space"></div>
+        <mat-form-field>
+            <input matInput [(ngModel)]= user.password placeholder="Confirm your password" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </mat-form-field>
+      
+        </div>
 
-  <mat-form-field>
-      <input matInput [(ngModel)]= user.password placeholder="Confirm your password" [type]="hide ? 'password' : 'text'">
-      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-  </mat-form-field>
-
-
-
-  <span>Photo</span>
+  <span> Add Photo</span>
     <input classe=" inputFile" (change)="onPhotofile($event)" type="file">
     
-
    <!-- <span>PhotoID</span>
     <input classe=" inputFile" type="file"> -->
 
@@ -42,5 +55,13 @@
     <input matInput [(ngModel)]= motoboy.photoId placeholder="Photo ID">
   </mat-form-field> -->
 
+  <div class="SubmitRow">
+      <div class = "space"></div>
+      <div class = "space"></div>
+      <div class = "space"></div>
   <button class="btn" (click)='submitMotoBoy()' mat-raised-button color="accent">Submit</button>
+  </div>
+</mat-card>
+</div>
+<div class = "space1"></div>
 </div>
