@@ -28,15 +28,12 @@ const user = require('./server/DataAccsess/users')
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-//auth-7 lines
-app.use(expressSession({
-  secret: 'thisIsASecret',
-  resave: false,
-  saveUninitialized: false
-}));
+//Authentication middleware
+app.use(expressSession({ secret: 'thisIsASecret', resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
-//app.use(passport.session());
+
+
+app.use(passport.session());
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/ezxpress')));
@@ -53,32 +50,49 @@ app.use('/ordersApi', ordersAPI);
 app.use('/usersApi', usersAPI);
 
 // /////////////////////////////////////////////////////////////////////////authenticat util send SMS
-// app.get('/login', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'src/index.html'));
-// });
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/ezxpress/index.html'));
+});
+
+passport.serializeUser(function(user, done) {
+    console.log(user);
+  done(null, user);
+});
+
+passport.use(new LocalStrategy(
+  function(username,password,done){
+    console.log('inside local strategy');
+    user.getOneUser(username,password).then((user)=>{
+      console.log(user)
+      // if(err){return done(err)}   
+      // else if(!user){return done(null,false)
+      // if(!user.verifyPassword(password)){return done(null,false)};
+      return done(null,{username: user.username, id: user.id })
+    }
+    )}
+));
+// passport.use(new LocalStrategy(
+// //    { passReqToCallback : true},
+//   function(username, password, done) {  
+//     if ((username === "f") && (password === "f")) {
+//       return done(null, { username: username, id: 1 });
+//     } else {
+//       return done(null, false, "Failed to login.");
+//     }
+//   }
+// ));
+
 
 app.post('/login', passport.authenticate('local', {
-  successRedirect: 'https://www.walla.co.il',
-  failureRedirect: '/login?err',
- session: false
- }));
-  
- passport.use(new LocalStrategy(function(userName, password, done) {
-   debugger;
-  if ((userName === "t") && (password === "t")) {
-    return done(null, { userName: userName, id: 1 });
-  } else {
-    return done(null, false);
-  }
+  successRedirect: '/',
+  failureRedirect: '/login?err'
 }));
 
-// passport.serializeUser(function (user, done) {
-//   console.log(user);
-//   return done(null, user);
-// });
-// passport.deserializeUser(function(user, done) {
-//   done(null, user);
-// });
+  
+ 
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 // app.get('/userDetails', function (req, res){
 //   if (req.isAuthenticated()){
 //     res.send(req.user);
@@ -93,17 +107,7 @@ app.post('/login', passport.authenticate('local', {
 // });
 
 
-// // passport.use(new LocalStrategy(
-// //   function(userName,password,done){
-// //     user.getOneUser(userName,password).then((user)=>{
-// //       console.log(user)
-// //       // if(err){return done(err)}   
-// //       // else if(!user){return done(null,false)
-// //       // if(!user.verifyPassword(password)){return done(null,false)};
-// //       return done(null,user)
-// //     }
-// //     )}
-// // ))
+
 
 // passport.use(new LocalStrategy(
 //   function(userName, password, done) {
@@ -130,17 +134,11 @@ app.post('/login', passport.authenticate('local', {
 //   function(req, res) {
 //     res.redirect('/success?userName='+req.user.userName);
 //   });
-//   app.get('/login', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'src/error.html'));
-//   });
+  app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src/error.html'));
+  });
 
-
-// /////
-// Catch all other routes and return the index file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname,'src/error.html'));
-});
-
+ 
 //send SMS
 app.post('/send', (req, res) => {
   nexmo.message.sendSms(req.body.from, req.body.to, req.body.text)
@@ -182,9 +180,6 @@ app.set('port', port);
  * Create HTTP server.
  */
 const server = http.createServer(app);
-
-
-
 
 /**
  * Listen on provided port, on all network interfaces.

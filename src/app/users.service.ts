@@ -33,8 +33,7 @@ export class UsersService {
   // }
 
   Login(userName, password) {
-    debugger;
-    this.http.post('/login', { userName: userName, password: password },{responseType: 'text'}).subscribe((data) => {
+    this.http.post<string>('/login', { username: userName, password: password }).subscribe((data) => {
       console.log(data)
       if (data === 'false') {
         console.log('sucsses')
