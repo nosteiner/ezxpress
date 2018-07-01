@@ -9,12 +9,12 @@ class User {
     }
     initCustomer() {
         let user = DA.connection.define('users', {
+            id: { type: Sequelize.INTEGER, primaryKey: true },
             userName: Sequelize.STRING,
             password: Sequelize.STRING,
             customerId: { type: Sequelize.INTEGER, references: { model: customers, key: 'customerId' }},
             motoboyId: { type: Sequelize.INTEGER, references: { model: motoboys, key: 'motoboyId' }},
-            rate: Sequelize.INTEGER,
-            active : Sequelize.BOOLEAN
+           
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
@@ -24,10 +24,10 @@ class User {
         return user;
     }
 
-    getOneUser(userName, password) {
+    getOneUser(username, password) {
         return this.model.findOne({
           where: {
-            userName: userName,
+            userName: username,
             password: password
           }
         });

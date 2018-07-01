@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'app-edit-moto', component: EditMotoComponent},
   { path: 'app-edit-customer', component: EditCustomerComponent},
+  { path: 'table', component: TableComponent },
 
   
 ];
