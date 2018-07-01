@@ -47,6 +47,8 @@ class Order {
         return this.model.findAll({ include: [Customer.model, Motoboy.model] });
     }
     create(data){
+        console.log('entei new order')
+        console.log(data)
         return this.model.create(data);
     }
     update(newData,id){

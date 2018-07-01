@@ -19,6 +19,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 //import {AccordionModule} from 'primeng/accordion';  
 import {FileUploadModule} from 'primeng/fileupload';
+import { SignaturePadModule } from 'angular2-signaturepad';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 import { AppComponent } from './app.component';
@@ -37,6 +39,10 @@ import { TableComponent } from './table/table.component';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import { OrdersService } from './orders.service';
 import { ProfileComponent } from './profile/profile.component';
+import { SignatureComponent } from './signature/signature.component';
+import { OrderdeliveredComponent } from './orderdelivered/orderdelivered.component';
+
+
 
 
 
@@ -53,7 +59,11 @@ import { ProfileComponent } from './profile/profile.component';
     MotoShareLiveLocationComponent,
     TableComponent,
     OrderDialogComponent,
-    ProfileComponent
+    ProfileComponent,
+    SignatureComponent,
+    OrderdeliveredComponent
+    
+    
 
   ],
   imports: [
@@ -81,7 +91,9 @@ import { ProfileComponent } from './profile/profile.component';
     MatTableModule, 
     MatSortModule,
     MatDialogModule,
-    FileUploadModule
+    FileUploadModule,
+    SignaturePadModule,
+    MatProgressSpinnerModule
 
 
     
