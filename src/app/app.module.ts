@@ -19,6 +19,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 //import {AccordionModule} from 'primeng/accordion';  
 import {FileUploadModule} from 'primeng/fileupload';
+import { SignaturePadModule } from 'angular2-signaturepad';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 import { AppComponent } from './app.component';
@@ -37,9 +39,14 @@ import { TableComponent } from './table/table.component';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import { OrdersService } from './orders.service';
 import { ProfileComponent } from './profile/profile.component';
+
+import { SignatureComponent } from './signature/signature.component';
+import { OrderdeliveredComponent } from './orderdelivered/orderdelivered.component';
+
 import { LoginComponent } from './login/login.component';
 import { EditMotoComponent } from './edit-moto/edit-moto.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+
 
 
 @NgModule({
@@ -56,10 +63,12 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     TableComponent,
     OrderDialogComponent,
     ProfileComponent,
+    SignatureComponent,
+    OrderdeliveredComponent
     LoginComponent,
     EditMotoComponent,
     EditCustomerComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -87,8 +96,11 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     MatSortModule,
     MatDialogModule,
     FileUploadModule,
+    SignaturePadModule,
+    MatProgressSpinnerModule
     ReactiveFormsModule,
     MatSelectModule,
+
 
     
   ],

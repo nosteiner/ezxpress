@@ -4,8 +4,14 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
-var multer = require('multer');
+
 const app = express();
+
+const multer = require('multer');
+const nodemailer = require('nodemailer');
+const inlineBase64 = require('nodemailer-plugin-inline-base64');
+
+
 
 // Get our API routes
 const commentsAPI = require('./server/routes/commentsApi');
@@ -113,10 +119,51 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 
 app.post('/uploadPhoto', upload.single('uploads'), function(req, res, next) {
-  console.log("updating photo ////")
-  console.log(req.body)
-  console.log(req.file)
+  console.log("upload photo ////")
+  // console.log(req.body)
+  // console.log(req.file)
    
+});
+
+app.post('/uploadSign', upload.single('uploads'), function(req, res, next) {
+  console.log("upload Sign ////")
+  // console.log(req.body)
+  // console.log(req.file)
+   
+});
+
+// Send Email 
+
+app.post('/sendEmail', (req, res) => {
+      console.log(req.body.sign)
+  
+
+
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'ezxpressisrael@gmail.com',
+          pass: '1Qazxsw@'
+        }
+      });
+
+      var mailOptions = {
+        from: 'ezxpressisrael@gmail.com',
+        to: 'dchuwer@gmail.com',
+        subject: 'Delvery Confirmation',
+        html: '<h1>Your Order was Delivered</h1>'+
+          '<p>That was easy!</p>'+
+          '<img src="'+req.body.sign+'"/>'
+      };
+      transporter.use('compile', inlineBase64({cidPrefix: 'somePrefix_'}));
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+
 });
 
 // Catch all other routes and return the index file

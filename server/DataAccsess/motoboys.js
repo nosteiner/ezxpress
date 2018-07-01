@@ -13,7 +13,7 @@ class MotoBoy {
             email: Sequelize.STRING,
             phoneNumber: Sequelize.STRING,
             rate: Sequelize.INTEGER,
-            photo: Sequelize.STRING,
+            
             latitude: Sequelize.FLOAT,
             longitude: Sequelize.FLOAT,
             active : Sequelize.BOOLEAN,
@@ -56,7 +56,8 @@ class MotoBoy {
 
      var attributes = Object.keys(this.model.attributes);
      var location = Sequelize.literal(`ST_GeomFromText('POINT(${lng} ${lat})')`);
-     var distance = Sequelize.fn('ST_Distance_Sphere', Sequelize.literal('position'), location);
+     //var distance = Sequelize.literal("( 6371 * acos( cos( radians("+lat+" ) )* cos( radians( Sequelize.literal('latitude')  ) )* cos( radians(Sequelize.literal('longitude')  ) - radians("+lng+" ) ) + sin( radians("+lat+" ) )* sin( radians(Sequelize.literal('latitude')  ) ) ) ) " );
+     var distance = Sequelize.fn('ST_Distance', Sequelize.literal('position'), location);
      attributes.push([distance,'distance']);
  
       return this.model.findAll({  
