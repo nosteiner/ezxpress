@@ -46,7 +46,11 @@ import { OrderdeliveredComponent } from './orderdelivered/orderdelivered.compone
 import { LoginComponent } from './login/login.component';
 import { EditMotoComponent } from './edit-moto/edit-moto.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
-
+import { UserConnectedComponent } from './user-connected/user-connected.component';
+import { StarsComponent } from './stars/stars.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { StepperComponent } from './stepper/stepper.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -68,6 +72,10 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     LoginComponent,
     EditMotoComponent,
     EditCustomerComponent,
+    UserConnectedComponent,
+    StarsComponent,
+    StepperComponent,
+    
 
   ],
   imports: [
@@ -100,7 +108,8 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatSelectModule,
-
+    MatRadioModule,
+    MatStepperModule
 
     
   ],
