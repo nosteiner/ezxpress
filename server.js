@@ -67,78 +67,33 @@ passport.use(new LocalStrategy(
       // if(err){return done(err)}   
       // else if(!user){return done(null,false)
       // if(!user.verifyPassword(password)){return done(null,false)};
-      return done(null,{username: user.username, id: user.id })
+      return done(null,user)
     }
     )}
 ));
-// passport.use(new LocalStrategy(
-// //    { passReqToCallback : true},
-//   function(username, password, done) {  
-//     if ((username === "f") && (password === "f")) {
-//       return done(null, { username: username, id: 1 });
-//     } else {
-//       return done(null, false, "Failed to login.");
-//     }
-//   }
-// ));
 
-
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login?err'
-}));
+app.post('/login', function (req, res, next) {
+  passport.authenticate('local', function (err, user, info) {
+    if (err) {
+      console.log('err is ' + err);
+      return next(err)
+    }
+    console.log(user)
+    res.send(user)
+  })(req, res, next)
+ })
 
   
  
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
-// app.get('/userDetails', function (req, res){
-//   if (req.isAuthenticated()){
-//     res.send(req.user);
-//   } else {
-//     res.redirect('/login');
-//   }
-// });
 
-// app.get('/logout', function (req, res) {
-//   req.logout();
-//   res.send('Logged out!');
-// });
-
-
-
-
-// passport.use(new LocalStrategy(
-//   function(userName, password, done) {
-//     user.getOneUser({
-//       userName: userName
-//       }, function(err, user) {
-//         if (err) {
-//           return done(err);
-//         }
-
-//         if (!user) {
-//           return done(null, false);
-//         }
-
-//         if (user.password != password) {
-//           return done(null, false);
-//         }
-//         return done(null, user);
-//       });
-//   }
-// ));
-// app.post('/',
-//   passport.authenticate('local', { failureRedirect: '/error' }),
-//   function(req, res) {
-//     res.redirect('/success?userName='+req.user.userName);
-//   });
   app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'src/error.html'));
   });
 
- 
+
 //send SMS
 app.post('/send', (req, res) => {
   nexmo.message.sendSms(req.body.from, req.body.to, req.body.text)

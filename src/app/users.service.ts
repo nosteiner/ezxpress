@@ -20,24 +20,13 @@ export class UsersService {
 
   constructor(private http: HttpClient,private router: Router) { }
 
-  // Login(userName, password) {
-  //   this.http.post('/login', { userName: userName, password: password }).subscribe((data) => {
-  //     if (data === false) {
-  //       this.router.navigate([''])        
-  //       alert('user name or password not correct, Please try again')
-  //     } else {
-  //       this.router.navigate(['./error.html'])
-  //       //need to check this function is we have issues with the login autherntication
-  //     }
-  //   })
-  // }
 
   Login(userName, password) {
-    this.http.post<string>('/login', { username: userName, password: password }).subscribe((data) => {
+    this.http.post<User>('/login', { username: userName, password: password }).subscribe((data) => {
       console.log(data)
-      if (data === 'false') {
+      if (data.userName === userName) {
         console.log('sucsses')
-        this.router.navigate([''])        
+        this.router.navigate(['/'])        
       } else {
         alert('user name or password  is not correct, Please try again')
         this.router.navigate(['./error.html'])
