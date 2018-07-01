@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatSelectModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction'
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -39,10 +39,13 @@ import { TableComponent } from './table/table.component';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import { OrdersService } from './orders.service';
 import { ProfileComponent } from './profile/profile.component';
+
 import { SignatureComponent } from './signature/signature.component';
 import { OrderdeliveredComponent } from './orderdelivered/orderdelivered.component';
 
-
+import { LoginComponent } from './login/login.component';
+import { EditMotoComponent } from './edit-moto/edit-moto.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 
 
@@ -62,8 +65,9 @@ import { OrderdeliveredComponent } from './orderdelivered/orderdelivered.compone
     ProfileComponent,
     SignatureComponent,
     OrderdeliveredComponent
-    
-    
+    LoginComponent,
+    EditMotoComponent,
+    EditCustomerComponent,
 
   ],
   imports: [
@@ -94,6 +98,8 @@ import { OrderdeliveredComponent } from './orderdelivered/orderdelivered.compone
     FileUploadModule,
     SignaturePadModule,
     MatProgressSpinnerModule
+    ReactiveFormsModule,
+    MatSelectModule,
 
 
     

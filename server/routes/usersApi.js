@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
     })
 });
 
+
 router.get('/:id', (req, res) => {
     var users = users.getOneById(req.params.id).then((data)=>{
         console.log(data)

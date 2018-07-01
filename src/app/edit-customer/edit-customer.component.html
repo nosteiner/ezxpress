@@ -1,0 +1,59 @@
+<div class="main">
+    <div class="space1"></div>
+  
+    <div class="client-container">
+        <h1><mat-icon>edit</mat-icon>Edit your profile</h1>
+  
+      <mat-card>
+        <div class="row">
+          <mat-form-field>
+            <input matInput [(ngModel)]=user.userName placeholder="User Name">
+          </mat-form-field>
+          <div class="space"></div>
+          <mat-form-field>
+            <input matInput [(ngModel)]=editedClient.firstName placeholder="First Name">
+          </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <mat-form-field>
+            <input matInput [(ngModel)]=editedClient.lastName placeholder="Last Name">
+          </mat-form-field>
+          <div class="space"></div>
+          <mat-form-field>
+            <input matInput [(ngModel)]=editedClient.email placeholder="Email">
+          </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <mat-form-field>
+            <input matInput [(ngModel)]=editedClient.phoneNumber placeholder="Phone Number">
+          </mat-form-field>
+          <div class="space"></div>
+          <mat-form-field>
+            <input matInput [(ngModel)]=editedClient.address placeholder="Address">
+          </mat-form-field>
+        </div>
+  
+  
+        <div class="row">
+          <mat-form-field>
+            <input matInput [(ngModel)]=password placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+          <div class="space"></div>
+          <mat-form-field>
+            <input matInput [(ngModel)]=user.password placeholder="Confirm your password" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+        </div>
+  
+  
+        <div class="SubmitRow">
+            <button class="btn" (click)='submitEdit()' mat-raised-button color="accent">Save changes</button>        </div>
+  
+    </mat-card>
+  </div>
+  
+  
+  </div>

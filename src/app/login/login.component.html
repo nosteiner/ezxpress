@@ -1,0 +1,50 @@
+
+<!-- <mat-toolbar color="primary">
+  <mat-toolbar-row>
+  <button mat-button class="home" routerLink = "/"><i class="fa fa-home fa-3x" ></i></button>      
+  </mat-toolbar-row>
+</mat-toolbar> -->
+<div *ngIf="toogle==0" >
+<div class="space"></div>
+<div  class="main"  >
+<mat-card class="example-container">
+  <h1>Please login</h1>
+  <mat-form-field>
+    <input matInput placeholder="User name" [(ngModel)]="username">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  </mat-form-field>
+</mat-card>
+<mat-card class="form-buttons">
+  <button mat-button color="primary" type="button" (click)="login()">Login</button> or
+  <button mat-button color="primary" type="button" (click)="signup()">Register</button>
+</mat-card>
+</div>
+<div class="space"></div>
+</div>
+
+<div *ngIf="toogle==1" >
+
+<div class="space2"></div>
+<div  class="main2">
+    <mat-card class="form-buttons">
+        <button  mat-button  color="primary"  type="button" class="white-icon" routerLink="/add-motoboy">
+          <mat-icon>motorcycle</mat-icon>
+          <span>Register as A Motoboy</span>
+      </button>
+    </mat-card>
+
+    <div class="space3"></div>
+    
+  <mat-card>
+      <button   mat-button  color="primary"  type="button" class="white-icon" routerLink="/add-customer">
+        <mat-icon>add_to_photos</mat-icon>
+        <span> Register as A New Customer</span>
+    </button>
+    </mat-card>
+</div>
+<div class="space2"></div>
+
+</div>

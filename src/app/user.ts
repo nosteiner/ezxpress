@@ -2,7 +2,7 @@ export class User{
    
     userId  : number;
     userName :  string;
-    password :  number;
+    password :  string;
     customerId :  number;
     motoboyId :  number;
 

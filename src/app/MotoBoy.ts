@@ -2,7 +2,6 @@
 
 export class MotoBoy{
     motoboyId :number;
-    idNumber : string;
     firstName : string;
     lastName : string;
     email    : string;
