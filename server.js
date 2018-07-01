@@ -5,7 +5,7 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 var multer = require('multer');
-
+const app = express();
 
 // Get our API routes
 const commentsAPI = require('./server/routes/commentsApi');
@@ -16,32 +16,34 @@ const usersAPI = require('./server/routes/usersApi');
 
 
 const Sequelize = require('sequelize');
-const app = express();
 const Nexmo = require('nexmo');
 const nexmo = require('./server/DataAccsess/sms');
 
 //auth-4
-const passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 const expressSession = require('express-session');
+const passport = require('passport');
 const user = require('./server/DataAccsess/users')
-
 
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//auth-7 lines
+app.use(expressSession({
+  secret: 'thisIsASecret',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+//app.use(passport.session());
+
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/ezxpress')));
 
-// //auth-7 lines
-// app.use(expressSession({
-//   secret: 'thisIsASecret',
-//   resave: false,
-//   saveUninitialized: false
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+
+// // Point static path to dist
+// app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
 app.use('/commentsApi', commentsAPI); // use enables the midddleware, which is customerAPI
@@ -55,11 +57,20 @@ app.use('/usersApi', usersAPI);
 //   res.sendFile(path.join(__dirname, 'src/index.html'));
 // });
 
-// app.post('/login', passport.authenticate('local', {
-//   successRedirect: '/',
-//   failureRedirect: '/login?err',
-//   //session: false
-// }));
+app.post('/login', passport.authenticate('local', {
+  successRedirect: 'https://www.walla.co.il',
+  failureRedirect: '/login?err',
+ session: false
+ }));
+  
+ passport.use(new LocalStrategy(function(userName, password, done) {
+   debugger;
+  if ((userName === "t") && (password === "t")) {
+    return done(null, { userName: userName, id: 1 });
+  } else {
+    return done(null, false);
+  }
+}));
 
 // passport.serializeUser(function (user, done) {
 //   console.log(user);
@@ -75,13 +86,7 @@ app.use('/usersApi', usersAPI);
 //     res.redirect('/login');
 //   }
 // });
-// passport.use(new LocalStrategy(function(userName, password, done) {
-//   if ((userName === "john") && (password === "password")) {
-//     return done(null, { userName: userName, id: 1 });
-//   } else {
-//     return done(null, false);
-//   }
-// }));
+
 // app.get('/logout', function (req, res) {
 //   req.logout();
 //   res.send('Logged out!');
@@ -129,12 +134,12 @@ app.use('/usersApi', usersAPI);
 //     res.sendFile(path.join(__dirname, 'src/error.html'));
 //   });
 
-//   app.use(express.static(path.join(__dirname, 'dist')));
+
 // /////
-// // Catch all other routes and return the index file
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname,'src/error.html'));
-// });
+// Catch all other routes and return the index file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname,'src/error.html'));
+});
 
 //send SMS
 app.post('/send', (req, res) => {

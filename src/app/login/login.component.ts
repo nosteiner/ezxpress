@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
 
   customer :Customer
   hide = true;
-  userName;
-  password;
+  userName = '';
+  password = '';
   toogle =0;
   constructor(
     private usersService:UsersService,
@@ -41,7 +41,8 @@ export class LoginComponent implements OnInit {
   //   });
   // }
   login(){
-    this.usersService.Login(this.userName,this.password)
+    console.log(this.userName,this.password);
+    this.usersService.Login(this.userName,this.password);
   }
   signup(){
     if (this.toogle==1){
