@@ -93,15 +93,6 @@ export class MotoService {
   }
 
 
-  // checkGoogleAddress(localAddress) {
-  //   var geocoder: google.maps.Geocoder = new google.maps.Geocoder;
-  //   // console.log(localAddress)
-  //   geocoder.geocode({ address: localAddress }, (results) => {
-  //     this.currentMotoBoy.latitude = Number(results[0].geometry.location.lat);
-  //     this.currentMotoBoy.longitude = Number(results[0].geometry.location.lat);
-  //     // console.log(this.currentMotoBoy.latitude)
-  //   })
-  // }
 
   reverseAddress(lat, lng){
    
@@ -132,13 +123,43 @@ export class MotoService {
 
 
   getClosesMoto(lat, lng) {
+    let count = 0;
+    for ( let i=0 ; i < this.motoBoys.length; i++){
+      let distance = this.getDistanceFromLatLonInKm(lat,lng,this.motoBoys[i].latitude,this.motoBoys[i].longitude)
+      if (distance <= 1){ 
+      //send SMS to deliveries 
+      }
+    }
+    
 
-    this.http.get<Array<MotoBoy>>('motoboysApi/getClosesMoto/' + lat + '/' + lng).subscribe(data => {
-      // send SMS to deliveries in data if dat.length > 0
-      // console.log(data)
+    // //this.http.get<Array<MotoBoy>>('motoboysApi/getClosesMoto/' + lat + '/' + lng).subscribe(data => {
+    //  // send SMS to deliveries in data if dat.length > 0
+    //   console.log(data)
              
-    })
+    // })
   }
+
+  // Fucntions to Calculate a distance between 2 points =====>
+
+  getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+    var R = 6371; // Radius of the earth in km
+    var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = this.deg2rad(lon2-lon1); 
+    var a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ; 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; // Distance in km
+    return d;
+  }
+  
+ deg2rad(deg) {
+    return deg * (Math.PI/180)
+  }
+
+/// ================>
 
   uploadPhoto(photoFile) {
     
