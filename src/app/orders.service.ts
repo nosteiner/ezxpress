@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class OrdersService {
-
+  formData: any = new FormData();
   allOrders: Array<Order> = [];
   allOrdersSbject: Subject<Order[]> = new Subject<Order[]>();
   allOrdersObservable: Observable<Order[]>;
@@ -25,6 +25,10 @@ export class OrdersService {
       console.log(orders)
       this.allOrdersSbject.next(orders)
     })
+  }
+  
+  findOrder(order_id) {  
+    return this.allOrders.find( order => order.orderId == order_id )
   }
   
   addNewOrder(order){
@@ -85,5 +89,20 @@ export class OrdersService {
     order.status = 1;
     //Needs to be define 
     //sendNotificationToclient(order){}
+  }
+
+
+  uploadSignature(signFile) {
+    console.log(signFile)
+    let sendFile = {sign: signFile }
+    let orderId = 1
+    let signFileName = orderId + 'sign.png'
+    this.formData.append("uploads", signFile, signFileName);
+    this.http.post('/sendEmail', sendFile).subscribe((data) => {
+    //this.http.post('uploadSign', this.formData).subscribe((data) => {
+      //update motoboys array?
+      //this.currentMotoBoy = data;
+    })
+        
   }
 }

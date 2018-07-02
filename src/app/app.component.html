@@ -7,7 +7,7 @@
     <h2>Because it's easy to receive your packet with our service</h2>
 </div>
 <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon >more_vert</mat-icon>
+    <mat-icon >reorder</mat-icon>
   </button>
   <mat-menu #menu="matMenu" class="w3-theme">
     <button class="white-icon" mat-menu-item routerLink="">
@@ -34,9 +34,14 @@
         <mat-icon>how_to_reg</mat-icon>
         <span>login</span>
     </button>
+    <button class="white-icon" mat-menu-item routerLink="/table">
+        <mat-icon>mail</mat-icon>
+        <span> My orders</span>
+    </button>
   </mat-menu>
 </div>
 <router-outlet></router-outlet>
+<app-orderdelivered></app-orderdelivered>
 
 
 

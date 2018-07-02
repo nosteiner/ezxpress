@@ -35,9 +35,14 @@ img {
 
  .app-map{ flex: 1; }
 
-
+#minimumPrice{
+  font-style: italic;
+  font-size: 18px;
+}
  
-
+#spinner{
+  margin-left: 10px;
+}
   label > input{ /* HIDE RADIO */
     visibility: hidden; /* Makes input not-clickable */
     position: absolute; /* Remove input from document flow */

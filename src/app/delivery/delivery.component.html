@@ -15,6 +15,7 @@
     <br>
     <div type-cargo>
       <h2> Type of Delivery</h2>
+      <mat-spinner id="spinner" *ngIf='this.calcOrder == true' [color]="color" [mode]="mode" [value]="value"></mat-spinner>
       <div id="labels" fxLayout="row" fxLayoutAlign="space-around center" >
         <label>
           <input type="radio" name="order.deliveryType" [checked]="order.deliveryType === 'envelope'" (change)="setValue('envelope')"  value="envelope" />
@@ -30,8 +31,11 @@
       <button class="btn" *ngIf="(this.order.deliveryType != undefined)" (click)='calculateRate()' mat-raised-button color="primary">Calculate</button>
     </div>
     <div id="price" *ngIf="this.order.price > 0">
-      <h2> Price : {{ order.price | currency:"₪"}} </h2>
+      <h2> Distance: {{ dist }} Km</h2>
+      <h2> Price : {{ order.price | currency:"₪"}} <span id="minimumPrice" *ngIf="this.dist<=4"> - Minimum Price</span> </h2>
+      
       <button class="btn" (click)='confirmOrder()' mat-raised-button color="primary">Confirm</button>
+     
       <button class="btn" routerLink='/' mat-raised-button color="accent">Cancel</button>
     </div>
 

@@ -1,0 +1,27 @@
+<mat-card class="order-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title><h1>Order Delivered</h1></mat-card-title>
+    
+  </mat-card-header>
+  
+  <mat-card-content>
+    <p>
+      Customer: David Chuwer  <!--{{ firstname}}{{lastname}} --> 
+      From: Hayesod 4, Tel Aviv<!--{{order.localAddress}}--> 
+      To: Michael Kleiman<!--{{order.contact}}--> 
+      Address: Dizengoff 12, Tel Aviv<!--{{order.destAddress}}--> 
+      Date: 30Jun2018<!--{{order.dateDelivery}}--> 
+
+      Date Received: 30 Jun 19
+
+
+    </p>
+
+    <app-signature></app-signature>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="btn" (click)='confirmDelivered()'  mat-raised-button color="primary">Confirm</button>
+    
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,40 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    background-color: lightskyblue
+  }
+  
+  .example-container > * {
+    /*width: 100%; */
+  }
+
+  mat-dialog-title {
+    display: flex;
+    flex-direction: column; 
+  }
+  .space{
+      width: 35%; 
+  }
+  h2{
+      text-align: center;
+      background-color:dodgerblue;
+      color: white;
+  }
+  label {
+    display: block; 
+    width: 200px;  
+    font:  bold 12px Georgia, serif;
+  }
+
+  span{
+      left: 200px !important;
+      width: 400px !important;  
+      color: white;
+      font: bold 13px Roboto, serif;
+  }
+
+  .close-button{
+    display: block;
+    background-color:dodgerblue;
+    color: white;
+  }

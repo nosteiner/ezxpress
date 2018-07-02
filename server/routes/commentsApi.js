@@ -8,13 +8,17 @@ router.get('/', (req, res) => {
     comments.getAll().then(data => {
         console.log('gggg'+ data)
     res.send(JSON.stringify(data));
-    })
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
 });
 
 router.post('/add', (req, res) => {
     comments.create(req.body).then(data => {
     res.send(JSON.stringify(data));
-  })
+  }).catch((error) => {
+    res.send("error:" + error)
+});
 });
 
 
@@ -39,7 +43,9 @@ router.post('/add', (req, res) => {
 router.delete('/delete/:id', (req, res) => {
     comments.delete(req.params.id).then(data => {
     res.send(JSON.stringify(data));
-    })
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
 });
 
 module.exports = router;

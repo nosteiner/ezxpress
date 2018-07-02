@@ -1,6 +1,6 @@
 export class User{
    
-    userId  : number;
+    id  : number;
     userName :  string;
     password :  string;
     customerId :  number;
@@ -9,3 +9,4 @@ export class User{
     constructor() {}
 
 }
+

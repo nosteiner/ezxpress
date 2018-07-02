@@ -18,9 +18,13 @@ export class DeliveryComponent implements OnInit {
   @ViewChild('search') public searchElement: ElementRef;
   @ViewChild(MaprouteComponent) mapRoute: MaprouteComponent; 
 
-localAddress : string
-
+  localAddress : string
+  dist: number;
   order: Order;
+  calcOrder: Boolean = false;
+  color = 'primary';
+  mode = 'determinate';
+  value = 50;
   
   constructor(private orderService : OrdersService, private motoService: MotoService, 
      private mapsApiLoader: MapsAPILoader, private ngZone: NgZone,
@@ -46,7 +50,7 @@ localAddress : string
   }
 
   calculateRate(){
-      
+    this.calcOrder = true;
     var localAddress = new google.maps.LatLng(this.order.latitudeOriginAddress,this.order.longitudeDestAddress)
     var destAddress = new google.maps.LatLng(this.order.latitudeDestAddress, this.order.longitudeDestAddress)
     var travelway = google.maps.TravelMode.DRIVING
@@ -61,14 +65,17 @@ localAddress : string
     directionsService.route(directionsRequest, (result, status) => {
       //if (status === 'OK') 
         
-        var dist = result.routes[0].legs[0].distance.value
+        this.dist = result.routes[0].legs[0].distance.value/1000
+        console.log(this.dist)
         
         if (this.order.deliveryType == "envelope") 
-           var multPrice = 0.005
+           var multPrice = 5
         else
-           var multPrice = 0.007
-        this.order.price = (dist) * multPrice;
-        
+           var multPrice = 7
+        if (this.dist <= 4) this.order.price = 20
+        else
+           this.order.price = (this.dist) * multPrice;
+        this.calcOrder = false;
         //this.mapRoute.showRoutes(result)
     }) 
   }
@@ -76,7 +83,7 @@ localAddress : string
   confirmOrder(){
     
     this.order.orderDate = new Date();
-    
+    this.orderService.addNewOrder(this.order)
    
     let dialogRef = this.dialog.open(OrderDialogComponent, {
       width: '500px'
