@@ -5,7 +5,9 @@ const users = require('../DataAccsess/users');
 router.get('/', (req, res) => { 
     users.getAll().then(data => {
     res.send(JSON.stringify(data));
-    })
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
 });
 
 
@@ -22,7 +24,9 @@ router.post('/add', (req, res) => {
     console.log('add new user' + req.body.position)
     users.create(req.body).then(data => {
     res.send(JSON.stringify(data));
-  })
+  }).catch((error) => {
+    res.send("error:" + error)
+});
 });
 router.put('/update/:id', (req, res) => {
     users.update(req.body.users, req.params.id).then(() => {
@@ -48,7 +52,9 @@ router.get('/getClosesMoto/:lat/:lng', (req, res) => {
 router.delete('/delete/:id', (req, res) => {
     user.delete(req.params.id).then(data => {
     res.send(JSON.stringify(data));
-    })
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
 });
 
 module.exports = router;

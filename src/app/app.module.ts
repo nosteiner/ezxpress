@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatSelectModule, MatDividerModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
@@ -17,10 +17,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material';
 import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
-//import {AccordionModule} from 'primeng/accordion';  
 import {FileUploadModule} from 'primeng/fileupload';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 import { AppComponent } from './app.component';
@@ -39,13 +39,17 @@ import { TableComponent } from './table/table.component';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import { OrdersService } from './orders.service';
 import { ProfileComponent } from './profile/profile.component';
-
 import { SignatureComponent } from './signature/signature.component';
 import { OrderdeliveredComponent } from './orderdelivered/orderdelivered.component';
-
 import { LoginComponent } from './login/login.component';
 import { EditMotoComponent } from './edit-moto/edit-moto.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { OrderScreenComponent } from './order-screen/order-screen.component';
+import { UserConnectedComponent } from './user-connected/user-connected.component';
+import { StarsComponent } from './stars/stars.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { StepperComponent } from './stepper/stepper.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 
@@ -68,6 +72,12 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     LoginComponent,
     EditMotoComponent,
     EditCustomerComponent,
+    OrderScreenComponent,
+    UserConnectedComponent,
+    StarsComponent,
+    StepperComponent
+
+    
 
   ],
   imports: [
@@ -96,15 +106,17 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     MatSortModule,
     MatDialogModule,
     FileUploadModule,
+    MatDividerModule,
     SignaturePadModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatSelectModule,
-
+    MatRadioModule,
+    MatStepperModule
 
     
   ],
-  entryComponents: [OrderDialogComponent],
+  entryComponents: [OrderDialogComponent, OrderScreenComponent],
   providers: [EzxpressService, MotoService, OrdersService],
   bootstrap: [AppComponent]
 })

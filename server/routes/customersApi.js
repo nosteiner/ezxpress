@@ -7,7 +7,9 @@ router.get('/', (req, res) => {
     customer.getAll().then(data => {
         console.log('get from customer Api'+ data);
     res.send(JSON.stringify(data));
-    })
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
 });
 
 
@@ -24,14 +26,18 @@ router.post('/add', (req, res) => {
     customer.create(req.body).then(data => {
     console.log('add from customer Api' + data);
     res.send(JSON.stringify(data));
-  })
+  }).catch((error) => {
+    res.send("error:" + error)
+});
 });
 router.put('/update/:id',(req,res)=>{
     console.log(req);
     customer.update(req.body,req.params.id).then(data => {
        console.log(data);
        res.send(JSON.stringify(data));  
-       })   
+       }).catch((error) => {
+        res.send("error:" + error)
+    });   
 });
 
 //delete

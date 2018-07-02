@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
 import { Order } from '../Order'
 import { Observable } from 'rxjs';
 import { OrdersService } from '../orders.service'
@@ -7,6 +8,8 @@ import { MotoBoy } from '../MotoBoy';
 import { MotoService } from '../moto.service';
 import { UsersService } from '../users.service';
 import { Customer } from '../customer';
+import { OrderScreenComponent } from '../order-screen/order-screen.component';
+
 
 @Component({
   selector: 'app-table',
@@ -14,16 +17,16 @@ import { Customer } from '../customer';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-
-  userType;
+userType;
+  order: Order;
   currentMotoBoy: MotoBoy = new MotoBoy();
   orders: Array<Order> = new Array<Order>();
-  dataSource = new MatTableDataSource(this.orders);
+  dataSource =  new MatTableDataSource(this.orders);
+  
+  displayedColumns = [];
 
-  displayedColumns = ['orderId', 'customerId', 'motoboyId', 'localAddress', 'destAddress', 'price', 'orderDate', 'active'];
-
-  constructor(private ordersService: OrdersService, private motoService: MotoService,private userService:UsersService) {
-
+  constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog, private userService:UsersService) {
+   
   }
 
   ngOnInit() {
@@ -45,7 +48,22 @@ export class TableComponent implements OnInit {
   }
 
   handleAsignToOrder(order) {
-this.ordersService.assignToOrder(order,this.currentMotoBoy);
+    this.ordersService.assignToOrder(order,this.currentMotoBoy);
+  }
+
+  editOrder(order_id){
+    let order = this.ordersService.findOrder(order_id)
+    //let companySelected = this.companyService.findCompany(client.company_id)
+    //client.company = companySelected.name;
+
+    let dialogRef = this.dialog.open(OrderScreenComponent, {
+      width: '600px',
+      data: order
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
   }
 
   applyFilter(filterValue: string) {
@@ -54,7 +72,6 @@ this.ordersService.assignToOrder(order,this.currentMotoBoy);
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-
   refresh(){
     this.ordersService.getAllOrders();
   }
@@ -72,5 +89,3 @@ this.ordersService.assignToOrder(order,this.currentMotoBoy);
       }
     }
 }
-
-
