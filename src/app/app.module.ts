@@ -10,7 +10,7 @@ import { AgmDirectionModule } from 'agm-direction'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -20,7 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {FileUploadModule} from 'primeng/fileupload';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+//import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 import { AppComponent } from './app.component';
@@ -50,6 +50,9 @@ import { StarsComponent } from './stars/stars.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { StepperComponent } from './stepper/stepper.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import { AuthService } from './auth.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthInterceptor } from '../../AuthInterceptor';
 
 
 
@@ -113,11 +116,17 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatSelectModule,
     MatRadioModule,
     MatStepperModule
+  
 
     
   ],
   entryComponents: [OrderDialogComponent, OrderScreenComponent],
-  providers: [EzxpressService, MotoService, OrdersService],
+  providers: [EzxpressService, MotoService, OrdersService, AuthService, JwtHelperService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

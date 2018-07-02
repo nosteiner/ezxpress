@@ -9,6 +9,7 @@ import {MotoBoy} from '../MotoBoy'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule, Routes ,Router} from '@angular/router';
 import { UsersService } from '../users.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,10 @@ import { UsersService } from '../users.service';
 })
 
 export class LoginComponent implements OnInit {
-
+ 
+  loginParms : Object;
+  tokenid : Object = {token: ''}
+  msg : string
   customer :Customer
   hide = true;
   userName = '';
@@ -28,10 +32,13 @@ export class LoginComponent implements OnInit {
     public customerService:CustomerService,
     public dialog: MatDialog,
     private router:Router,
-    
+    private authService : AuthService
   ) { }
 
   ngOnInit() {
+    
+    this.authService.msgUpdated.subscribe((data)=>{
+      this.msg = data; })
   }
   // openDialog(user) {
   //   console.log(user);
@@ -41,9 +48,13 @@ export class LoginComponent implements OnInit {
   //   });
   // }
   login(){
-    this.usersService.Login(this.userName,this.password);
+    this.loginParms = {username: this.userName, password: this.password}
+    this.authService.login(this.loginParms)
+    //this.authService.isLoggedIn();
+    
   }
   signup(){
+    //this.authService.isLoggedIn();
     if (this.toogle==1){
       this.toogle=0;
     }
