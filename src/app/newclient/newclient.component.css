@@ -32,13 +32,19 @@
     }
  
     .space{
-      width:10%;
+      width:15%;
     }
     h1{
       text-align: center;
       color: #3f51b5;;
   }
-  .SubmitRow{
-    float: right;;
-  
+
+  .btn{
+    width: 90%;
+  }
+  SubmitRow{
+    width: 90%;
+  }
+  .row{
+    width: 100%;
   }

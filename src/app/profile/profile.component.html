@@ -4,7 +4,9 @@
   <div  class="img-container">
         <div calss="pic">
               <img src='assets/uploads/{{currentUser.motoboyId}}.png'>
-         </div> 
+
+        </div>  
+
   </div>
 
   <div class="motoboy-container">
@@ -13,8 +15,11 @@
           <strong>Last Name:</strong><b><p>{{currentUser.lastName}}</p></b>
           <strong>Email:</strong><b><p>{{currentUser.email}}</p></b>
           <strong>PhoneNumber:</strong><b><p>{{currentUser.phoneNumber}}</p></b>
+        
                 <button mat-raised-button color="accent" routerLink="/app-edit-moto" >Edit</button>
+               
       </mat-card>
   </div>
+
   <div class = "space"></div>
 </div>
