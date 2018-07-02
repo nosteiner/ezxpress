@@ -84,13 +84,10 @@ app.post('/login', function (req, res, next) {
       console.log('err is ' + err);
       return next(err)
     }
-    console.log(user)
     res.send(user)
   })(req, res, next)
  })
 
-  
- 
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });

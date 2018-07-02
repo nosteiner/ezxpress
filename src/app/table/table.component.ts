@@ -6,6 +6,8 @@ import { OrdersService } from '../orders.service'
 import { MatTableDataSource } from '@angular/material';
 import { MotoBoy } from '../MotoBoy';
 import { MotoService } from '../moto.service';
+import { UsersService } from '../users.service';
+import { Customer } from '../customer';
 import { OrderScreenComponent } from '../order-screen/order-screen.component';
 
 
@@ -15,16 +17,15 @@ import { OrderScreenComponent } from '../order-screen/order-screen.component';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-
-
+userType;
   order: Order;
   currentMotoBoy: MotoBoy = new MotoBoy();
   orders: Array<Order> = new Array<Order>();
   dataSource =  new MatTableDataSource(this.orders);
   
-  displayedColumns = ['orderId', 'customerId', 'motoboyId', 'localAddress', 'destAddress', 'price', 'orderDate', 'status', 'active', 'actions'];
+  displayedColumns = [];
 
-  constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog) {
+  constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog, private userService:UsersService) {
    
   }
 
@@ -36,11 +37,16 @@ export class TableComponent implements OnInit {
       this.dataSource.data = data;
       console.log(this.dataSource.data)
     })
+this.getUserType();
+this.initColumns();
+
+    //nees to replace with current user
     this.motoService.singleMotoObservable.subscribe((data) => {
       this.currentMotoBoy = data;
       console.log(this.currentMotoBoy)
     })
   }
+
   handleAsignToOrder(order) {
     this.ordersService.assignToOrder(order,this.currentMotoBoy);
   }
@@ -66,4 +72,20 @@ export class TableComponent implements OnInit {
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+  refresh(){
+    this.ordersService.getAllOrders();
+  }
+
+  getUserType(){
+    // this.userType = typeof this.userService.currentUser
+    this.userType = "MotoBoy"
+    }
+  
+    initColumns(){
+      if(this.userType === "MotoBoy"){
+        this.displayedColumns = ['orderId', 'customerId', 'customerPhone' , 'localAddress', 'destAddress', 'orderDate', 'active']
+      }else if(this.userType === "Customer"){
+        this.displayedColumns = ['orderId', 'motoboyName' , 'localAddress', 'destAddress', 'orderDate']
+      }
+    }
 }
