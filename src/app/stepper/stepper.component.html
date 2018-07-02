@@ -1,19 +1,38 @@
+<ol class="progtrckr" data-progtrckr-steps="5">
+<div *ngIf="ststusId==1">
+    <li class="progtrckr-done">New order</li>
+    <li class="progtrckr-todo">wating for pickUp</li>
+    <li class="progtrckr-todo">On the way</li>
+    <li class="progtrckr-todo">Delivered</li>
+    <li class="progtrckr-todo">Closed</li>
+</div>
+<div *ngIf="ststusId==2">
+        <li class="progtrckr-done">New order</li>
+        <li class="progtrckr-done">wating for pickUp</li>
+        <li class="progtrckr-todo">On the way</li>
+        <li class="progtrckr-todo">Delivered</li>
+        <li class="progtrckr-todo">Closed</li>
+</div>
+<div *ngIf="ststusId==3">
+        <li class="progtrckr-done">New order</li>
+        <li class="progtrckr-done">wating for pickUp</li>
+        <li class="progtrckr-done">On the way</li>
+        <li class="progtrckr-todo">Delivered</li>
+        <li class="progtrckr-todo">Closed</li>
+</div>
+<div *ngIf="ststusId==4">
+        <li class="progtrckr-done">New order</li>
+        <li class="progtrckr-done">wating for pickUp</li>
+        <li class="progtrckr-done">On the way</li>
+        <li class="progtrckr-done">Delivered</li>
+        <li class="progtrckr-todo">Closed</li>
+</div>
+<div *ngIf="ststusId==5">
+        <li class="progtrckr-done">New order</li>
+        <li class="progtrckr-done">wating for pickUp</li>
+        <li class="progtrckr-done">On the way</li>
+        <li class="progtrckr-done">Delivered</li>
+        <li class="progtrckr-done">Closed</li>
+</div>
 
-
-
-
-  <mat-horizontal-stepper [linear]="isLinear" #stepper>
-      <mat-step>
-          <ng-template matStepLabel>New order</ng-template>
-      </mat-step>
-      <mat-step>
-          <ng-template matStepLabel>wating for pickUp</ng-template>
-      </mat-step>
-      <mat-step>
-          <ng-template matStepLabel>On the way</ng-template>
-      </mat-step>
-      <mat-step>
-          <ng-template matStepLabel>deliverd</ng-template>
-      </mat-step>
-  </mat-horizontal-stepper>
- 
+ </ol>
