@@ -1,12 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Order } from '../Order'
-import { Observable } from 'rxjs';
-import { OrdersService } from '../orders.service'
-import { MatTableDataSource } from '@angular/material';
-import { MotoBoy } from '../MotoBoy';
-import { MotoService } from '../moto.service';
-import {Customer} from '../customer'
-import { CustomerService } from '../customer.service';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,24 +7,20 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  
-  currentUser = {} ;
+
+  currentUser;
 
   rating: number = 3;
   starCount: number = 0;
   color: string = 'yellow';
-  
-  constructor(private customerService:CustomerService, private motoService: MotoService) { }
 
-  ngOnInit(){
-    this.motoService.singleMotoObservable.subscribe((data) => {
-      this.currentUser = data;
-      console.log(this.currentUser)
-      //this.rating= this.currentUser.rate ;
+  constructor(private userService: UsersService) { }
+
+  ngOnInit() {
+    this.currentUser = this.userService.currentUser;
+    this.userService.singleUserObservable.subscribe((user) => {
+      this.currentUser = user
+      console.log(this.currentUser);
     })
-    
-    this.motoService.getMoto(1);
-
-    }
-
+  }
 }

@@ -6,6 +6,7 @@ import { OrdersService } from '../orders.service';
 import { MatDialog } from '@angular/material';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 import { MotoService } from '../moto.service';
+import { UsersService } from '../users.service';
 
 
 
@@ -28,7 +29,7 @@ export class DeliveryComponent implements OnInit {
   
   constructor(private orderService : OrdersService, private motoService: MotoService, 
      private mapsApiLoader: MapsAPILoader, private ngZone: NgZone,
-     public dialog: MatDialog)
+     public dialog: MatDialog, private userService: UsersService)
   { 
         
     this.order = new Order();
@@ -40,9 +41,6 @@ export class DeliveryComponent implements OnInit {
       
 
       })
-    
-       
-    
   }
 
   setValue(value){
@@ -101,7 +99,12 @@ export class DeliveryComponent implements OnInit {
   
 
   ngOnInit() {
-
+    //set order customer
+this.order.customerId = this.userService.currentUser.customerId;
+this.userService.singleUserObservable.subscribe((user)=>{
+  this.order.customerId = user.customerId;
+  console.log(this.order)
+})
     this.mapsApiLoader.load().then( () => 
   {
     let autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement, {types:["address"]})

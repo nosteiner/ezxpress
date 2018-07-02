@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from './../customer.service';
+import { MotoService } from './../moto.service';
+import { Customer } from './../customer';
+import { MotoBoy } from './../MotoBoy';
 
 @Component({
   selector: 'app-user-connected',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserConnectedComponent implements OnInit {
 
-  constructor() { }
+  customer: Customer;
+  motoboy: MotoBoy;
+
+  constructor(private customerService: CustomerService, private motoService: MotoService) { 
+    
+  }
 
   ngOnInit() {
+    
   }
 
 }

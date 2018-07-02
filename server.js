@@ -56,7 +56,6 @@ app.use('/ordersApi', ordersAPI);
 app.use('/usersApi', usersAPI);
 
 
-
 //Authentication middleware
 app.use(passport.initialize());
 
@@ -84,6 +83,7 @@ app.post('/login', passport.authenticate('local', {session: false}),
         var token = jwt.sign(userparm, 'thisIsTopSecret', { expiresIn: "7d" });
         console.log(token)
         res.send({token})
+
 });
 
 app.post('/isloggedin',(req, res) => {
@@ -126,7 +126,7 @@ app.post('/send', (req, res) => {
 //Function used to configure the middleware storage
 var storage = multer.diskStorage({
   destination: function(req, file, callback){
-      callback(null, './public/uploads'); // set the destination
+      callback(null, './dist/ezxpress/assets/uploads'); // set the destination
   },
   filename: function(req, file, callback){
       

@@ -8,7 +8,9 @@ export class Customer{
     address: string ;
     active : boolean;
 
-    constructor() {}
+    constructor() {
+        
+    }
 
     
 

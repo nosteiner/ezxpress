@@ -41,13 +41,14 @@ export class LoginComponent implements OnInit {
     this.authService.msgUpdated.subscribe((data)=>{
       this.msg = data; })
   }
- 
+
   login(){
+
     this.loginParms = {username: this.userName, password: this.password}
     this.authService.login(this.loginParms)
-    
-    
+
   }
+
   signup(){
     
     if (this.toogle==1){
