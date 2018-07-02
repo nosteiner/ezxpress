@@ -109,7 +109,7 @@ app.post('/send', (req, res) => {
 //Function used to configure the middleware storage
 var storage = multer.diskStorage({
   destination: function(req, file, callback){
-      callback(null, './public/uploads'); // set the destination
+      callback(null, './dist/ezxpress/assets/uploads'); // set the destination
   },
   filename: function(req, file, callback){
       

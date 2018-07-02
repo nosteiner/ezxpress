@@ -9,7 +9,7 @@ class Customer {
     }
     initCustomer() {
         let customer = DA.connection.define('customers', {
-            customerId: { type: Sequelize.INTEGER, primaryKey: true },
+            customerId:  { type: Sequelize.INTEGER, autoIncrement: true,primaryKey: true },
             email: Sequelize.STRING,
             phoneNumber: Sequelize.STRING,
             firstName: Sequelize.STRING,

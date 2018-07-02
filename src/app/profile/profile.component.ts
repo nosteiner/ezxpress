@@ -7,6 +7,7 @@ import { MotoBoy } from '../MotoBoy';
 import { MotoService } from '../moto.service';
 import {Customer} from '../customer'
 import { CustomerService } from '../customer.service';
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-profile',
@@ -15,19 +16,19 @@ import { CustomerService } from '../customer.service';
 })
 export class ProfileComponent implements OnInit {
   
-  currentUser = {} ;
+  currentUser = new MotoBoy ;
 
   rating: number = 3;
   starCount: number = 0;
   color: string = 'yellow';
-  
+
   constructor(private customerService:CustomerService, private motoService: MotoService) { }
 
   ngOnInit(){
     this.motoService.singleMotoObservable.subscribe((data) => {
       this.currentUser = data;
       console.log(this.currentUser)
-      //this.rating= this.currentUser.rate ;
+      this.rating= this.currentUser.rate ;
     })
     
     this.motoService.getMoto(1);
