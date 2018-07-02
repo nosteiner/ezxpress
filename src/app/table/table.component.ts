@@ -37,8 +37,8 @@ userType;
       this.dataSource.data = data;
       console.log(this.dataSource.data)
     })
-//this.getUserType();
-//this.initColumns();
+this.getUserType();
+this.initColumns();
 
     //nees to replace with current user
     this.motoService.singleMotoObservable.subscribe((data) => {
@@ -78,14 +78,14 @@ userType;
 
   getUserType(){
     // this.userType = typeof this.userService.currentUser
-    this.userType === MotoBoy
+    this.userType = "MotoBoy"
     }
   
     initColumns(){
-      if(this.userType === MotoBoy){
-        this.displayedColumns = ['orderId', 'customerId', 'customerPhone' , 'localAddress', 'destAddress', 'orderDateTime', 'active']
-      }else if(this.userType === Customer){
-        this.displayedColumns = ['orderId', 'motoboyName' , 'localAddress', 'destAddress', 'orderDateTime']
+      if(this.userType === "MotoBoy"){
+        this.displayedColumns = ['orderId', 'customerId', 'customerPhone' , 'localAddress', 'destAddress', 'orderDate', 'active']
+      }else if(this.userType === "Customer"){
+        this.displayedColumns = ['orderId', 'motoboyName' , 'localAddress', 'destAddress', 'orderDate']
       }
     }
 }
