@@ -9,11 +9,20 @@ var Status = require('./status');
 class Order {
     constructor() {
         this.model = this.initCustomer();
-        
+
     }
     initCustomer() {
         let order = DA.connection.define('orders', {
             orderId: { type: Sequelize.INTEGER, primaryKey: true },
+
+            customerId: { type: Sequelize.INTEGER, references: { model: Customer, key: 'customerId' } },
+            motoboyId: { type: Sequelize.INTEGER, references: { model: Motoboy, key: 'motoboyId' } },
+            localAddress: Sequelize.STRING,
+            latitudeOriginAddress: Sequelize.FLOAT,
+            longitudeOriginAddress: Sequelize.FLOAT,
+            latitudeDestAddress: Sequelize.FLOAT,
+            longitudeDestAddress: Sequelize.FLOAT,
+
             customerId: { type: Sequelize.INTEGER, references: { model: Customer, key: 'customerId' }},
             motoboyId: { type: Sequelize.INTEGER, references: { model: Motoboy, key: 'motoboyId' }},
             localAddress:Sequelize.STRING,
@@ -22,6 +31,7 @@ class Order {
             latitudeDestAddress:Sequelize.FLOAT,
             longitudeDestAddress:Sequelize.FLOAT,
             destAddress:Sequelize.STRING,
+
             price: Sequelize.INTEGER,
             orderDate: Sequelize.DATE,
             collectDate: Sequelize.DATE,
@@ -30,6 +40,7 @@ class Order {
             phoneDestination: Sequelize.STRING,
             description: Sequelize.STRING,
             deliveryType: Sequelize.STRING,
+
             statusId: { type: Sequelize.INTEGER, references: { model: Status, key: 'statusId'}},
             active : Sequelize.BOOLEAN
             }, {
@@ -43,25 +54,35 @@ class Order {
             order.belongsTo(Status.model, {foreignKey: 'statusId'});
             Status.model.hasMany(order, {foreignKey: 'statusId'})
 
-
         return order;
     }
-
+    
+    // getOrders(user) {
+    //     if (user.customerId != null) {
+    //         return this.model.findAll({ include: [Customer.model, Motoboy.model], where: { statusId: 1 } });
+    //     }else if (user.motoboyId != null) {
+    //         return this.model.findAll({ include: [Customer.model, Motoboy.model], where: { customerId: user.customerId } });
+    //     }else{
+    //         return this.model.findAll({ include: [Customer.model, Motoboy.model]})
+    //     } 
+    // }
 
     getAll() {
         return this.model.findAll({ include: [Customer.model, Motoboy.model, Status.model] });
     }
-    create(data){
+
+    create(data) {
         console.log('entei new order')
         console.log(data)
         return this.model.create(data);
     }
-    update(newData,id){
-        return this.model.update(newData,{where:{orderId: id}});
+    update(newData, id) {
+        return this.model.update(newData, { where: { orderId: id } });
     }
-    delete(id){
-        return this.model.destroy({ where:{orderId: id}
-          });
+    delete(id) {
+        return this.model.destroy({
+            where: { orderId: id }
+        });
     }
 }
 const order = new Order();
