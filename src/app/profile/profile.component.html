@@ -4,15 +4,8 @@
     <div class = "space"></div>
   <div  class="img-container">
         <div calss="pic">
-              <img src= "http://buystockcartoons.com/assets/cache/idMzIzZjQ4OWUyOTAz-be94658984bc5974f2b97fc65391cac8.jpg">
-        </div> 
-        <div class="motoDeatils">
-            <mat-card>
-            <strong>Deliveries completed :</strong>
-            <strong>Rate:</strong> 
-            </mat-card>
-        </div> 
-       
+              <img src='assets/uploads/{{currentUser.motoboyId}}.png'>
+        </div>  
   </div>
 
   <div  class="motoboy-container">
@@ -21,13 +14,14 @@
           <strong>Last Name:</strong><b><p>{{currentUser.lastName}}</p></b>
           <strong>Email:</strong><b><p>{{currentUser.email}}</p></b>
           <strong>PhoneNumber:</strong><b><p>{{currentUser.phoneNumber}}</p></b>
+        
+                <button mat-raised-button color="accent" routerLink="/app-edit-moto" >Edit</button>
+               
       </mat-card>
   </div>
 
 
-  <div class= "edit">
-  <button mat-fab mat-button routerLink="/app-edit-moto" >Edit</button>
-  </div>
+ 
   <div class = "space"></div>
 
 </div>

@@ -35,3 +35,6 @@ h1{
 .tada {
     animation-name: tada;
   }
+  p{
+      text-align: center;
+  }
