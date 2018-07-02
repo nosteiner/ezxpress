@@ -23,13 +23,14 @@ h1{
     flex-direction: row; 
     margin: auto;
     padding: 30px;
-    padding-top: 60px; 
+    padding-top: 30px; 
 }
 .space2{
-    width: 20%; 
+    width: 40%; 
 }
 .space3{
     width: 10%; 
+
 }
 
 .tada {
@@ -38,3 +39,4 @@ h1{
   p{
       text-align: center;
   }
+
