@@ -10,6 +10,16 @@ router.get('/', (req, res) => {
     })
 });
 
+
+router.get('/:id', (req, res) => {
+    var Customer = customer.getOneById(req.params.id).then((data)=>{
+        console.log(data)
+        res.send(data);
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
+  });
+
 router.post('/add', (req, res) => {
     customer.create(req.body).then(data => {
     console.log('add from customer Api' + data);

@@ -64,7 +64,7 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     OrderDialogComponent,
     ProfileComponent,
     SignatureComponent,
-    OrderdeliveredComponent
+    OrderdeliveredComponent,
     LoginComponent,
     EditMotoComponent,
     EditCustomerComponent,
@@ -97,7 +97,7 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     MatDialogModule,
     FileUploadModule,
     SignaturePadModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatSelectModule,
 

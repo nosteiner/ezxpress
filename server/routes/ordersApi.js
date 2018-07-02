@@ -3,9 +3,18 @@ const router = express.Router();
 const order = require('../DataAccsess/orders');
 
 
-router.get('/', (req, res) => { 
-    order.getAll().then(data => {
-    res.send(JSON.stringify(data));
+
+// router.get('/', (req, res) => {
+//     order.getOrders(req.user).then(data => {
+//         res.send(JSON.stringify(data));
+//     }).catch((error) => {
+//         res.send("error:" + error)
+//     });
+// });
+
+router.get('/', (req, res) => {
+    order.getAll(req.user).then(data => {
+        res.send(JSON.stringify(data));
     }).catch((error) => {
         res.send("error:" + error)
     });

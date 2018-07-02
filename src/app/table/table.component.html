@@ -1,3 +1,4 @@
+
 <div>
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -10,18 +11,22 @@
     </ng-container>
     <ng-container matColumnDef="customerId">
       <mat-header-cell *matHeaderCellDef> Customer </mat-header-cell>
-      <mat-cell *matCellDef="let order"> {{order.customer.firstName}} </mat-cell>
+      <mat-cell *matCellDef="let order"> <div *ngIf="order.customerId != null">{{order.customer.firstName}} {{order.customer.lastName}}</div> </mat-cell>
     </ng-container>
+    <ng-container matColumnDef="customerPhone">
+        <mat-header-cell *matHeaderCellDef> Customer Phone number </mat-header-cell>
+        <mat-cell *matCellDef="let order"> <div *ngIf="order.customerId != null">{{order.customer.phone}}</div> </mat-cell>
+      </ng-container>
     <ng-container matColumnDef="motoboyId">
       <mat-header-cell *matHeaderCellDef> Moto Boy </mat-header-cell>
-      <mat-cell *matCellDef="let order"> {{order.motoboy.firstName}} </mat-cell>
+      <mat-cell *matCellDef="let order"> <div *ngIf="order.customerId != null">{{order.motoboy.firstName}} {{order.motoboy.lastName}}</div> </mat-cell>
     </ng-container>
     <ng-container matColumnDef="localAddress">
-      <mat-header-cell *matHeaderCellDef> Local Address </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Collecting Address </mat-header-cell>
       <mat-cell *matCellDef="let order"> {{order.localAddress}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="destAddress">
-      <mat-header-cell *matHeaderCellDef> Destenation Address </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Delivery Address </mat-header-cell>
       <mat-cell *matCellDef="let order"> {{order.destAddress}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="price">
@@ -29,11 +34,11 @@
       <mat-cell *matCellDef="let order"> {{order.price}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="orderDate">
-      <mat-header-cell *matHeaderCellDef> Order Date </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Order Time </mat-header-cell>
       <mat-cell *matCellDef="let order"> {{order.orderDate}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="active">
-      <mat-header-cell *matHeaderCellDef> isActive </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Assign </mat-header-cell>
       <mat-cell  *matCellDef="let order">
       <button *ngIf="order.motoboy === null" (click)="handleAsignToOrder(order)" >assign</button>
          
