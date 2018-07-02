@@ -30,6 +30,7 @@
     "angular-material-fileupload": "0.0.11",
     "angular-signature-pad": "0.0.14",
     "angular2-signaturepad": "^2.8.0",
+    "animate.css": "^3.6.1",
     "concurrently": "^3.6.0",
     "core-js": "^2.5.4",
     "express-session": "^1.15.6",

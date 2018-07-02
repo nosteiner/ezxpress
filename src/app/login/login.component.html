@@ -1,14 +1,9 @@
 
-<!-- <mat-toolbar color="primary">
-  <mat-toolbar-row>
-  <button mat-button class="home" routerLink = "/"><i class="fa fa-home fa-3x" ></i></button>      
-  </mat-toolbar-row>
-</mat-toolbar> -->
 <div *ngIf="toogle==0" >
 <div class="space"></div>
 <div  class="main"  >
 <mat-card class="example-container">
-  <h1>Please login</h1>
+  <div class="tada"><h1 class="tada" >Please login</h1></div>
   <mat-form-field>
     <input matInput  [(ngModel)]="userName" placeholder="User name">
   </mat-form-field>
