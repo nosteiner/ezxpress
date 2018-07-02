@@ -24,14 +24,14 @@ class User {
         return user;
     }
 
-    getOneUser(username, password) {
-        return this.model.findOne({
-          where: {
-            userName: username,
-            password: password
-          }
-        });
-      }
+    // getOneUser(username, password) {
+    //     return this.model.findOne({
+    //       where: {
+    //         userName: username,
+    //         password: password
+    //       }
+    //     });
+    // }
 
     getAll(){
         return this.model.findAll({
@@ -41,6 +41,7 @@ class User {
             ]
           });
     }
+
     getOneUser(userName, password) {
         return this.model.findOne({
           where: {
@@ -52,15 +53,16 @@ class User {
         }, err => {
           console.error(err)
         })
-      }
-
+    }
 
     create(data){
         return this.model.create(data);
     }
+
     update(newData,id){
         return this.model.update(newData,{where:{commentId: id}});
     }
+
     delete(id){
         return this.model.destroy({ where:{commentId: id}
           });

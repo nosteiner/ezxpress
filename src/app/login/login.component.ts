@@ -40,9 +40,12 @@ export class LoginComponent implements OnInit {
   //     data:{user: user}
   //   });
   // }
+
   login(){
-    this.usersService.Login(this.userName,this.password);
+    console.log("user: " + this.userName + ", password: "+this.password);
+    this.usersService.Login(this.userName, this.password);
   }
+
   signup(){
     if (this.toogle==1){
       this.toogle=0;

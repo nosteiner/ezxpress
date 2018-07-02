@@ -5,6 +5,7 @@ import { User } from './user';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,12 +25,13 @@ export class UsersService {
   Login(userName, password) {
     this.http.post<User>('/login', { username: userName, password: password }).subscribe((data) => {
       console.log(data)
+      debugger;
       if (data.userName === userName) {
-        console.log('sucsses')
+        console.log('successful')
         this.router.navigate(['/'])        
       } else {
         alert('user name or password  is not correct, Please try again')
-        this.router.navigate(['./error.html'])
+        this.router.navigate(['../../src/error.html'])
       }
     })
   }
