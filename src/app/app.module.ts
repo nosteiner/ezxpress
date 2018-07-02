@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatSelectModule, MatDividerModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
@@ -72,7 +72,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     LoginComponent,
     EditMotoComponent,
     EditCustomerComponent,
-    OrderScreenComponent
+    OrderScreenComponent,
     UserConnectedComponent,
     StarsComponent,
     StepperComponent
