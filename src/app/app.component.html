@@ -1,45 +1,7 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-indigo.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-<div class="w3-theme" id="container">
-<div class="head">
-    <h1>EzExpress</h1>
-    <h2>Because it's easy to receive your packet with our service</h2>
-</div>
-<button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon >reorder</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu" class="w3-theme">
-    <button class="white-icon" mat-menu-item routerLink="">
-        <mat-icon >home</mat-icon>
-        <span >Home Page</span>
-    </button>  
-    <button class="white-icon" mat-menu-item routerLink="/add-customer">
-        <mat-icon>add_to_photos</mat-icon>
-        <span>New Customer</span>
-    </button>
-    <button class="white-icon" mat-menu-item routerLink="/add-motoboy">
-        <mat-icon>motorcycle</mat-icon>
-        <span>Register Motoboy</span>
-    </button>
-    <button class="white-icon" mat-menu-item routerLink="/add-delivery">
-        <mat-icon>send</mat-icon>
-        <span>Xpress Delivery</span>
-    </button>
-    <button class="white-icon" mat-menu-item routerLink="/profile">
-        <mat-icon>account_circle</mat-icon>
-        <span>My profile</span>
-    </button>
-    <button class="white-icon" mat-menu-item routerLink="/login">
-        <mat-icon>how_to_reg</mat-icon>
-        <span>login</span>
-    </button>
-    <button class="white-icon" mat-menu-item routerLink="/table">
-        <mat-icon>mail</mat-icon>
-        <span> My orders</span>
-    </button>
-  </mat-menu>
-</div>
+<app-menu></app-menu>
 <router-outlet></router-outlet>
 <app-orderdelivered></app-orderdelivered>
 

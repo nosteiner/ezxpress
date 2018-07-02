@@ -8,12 +8,8 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent  {
   title = 'ezXpress';
-  auth = Object;
-  constructor (private authService : AuthService) {}
-
-  ngOnInit() {
-    //this.auth = this.authService.
-  }
+ 
+  
   
 }
 

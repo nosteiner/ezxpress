@@ -53,6 +53,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { AuthService } from './auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthInterceptor } from '../../AuthInterceptor';
+import { MenuComponent } from './menu/menu.component';
 
 
 
@@ -78,7 +79,8 @@ import { AuthInterceptor } from '../../AuthInterceptor';
     OrderScreenComponent,
     UserConnectedComponent,
     StarsComponent,
-    StepperComponent
+    StepperComponent,
+    MenuComponent
 
     
 
