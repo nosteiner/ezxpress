@@ -56,7 +56,6 @@ app.use('/ordersApi', ordersAPI);
 app.use('/usersApi', usersAPI);
 
 
-
 //Authentication middleware
 app.use(passport.initialize());
 
@@ -84,6 +83,7 @@ app.post('/login', passport.authenticate('local', {session: false}),
         var token = jwt.sign(userparm, 'thisIsTopSecret', { expiresIn: "7d" });
         console.log(token)
         res.send({token})
+
 });
 
 app.post('/isloggedin',(req, res) => {
