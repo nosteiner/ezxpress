@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditMotoComponent } from './edit-moto/edit-moto.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { StarsComponent } from './stars/stars.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'app-edit-moto', component: EditMotoComponent},
   { path: 'app-edit-customer', component: EditCustomerComponent},
+  { path: 'table', component: TableComponent },
+  { path: 'star', component: StarsComponent },
 
   
 ];

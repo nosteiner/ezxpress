@@ -15,11 +15,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material';
-import { MatSortModule } from '@angular/material/sort';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatDialog } from '@angular/material'; 
-import { FileUploadModule } from 'primeng/fileupload';
-import { MatDividerModule } from '@angular/material/divider';
+import {MatSortModule} from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog';
+import {FileUploadModule} from 'primeng/fileupload';
+import { SignaturePadModule } from 'angular2-signaturepad';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 import { AppComponent } from './app.component';
@@ -38,10 +39,18 @@ import { TableComponent } from './table/table.component';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import { OrdersService } from './orders.service';
 import { ProfileComponent } from './profile/profile.component';
+import { SignatureComponent } from './signature/signature.component';
+import { OrderdeliveredComponent } from './orderdelivered/orderdelivered.component';
 import { LoginComponent } from './login/login.component';
 import { EditMotoComponent } from './edit-moto/edit-moto.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { OrderScreenComponent } from './order-screen/order-screen.component';
+import { UserConnectedComponent } from './user-connected/user-connected.component';
+import { StarsComponent } from './stars/stars.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { StepperComponent } from './stepper/stepper.component';
+import {MatStepperModule} from '@angular/material/stepper';
+
 
 
 @NgModule({
@@ -58,11 +67,18 @@ import { OrderScreenComponent } from './order-screen/order-screen.component';
     TableComponent,
     OrderDialogComponent,
     ProfileComponent,
+    SignatureComponent,
+    OrderdeliveredComponent,
     LoginComponent,
     EditMotoComponent,
     EditCustomerComponent,
     OrderScreenComponent
+    UserConnectedComponent,
+    StarsComponent,
+    StepperComponent
+
     
+
   ],
   imports: [
     BrowserModule,
@@ -91,8 +107,12 @@ import { OrderScreenComponent } from './order-screen/order-screen.component';
     MatDialogModule,
     FileUploadModule,
     MatDividerModule,
+    SignaturePadModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatSelectModule,
+    MatRadioModule,
+    MatStepperModule
 
     
   ],

@@ -1,0 +1,9 @@
+<div class="pad">
+<signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()">
+
+</signature-pad>
+<br>
+<button class="btn" (click)='drawComplete()'  mat-raised-button color="primary">Submit</button>
+<button class="btn" (click)='this.signaturePad.clear()'  mat-raised-button color="accent">Clear</button>
+
+</div>
