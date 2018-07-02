@@ -1,55 +1,62 @@
+
 <div>
-  <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-    <button (click)="refresh()">refresh</button>
-<mat-table [dataSource]="dataSource">
-  <ng-container matColumnDef="orderId">
-    <mat-header-cell *matHeaderCellDef> Order Id </mat-header-cell>
-    <mat-cell *matCellDef="let order"> {{order.orderId}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="customerId">
-    <mat-header-cell *matHeaderCellDef> Customer </mat-header-cell>
-    <mat-cell *matCellDef="let order"> {{order.customer.firstName}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="motoboyId">
-    <mat-header-cell *matHeaderCellDef> Moto Boy </mat-header-cell>
-    <mat-cell *matCellDef="let order"> {{order.motoboy.firstName}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="localAddress">
-    <mat-header-cell *matHeaderCellDef> Local Address </mat-header-cell>
-    <mat-cell *matCellDef="let order"> {{order.localAddress}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="destAddress">
-    <mat-header-cell *matHeaderCellDef> Destination Address </mat-header-cell>
-    <mat-cell *matCellDef="let order"> {{order.destAddress}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="price">
-    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-    <mat-cell *matCellDef="let order"> {{order.price}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="orderDate">
-    <mat-header-cell *matHeaderCellDef> Order Date </mat-header-cell>
-    <mat-cell *matCellDef="let order"> {{order.orderDate}} </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="status">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      <button (click)="refresh()">refresh</button>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="orderId">
+      <mat-header-cell *matHeaderCellDef> Order Id </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.orderId}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="customerId">
+      <mat-header-cell *matHeaderCellDef> Customer </mat-header-cell>
+      <mat-cell *matCellDef="let order"> <div *ngIf="order.customerId != null">{{order.customer.firstName}} {{order.customer.lastName}}</div> </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="customerPhone">
+        <mat-header-cell *matHeaderCellDef> Customer Phone number </mat-header-cell>
+        <mat-cell *matCellDef="let order"> <div *ngIf="order.customerId != null">{{order.customer.phone}}</div> </mat-cell>
+      </ng-container>
+    <ng-container matColumnDef="motoboyId">
+      <mat-header-cell *matHeaderCellDef> Moto Boy </mat-header-cell>
+      <mat-cell *matCellDef="let order"> <div *ngIf="order.customerId != null">{{order.motoboy.firstName}} {{order.motoboy.lastName}}</div> </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="localAddress">
+      <mat-header-cell *matHeaderCellDef> Collecting Address </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.localAddress}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="destAddress">
+      <mat-header-cell *matHeaderCellDef> Delivery Address </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.destAddress}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.price}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="orderDate">
+      <mat-header-cell *matHeaderCellDef> Order Time </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.orderDate}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="active">
+      <mat-header-cell *matHeaderCellDef> Assign </mat-header-cell>
+      <mat-cell  *matCellDef="let order">
+      <button *ngIf="order.motoboy === null" (click)="handleAsignToOrder(order)" >assign</button>
+      </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
       <mat-cell *matCellDef="let order"> {{order.status.name}} </mat-cell>
     </ng-container>
-  <ng-container matColumnDef="active">
-    <mat-header-cell *matHeaderCellDef> isActive </mat-header-cell>
-    <mat-cell  *matCellDef="let order">
-    <button *ngIf="order.motoboy === null" (click)="handleAsignToOrder(order)" >assign</button>
-       
-    </mat-cell>
-  </ng-container>
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>>
     <mat-cell *matCellDef="let order">  
       <button  class="w3-theme" matTooltip="Edit Order" mat-raised-button (click)="editOrder(order.orderId)" >Edit</button>
     </mat-cell>>
   </ng-container>
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 </div>
+

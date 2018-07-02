@@ -4,6 +4,13 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const jwt = require('jsonwebtoken');
+const expressJwt = require('express-jwt');
+const checkIfAuthenticated = expressJwt({
+  secret: 'thisIsTopSecret'
+}); 
 
 const app = express();
 
@@ -26,20 +33,13 @@ const Nexmo = require('nexmo');
 const nexmo = require('./server/DataAccsess/sms');
 
 //auth-4
-var LocalStrategy = require('passport-local').Strategy;
-const expressSession = require('express-session');
-const passport = require('passport');
+
 const user = require('./server/DataAccsess/users')
 
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-//Authentication middleware
-app.use(expressSession({ secret: 'thisIsASecret', resave: false, saveUninitialized: false }));
-app.use(passport.initialize());
 
-
-app.use(passport.session());
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/ezxpress')));
@@ -55,48 +55,65 @@ app.use('/motoboysApi', motoboysAPI);
 app.use('/ordersApi', ordersAPI);
 app.use('/usersApi', usersAPI);
 
-// /////////////////////////////////////////////////////////////////////////authenticat util send SMS
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/ezxpress/index.html'));
-});
 
-passport.serializeUser(function(user, done) {
-    console.log(user);
-  done(null, user);
-});
+//Authentication middleware
+app.use(passport.initialize());
 
-passport.use(new LocalStrategy(
-  function(username,password,done){
-    console.log('inside local strategy');
-    user.getOneUser(username,password).then((user)=>{
-      console.log(user)
-      // if(err){return done(err)}   
-      // else if(!user){return done(null,false)
-      // if(!user.verifyPassword(password)){return done(null,false)};
-      return done(null,user)
-    }
-    )}
-));
 
-app.post('/login', function (req, res, next) {
-  passport.authenticate('local', function (err, user, info) {
-    if (err) {
-      console.log('err is ' + err);
-      return next(err)
-    }
+passport.use(new LocalStrategy(function(username, password, done) {
+
+  user.getOneUser(username,password).then((user)=>{
     console.log(user)
-    res.send(user)
-  })(req, res, next)
- })
+    // if(err){return done(err)}   
+    // else if(!user){return done(null,false)
+    // if(!user.verifyPassword(password)){return done(null,false)};
+    return done(null,user )
+  })
+}));
 
-  
- 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
+
+app.post('/login', passport.authenticate('local', {session: false}),
+   (req, res) => {
+        console.log("entrei login server")
+        let userparm = {id: req.user.id,
+          userName: req.user.userName, 
+          customerId: req.user.customerId,
+          motoboyId: req.user.motoboyId}
+        console.log(userparm )
+        var token = jwt.sign(userparm, 'thisIsTopSecret', { expiresIn: "7d" });
+        console.log(token)
+        res.send({token})
+
 });
 
-  app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src/error.html'));
+app.post('/isloggedin',(req, res) => {
+        console.log("entrei login server loggedin")
+        token = req.body.token
+        console.log(token)
+        jwt.verify(token.token, 'thisIsTopSecret', function (err, decoded){
+          
+          if (err){
+              console.log(err);
+              req.authenticated = false;
+              req.decoded = null;
+             // next();
+          } else {
+              console.log("token valid");
+              req.decoded = decoded;
+              req.authenticated = true;
+              console.log(decoded)
+              res.send(decoded)
+            //  next();
+          }
+        });
+        
+    })
+
+    
+
+  app.get('/userDetails',checkIfAuthenticated, function (req, res){
+      console.log(req.user)
+      res.send(req.user);
   });
 
 

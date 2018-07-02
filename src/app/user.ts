@@ -5,7 +5,7 @@ export class User{
     password :  string;
     customerId :  number;
     motoboyId :  number;
-
+    token: string;
     constructor() {}
 
 }
