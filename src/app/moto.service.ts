@@ -139,7 +139,7 @@ export class MotoService {
              
     })
   }
-
+     
   uploadPhoto(photoFile) {
     
     let photoFileName = this.currentMotoBoy.motoboyId + '.png'
