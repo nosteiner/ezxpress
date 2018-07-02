@@ -36,28 +36,21 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+
+  
     this.authService.msgUpdated.subscribe((data)=>{
       this.msg = data; })
   }
-  // openDialog(user) {
-  //   console.log(user);
-  //   let dialogRef = this.dialog.open(SignupComponent, {
-     
-  //     data:{user: user}
-  //   });
-  // }
 
   login(){
 
     this.loginParms = {username: this.userName, password: this.password}
     this.authService.login(this.loginParms)
-    //this.authService.isLoggedIn();
 
   }
 
   signup(){
-    //this.authService.isLoggedIn();
+    
     if (this.toogle==1){
       this.toogle=0;
     }
