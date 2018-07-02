@@ -1,7 +1,11 @@
-<h2 mat-dialog-title>Edit Order</h2>
+<div class="w3-theme" id="container">
+    <div class="head">
+        <h2  class="w3-theme">Edit Order</h2>
+    </div>
+</div>
 
 <mat-dialog-content class="example-container">
-        
+    
         <!--<mat-card-content *ngIf="order.orderDate != null"> -->
         <label>Order date: </label><span>{{order.orderDate}}</span>
         <!--</mat-card-content> -->
@@ -33,12 +37,5 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button class="close-button" (click)="close()">Close</button>
+    <button mat-raised-button class="w3-theme" (click)="close()">Close</button>
 </mat-dialog-actions>
-
-<!--
-  <button mat-button mat-dialog-close (click)="close()">Close</button>
--->
-    
-
-

@@ -8,6 +8,7 @@ import { Customer } from './customer';
 import { MotoBoy } from './MotoBoy';
 import { CustomerService } from './customer.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,6 +28,7 @@ export class UsersService {
 
 
   Login(userName, password) {
+
     this.http.post<User>('/login', { username: userName, password: password }).subscribe((user) => {
       if (user.userName === userName) {
         console.log('sucsses')
@@ -34,9 +36,10 @@ export class UsersService {
         this.setCurrentUser(user);
         // go back to homepage
         // this.router.navigate(['/'])
+
       } else {
         alert('user name or password  is not correct, Please try again')
-        this.router.navigate(['./error.html'])
+        this.router.navigate(['../../src/error.html'])
       }
     })
   }

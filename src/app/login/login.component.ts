@@ -47,12 +47,15 @@ export class LoginComponent implements OnInit {
   //     data:{user: user}
   //   });
   // }
+
   login(){
+
     this.loginParms = {username: this.userName, password: this.password}
     this.authService.login(this.loginParms)
     //this.authService.isLoggedIn();
-    
+
   }
+
   signup(){
     //this.authService.isLoggedIn();
     if (this.toogle==1){
