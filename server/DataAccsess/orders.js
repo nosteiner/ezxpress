@@ -2,6 +2,7 @@ var Sequelize = require('sequelize');
 var DA = require('./dataAccess');
 var Customer = require('./customers');
 var Motoboy = require('./motoboys');
+var Status = require('./status');
 
 
 
@@ -20,6 +21,7 @@ class Order {
             longitudeOriginAddress:Sequelize.FLOAT,
             latitudeDestAddress:Sequelize.FLOAT,
             longitudeDestAddress:Sequelize.FLOAT,
+            destAddress:Sequelize.STRING,
             price: Sequelize.INTEGER,
             orderDate: Sequelize.DATE,
             collectDate: Sequelize.DATE,
@@ -28,7 +30,7 @@ class Order {
             phoneDestination: Sequelize.STRING,
             description: Sequelize.STRING,
             deliveryType: Sequelize.STRING,
-            statusId: Sequelize.STRING,
+            statusId: { type: Sequelize.INTEGER, references: { model: Status, key: 'statusId'}},
             active : Sequelize.BOOLEAN
             }, {
                 freezeTableName: true // Model tableName will be the same as the model name
@@ -38,13 +40,16 @@ class Order {
             Customer.model.hasMany(order, {foreignKey: 'orderId'})
             order.belongsTo(Motoboy.model, {foreignKey: 'motoboyId'});
             Motoboy.model.hasMany(order, {foreignKey: 'orderId'})
+            order.belongsTo(Status.model, {foreignKey: 'statusId'});
+            Status.model.hasMany(order, {foreignKey: 'statusId'})
+
 
         return order;
     }
 
 
     getAll() {
-        return this.model.findAll({ include: [Customer.model, Motoboy.model] });
+        return this.model.findAll({ include: [Customer.model, Motoboy.model, Status.model] });
     }
     create(data){
         return this.model.create(data);

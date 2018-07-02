@@ -2,8 +2,8 @@ var Sequelize = require('sequelize');
  
 class DataAccess  {
    constructor() {
-       this.connection = new Sequelize('ezxpress', 'root', '1234', {
-         host: 'localhost',
+       this.connection = new Sequelize('sql12245391', 'sql12245391', 'dzUyt7gYAw', {
+         host: 'sql12.freemysqlhosting.net',
          dialect: 'mysql',
          
          pool: {
@@ -21,3 +21,7 @@ class DataAccess  {
 }
 const DA = new DataAccess() ;
 module.exports =   DA;
+
+
+//password
+//gKA6erG2f53$RV1g

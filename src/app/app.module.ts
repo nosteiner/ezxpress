@@ -15,10 +15,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material';
-import {MatSortModule} from '@angular/material/sort';
-import {MatDialogModule} from '@angular/material/dialog';
-//import {AccordionModule} from 'primeng/accordion';  
-import {FileUploadModule} from 'primeng/fileupload';
+import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material'; 
+import { FileUploadModule } from 'primeng/fileupload';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { EditMotoComponent } from './edit-moto/edit-moto.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { OrderScreenComponent } from './order-screen/order-screen.component';
 
 
 @NgModule({
@@ -59,6 +61,7 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     LoginComponent,
     EditMotoComponent,
     EditCustomerComponent,
+    OrderScreenComponent
     
   ],
   imports: [
@@ -87,12 +90,13 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     MatSortModule,
     MatDialogModule,
     FileUploadModule,
+    MatDividerModule,
     ReactiveFormsModule,
     MatSelectModule,
 
     
   ],
-  entryComponents: [OrderDialogComponent],
+  entryComponents: [OrderDialogComponent, OrderScreenComponent],
   providers: [EzxpressService, MotoService, OrdersService],
   bootstrap: [AppComponent]
 })
