@@ -14,7 +14,7 @@ export class AddMotoboyComponent implements OnInit {
   motoboy : MotoBoy = new MotoBoy();
   user : User = new User();
 
-  constructor(private motoService: MotoService) { }
+  constructor(private motoService: MotoService, private userService: UsersService) { }
 
   onPhotofile(event) {
     
@@ -24,8 +24,11 @@ export class AddMotoboyComponent implements OnInit {
   }
 
   submitMotoBoy() {
+    
     this.motoboy.photo = this.selectPhoto;
-    this.motoService.addMotoBoy(this.motoboy,this.user);
+    this.motoService.addMotoBoy(this.motoboy);
+    this.userService.addNewClient(this.user);
+
   }
 
   ngOnInit() {

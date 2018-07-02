@@ -20,12 +20,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./newclient.component.css']
 })
 export class NewclientComponent implements OnInit {
- 
   user : User = new User();
   newClient: Customer = new Customer();
   hide = true;
  
-  // userName: string = '';
+  userName: string = '';
   password: string = '';
   categoryValue: number;
   customer: Customer;
@@ -39,11 +38,11 @@ export class NewclientComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   constructor(private customerService: CustomerService, private userService: UsersService) { }
 
-  addNewCustomer(){
-    console.log("addNewCustomer" + this.newClient);
-    //add only if 2 password is the same
+  submitNewClient(){
+    console.log("kkkgfgfgdfgfd" + this.newClient);
     if ( this.password == this.user.password ){
-      this.customerService.addNewClient(this.newClient,this.user);
+      this.customerService.addNewClient(this.newClient)
+      this.userService.addNewClient(this.user);
     }
     else{
     alert('password  does not match');

@@ -3,7 +3,6 @@ import { MotoService } from './moto.service'
 import { HttpClient } from '@angular/common/http';
 import { Customer } from './customer';
 import { Observable, Subject } from 'rxjs';
-import { UsersService } from './users.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,7 @@ export class CustomerService {
   public singleCustomerObservable: Observable<Customer>;
   private singleCustomerSubject: Subject<Customer> = new Subject<Customer>();
 
-  constructor( private motoService: MotoService, private http: HttpClient,private userService: UsersService) {
+  constructor( private motoService: MotoService, private http: HttpClient) {
     this.singleCustomerObservable = this.singleCustomerSubject.asObservable();
   }
 
@@ -37,18 +36,12 @@ export class CustomerService {
      })
   }
 
-  addNewClient(newClient,user){
+  addNewClient(newClient : Customer){
     this.http.post<Customer>('customersApi/add',newClient).subscribe(data => {
-      this.currentCustomer = data;
-      this.singleCustomerSubject.next(data);
-      console.log('data'+ data);
-      console.log('data[0]'+ data);
-      console.log('newClient'+ newClient);
-      console.log("currentCustomer"+ this.currentCustomer);
-      console.log("currentCustomerID"+ this.currentCustomer.customerId);
-      console.log("added new customer" + user.customerId);
-      user.customerId = this.currentCustomer.customerId;
-      this.userService.addNewClient(user);
+      this.currentCustomer = data[0];
+      this.singleCustomerSubject.next(data[0])
+      console.log(newClient)
+      console.log("a")
      })
     
   }

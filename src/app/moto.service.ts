@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MotoBoy } from './MotoBoy';
 import { Observable, Subject } from 'rxjs';
-import { UsersService } from './users.service';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +27,7 @@ export class MotoService {
   public addressUpdated : Observable<any>;
   public addressSubject: Subject<any>;
 
-  constructor(private http: HttpClient,private userService: UsersService) {
+  constructor(private http: HttpClient) {
     this.singleMotoObservable = this.singleMotoSubject.asObservable();
     this.allMotoObservable = this.allMotoSubject.asObservable();
     this.getAllMoto();
@@ -111,16 +110,14 @@ export class MotoService {
       });
   }
 
-  addMotoBoy(motoboy,user) {
+  addMotoBoy(motoboy) {
     console.log("inside Add")
     let photo = motoboy.photo;
     motoboy.photo = " ";
     this.http.post<MotoBoy>('motoboysApi/add', motoboy).subscribe((data) => {
       //update motoboys array?
       this.currentMotoBoy = data;
-      this.uploadPhoto(photo);
-      user.motoboyId = this.currentMotoBoy.motoboyId;
-      this.userService.addNewClient(user);
+      this.uploadPhoto(photo)
     })
   }
 

@@ -1,4 +1,5 @@
-<div>
+
+<div *ngIf="toogle==0" >
 <div class="space"></div>
 <div  class="main"  >
 <mat-card class="example-container">
@@ -20,16 +21,18 @@
 </div>
 
 <div *ngIf="toogle==1" >
- 
+
+<div class="space2"></div>
 <div  class="main2">
-    <div class="space2"></div>
     <mat-card class="form-buttons">
         <button  mat-button  color="primary"  type="button" class="white-icon" routerLink="/add-motoboy">
           <mat-icon>motorcycle</mat-icon>
           <span>Register as A Motoboy</span>
       </button>
     </mat-card>
+
     <div class="space3"></div>
+    
   <mat-card>
       <button   mat-button  color="primary"  type="button" class="white-icon" routerLink="/add-customer">
         <mat-icon>add_to_photos</mat-icon>
@@ -38,4 +41,5 @@
     </mat-card>
 </div>
 <div class="space2"></div>
+
 </div>
