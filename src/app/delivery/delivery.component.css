@@ -1,25 +1,20 @@
 .container {
   display: flex;
+  padding: 10px;
 }
-
 img {
     height: 70px;
     width: 70px;
 }
-
 .order-container {
     width: 400px;
     margin-left:0px;
     text-align: left;
-    border: 1px solid yellowgreen;
-
+    
 }
-
 .legendDelivery{
  font-size: 12px;
  padding-left: 7px;
- 
-
 }
 
 .mat-form-field.mat-form-field {
@@ -53,4 +48,10 @@ img {
   }
   label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
     border:2px solid #E3C298;
+  }
+  h2{
+    color: #3f51b5;;
+  }
+  p{
+    color: #3f51b5;;
   }
