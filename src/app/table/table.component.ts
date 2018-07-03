@@ -82,7 +82,7 @@ export class TableComponent implements OnInit {
       this.displayedColumns = ['orderId', 'customerId', 'customerPhone', 'localAddress', 'destAddress', 'orderDate', 'active', 'actions']
     } else if (this.authService.userType === "customer") {
       console.log("show customer columns")
-      this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate']
+      this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate', 'actions']
     }
   }
 }

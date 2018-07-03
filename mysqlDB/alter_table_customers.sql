@@ -1,0 +1,2 @@
+ALTER TABLE `sql12245391`.`customers` 
+CHANGE COLUMN `address` `address` VARCHAR(50) NULL DEFAULT NULL COMMENT '' ;
