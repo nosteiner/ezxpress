@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UsersService } from '../users.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,18 +10,18 @@ import { UsersService } from '../users.service';
 export class ProfileComponent implements OnInit {
 
   currentUser;
-
+userType;
   rating: number = 3;
   starCount: number = 0;
   color: string = 'yellow';
 
-  constructor(private userService: UsersService) { }
+  constructor( private authService: AuthService) { }
 
   ngOnInit() {
-    this.currentUser = this.userService.currentUser;
-    this.userService.singleUserObservable.subscribe((user) => {
+    this.currentUser = this.authService.currentUser;
+    this.authService.authUpdated.subscribe((user)=>{
       this.currentUser = user
-      console.log(this.currentUser);
+      this.userType = this.authService.userType
     })
   }
 }

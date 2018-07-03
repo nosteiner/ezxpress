@@ -1,7 +1,7 @@
 <h1>Profile</h1> 
-<div class="card">  
+<div class="card" *ngIf="currentUser != null">  
     <div class = "space"></div>
-  <div  class="img-container">
+  <div  class="img-container" *ngIf="userType === motoboy">
         <div calss="pic">
               <img src='assets/uploads/{{currentUser.motoboyId}}.png'>
 
@@ -9,8 +9,8 @@
 
   </div>
 
-  <div class="motoboy-container">
-      <mat-card>
+  <div class="motoboy-container" >
+      <mat-card >
           <strong>First Name:</strong><b><p>{{currentUser.firstName}}</p></b>
           <strong>Last Name:</strong><b><p>{{currentUser.lastName}}</p></b>
           <strong>Email:</strong><b><p>{{currentUser.email}}</p></b>

@@ -8,20 +8,21 @@ import { User } from '../user';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  user: User = new User
+
+  userType: string;
+  currentUser: User = new User
   constructor (private authService : AuthService) { }
- 
 
   ngOnInit() {
-
-    this.authService.authUpdated.subscribe((data)=>{
-      this.user = data; })
-  }
-     
-  
+    console.log("menu")
+    this.currentUser = this.authService.currentUser;
+    this.authService.authUpdated.subscribe((user)=>{
+      this.currentUser = user
+      this.userType = this.authService.userType
       
-    
+      console.log(this.currentUser)
+      console.log(this.userType)
+    })
+  }
+  }
 
-  
-
-}
