@@ -17,9 +17,12 @@ userType;
 
   ngOnInit() {
     this.currentUser = this.authService.currentUser;
+    this.userType = this.authService.userType;
     this.authService.authUpdated.subscribe((user)=>{
       this.currentUser = user;
+      console.log(this.currentUser)
       this.userType = this.authService.userType;
+      console.log(this.userType )
     })
   }
 }
