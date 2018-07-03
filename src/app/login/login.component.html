@@ -11,20 +11,26 @@
     <input matInput  [(ngModel)]="password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" >
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
   </mat-form-field>
-</mat-card>
+
 <p id="msg">{{ msg }}</p>
-<mat-card class="form-buttons">
-  <button mat-button color="primary" type="button" (click)="login()">Login</button> or
-  <button mat-button color="primary" type="button" (click)="signup()">Register</button>
+
+  <button mat-raised-button color="accent" type="button" (click)="login()">Login</button>
+  <p>or</p> 
+  <button mat-raised-button color="accent" type="button" (click)="signup()">Register</button>
 </mat-card>
 </div>
 <div class="space"></div>
 </div>
-<div *ngIf="toogle==1">
+
+
+<div *ngIf="toogle==1" >
+    
+<div class="space2"></div>
 <div  class="main2">
     <div class="space2"></div>
-    <mat-card  class="form-buttons">
-        <button  mat-raised-button color="accent" type="button" class="white-icon" routerLink="/add-motoboy">
+    <mat-card class="form-buttons">
+        <button  mat-button  color="primary"  type="button" class="white-icon" routerLink="/add-motoboy">
+
           <mat-icon>directions_bike</mat-icon>
           <span>Register as A Motoboy</span>
       </button>

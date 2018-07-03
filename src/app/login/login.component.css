@@ -30,4 +30,13 @@ h1{
 }
 .space3{
     width: 10%; 
+
 }
+
+.tada {
+    animation-name: tada;
+  }
+  p{
+      text-align: center;
+  }
+

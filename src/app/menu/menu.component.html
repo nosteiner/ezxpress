@@ -1,45 +1,53 @@
 <div class="w3-theme" id="container">
-  <div class="head">
-      <h1>EzExpress</h1>
-      <h2>Because it's easy to receive your packet with our service</h2>
-  </div>
-  <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon >reorder</mat-icon>
+    <div class="head">
+        <h1>EzExpress</h1>
+        <h2>Because it's easy to receive your packet with our service</h2>
+    </div>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>reorder</mat-icon>
     </button>
     <mat-menu #menu="matMenu" class="w3-theme">
-      <button class="white-icon" mat-menu-item routerLink="">
-          <mat-icon >home</mat-icon>
-          <span >Home Page</span>
-      </button>  
-      <button  class="white-icon" mat-menu-item routerLink="/add-customer">
-          <mat-icon>add_to_photos</mat-icon>
-          <span>New Customer</span>
-      </button>
-      <button  class="white-icon" mat-menu-item routerLink="/add-motoboy">
-          <mat-icon>motorcycle</mat-icon>
-          <span>Register Motoboy</span>
-      </button>
-      <button *ngIf='this.user.customerId != null'   class="white-icon" mat-menu-item routerLink="/add-delivery">
-          <mat-icon>send</mat-icon>
-          <span>Xpress Delivery</span>
-      </button>
-      <div *ngIf='this.user.customerId != null || this.user.motoboyId != null' class="menupart">
-        <button  class="white-icon" mat-menu-item routerLink="/profile">
-            <mat-icon>account_circle</mat-icon>
-            <span>My profile</span>
+        <button class="white-icon" mat-menu-item routerLink="">
+            <mat-icon>home</mat-icon>
+            <span>Home Page</span>
         </button>
-        <button class="white-icon" mat-menu-item routerLink="/table">
-            <mat-icon>mail</mat-icon>
-            <span> My orders</span>
+
+        <button class="white-icon" mat-menu-item routerLink="/add-customer">
+            <mat-icon>add_to_photos</mat-icon>
+            <span>New Customer</span>
         </button>
-        <button class="white-icon" mat-menu-item (click)="this.authService.logoff()">
-            <mat-icon>exit_to_app</mat-icon>
-            <span>Logoff</span>
+
+        <button class="white-icon" mat-menu-item routerLink="/add-motoboy">
+            <mat-icon>motorcycle</mat-icon>
+            <span>Register Motoboy</span>
         </button>
-    </div>
-    <button *ngIf='this.user.id == null' class="white-icon" mat-menu-item routerLink="/login">
-      <mat-icon>how_to_reg</mat-icon>
-      <span>Login</span>
-    </button>
+
+        <button *ngIf='userType === customer' class="white-icon" mat-menu-item routerLink="/add-delivery">
+            <mat-icon>send</mat-icon>
+            <span>Xpress Delivery</span>
+        </button>
+        <div class="menupart">
+
+            <button class="white-icon" mat-menu-item routerLink="/profile">
+                <mat-icon>account_circle</mat-icon>
+                <span>My profile</span>
+            </button>
+
+            <button class="white-icon" mat-menu-item routerLink="/table">
+                <mat-icon>mail</mat-icon>
+                <span *ngIf='userType == customer'> My orders</span>
+                <span *ngIf='userType == motoboy'> Open orders</span>
+            </button>
+
+            <button class="white-icon" mat-menu-item (click)="this.authService.logoff()">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+            </button>
+        </div>
+
+        <button *ngIf='currentUser == null' class="white-icon" mat-menu-item routerLink="/login">
+            <mat-icon>how_to_reg</mat-icon>
+            <span>Login</span>
+        </button>
     </mat-menu>
-  </div>
+</div>

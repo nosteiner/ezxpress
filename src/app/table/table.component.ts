@@ -6,7 +6,7 @@ import { OrdersService } from '../orders.service'
 import { MatTableDataSource } from '@angular/material';
 import { MotoBoy } from '../MotoBoy';
 import { MotoService } from '../moto.service';
-import { UsersService } from '../users.service';
+import { AuthService } from '../auth.service';
 import { Customer } from '../customer';
 import { OrderScreenComponent } from '../order-screen/order-screen.component';
 
@@ -17,16 +17,16 @@ import { OrderScreenComponent } from '../order-screen/order-screen.component';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-userType;
+  userType;
   order: Order;
   currentMotoBoy: MotoBoy = new MotoBoy();
   orders: Array<Order> = new Array<Order>();
-  dataSource =  new MatTableDataSource(this.orders);
-  
+  dataSource = new MatTableDataSource(this.orders);
+
   displayedColumns = [];
 
-  constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog, private userService:UsersService) {
-   
+  constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog, private authService: AuthService) {
+
   }
 
   ngOnInit() {
@@ -36,9 +36,9 @@ userType;
     this.ordersService.allOrdersObservable.subscribe((data) => {
       this.dataSource.data = data;
       console.log(this.dataSource.data)
+      this.initColumns();
     })
-this.getUserType();
-this.initColumns();
+  
 
     //nees to replace with current user
     this.motoService.singleMotoObservable.subscribe((data) => {
@@ -48,10 +48,10 @@ this.initColumns();
   }
 
   handleAsignToOrder(order) {
-    this.ordersService.assignToOrder(order,this.currentMotoBoy);
+    this.ordersService.assignToOrder(order, this.currentMotoBoy);
   }
 
-  editOrder(order_id){
+  editOrder(order_id) {
     let order = this.ordersService.findOrder(order_id)
     //let companySelected = this.companyService.findCompany(client.company_id)
     //client.company = companySelected.name;
@@ -60,7 +60,7 @@ this.initColumns();
       width: '600px',
       data: order
     });
-    
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });
@@ -72,20 +72,17 @@ this.initColumns();
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-  refresh(){
+  refresh() {
     this.ordersService.getAllOrders();
   }
 
-  getUserType(){
-    // this.userType = typeof this.userService.currentUser
-    this.userType = "MotoBoy"
+  initColumns() {
+    if (this.authService.userType === "motoboy") {
+      console.log("show moto columns")
+      this.displayedColumns = ['orderId', 'customerId', 'customerPhone', 'localAddress', 'destAddress', 'orderDate', 'active', 'actions']
+    } else if (this.authService.userType === "customer") {
+      console.log("show customer columns")
+      this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate']
     }
-  
-    initColumns(){
-      if(this.userType === "MotoBoy"){
-        this.displayedColumns = ['orderId', 'customerId', 'customerPhone' , 'localAddress', 'destAddress', 'orderDate', 'active']
-      }else if(this.userType === "Customer"){
-        this.displayedColumns = ['orderId', 'motoboyName' , 'localAddress', 'destAddress', 'orderDate']
-      }
-    }
+  }
 }

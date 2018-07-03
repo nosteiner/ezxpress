@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,12 @@ import { AuthService } from './auth.service';
 export class AppComponent  {
   title = 'ezXpress';
  
+  constructor(private authService: AuthService) {
+
+  }
+  ngOnInit(){
+this.authService.isLoggedIn();
+  }
   
   
 }
