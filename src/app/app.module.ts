@@ -55,6 +55,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthInterceptor } from '../../AuthInterceptor';
 import { MenuComponent } from './menu/menu.component';
 import { MsgsnackComponent } from './msgsnack/msgsnack.component';
+import { OrderCardComponent } from './order-card/order-card.component';
 
 
 
@@ -82,7 +83,8 @@ import { MsgsnackComponent } from './msgsnack/msgsnack.component';
     StarsComponent,
     StepperComponent,
     MenuComponent,
-    MsgsnackComponent
+    MsgsnackComponent,
+    OrderCardComponent
 
     
 

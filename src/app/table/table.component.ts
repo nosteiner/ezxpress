@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
 import { Order } from '../Order'
 import { Observable } from 'rxjs';
@@ -20,11 +20,13 @@ export class TableComponent implements OnInit {
   userType;
   order: Order;
   currentUser;
+  openOrders:Array<Order> = new Array<Order>();
   orders: Array<Order> = new Array<Order>();
   dataSource = new MatTableDataSource(this.orders);
 
   displayedColumns = [];
 
+  
   constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog, private authService: AuthService) {
 
   }

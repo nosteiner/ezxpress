@@ -60,3 +60,11 @@
   </mat-table>
 </div>
 
+<div class ="orders-container">
+       <h3>Your Orders</h3>
+      <div class="order" *ngFor="let order of dataSource.data">
+        <app-order-card [order]="order"></app-order-card>
+      </div>
+    
+</div>
+
