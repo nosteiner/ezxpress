@@ -32,6 +32,7 @@ export class TableComponent implements OnInit {
   ngOnInit() {
     // this.dataSource.data === this.order used this way to filter
     this.dataSource.data = this.ordersService.allOrders;
+    console.log(this.dataSource.data)
     this.ordersService.getAllOrders();
     this.ordersService.allOrdersObservable.subscribe((data) => {
       this.dataSource.data = data;

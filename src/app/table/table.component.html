@@ -19,7 +19,7 @@
       </ng-container>
     <ng-container matColumnDef="motoboyName">
       <mat-header-cell *matHeaderCellDef> Moto Boy </mat-header-cell>
-      <mat-cell *matCellDef="let order"> <div *ngIf="order.customerId != null">{{order.motoboy.firstName}} {{order.motoboy.lastName}}</div> </mat-cell>
+      <mat-cell *matCellDef="let order"> <div *ngIf="order.motoboyId && order.customerId != null">{{order.motoboy.firstName}} {{order.motoboy.lastName}}</div> </mat-cell>
     </ng-container>
     <ng-container matColumnDef="localAddress">
       <mat-header-cell *matHeaderCellDef> Collecting Address </mat-header-cell>

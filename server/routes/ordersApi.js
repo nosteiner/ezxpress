@@ -1,16 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const order = require('../DataAccsess/orders');
+const expressJwt = require('express-jwt');
+const checkIfAuthenticated = expressJwt({
+  secret: 'thisIsTopSecret'
+}); 
 
 
-
-// router.get('/', (req, res) => {
-//     order.getOrders(req.user).then(data => {
-//         res.send(JSON.stringify(data));
-//     }).catch((error) => {
-//         res.send("error:" + error)
-//     });
-// });
+router.get('/',checkIfAuthenticated, (req, res) => {
+    order.getOrders(req.user).then(data => {
+        res.send(JSON.stringify(data));
+    }).catch((error) => {
+        res.send("error:" + error)
+    });
+});
 
 router.get('/', (req, res) => {
     order.getAll(req.user).then(data => {
