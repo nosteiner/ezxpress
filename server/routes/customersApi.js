@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const customer = require('../DataAccsess/customers');
 var users = require('../DataAccsess/users');
+const expressJwt = require('express-jwt');
+const checkIfAuthenticated = expressJwt({
+    secret: 'thisIsTopSecret'
+  }); 
+
 
 router.get('/', (req, res) => { 
     console.log('inside get');
@@ -14,8 +19,8 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/:id', (req, res) => {
-    var Customer = customer.getOneById(req.params.id).then((data)=>{
+router.get('/customer',checkIfAuthenticated, (req, res) => {
+  customer.getOneById(req.user).then((data)=>{
         console.log(data)
         res.send(data);
     }).catch((error) => {

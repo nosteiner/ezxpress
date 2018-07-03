@@ -71,11 +71,6 @@ export class OrdersService {
   }
 
   assignToOrder(order, motoBoy) {
-    // let data = {
-    //   motoboyId: motoBoy.motoboyId ,
-    //   statusId: 2,
-    //   }
-
       order.motoboyId = motoBoy.motoboyId;
       order.statusId = 2
       

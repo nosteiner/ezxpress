@@ -31,7 +31,7 @@ export class CustomerService {
   }
 
   getCustomer(id) {
-    this.http.get<Customer>('customersApi/' + id).subscribe(data => {
+    this.http.get<Customer>('customersApi/customer').subscribe(data => {
       this.currentCustomer = data[0];
       this.singleCustomerSubject.next(data[0])
       console.log(this.currentCustomer)
