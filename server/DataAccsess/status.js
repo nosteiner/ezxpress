@@ -13,9 +13,6 @@ class Status {
             }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
-
-            
-
         return status;
     }
 
