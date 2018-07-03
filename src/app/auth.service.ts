@@ -16,8 +16,8 @@ export class AuthService {
   public token: string;
   public msgUpdated: Observable<string>;
   public msgSubject: Subject<string> = new Subject<string>();
-  public authUpdated: Observable<User>;
-  public authSubject: Subject<User> = new Subject<User>();
+  public authUpdated: Observable<any>;
+  public authSubject: Subject<any> = new Subject<any>();
   constructor(private http: HttpClient, private router: Router, private customerService: CustomerService, private motoService: MotoService) {
 
     this.msgUpdated = this.msgSubject.asObservable();
@@ -44,7 +44,7 @@ export class AuthService {
   isLoggedIn() {
     this.http.get<User>('/userDetails').subscribe(data => {
       this.setUser(data);
-      this.authSubject.next(data)
+    
     })
   }
 
@@ -58,6 +58,7 @@ export class AuthService {
     if (user.motoboyId === null) {
       this.customerService.singleCustomerObservable.subscribe((customer)=>{
         this.currentUser = customer;
+        this.authSubject.next(customer)
         console.log("user set");
       })
       this.customerService.getCustomer(user.customerId);
@@ -66,6 +67,7 @@ export class AuthService {
     } else {
       this.motoService.singleMotoObservable.subscribe((motoboy)=>{
         this.currentUser = motoboy;
+        this.authSubject.next(motoboy)
         console.log("user set");
       });
       this.motoService.getMoto(user.motoboyId);

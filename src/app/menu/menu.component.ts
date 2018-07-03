@@ -9,10 +9,20 @@ import { User } from '../user';
 })
 export class MenuComponent implements OnInit {
 
-  user: User = new User
+  userType: string;
+  currentUser: User = new User
   constructor (private authService : AuthService) { }
-  
+
   ngOnInit() {
-    this.user = this.authService.currentUser
+    console.log("menu")
+    this.currentUser = this.authService.currentUser;
+    this.authService.authUpdated.subscribe((user)=>{
+      this.currentUser = user
+      this.userType = this.authService.userType
+      
+      console.log(this.currentUser)
+      console.log(this.userType)
+    })
   }
-}
+  }
+
