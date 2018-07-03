@@ -83,6 +83,7 @@ export class DeliveryComponent implements OnInit {
   confirmOrder(){
     
     this.order.orderDate = new Date();
+    this.order.statusId = 1
     console.log(this.order)
     this.orderService.addNewOrder(this.order)
    

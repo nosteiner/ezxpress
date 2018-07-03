@@ -75,7 +75,6 @@ class Order {
         if(user.motoboyId){
             return this.model.findAll({ include: [Customer.model, Motoboy.model, Status.model],  where: { statusId: 1 } });
         }
-       
     }
 
     getAll() {

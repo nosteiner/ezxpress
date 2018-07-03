@@ -19,7 +19,7 @@ import { OrderScreenComponent } from '../order-screen/order-screen.component';
 export class TableComponent implements OnInit {
   userType;
   order: Order;
-  currentMotoBoy: MotoBoy = new MotoBoy();
+  currentUser;
   orders: Array<Order> = new Array<Order>();
   dataSource = new MatTableDataSource(this.orders);
 
@@ -30,6 +30,7 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     // this.dataSource.data === this.order used this way to filter
     this.dataSource.data = this.ordersService.allOrders;
     console.log(this.dataSource.data)
@@ -37,19 +38,22 @@ export class TableComponent implements OnInit {
     this.ordersService.allOrdersObservable.subscribe((data) => {
       this.dataSource.data = data;
       console.log(this.dataSource.data)
-      this.initColumns();
+
+      this.currentUser = this.authService.currentUser;
+    this.authService.authUpdated.subscribe((user)=>{
+      this.currentUser = user
+      this.userType = this.authService.userType
     })
   
+      this.initColumns();
+    })
 
     //nees to replace with current user
-    this.motoService.singleMotoObservable.subscribe((data) => {
-      this.currentMotoBoy = data;
-      console.log(this.currentMotoBoy)
-    })
+    
   }
 
   handleAsignToOrder(order) {
-    this.ordersService.assignToOrder(order, this.currentMotoBoy);
+    this.ordersService.assignToOrder(order, this.currentUser);
   }
 
   editOrder(order_id) {
@@ -83,7 +87,7 @@ export class TableComponent implements OnInit {
       this.displayedColumns = ['orderId', 'customerId', 'customerPhone', 'localAddress', 'destAddress', 'orderDate', 'active', 'actions']
     } else if (this.authService.userType === "customer") {
       console.log("show customer columns")
-      this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate']
+      this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate', 'actions']
     }
   }
 }
