@@ -4,7 +4,7 @@ mat-toolbar{
 }
 
 .head {
-  font-family: 'Lora', serif;
+  font-family:serif,'Lora';
   text-align: center;
 }
 
@@ -18,7 +18,7 @@ mat-toolbar{
 label {
   display:inline-block;
   width:400px;
-  color: yellow;
+  color: rgb(252, 238, 45);
   font:  bold 12px Georgia, serif;
 }
 
