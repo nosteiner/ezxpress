@@ -33,15 +33,10 @@ router.post('/add', (req, res) => {
 });
 
  router.put('/update/:id',(req,res)=>{
-     console.log("------------------------------------------------------------------")
-     console.log('inside API : '+ req.params.id + req.body.order);
-     orderToUpdate = req.body.order;
-     console.log (orderToUpdate);
-     orderId = req.params.Id;
-     console.log (req.params.id);
-     order.update(orderToUpdate,orderId).then(data => {
-         console.log("++++++++++++++++++++++")
-         console.log(data[0])
+     dataUpdate = req.body
+     orderId = req.params.id;
+     console.log(orderId)
+     order.update(dataUpdate, orderId).then(data => {
         res.send(JSON.stringify(data));
         })  
         err => {

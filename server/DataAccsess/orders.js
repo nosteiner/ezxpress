@@ -86,8 +86,8 @@ class Order {
         console.log(data)
         return this.model.create(data);
     }
-    update(newData, id) {
-        return this.model.update(newData, { where: { orderId: id } });
+    update(newdata, id) {
+        return this.model.update(newdata, { where: { orderId: id }});
     }
     delete(id) {
         return this.model.destroy({

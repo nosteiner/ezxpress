@@ -53,15 +53,10 @@ export class OrdersService {
     });
   }
 
-  updateOrder(order) {
-    let id = order.orderId
-    console.log("-------------------------------------")
-    console.log(order)
-    this.http.put<Order>('ordersApi/update/' + id, { order: order }).subscribe(() => {
+  updateOrder(data, id) {
+    console.log(id)
+    this.http.put<Order>(`ordersApi/update/${id}`, data).subscribe(() => {
       this.getAllOrders();
-      //update motoboys array
-      // this.currentMotoBoy = data;
-      // this.singleMotoSubject.next(data);
     })
   }
 
@@ -76,12 +71,15 @@ export class OrdersService {
   }
 
   assignToOrder(order, motoBoy) {
-   
-      order.motoboyId = motoBoy.motoboyId
-      order.status = 2;
-      console.log("this is the order:")
-      console.log(order)
-      this.updateOrder(order)
+    // let data = {
+    //   motoboyId: motoBoy.motoboyId ,
+    //   statusId: 2,
+    //   }
+
+      order.motoboyId = motoBoy.motoboyId;
+      order.statusId = 2
+      
+      this.updateOrder(order,order.orderId)
       // this.sendSmsToCustomer(order);----------------------------------SMS----------------------
       //Needs to be define 
     
