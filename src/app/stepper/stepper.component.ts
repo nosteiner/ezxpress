@@ -7,7 +7,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./stepper.component.css']
 })
 export class StepperComponent implements OnInit { 
-  ststusId ;
+   
+  ststusId
 
   ngOnInit() {
    this.ststusId =3;
