@@ -57,6 +57,7 @@ import { MsgsnackComponent } from './msgsnack/msgsnack.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +82,8 @@ import { MsgsnackComponent } from './msgsnack/msgsnack.component';
     StarsComponent,
     StepperComponent,
     MenuComponent,
-    MsgsnackComponent
+    MsgsnackComponent,
+  
 
     
 

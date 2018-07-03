@@ -2,6 +2,7 @@
     background-color:dodgerblue;
     color: white;
   }
+
   .mat-column-orderId {
     flex: 0 0 40px;
   }
@@ -29,3 +30,11 @@
     text-decoration-style: wavy ;
     font-size: 15Px;
 }
+
+
+  .orders-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px repeat(auto-fit, auto);
+    
+

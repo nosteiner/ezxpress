@@ -1,15 +1,17 @@
-
 <div>
+
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
       <button (click)="refresh()"mat-raised-button color="accent" ><mat-icon>refresh</mat-icon></button>
+
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="orderId">
       <mat-header-cell *matHeaderCellDef  > Order Id </mat-header-cell>
       <mat-cell *matCellDef="let order"  > {{order.orderId}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="customerId">
+
       <mat-header-cell *matHeaderCellDef> <mat-icon>person  </mat-icon>  Customer </mat-header-cell>
       <mat-cell *matCellDef="let order"> <div *ngIf="order.customerId != null">{{order.customer.firstName}} {{order.customer.lastName}}</div> </mat-cell>
     </ng-container>
@@ -20,6 +22,7 @@
     <ng-container matColumnDef="motoboyName">
       <mat-header-cell *matHeaderCellDef><mat-icon>directions_bike</mat-icon>  Moto Boy </mat-header-cell>
       <mat-cell *matCellDef="let order"> <div *ngIf="order.motoboyId && order.customerId != null">{{order.motoboy.firstName}} {{order.motoboy.lastName}}</div> </mat-cell>
+
     </ng-container>
     <ng-container matColumnDef="localAddress">
       <mat-header-cell *matHeaderCellDef><mat-icon>pin_drop</mat-icon> Collecting Address </mat-header-cell>
@@ -38,16 +41,19 @@
       <mat-cell *matCellDef="let order"> {{order.orderDate}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="active">
+
       <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
       <mat-cell  *matCellDef="let order">
       <button *ngIf="order.motoboy === null" (click)="handleAsignToOrder(order)" mat-raised-button color="accent"><mat-icon>assignment</mat-icon>Assign</button>
+
       </mat-cell>
     </ng-container>
-    
+
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
       <mat-cell *matCellDef="let order"> {{order.status.name}} </mat-cell>
     </ng-container>
+
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>>
     <mat-cell *matCellDef="let order">  
@@ -69,10 +75,14 @@
     </mat-cell>>
   </ng-container>
 
-
-    
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 </div>
 
+<!-- <div class="orders-container">
+  <h3>Your Orders</h3>
+  <div class="order" *ngFor="let order of dataSource.data">
+    <app-order-card [order]="order"></app-order-card>
+  </div>
+</div> -->
