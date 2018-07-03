@@ -9,6 +9,7 @@ const checkIfAuthenticated = expressJwt({
 
 router.get('/',checkIfAuthenticated, (req, res) => {
     order.getOrders(req.user).then(data => {
+        console.log("===============================================================")
         console.log(data)
         res.send(JSON.stringify(data));
     }).catch((error) => {
