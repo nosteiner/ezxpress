@@ -40,9 +40,10 @@ export class NewclientComponent implements OnInit {
 
   submitNewClient(){
     console.log("kkkgfgfgdfgfd" + this.newClient);
-    if ( this.password == this.user.password ){
+
+    if ( this.password == this.newClient.password ){
       this.customerService.addNewClient(this.newClient)
-      this.userService.addNewClient(this.user);
+      //this.userService.addNewClient(this.user);
     }
     else{
     alert('password  does not match');

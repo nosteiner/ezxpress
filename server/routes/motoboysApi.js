@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const motoboy = require('../DataAccsess/motoboys');
+const users = require('../DataAccsess/users');
 
 router.get('/', (req, res) => { 
     motoboy.getAll().then(data => {
@@ -18,12 +19,19 @@ router.get('/:id', (req, res) => {
 
 router.post('/add', (req, res) => {
     console.log('add new moto' + req.body)
-    motoboy.create(req.body).then((data) => {
-            
-           data.reload().then( (data) =>
-           res.send(JSON.stringify(data) ));
+    let username = req.body.userName
+    let pw = req.body.password
+    motoboy.create(req.body).then((result) => {
+        result.reload().then( (data) =>
+        res.send(JSON.stringify(data) ))
+    
+        let dataToSend = {userName: username,motoboyId: result.motoboyId,password : pw}
+        
+        users.model.create(dataToSend)
+        console.log('add users table');
+        
     })
-            
+
     
 })
 

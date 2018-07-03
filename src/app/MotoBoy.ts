@@ -12,6 +12,8 @@ export class MotoBoy{
     longitude: number;
     icon: string;
     active : boolean;
+    password: string;
+    userName: string;
     position : Object;
     constructor() {
 

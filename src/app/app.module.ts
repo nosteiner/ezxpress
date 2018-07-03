@@ -20,7 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {FileUploadModule} from 'primeng/fileupload';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-//import { JwtHelperService } from '@auth0/angular-jwt';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 import { AppComponent } from './app.component';
@@ -54,6 +54,7 @@ import { AuthService } from './auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthInterceptor } from '../../AuthInterceptor';
 import { MenuComponent } from './menu/menu.component';
+import { MsgsnackComponent } from './msgsnack/msgsnack.component';
 
 
 
@@ -80,7 +81,8 @@ import { MenuComponent } from './menu/menu.component';
     UserConnectedComponent,
     StarsComponent,
     StepperComponent,
-    MenuComponent
+    MenuComponent,
+    MsgsnackComponent
 
     
 
@@ -117,7 +119,8 @@ import { MenuComponent } from './menu/menu.component';
     ReactiveFormsModule,
     MatSelectModule,
     MatRadioModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSnackBarModule
   
 
     
