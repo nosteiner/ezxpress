@@ -3,6 +3,7 @@ import { MotoService } from '../moto.service'
 import { MotoBoy } from '../MotoBoy'
 import {User} from '../user'
 import {UsersService} from '../users.service'
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'add-motoboy',
@@ -13,8 +14,8 @@ export class AddMotoboyComponent implements OnInit {
   selectPhoto = "";
   motoboy : MotoBoy = new MotoBoy();
   user : User = new User();
-
-  constructor(private motoService: MotoService, private userService: UsersService) { }
+       
+  constructor(private motoService: MotoService, private userService: UsersService, private authService: AuthService) { }
 
   onPhotofile(event) {
     
@@ -27,7 +28,15 @@ export class AddMotoboyComponent implements OnInit {
     
     this.motoboy.photo = this.selectPhoto;
     this.motoService.addMotoBoy(this.motoboy);
-    //this.userService.addNewClient(this.user);
+    this.motoService.singleMotoObservable.subscribe(motoboy => {
+      this.authService.login({username: motoboy.userName, password: motoboy.password})
+    })
+    
+    
+    
+
+   
+
 
   }
 

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Customer } from './customer';
 import { Observable, Subject } from 'rxjs';
 import {MatSnackBar} from '@angular/material';
-import { AuthService } from './auth.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class CustomerService {
   private singleCustomerSubject: Subject<Customer> = new Subject<Customer>();
 
   constructor( private motoService: MotoService, private http: HttpClient, 
-    public snackBar: MatSnackBar, private authService: AuthService) {
+    public snackBar: MatSnackBar) {
     this.singleCustomerObservable = this.singleCustomerSubject.asObservable();
   }
 
@@ -42,13 +42,16 @@ export class CustomerService {
   addNewClient(newClient : Customer){
     this.http.post<Customer>('customersApi/add',newClient).subscribe(data => {
       
-      this.currentCustomer = data[0];
-      this.singleCustomerSubject.next(data[0])
+      this.currentCustomer = data;
+      this.currentCustomer.userName = newClient.userName;
+      this.currentCustomer.password = newClient.password
+     
+      this.singleCustomerSubject.next(this.currentCustomer)
       this.snackBar.open("Sigup Succesful", " ", {
         duration: 2000,
       });
       
-      this.authService.login({username: newClient.userName, password: newClient.password})
+      
       
      })
     
