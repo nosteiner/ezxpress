@@ -6,19 +6,14 @@
 .head {
   font-family: 'Roboto', serif;
   text-align: center;
- 
-  
 }
 
 .example-container {
     display: flex;
     flex-direction: column;
-    background-color: lightskyblue
 }
   
-.example-container > * {
-  /*width: 100%; */
-}
+
 
 .space{
     width: 35%; 
@@ -35,5 +30,5 @@ span{
     left: 200px !important;
     width: 400px !important;  
     color: white;
-    font: bold 13px Roboto, serif;
+    font: bold 20px Roboto, serif;
 }

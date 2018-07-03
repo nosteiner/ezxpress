@@ -5,6 +5,7 @@ import {User} from '../user'
 import {UsersService} from '../users.service'
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material';
+import { AuthService } from '../auth.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -36,13 +37,18 @@ export class NewclientComponent implements OnInit {
   
 
   matcher = new MyErrorStateMatcher();
-  constructor(private customerService: CustomerService, private userService: UsersService) { }
+  constructor(private customerService: CustomerService, private userService: UsersService, private authService: AuthService) { }
 
   submitNewClient(){
     console.log("kkkgfgfgdfgfd" + this.newClient);
-    if ( this.password == this.user.password ){
+
+    if ( this.password == this.newClient.password ){
       this.customerService.addNewClient(this.newClient)
-      this.userService.addNewClient(this.user);
+      //this.userService.addNewClient(this.user);
+     this.customerService.singleCustomerObservable.subscribe( user =>{
+      
+      this.authService.login({username: user.userName, password: user.password})
+     })
     }
     else{
     alert('password  does not match');

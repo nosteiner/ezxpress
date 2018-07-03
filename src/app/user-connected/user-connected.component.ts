@@ -3,6 +3,7 @@ import { CustomerService } from './../customer.service';
 import { MotoService } from './../moto.service';
 import { Customer } from './../customer';
 import { MotoBoy } from './../MotoBoy';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-user-connected',
@@ -11,15 +12,18 @@ import { MotoBoy } from './../MotoBoy';
 })
 export class UserConnectedComponent implements OnInit {
 
-  customer: Customer;
-  motoboy: MotoBoy;
+  currentUser;
 
-  constructor(private customerService: CustomerService, private motoService: MotoService) { 
+  constructor(private authService: AuthService) { 
     
   }
 
   ngOnInit() {
-    
+    this.currentUser = this.authService.currentUser;
+    this.authService.authUpdated.subscribe((user)=>{
+      this.currentUser = user
+   
+    })
+  }
   }
 
-}

@@ -32,6 +32,7 @@ export class TableComponent implements OnInit {
   ngOnInit() {
     // this.dataSource.data === this.order used this way to filter
     this.dataSource.data = this.ordersService.allOrders;
+    console.log(this.dataSource.data)
     this.ordersService.getAllOrders();
     this.ordersService.allOrdersObservable.subscribe((data) => {
       this.dataSource.data = data;
@@ -57,7 +58,7 @@ export class TableComponent implements OnInit {
     //client.company = companySelected.name;
 
     let dialogRef = this.dialog.open(OrderScreenComponent, {
-      width: '600px',
+      width: '900px',
       data: order
     });
 
@@ -82,7 +83,7 @@ export class TableComponent implements OnInit {
       this.displayedColumns = ['orderId', 'customerId', 'customerPhone', 'localAddress', 'destAddress', 'orderDate', 'active', 'actions']
     } else if (this.authService.userType === "customer") {
       console.log("show customer columns")
-      this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate', 'actions']
+      this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate']
     }
   }
 }

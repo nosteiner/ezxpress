@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 import { MotoService } from '../moto.service';
 import { UsersService } from '../users.service';
+import { AuthService } from '../auth.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 
@@ -29,7 +31,7 @@ export class DeliveryComponent implements OnInit {
   
   constructor(private orderService : OrdersService, private motoService: MotoService, 
      private mapsApiLoader: MapsAPILoader, private ngZone: NgZone,
-     public dialog: MatDialog, private userService: UsersService)
+     public dialog: MatDialog, private authService: AuthService)
   { 
         
     this.order = new Order();
@@ -81,6 +83,7 @@ export class DeliveryComponent implements OnInit {
   confirmOrder(){
     
     this.order.orderDate = new Date();
+    console.log(this.order)
     this.orderService.addNewOrder(this.order)
    
     let dialogRef = this.dialog.open(OrderDialogComponent, {
@@ -91,20 +94,21 @@ export class DeliveryComponent implements OnInit {
     dialogRef.afterClosed().subscribe( result => {
       this.motoService.getClosesMoto(this.order.latitudeOriginAddress,this.order.longitudeOriginAddress)
       
-    });
-
-        
+    });    
   }
 
+
+  
+   
   
 
   ngOnInit() {
     //set order customer
-this.order.customerId = this.userService.currentUser.customerId;
-this.userService.singleUserObservable.subscribe((user)=>{
+this.order.customerId = this.authService.currentUser.customerId;
+this.authService.authUpdated.subscribe((user)=>{
   this.order.customerId = user.customerId;
-  console.log(this.order)
 })
+
     this.mapsApiLoader.load().then( () => 
   {
     let autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement, {types:["address"]})
