@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 
       intercept(req: HttpRequest<any>,
                 next: HttpHandler): Observable<HttpEvent<any>> {
-          
+        
           const idToken = localStorage.getItem("token");
 
           if (idToken) {

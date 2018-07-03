@@ -9,19 +9,17 @@ import { AuthService } from '../auth.service';
 })
 export class ProfileComponent implements OnInit {
 
-  currentUser;
+currentUser;
 userType;
-  rating: number = 3;
-  starCount: number = 0;
-  color: string = 'yellow';
+ 
 
   constructor( private authService: AuthService) { }
 
   ngOnInit() {
     this.currentUser = this.authService.currentUser;
     this.authService.authUpdated.subscribe((user)=>{
-      this.currentUser = user
-      this.userType = this.authService.userType
+      this.currentUser = user;
+      this.userType = this.authService.userType;
     })
   }
 }

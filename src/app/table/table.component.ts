@@ -62,7 +62,7 @@ export class TableComponent implements OnInit {
     //client.company = companySelected.name;
 
     let dialogRef = this.dialog.open(OrderScreenComponent, {
-      width: '600px',
+      width: '900px',
       data: order
     });
 
