@@ -63,3 +63,17 @@ h1{
   color: #3f51b5;
   background-color: white;
 }
+.customer-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 25%;
+  /* border: 3px solid rgb(89, 0, 255); */
+  padding: 30px;
+  padding-top: 30px;
+  background-color: #3f51b5;
+}
+.customer-container > * {
+  width: 90%;
+  background-color: white;
+}
