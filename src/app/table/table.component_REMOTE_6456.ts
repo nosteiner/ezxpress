@@ -6,7 +6,7 @@ import { OrdersService } from '../orders.service'
 import { MatTableDataSource } from '@angular/material';
 import { MotoBoy } from '../MotoBoy';
 import { MotoService } from '../moto.service';
-import { AuthService } from '../auth.service';
+import { UsersService } from '../users.service';
 import { Customer } from '../customer';
 import { OrderScreenComponent } from '../order-screen/order-screen.component';
 
@@ -25,7 +25,7 @@ userType;
   
   displayedColumns = [];
 
-  constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog, private authService: AuthService ) {
+  constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog, private userService:UsersService) {
    
   }
 
@@ -75,11 +75,16 @@ this.initColumns();
   refresh(){
     this.ordersService.getAllOrders();
   }
+
+  getUserType(){
+    // this.userType = typeof this.userService.currentUser
+    this.userType = "MotoBoy"
+    }
   
     initColumns(){
-      if(this.authService.userType === "motoboy"){
-        this.displayedColumns = ['orderId', 'customerId', 'customerPhone' , 'localAddress', 'destAddress', 'orderDate', 'active', 'actions']
-      }else if(this.authService.userType  === "customer"){
+      if(this.userType === "MotoBoy"){
+        this.displayedColumns = ['orderId', 'customerId', 'customerPhone' , 'localAddress', 'destAddress', 'orderDate', 'active']
+      }else if(this.userType === "Customer"){
         this.displayedColumns = ['orderId', 'motoboyName' , 'localAddress', 'destAddress', 'orderDate']
       }
     }

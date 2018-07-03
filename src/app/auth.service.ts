@@ -3,58 +3,72 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { User } from './user';
+import { CustomerService } from './customer.service';
+import { MotoService } from './moto.service';
 
 
 @Injectable()
 export class AuthService {
-
+  
+  userType: string;
+  currentUser;
   user = new User;
-  public token : string;
-  public msgUpdated : Observable<string>;
+  public token: string;
+  public msgUpdated: Observable<string>;
   public msgSubject: Subject<string> = new Subject<string>();
-  public authUpdated : Observable<User>;
+  public authUpdated: Observable<User>;
   public authSubject: Subject<User> = new Subject<User>();
-  constructor(private http: HttpClient, private router: Router) {
-     
+  constructor(private http: HttpClient, private router: Router, private customerService: CustomerService, private motoService: MotoService) {
+
     this.msgUpdated = this.msgSubject.asObservable();
     this.authUpdated = this.authSubject.asObservable();
-    
-   }
 
-   
+  }
+
+
 
   login(user) {
-    this.http.post<any>('/login',user).subscribe ( result => { 
-     
+    this.http.post<any>('/login', user).subscribe(result => {
+
       localStorage.setItem('token', result.token)
       this.isLoggedIn();
       this.router.navigate([''])
     },
       (err) => {
-        
+
         this.msgSubject.next("Login Invalid")
       }
     );
   }
-    
+
   isLoggedIn() {
-      this.http.get<User>('/userDetails').subscribe( data => {
+    this.http.get<User>('/userDetails').subscribe(data => {
+      this.setUser(data);
       this.authSubject.next(data)
-     })
+    })
   }
-    
+
   logoff() {
     localStorage.removeItem('token')
     this.authSubject.next(this.user)
   }
 
-    
 
-
-  
-  ngOnInit() {
-    
-
+  setUser(user: User) {
+    if (user.motoboyId === null) {
+      this.currentUser = user.customerId
+      this.userType = "customer";
+    } else {
+      this.currentUser = user.motoboyId
+      this.userType = "motoboy";
+    }
   }
+}
+
+
+ngOnInit() {
+
+
+}
 
 }
