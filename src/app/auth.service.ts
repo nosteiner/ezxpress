@@ -9,7 +9,7 @@ import { MotoService } from './moto.service';
 
 @Injectable()
 export class AuthService {
-  
+
   userType: string;
   currentUser;
   user = new User;
@@ -56,19 +56,24 @@ export class AuthService {
 
   setUser(user: User) {
     if (user.motoboyId === null) {
-      this.currentUser = user.customerId
+      this.customerService.singleCustomerObservable.subscribe((customer)=>{
+        this.currentUser = customer;
+        console.log("user set");
+      })
+      this.customerService.getCustomer(user.customerId);
       this.userType = "customer";
+    
     } else {
-      this.currentUser = user.motoboyId
+      this.motoService.singleMotoObservable.subscribe((motoboy)=>{
+        this.currentUser = motoboy;
+        console.log("user set");
+      });
+      this.motoService.getMoto(user.motoboyId);
       this.userType = "motoboy";
+      
     }
+    console.log("user type" + this.userType)
+   
   }
-}
-
-
-ngOnInit() {
-
-
-}
-
+  
 }
