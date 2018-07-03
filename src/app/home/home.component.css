@@ -29,3 +29,17 @@
     margin-right: 4px;
     margin-bottom: 4px;
 }
+
+.title{
+    font-family: 'Lora', serif;
+}
+
+h5{
+    text-align: center;
+    line-height: 50%;
+}
+
+.space{
+    line-height: 10%; 
+}
+

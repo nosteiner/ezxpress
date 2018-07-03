@@ -1,37 +1,45 @@
 <div class="w3-theme" id="container">
     <div class="head">
+        <!--
         <h2  class="w3-theme">Order Card</h2>
+        -->
+        <mat-toolbar class="w3-theme">
+            <h2 >Order Card</h2>
+        </mat-toolbar>
     </div>
 </div>
 <div class="main" >
-<mat-dialog-content class="w3-theme-l1 example-container">
+<mat-dialog-content class="w3-theme-l2 example-container">
     
         <!--<mat-card-content *ngIf="order.orderDate != null"> -->
-        <label>Order date: </label><span>{{order.orderDate}}</span>
+        <label>Order date: &emsp;&emsp;<span class="content">{{order.orderDate}}</span> </label>
         <!--</mat-card-content> -->
-        <label>First name customer: </label>
+        <label>customer first name: <span class="content">{{order.customer.firstName}}</span></label>
         <mat-card-content>
-            <span>{{order.customer.firstName}}</span>
+            
         </mat-card-content>
         <mat-card-content>
-            <label>First name motoboy: </label><span>{{order.motoboy.firstName}}</span>
+            <label>Motoboy first name : <span class="content">{{order.motoboy.firstName}}</span></label>
         </mat-card-content>
         <mat-card-content>
-            <label>Destination Address:</label><span> {{order.destAddress}}</span>
+            <label>Destination Address: <span class="content">{{order.destAddress}}</span></label>
         </mat-card-content>
         <mat-card-content>
-            <label>Description:</label><span>  {{order.description}}</span>
+            <label>Description: <span class="content">{{order.description}}</span></label>
+                
         </mat-card-content>
         <mat-card-content>
-            <label>Price</label><span> {{order.price}}</span>
+            <label>Price: <span class="content">{{order.price}}</span></label>
         </mat-card-content>
         <mat-card-content>
-            <label>Status</label>
+            <label>Status </label>
+            
             <mat-select  [(ngModel)]="order.status"  placeholder="status">
                 <mat-option *ngFor="let status of statuses"  [value]="status.name">
                     {{ status.name }}
                 </mat-option>
             </mat-select>
+            
         </mat-card-content>
 </mat-dialog-content>
 <app-stepper></app-stepper>

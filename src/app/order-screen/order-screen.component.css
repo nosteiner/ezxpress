@@ -1,34 +1,34 @@
-#container{
-  width: 100%;
-  padding: 0px 0px 0px 2px;
-  margin:2px 2px 2px 2px;
+mat-toolbar{
+  width: 90%;
+  margin-right: 4%;
 }
+
 .head {
-  font-family: 'Roboto', serif;
+  font-family: 'Lora', serif;
   text-align: center;
 }
 
 .example-container {
-    display: flex;
-    flex-direction: column;
+    width: 94%;
+    margin-left: 0%;
+    margin-left: 0%;  
 }
   
 
-
-.space{
-    width: 35%; 
-}
-
-  
 label {
-  display: block; 
-  width: 200px;  
+  display:inline-block;
+  width:400px;
+  color: yellow;
   font:  bold 12px Georgia, serif;
 }
 
-span{
-    left: 200px !important;
-    width: 400px !important;  
-    color: white;
-    font: bold 20px Roboto, serif;
+.content{
+  position: 420px;
+  color: white;
+  font-family: 'Lora', serif;
+}
+
+button{
+  color: white;
+  font-family: 'Lora', serif;
 }
