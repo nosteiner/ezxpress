@@ -49,10 +49,11 @@ export class AuthService {
   }
 
   logoff() {
-    this.currentUser = null;
-    this.authSubject.next(this.currentUser)
     localStorage.removeItem('token')
-    this.authSubject.next(this.user)
+    this.currentUser = null;
+    this.authSubject.next(null)
+   
+    // this.authSubject.next(this.user)
     this.router.navigate([''])
   }
 

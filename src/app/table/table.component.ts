@@ -20,11 +20,13 @@ export class TableComponent implements OnInit {
   userType;
   order: Order;
   currentUser;
+  openOrders:Array<Order> = new Array<Order>();
   orders: Array<Order> = new Array<Order>();
   dataSource = new MatTableDataSource(this.orders);
 
   displayedColumns = [];
 
+  
   constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog, private authService: AuthService) {
 
   }
