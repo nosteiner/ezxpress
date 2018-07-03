@@ -24,6 +24,8 @@ const routes: Routes = [
   { path: 'app-edit-customer', component: EditCustomerComponent},
   { path: 'table', component: TableComponent },
   { path: 'star', component: StarsComponent },
+ 
+  
 
   
 ];
