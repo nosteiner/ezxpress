@@ -1,1 +1,1 @@
-<h5 [(ngModel)]="customer" *ngIf="customer">Welcome {{customer.firstName}} {{customer.lastName}}, you are connected</h5>
+<h5 *ngIf="currentUser != null">Welcome {{currentUser.firstName}}, you are connected</h5>

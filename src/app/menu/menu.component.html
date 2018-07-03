@@ -11,13 +11,7 @@
             <mat-icon>home</mat-icon>
             <span>Home Page</span>
         </button>
-
-        <button *ngIf='userType === customer' class="white-icon" mat-menu-item routerLink="/add-delivery">
-            <mat-icon>send</mat-icon>
-            <span>Xpress Delivery</span>
-        </button>
         <div class="menupart">
-
             <button class="white-icon" mat-menu-item routerLink="/profile">
                 <mat-icon>account_circle</mat-icon>
                 <span>My profile</span>
@@ -28,7 +22,10 @@
                 <span *ngIf="userType === 'customer'"> My orders</span>
                 <span *ngIf="userType === 'motoboy'"> Open orders</span>
             </button>
-
+            <button *ngIf="userType === 'customer'" class="white-icon" mat-menu-item routerLink="/add-delivery">
+                <mat-icon>send</mat-icon>
+                <span>Xpress Delivery</span>
+            </button>
             <button class="white-icon" mat-menu-item (click)="this.authService.logoff()">
                 <mat-icon>exit_to_app</mat-icon>
                 <span>Logout</span>
