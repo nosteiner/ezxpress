@@ -18,7 +18,7 @@ export class Order{
     phoneDestination: string ;
     phoneNumber: string ;
     deliveryType: string ;
-    status: string ;
+    statusId: number;
     active : boolean;
 
 
