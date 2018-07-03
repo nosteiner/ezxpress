@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MotoBoy } from './MotoBoy';
 import { Observable, Subject } from 'rxjs';
+import { MatSnackBar } from '@angular/material';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +29,7 @@ export class MotoService {
   public addressUpdated : Observable<any>;
   public addressSubject: Subject<any>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public snackBar: MatSnackBar, private authService: AuthService) {
     this.singleMotoObservable = this.singleMotoSubject.asObservable();
     this.allMotoObservable = this.allMotoSubject.asObservable();
     this.getAllMoto();
@@ -118,6 +120,11 @@ export class MotoService {
       //update motoboys array?
       this.currentMotoBoy = data;
       this.uploadPhoto(photo)
+      this.snackBar.open("Sigup Succesful", " ", {
+        duration: 2000,
+      });
+      
+      this.authService.login({username: motoboy.userName, password: motoboy.password})
     })
   }
 
