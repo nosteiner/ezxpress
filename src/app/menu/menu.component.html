@@ -29,19 +29,21 @@
                 <mat-icon>send</mat-icon>
                 <span>Xpress Delivery</span>
             </button>
+            <button  class="white-icon" mat-menu-item routerLink="/aboutUs">
+                <mat-icon>group</mat-icon>
+                <span>About Us</span>
+            </button>
             <button class="white-icon" mat-menu-item (click)="this.authService.logoff()">
                 <mat-icon>exit_to_app</mat-icon>
                 <span>Logout</span>
             </button>
         </div>
+        
         <button *ngIf='currentUser == null' class="white-icon" mat-menu-item routerLink="/login">
             <mat-icon>how_to_reg</mat-icon>
             <span>Signin/Signup</span>
         </button>
-        <button  class="white-icon" mat-menu-item routerLink="/aboutUs">
-            <mat-icon>group</mat-icon>
-            <span>About Us</span>
-        </button>
+        
       
     </mat-menu>
 </div>
