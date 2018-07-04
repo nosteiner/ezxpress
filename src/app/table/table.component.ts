@@ -38,7 +38,8 @@ export class TableComponent implements OnInit {
     console.log(this.dataSource.data)
     this.ordersService.getAllOrders();
     this.ordersService.allOrdersObservable.subscribe((data) => {
-      this.dataSource.data = data;
+
+      this.dataSource.data = data.sort(this.compare);
       console.log(this.dataSource.data)
 
       this.currentUser = this.authService.currentUser;
@@ -92,4 +93,14 @@ export class TableComponent implements OnInit {
       this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate', 'actions']
     }
   }
+//sort the array by status 
+  compare(a,b) {
+    if (a.statusId < b.statusId)
+      return -1;
+    if (a.statusId > b.statusId)
+      return 1;
+    return 0;
+  }
+  
+  
 }

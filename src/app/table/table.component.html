@@ -2,7 +2,7 @@
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
-  <button (click)="refresh()">refresh</button>
+  <mat-icon class="click"(click)="refresh()">refresh</mat-icon>
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="orderId">
       <mat-header-cell *matHeaderCellDef> Order Id </mat-header-cell>
@@ -43,9 +43,10 @@
       <mat-cell *matCellDef="let order"> {{order.orderDate}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="active">
-      <mat-header-cell *matHeaderCellDef> Assign </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Take an Order </mat-header-cell>
       <mat-cell *matCellDef="let order">
-        <button *ngIf="order.motoboy === null" (click)="handleAsignToOrder(order)">assign</button>
+        <mat-icon  class="click" *ngIf="order.motoboy === null" (click)="handleAsignToOrder(order)">add_circle</mat-icon>
+        <mat-icon class="lock-click" style="color: burlywood" *ngIf="order.motoboyId">how_to_reg</mat-icon>
       </mat-cell>
     </ng-container>
 
@@ -56,8 +57,8 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>>
       <mat-cell *matCellDef="let order">
-        <button class="w3-theme" matTooltip="Edit Order" mat-raised-button (click)="editOrder(order.orderId)">
-          <mat-icon>visibility</mat-icon>View</button>
+
+          <mat-icon matTooltip="Edit Order" class="click" mat-raised-button (click)="editOrder(order.orderId)">visibility</mat-icon>
       </mat-cell>>
     </ng-container>
 

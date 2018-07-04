@@ -1,11 +1,15 @@
-.edit-button{
-    background-color:dodgerblue;
-    color: white;
-  }
 
   .orders-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 100px repeat(auto-fit, auto);
     
+}
+
+.click{
+  cursor: pointer;
+}
+
+.lock-click{
+  cursor: context-menu;
 }
