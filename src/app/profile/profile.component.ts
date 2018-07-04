@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
 
 currentUser;
 userType;
- 
+ststusId :number=5 ; 
 
   constructor( private authService: AuthService) { }
 

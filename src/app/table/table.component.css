@@ -1,9 +1,43 @@
 
+.edit-button{
+    background-color:dodgerblue;
+    color: white;
+  }
+/* 
+  .mat-column-orderId {
+    flex: 0 0 40px;
+  }
+  .mat-column-customerPhone {
+    flex: 0 0 100px;
+  }
+  .mat-column-motoboyName {
+    flex: 0 0 80px;
+  }
+  .mat-column-customerPhone {
+    flex: 0 0 100px;
+  }
+  .mat-column-localAddress {
+    flex: 0 0 230px;
+  }
+  .mat-column-destAddress {
+    flex: 0 0 230px;
+  } */
+  .mat-header-cell {
+    flex: 1;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    color : rgb(124, 87, 226);
+    text-decoration-style: wavy ;
+    font-size: 15Px;
+}
+
+
+
   .orders-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 100px repeat(auto-fit, auto);
-    
 }
 
 .click{
@@ -13,3 +47,4 @@
 .lock-click{
   cursor: context-menu;
 }
+
