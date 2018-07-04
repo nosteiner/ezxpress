@@ -25,7 +25,7 @@ export class OrderdeliveredComponent implements OnInit {
   }
   confirmDelivered(order){
     console.log(order)
-    order.status = 5;
+    order.statusId = 5;
     this.ordersService.confirmEmail(order)
 
 

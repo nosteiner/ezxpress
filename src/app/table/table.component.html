@@ -63,8 +63,8 @@
       <mat-cell *matCellDef="let order">
 
 
-          <mat-icon matTooltip="Edit Order" class="click" mat-raised-button (click)="editOrder(order.orderId)">visibility</mat-icon>
-
+         <span> <mat-icon matTooltip="Edit Order" class="click" mat-raised-button (click)="editOrder(order.orderId)">visibility</mat-icon> </span>
+         <span *ngIf="order.statusId == 4">  <mat-icon matTooltip="Close Order" class="click" mat-raised-button (click)="closeOrder(order)">check_circle_outline</mat-icon> </span> 
       </mat-cell>>
     </ng-container>
 

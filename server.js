@@ -87,7 +87,7 @@ app.post('/login', passport.authenticate('local', {session: false}),
 });
 
 app.post('/isloggedin',(req, res) => {
-        console.log("entrei login server loggedin")
+        console.log(" login server loggedin")
         token = req.body.token
         console.log(token)
         jwt.verify(token.token, 'thisIsTopSecret', function (err, decoded){
@@ -167,7 +167,7 @@ app.post('/sendEmail', (req, res) => {
 
       var mailOptions = {
         from: 'ezxpressisrael@gmail.com',
-        to: 'dchuwer@gmail.com', //req.body.customer.email,
+        to: req.body.customer.email,
         subject: 'Delvery Confirmation',
         html: '<h1>Your Order was Delivered</h1>'+
           '<p>That was easy!</p>'+
