@@ -39,7 +39,7 @@ export class MapComponent  {
   localAddress :string;
   origin=  { lat :0, lng: 0}
   destination=  { lat : 0, lng: 0}
-  
+  travelMode = "WALKING"
   
   constructor(private motoService: MotoService) {  
       

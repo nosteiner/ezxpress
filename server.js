@@ -152,7 +152,8 @@ app.post('/uploadSign', upload.single('uploads'), function(req, res, next) {
 // Send Email 
 
 app.post('/sendEmail', (req, res) => {
-      console.log(req.body.sign)
+      console.log("---- inside Email -----")
+      //console.log(req.body)
   
 
 
@@ -166,12 +167,17 @@ app.post('/sendEmail', (req, res) => {
 
       var mailOptions = {
         from: 'ezxpressisrael@gmail.com',
-        to: 'dchuwer@gmail.com',
+        to: 'dchuwer@gmail.com', //req.body.customer.email,
         subject: 'Delvery Confirmation',
         html: '<h1>Your Order was Delivered</h1>'+
           '<p>That was easy!</p>'+
-          '<img src="'+req.body.sign+'"/>'
-      };
+          '<p> From:'+req.body.localAddress+'</p>'+
+          '<p> To:'+req.body.destAddress+'</p>'+
+          '<p> Bike Delivery:'+req.body.motoboy.firstName+ ' '+req.body.motoboy.lastName+'</p>'+
+          '<img src="'+req.body.signature+'"/>'+
+          '<h3> Dont forget to send your comments about the service ! Is very important to improve our service<h3> '+
+          '<h2> Thanks to use ezXpress !! </h2>'
+        };
       transporter.use('compile', inlineBase64({cidPrefix: 'somePrefix_'}));
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {
@@ -180,6 +186,8 @@ app.post('/sendEmail', (req, res) => {
           console.log('Email sent: ' + info.response);
         }
       });
+
+      res.send('Email Sent')
 
 });
 

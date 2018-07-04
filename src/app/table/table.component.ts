@@ -25,7 +25,7 @@ export class TableComponent implements OnInit {
   dataSource = new MatTableDataSource(this.orders);
 
   displayedColumns = [];
-
+  selectedOrder: Order ;
   
   constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog, private authService: AuthService) {
 
@@ -38,7 +38,8 @@ export class TableComponent implements OnInit {
     console.log(this.dataSource.data)
     this.ordersService.getAllOrders();
     this.ordersService.allOrdersObservable.subscribe((data) => {
-      this.dataSource.data = data;
+
+      this.dataSource.data = data.sort(this.compare);
       console.log(this.dataSource.data)
 
       this.currentUser = this.authService.currentUser;
@@ -54,14 +55,15 @@ export class TableComponent implements OnInit {
     
   }
 
-  handleAsignToOrder(order) {
-    this.ordersService.assignToOrder(order, this.currentUser);
+  handleAsignToOrder(order,newStatus) {
+    this.ordersService.updateStatus(order,newStatus, this.currentUser);
   }
 
   editOrder(order_id) {
     let order = this.ordersService.findOrder(order_id)
     //let companySelected = this.companyService.findCompany(client.company_id)
     //client.company = companySelected.name;
+
 
     let dialogRef = this.dialog.open(OrderScreenComponent, {
       width: '900px',
@@ -71,6 +73,12 @@ export class TableComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });
+  }
+
+  closeOrder(order){
+    this.selectedOrder = order;
+    console.log(order)
+
   }
 
   applyFilter(filterValue: string) {
@@ -86,10 +94,22 @@ export class TableComponent implements OnInit {
   initColumns() {
     if (this.authService.userType === "motoboy") {
       console.log("show moto columns")
-      this.displayedColumns = ['orderId', 'customerId', 'customerPhone', 'localAddress', 'destAddress', 'orderDate', 'active', 'actions']
+
+      this.displayedColumns = ['orderId', 'customerId', 'customerPhone', 'localAddress', 'destAddress', 'orderDate','status', 'active', 'actions']
+
     } else if (this.authService.userType === "customer") {
       console.log("show customer columns")
-      this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate', 'actions']
+      this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate','status', 'actions']
     }
   }
+//sort the array by status 
+  compare(a,b) {
+    if (a.statusId < b.statusId)
+      return -1;
+    if (a.statusId > b.statusId)
+      return 1;
+    return 0;
+  }
+  
+  
 }

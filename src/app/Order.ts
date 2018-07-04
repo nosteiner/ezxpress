@@ -20,7 +20,8 @@ export class Order{
     deliveryType: string ;
     statusId: number;
     active : boolean;
-
+    signature: string;
+    description: string;
 
 
     constructor() {}

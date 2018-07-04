@@ -33,11 +33,10 @@ class Customer {
         return this.model.findAll();
     }
 
-    getOneById(ID) {
-        console.log(ID)
+    getOneById(user) {
         return this.model.findAll({
             where: {
-                customerId: ID
+                customerId: user.customerId
             }
         });   
     }       

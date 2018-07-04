@@ -42,7 +42,9 @@ class Order {
             deliveryType: Sequelize.STRING,
 
             statusId: { type: Sequelize.INTEGER, references: { model: Status, key: 'statusId' } },
-            active: Sequelize.BOOLEAN
+            active: Sequelize.BOOLEAN,
+            signature: Sequelize.TEXT
+
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
@@ -76,7 +78,7 @@ class Order {
             return this.model.findAll({ 
                 include: [Customer.model, Motoboy.model, Status.model],
                 where: { [Op.or]: [{ statusId: 1 }, { [Op.and]: [{ [Op.not]: { statusId: 5 } }, { motoboyId: user.motoboyId }] }] },
-                order: Sequelize.fn('max', Sequelize.col('status.statusId'))
+                // order: Sequelize.fn('max', Sequelize.col('status.statusId'))
             });
         }
     }
