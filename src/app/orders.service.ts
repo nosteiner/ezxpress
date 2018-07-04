@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Order } from './Order';
 import { Subject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class OrdersService {
   allOrdersSbject: Subject<Order[]> = new Subject<Order[]>();
   allOrdersObservable: Observable<Order[]>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public snackBar: MatSnackBar, private router: Router) {
     this.allOrdersObservable = this.allOrdersSbject.asObservable();
     this.getAllOrders()
    }
@@ -93,18 +95,31 @@ export class OrdersService {
     //sendNotificationToclient(order){}
   }
 
-
-  uploadSignature(signFile) {
-    console.log(signFile)
-    let sendFile = {sign: signFile }
-    let orderId = 1
-    let signFileName = orderId + 'sign.png'
-    this.formData.append("uploads", signFile, signFileName);
-    this.http.post('/sendEmail', sendFile).subscribe((data) => {
+  confirmEmail(order) {
+    console.log("send email ........")
+    //this.updateOrder(order, order.orderId)
+    this.http.post('/sendEmail', order).subscribe((data) => {
+      
     //this.http.post('uploadSign', this.formData).subscribe((data) => {
       //update motoboys array?
       //this.currentMotoBoy = data;
     })
+    this.snackBar.open("Email Sent to the client", " ", {
+      duration: 3000,
+    });
+    this.router.navigate([''])
+
+  // uploadSignature(signFile) {
+  //   console.log(signFile)
+  //   let sendFile = {sign: signFile }
+  //   let orderId = 1
+  //   let signFileName = orderId + 'sign.png'
+  //   this.formData.append("uploads", signFile, signFileName);
+  //   this.http.post('/sendEmail', sendFile).subscribe((data) => {
+  //   //this.http.post('uploadSign', this.formData).subscribe((data) => {
+  //     //update motoboys array?
+  //     //this.currentMotoBoy = data;
+  //   })
         
   }
 }

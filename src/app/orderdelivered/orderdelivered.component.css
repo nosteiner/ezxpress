@@ -1,5 +1,18 @@
 .order-card {
+
     max-width: 600px;
     color: #E3C298;
+    margin-top: 20px;
+    margin-left: 450px;
+    
   }
+
+  .field{
+    color: rgb(145, 11, 223)
+  }
+  
+  p {
+    font-size: 18px;
+  }
+
   

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from '../orders.service';
 import { Order } from '../Order';
 
@@ -8,19 +8,34 @@ import { Order } from '../Order';
   styleUrls: ['./orderdelivered.component.css']
 })
 export class OrderdeliveredComponent implements OnInit {
-  order : Order;
-  constructor(private ordersService: OrdersService) { }
+  @Input() order: any;
+
+  // order : Order;
+  // localAddress : string = " Hayesod 4"
+  deliveryDate = new Date()
+
+  constructor(private ordersService: OrdersService) {
+    
+   }
 
   viewFormConfirmation( order: Order){
-    this.order = order;
+    
+    this.order.deliveryDate = new Date();
 
   }
-  confirmDelivered(order: Order){
+  confirmDelivered(order){
+    console.log(order)
+    order.status = 5;
+    this.ordersService.confirmEmail(order)
+
 
 
   }
 
   ngOnInit() {
+    console.log("========= inside orderdelivered ==============")
+    console.log(this.order)
+    console.log(this.order.customer.firstName)
   }
 
 }

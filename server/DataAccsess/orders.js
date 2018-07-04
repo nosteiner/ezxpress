@@ -42,7 +42,9 @@ class Order {
             deliveryType: Sequelize.STRING,
 
             statusId: { type: Sequelize.INTEGER, references: { model: Status, key: 'statusId' } },
-            active: Sequelize.BOOLEAN
+            active: Sequelize.BOOLEAN,
+            signature: Sequelize.TEXT
+
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });

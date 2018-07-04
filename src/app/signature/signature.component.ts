@@ -1,6 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 import { OrdersService } from '../orders.service';
+import { Order } from '../Order';
  
 
 @Component({
@@ -9,7 +10,7 @@ import { OrdersService } from '../orders.service';
   styleUrls: ['./signature.component.css']
 })
 export class SignatureComponent  {
-  
+  @Input() order: Order
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
  
   private signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
@@ -29,9 +30,9 @@ export class SignatureComponent  {
   drawComplete() {
     // will be notified of szimek/signature_pad's onEnd event
     console.log(this.signaturePad.toDataURL());
-    var image = this.signaturePad.toDataURL()
+    this.order.signature = this.signaturePad.toDataURL()
     
-    this.ordersServices.uploadSignature(image)
+    //this.ordersServices.uploadSignature(image)
   }
  
   drawStart() {
