@@ -10,7 +10,7 @@ import { Order } from '../Order';
 export class StepperComponent implements OnInit { 
 
   @Input() order: Order = new Order();
-  
+  @Input() userType: string;
   ngOnInit() {
 
   }

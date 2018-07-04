@@ -1,24 +1,63 @@
-<div class="w3-theme" id="container">
-    <div class="head">
-        <h2 class="w3-theme">Order Card</h2>
-    </div>
-</div>
 <div class="main">
     <mat-dialog-content class="w3-theme-l1 example-container">
 
+        <mat-card>
+            <mat-card-header>
+                <h2 id="container" style="color: indigo">Order no: {{order.orderId}}</h2>
+            </mat-card-header>
+
+            <mat-card-content>
+                <label>Order date:
+                    <span> {{order.orderDate}}</span>
+                </label>
+
+                <label>Customer:
+                    <span> {{order.customer.firstName}} {{order.customer.lastName}}</span>
+                </label>
+
+                <label *ngIf="order.motoboyId">First name motoboy:
+                    <span> {{order.motoboy.firstName}}</span>
+                </label>
+
+                <label>Destination Address:
+                    <span> {{order.destAddress}}</span>
+                </label>
+
+                <label>Description:
+                    <span> {{order.description}}</span>
+                </label>
+
+                <label>Price:
+                    <span> {{order.price}}₪</span>
+                </label>
+
+
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button *ngIf="order.motoboyId && currentUser.motoboyId" (click)="handleChangeStatus(3)">pickedup order</button>
+                <button *ngIf="order.motoboyId && currentUser.motoboyId" (click)="handleChangeStatus(4)">order deliverd</button>
+
+            </mat-card-actions>
+        </mat-card>
+
+
+
+
+
         <!--<mat-card-content *ngIf="order.orderDate != null"> -->
-        <label>Order date: </label>
-        <span>{{order.orderDate}}</span>
+        <!-- <label>Order date: </label>
+        <span>{{order.orderDate}}</span> -->
         <!--</mat-card-content> -->
-        <label>First name customer: </label>
+        <!-- <label>First name customer: </label>
         <mat-card-content>
-            <span>{{order.customer.firstName}}</span>
+            <span>{{order.customer.firstName}} {{order.customer.lastName}}</span>
         </mat-card-content>
         <mat-card-content>
             <label>First name motoboy: </label>
             <span *ngIf="order.motoboyId">{{order.motoboy.firstName}}</span>
         </mat-card-content>
-        
+
         <mat-card-content>
             <label>Destination Address:</label>
             <span> {{order.destAddress}}</span>
@@ -31,12 +70,12 @@
             <label>Price</label>
             <span> {{order.price}}</span>
         </mat-card-content>
-        
+
         <button *ngIf="order.motoboyId && currentUser.motoboyId" (click)="handleChangeStatus(3)">pickedup order</button>
-        <button *ngIf="order.motoboyId && currentUser.motoboyId" (click)="handleChangeStatus(4)">order deliverd</button>
-    
+        <button *ngIf="order.motoboyId && currentUser.motoboyId" (click)="handleChangeStatus(4)">order deliverd</button> -->
+
     </mat-dialog-content>
-    <app-stepper [order]="order"></app-stepper>
+    <app-stepper [order]="order" [userType]="userType"></app-stepper>
     <mat-dialog-actions>
         <button mat-raised-button class="w3-theme" (click)="close()">Close</button>
     </mat-dialog-actions>
