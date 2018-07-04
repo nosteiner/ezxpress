@@ -27,15 +27,8 @@ export class EditCustomerComponent implements OnInit {
   }
 
   submitEdit(){
-    console.log("kkkgfgfgdfgfd" + this.editedClient);
-    if ( this.password == this.user.password ){
       this.customerService.addNewClient(this.editedClient)
       this.userService.addNewClient(this.user);
-    }
-    else{
-    alert('password  does not match');
-    }
-   
   }
 
 }

@@ -31,12 +31,16 @@
 }
 
 .title{
-    font-family: 'Lora', serif;
+    font-family: 'Roboto', serif;
 }
 
 h5{
     text-align: center;
-    line-height: 50%;
+   
+}
+h6{
+    text-align: center;
+   
 }
 
 .space{

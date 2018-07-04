@@ -22,7 +22,6 @@ import { SignaturePadModule } from 'angular2-signaturepad';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
-
 import { AppComponent } from './app.component';
 import { EzxpressService } from './ezxpress.service';
 import { AddMotoboyComponent } from './add-motoboy/add-motoboy.component';
@@ -55,6 +54,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthInterceptor } from '../../AuthInterceptor';
 import { MenuComponent } from './menu/menu.component';
 import { MsgsnackComponent } from './msgsnack/msgsnack.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -84,6 +84,7 @@ import { MsgsnackComponent } from './msgsnack/msgsnack.component';
     StepperComponent,
     MenuComponent,
     MsgsnackComponent,
+    AboutUsComponent,
   
 
     

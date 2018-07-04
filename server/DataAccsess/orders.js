@@ -78,7 +78,7 @@ class Order {
             return this.model.findAll({ 
                 include: [Customer.model, Motoboy.model, Status.model],
                 where: { [Op.or]: [{ statusId: 1 }, { [Op.and]: [{ [Op.not]: { statusId: 5 } }, { motoboyId: user.motoboyId }] }] },
-                order: Sequelize.fn('max', Sequelize.col('status.statusId'))
+                // order: Sequelize.fn('max', Sequelize.col('status.statusId'))
             });
         }
     }
