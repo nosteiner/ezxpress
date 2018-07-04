@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+    color: black;
+}
+.column{
+    display: flex;
+    flex-direction: row;
+    }
+.img-card{
+    width: 50%;
+}
+.m{
+    width: 25%;
+}
+
+
