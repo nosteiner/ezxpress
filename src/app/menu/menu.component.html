@@ -14,6 +14,14 @@
             <mat-icon>home</mat-icon>
             <span>Home Page</span>
         </button>
+        <button  class="white-icon" mat-menu-item routerLink="/aboutUs">
+            <mat-icon>group</mat-icon>
+            <span>About Us</span>
+        </button>
+        <button  class="white-icon" mat-menu-item routerLink="/info">
+            <mat-icon>info</mat-icon>
+            <span>Info</span>
+        </button>
         <div class="menupart" *ngIf="userType">
             <button class="white-icon" mat-menu-item routerLink="/profile">
                 <mat-icon>account_circle</mat-icon>
@@ -34,14 +42,12 @@
                 <span>Logout</span>
             </button>
         </div>
+     
         <button *ngIf='currentUser == null' class="white-icon" mat-menu-item routerLink="/login">
             <mat-icon>how_to_reg</mat-icon>
             <span>Signin/Signup</span>
         </button>
-        <button  class="white-icon" mat-menu-item routerLink="/aboutUs">
-            <mat-icon>group</mat-icon>
-            <span>About Us</span>
-        </button>
+     
       
     </mat-menu>
 </div>

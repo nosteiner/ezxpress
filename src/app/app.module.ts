@@ -55,6 +55,7 @@ import { AuthInterceptor } from '../../AuthInterceptor';
 import { MenuComponent } from './menu/menu.component';
 import { MsgsnackComponent } from './msgsnack/msgsnack.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { InfoComponent } from './info/info.component';
 
 
 
@@ -85,6 +86,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MenuComponent,
     MsgsnackComponent,
     AboutUsComponent,
+    InfoComponent,
   
 
     
