@@ -25,7 +25,7 @@ export class TableComponent implements OnInit {
   dataSource = new MatTableDataSource(this.orders);
 
   displayedColumns = [];
-
+  selectedOrder: Order ;
   
   constructor(private ordersService: OrdersService, private motoService: MotoService, public dialog: MatDialog, private authService: AuthService) {
 
@@ -64,6 +64,7 @@ export class TableComponent implements OnInit {
     //let companySelected = this.companyService.findCompany(client.company_id)
     //client.company = companySelected.name;
 
+
     let dialogRef = this.dialog.open(OrderScreenComponent, {
       width: '900px',
       data: order
@@ -72,6 +73,12 @@ export class TableComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });
+  }
+
+  closeOrder(order){
+    this.selectedOrder = order;
+    console.log(order)
+
   }
 
   applyFilter(filterValue: string) {
