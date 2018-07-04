@@ -18,6 +18,7 @@
             <label>First name motoboy: </label>
             <span *ngIf="order.motoboyId">{{order.motoboy.firstName}}</span>
         </mat-card-content>
+        
         <mat-card-content>
             <label>Destination Address:</label>
             <span> {{order.destAddress}}</span>
@@ -30,22 +31,12 @@
             <label>Price</label>
             <span> {{order.price}}</span>
         </mat-card-content>
-
-        <mat-card-content>
-            <label>Status</label>
-            <span> {{order.statusId}}</span>
-        </mat-card-content>
-
-        <!-- <mat-card-content>
-            <label>Status</label>
-            <mat-select [(ngModel)]="order.status" placeholder="status">
-                <mat-option *ngFor="let status of statuses" [value]="status.name">
-                    {{ status.name }}
-                </mat-option>
-            </mat-select>
-        </mat-card-content> -->
+        
+        <button *ngIf="order.motoboyId && currentUser.motoboyId" (click)="handleChangeStatus(3)">pickedup order</button>
+        <button *ngIf="order.motoboyId && currentUser.motoboyId" (click)="handleChangeStatus(4)">order deliverd</button>
+    
     </mat-dialog-content>
-    <app-stepper></app-stepper>
+    <app-stepper [order]="order"></app-stepper>
     <mat-dialog-actions>
         <button mat-raised-button class="w3-theme" (click)="close()">Close</button>
     </mat-dialog-actions>

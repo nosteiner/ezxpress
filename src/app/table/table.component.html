@@ -45,7 +45,7 @@
     <ng-container matColumnDef="active">
       <mat-header-cell *matHeaderCellDef> Take an Order </mat-header-cell>
       <mat-cell *matCellDef="let order">
-        <mat-icon  class="click" *ngIf="order.motoboy === null" (click)="handleAsignToOrder(order)">add_circle</mat-icon>
+        <mat-icon  class="click" *ngIf="order.motoboy === null" (click)="handleAsignToOrder(order,2)">add_circle</mat-icon>
         <mat-icon class="lock-click" style="color: burlywood" *ngIf="order.motoboyId">how_to_reg</mat-icon>
       </mat-cell>
     </ng-container>

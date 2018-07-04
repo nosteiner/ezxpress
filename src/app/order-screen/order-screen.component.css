@@ -21,15 +21,16 @@
 
   
 label {
+  margin: 5px;
   display: block; 
   width: 200px;  
-  font:  bold 12px Georgia, serif;
+  font:  bold 18px 'Roboto', serif;
 }
 
 span{
-  
+ 
     left: 200px !important;
     width: 400px !important;  
     color: white;
-    font: bold 20px Roboto, serif;
+    font: 15px 'Roboto', serif;
 }
