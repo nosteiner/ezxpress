@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Order } from '../Order';
 import { OrdersService} from '../orders.service';
@@ -32,7 +32,7 @@ export interface DialogData {
   styleUrls: ['./order-screen.component.css']
 })
 export class OrderScreenComponent implements OnInit {
-
+  //@Output() closeOrder : EventEmitter<any> = new EventEmitter();
   currentUser;
   userType: string;
   showButton : boolean = true;
@@ -66,6 +66,9 @@ export class OrderScreenComponent implements OnInit {
 
   handleChangeStatus(newStatus) {
     this.ordersService.updateStatus(this.order, newStatus, this.currentUser);
+    // if (newStatus == 4) {
+    //   setTimeout(function(){ this.dialogRef.close(); }, 3000);
+    // }
   }
 
 }

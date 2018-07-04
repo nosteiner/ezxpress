@@ -98,8 +98,8 @@ export class MapComponent  {
       let inc = 0.0005
       this.motoBoys[0].latitude +=  inc
       this.motoBoys[0].longitude += inc
-      this.motoBoys[1].latitude -= inc;
-      this.motoBoys[1].longitude += inc;
+      this.motoBoys[1].latitude -= inc/2;
+      this.motoBoys[1].longitude += inc/2;
     }, 4000 )
   }
 
