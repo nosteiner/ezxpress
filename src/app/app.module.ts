@@ -54,6 +54,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthInterceptor } from '../../AuthInterceptor';
 import { MenuComponent } from './menu/menu.component';
 import { MsgsnackComponent } from './msgsnack/msgsnack.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -83,6 +84,7 @@ import { MsgsnackComponent } from './msgsnack/msgsnack.component';
     StepperComponent,
     MenuComponent,
     MsgsnackComponent,
+    AboutUsComponent,
   
 
     

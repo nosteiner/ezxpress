@@ -1,8 +1,10 @@
 <div class="w3-theme" id="container">
+    <div class="app-user-connected">
     <app-user-connected></app-user-connected>
+    </div>
     <div class="head" >
         <h1>EzExpress</h1>
-        <h2>Because it's easy to receive your packet with our service</h2>
+        <h2>Because it's easy to receive your package with our service</h2>
     </div>
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>reorder</mat-icon>
@@ -35,6 +37,10 @@
         <button *ngIf='currentUser == null' class="white-icon" mat-menu-item routerLink="/login">
             <mat-icon>how_to_reg</mat-icon>
             <span>Signin/Signup</span>
+        </button>
+        <button  class="white-icon" mat-menu-item routerLink="/aboutUs">
+            <mat-icon>group</mat-icon>
+            <span>About Us</span>
         </button>
       
     </mat-menu>

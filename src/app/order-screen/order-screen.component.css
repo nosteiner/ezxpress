@@ -4,7 +4,7 @@ mat-toolbar{
 }
 
 .head {
-  font-family:serif,'Lora';
+  font-family:'Roboto','Lora';
   text-align: center;
 }
 
@@ -25,10 +25,10 @@ label {
 .content{
   position: 420px;
   color: white;
-  font-family: 'Lora', serif;
+  font-family: 'Roboto', serif;
 }
 
 button{
   color: white;
-  font-family: 'Lora', serif;
+  font-family: 'Roboto', serif;
 }
