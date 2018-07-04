@@ -1,34 +1,16 @@
-mat-toolbar{
-  width: 90%;
-  margin-right: 4%;
-}
-
-.head {
-  font-family:'Roboto','Lora';
-  text-align: center;
-}
 
 .example-container {
-    width: 94%;
-    margin-left: 0%;
-    margin-left: 0%;  
+    display: flex;
+    flex-direction: column;
 }
-  
 
 label {
-  display:inline-block;
-  width:400px;
-  color: rgb(252, 238, 45);
-  font:  bold 12px Georgia, serif;
+  display: block; 
+  width: 500px;  
+  font:  bold 18px 'Roboto', serif;
 }
 
-.content{
-  position: 420px;
-  color: white;
-  font-family: 'Roboto', serif;
-}
-
-button{
-  color: white;
-  font-family: 'Roboto', serif;
+span{
+ 
+    font: 15px 'Roboto', serif;
 }

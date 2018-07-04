@@ -9,7 +9,7 @@ import { MotoService } from '../moto.service';
 import { UsersService } from '../users.service';
 import { AuthService } from '../auth.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-
+import * as moment from 'moment';
 
 
 @Component({
@@ -84,7 +84,7 @@ export class DeliveryComponent implements OnInit {
     
     this.order.orderDate = new Date();
     this.order.statusId = 1
-    console.log(this.order)
+    moment().format('MMMM Do YYYY, h:mm:ss a');(this.order.orderDate)
     this.orderService.addNewOrder(this.order)
    
     let dialogRef = this.dialog.open(OrderDialogComponent, {

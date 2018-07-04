@@ -19,7 +19,9 @@ export class MenuComponent implements OnInit {
     this.authService.authUpdated.subscribe((user)=>{
       this.currentUser = user
       this.userType = this.authService.userType
-      
+      if(user === null){
+        this.userType = null;
+      }
       console.log(this.currentUser)
       console.log(this.userType)
     })

@@ -1,33 +1,35 @@
+
+
 <ol class="progtrckr" data-progtrckr-steps="5">
-<div *ngIf="ststusId==1">
+<div *ngIf="order.statusId===1">
     <li class="progtrckr-done">New order</li>
     <li class="progtrckr-todo">wating for pickUp</li>
     <li class="progtrckr-todo">On the way</li>
     <li class="progtrckr-todo">Delivered</li>
     <li class="progtrckr-todo">Closed</li>
 </div>
-<div *ngIf="ststusId==2">
+<div *ngIf="order.statusId===2">
         <li class="progtrckr-done">New order</li>
         <li class="progtrckr-done">wating for pickUp</li>
         <li class="progtrckr-todo">On the way</li>
         <li class="progtrckr-todo">Delivered</li>
         <li class="progtrckr-todo">Closed</li>
 </div>
-<div *ngIf="ststusId==3">
+<div *ngIf="order.statusId===3">
         <li class="progtrckr-done">New order</li>
         <li class="progtrckr-done">wating for pickUp</li>
         <li class="progtrckr-done">On the way</li>
         <li class="progtrckr-todo">Delivered</li>
         <li class="progtrckr-todo">Closed</li>
 </div>
-<div *ngIf="ststusId==4">
+<div *ngIf="order.statusId===4">
         <li class="progtrckr-done">New order</li>
         <li class="progtrckr-done">wating for pickUp</li>
         <li class="progtrckr-done">On the way</li>
         <li class="progtrckr-done">Delivered</li>
         <li class="progtrckr-todo">Closed</li>
 </div>
-<div *ngIf="ststusId==5">
+<div *ngIf="order.statusId===5">
         <li class="progtrckr-done">New order</li>
         <li class="progtrckr-done">wating for pickUp</li>
         <li class="progtrckr-done">On the way</li>

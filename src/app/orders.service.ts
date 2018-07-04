@@ -56,6 +56,7 @@ export class OrdersService {
   updateOrder(data, id) {
     console.log(id)
     this.http.put<Order>(`ordersApi/update/${id}`, data).subscribe(() => {
+      console.log("order was updated"+ id)
       this.getAllOrders();
     })
   }
@@ -70,14 +71,9 @@ export class OrdersService {
     })
   }
 
-  assignToOrder(order, motoBoy) {
-    // let data = {
-    //   motoboyId: motoBoy.motoboyId ,
-    //   statusId: 2,
-    //   }
-
+  updateStatus(order,newStatus, motoBoy) {
       order.motoboyId = motoBoy.motoboyId;
-      order.statusId = 2
+      order.statusId = newStatus;
       
       this.updateOrder(order,order.orderId)
       // this.sendSmsToCustomer(order);----------------------------------SMS----------------------
