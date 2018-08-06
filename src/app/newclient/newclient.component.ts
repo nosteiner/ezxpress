@@ -42,11 +42,10 @@ export class NewclientComponent implements OnInit {
   submitNewClient(){
     console.log("kkkgfgfgdfgfd" + this.newClient);
 
-    if ( this.password == this.newClient.password ){
+    if (this.password == this.newClient.password ){
       this.customerService.addNewClient(this.newClient)
       //this.userService.addNewClient(this.user);
      this.customerService.singleCustomerObservable.subscribe( user =>{
-      
       this.authService.login({username: user.userName, password: user.password})
      })
     }
