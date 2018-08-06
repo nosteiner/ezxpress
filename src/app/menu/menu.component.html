@@ -1,8 +1,7 @@
 <div class="w3-theme" id="container">
-    <div class="app-user-connected">
-    <app-user-connected></app-user-connected>
-    </div>
+
     <div class="head" >
+        <app-user-connected></app-user-connected>
         <h1>EzExpress</h1>
         <h2>Because it's easy to receive your package with our service</h2>
     </div>
@@ -13,6 +12,14 @@
         <button class="white-icon" mat-menu-item routerLink="">
             <mat-icon>home</mat-icon>
             <span>Home Page</span>
+        </button>
+        <button  class="white-icon" mat-menu-item routerLink="/aboutUs">
+            <mat-icon>group</mat-icon>
+            <span>About Us</span>
+        </button>
+        <button  class="white-icon" mat-menu-item routerLink="/info">
+            <mat-icon>info</mat-icon>
+            <span>Info</span>
         </button>
         <div class="menupart" *ngIf="userType">
             <button class="white-icon" mat-menu-item routerLink="/profile">
@@ -38,12 +45,12 @@
                 <span>Logout</span>
             </button>
         </div>
-        
+
         <button *ngIf='currentUser == null' class="white-icon" mat-menu-item routerLink="/login">
             <mat-icon>how_to_reg</mat-icon>
             <span>Signin/Signup</span>
         </button>
-        
+
       
     </mat-menu>
 </div>
