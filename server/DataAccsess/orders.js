@@ -11,6 +11,7 @@ class Order {
         this.model = this.initCustomer();
 
     }
+
     initCustomer() {
         let order = DA.connection.define('orders', {
             orderId: { type: Sequelize.INTEGER, primaryKey: true },
@@ -49,6 +50,44 @@ class Order {
 
         return order;
     }
+    // initCustomer() {
+    //     let order = DA.connection.define('orders', {
+    //         orderId: { type: Sequelize.INTEGER, primaryKey: true },
+
+    //         customerId: { type: Sequelize.INTEGER, references: { model: Customer, key: 'customerId' } },
+    //         motoboyId: { type: Sequelize.INTEGER, references: { model: Motoboy, key: 'motoboyId' } },
+    //         localAddress: Sequelize.STRING,
+    //         latitudeOriginAddress: Sequelize.FLOAT,
+    //         longitudeOriginAddress: Sequelize.FLOAT,
+    //         latitudeDestAddress: Sequelize.FLOAT,
+    //         longitudeDestAddress: Sequelize.FLOAT,
+    //         destAddress: Sequelize.STRING,
+    //         price: Sequelize.INTEGER,
+    //         orderDate: Sequelize.DATE,
+    //         collectDate: Sequelize.DATE,
+    //         deliveryDate: Sequelize.DATE,
+    //         contactDestination: Sequelize.STRING,
+    //         phoneDestination: Sequelize.STRING,
+    //         description: Sequelize.STRING,
+    //         deliveryType: Sequelize.STRING,
+
+    //         statusId: { type: Sequelize.INTEGER, references: { model: Status, key: 'statusId' } },
+    //         active: Sequelize.BOOLEAN,
+    //         signature: Sequelize.TEXT
+
+    //     }, {
+    //             freezeTableName: true // Model tableName will be the same as the model name
+    //         });
+
+    //     order.belongsTo(Customer.model, { foreignKey: 'customerId' });
+    //     Customer.model.hasMany(order, { foreignKey: 'orderId' })
+    //     order.belongsTo(Motoboy.model, { foreignKey: 'motoboyId' });
+    //     Motoboy.model.hasMany(order, { foreignKey: 'orderId' })
+    //     order.belongsTo(Status.model, { foreignKey: 'statusId' });
+    //     Status.model.hasMany(order, { foreignKey: 'statusId' })
+
+    //     return order;
+    // }
 
     // getOrders(user) {
     //     if (user.customerId != null) {
@@ -79,7 +118,7 @@ class Order {
     }
 
     create(data) {
-        console.log('+++++++++++++insert new order++++++++++++++')
+        console.log('entei new order')
         console.log(data)
         return this.model.create(data);
     }

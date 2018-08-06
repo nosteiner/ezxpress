@@ -95,11 +95,11 @@ export class TableComponent implements OnInit {
     if (this.authService.userType === "motoboy") {
       console.log("show moto columns")
 
-      this.displayedColumns = ['orderId', 'customerId', 'customerPhone', 'localAddress', 'destAddress', 'orderDate','status', 'active', 'actions']
+      this.displayedColumns = ['orderId', 'description', 'customerId', 'customerPhone', 'localAddress', 'destAddress', 'orderDate','status', 'active', 'actions']
 
     } else if (this.authService.userType === "customer") {
       console.log("show customer columns")
-      this.displayedColumns = ['orderId', 'motoboyName', 'localAddress', 'destAddress', 'orderDate','status', 'actions']
+      this.displayedColumns = ['orderId', 'description',  'motoboyName', 'localAddress', 'destAddress', 'orderDate','status', 'actions']
     }
   }
 //sort the array by status 

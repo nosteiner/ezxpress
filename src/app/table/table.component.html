@@ -24,9 +24,17 @@
         <div *ngIf="order.customerId != null">{{order.customer.phone}}</div>
       </mat-cell>
     </ng-container>
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+        <mat-cell *matCellDef="let order">
+            <div *ngIf="order.customerId != null">{{order.description}}</div>
+        </mat-cell>
+      </ng-container>
+
     <ng-container matColumnDef="motoboyName">
       <mat-header-cell *matHeaderCellDef> Moto Boy </mat-header-cell>
       <mat-cell *matCellDef="let order">
+          <div *ngIf="order.motoboyId == null" style="color: red">waiting</div>
         <div *ngIf="order.motoboyId && order.customerId != null">{{order.motoboy.firstName}} {{order.motoboy.lastName}}</div>
       </mat-cell>
     </ng-container>
