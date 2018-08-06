@@ -22,16 +22,7 @@ class Order {
             longitudeOriginAddress: Sequelize.FLOAT,
             latitudeDestAddress: Sequelize.FLOAT,
             longitudeDestAddress: Sequelize.FLOAT,
-
-            customerId: { type: Sequelize.INTEGER, references: { model: Customer, key: 'customerId' } },
-            motoboyId: { type: Sequelize.INTEGER, references: { model: Motoboy, key: 'motoboyId' } },
-            localAddress: Sequelize.STRING,
-            latitudeOriginAddress: Sequelize.FLOAT,
-            longitudeOriginAddress: Sequelize.FLOAT,
-            latitudeDestAddress: Sequelize.FLOAT,
-            longitudeDestAddress: Sequelize.FLOAT,
             destAddress: Sequelize.STRING,
-
             price: Sequelize.INTEGER,
             orderDate: Sequelize.DATE,
             collectDate: Sequelize.DATE,
@@ -88,7 +79,7 @@ class Order {
     }
 
     create(data) {
-        console.log('entei new order')
+        console.log('+++++++++++++insert new order++++++++++++++')
         console.log(data)
         return this.model.create(data);
     }

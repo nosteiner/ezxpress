@@ -26,6 +26,8 @@ router.get('/',checkIfAuthenticated, (req, res) => {
 // });
 
 router.post('/add', (req, res) => {
+    console.log(res)
+    console.log("post request work")
     order.create(req.body).then(data => {
     res.send(JSON.stringify(data));
   }).catch((error) => {
