@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const users = require('../DataAccsess/users');
+const expressJwt = require('express-jwt');
+const checkIfAuthenticated = expressJwt({
+  secret: 'thisIsTopSecret'
+}); 
 
 router.get('/', (req, res) => { 
     users.getAll().then(data => {
@@ -19,6 +23,17 @@ router.get('/:id', (req, res) => {
         res.send("error:" + error)
     });
   });
+
+  router.get('/currentUser', checkIfAuthenticated,  (req, res) => {
+    users.getUserType(req.user.id).then((data)=>{
+         console.log(data)
+         console.log("noam test")
+         res.send(data.customerId);
+     }).catch((error) => {
+         res.send("error:" + error)
+     });
+   });
+ 
 
 router.post('/add', (req, res) => {
     console.log('add new user' + req.body.position)

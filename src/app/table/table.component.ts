@@ -56,7 +56,7 @@ export class TableComponent implements OnInit {
   }
 
   handleAsignToOrder(order,newStatus) {
-    this.ordersService.updateStatus(order,newStatus, this.currentUser);
+    this.ordersService.updateOrderStatus(order, order.orderId, newStatus)
   }
 
   editOrder(order_id) {
@@ -67,7 +67,7 @@ export class TableComponent implements OnInit {
 
     let dialogRef = this.dialog.open(OrderScreenComponent, {
       width: '900px',
-      data: order
+      data:{order: order}
     });
 
     dialogRef.afterClosed().subscribe(result => {

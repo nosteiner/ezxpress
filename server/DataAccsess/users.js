@@ -56,6 +56,18 @@ class User {
         })
     }
 
+    getUserType(id) {
+        return this.model.findOne({
+          where: {
+            id: id
+          }
+        }).then((data) => {
+          return data
+        }, err => {
+          console.error(err)
+        })
+    }
+
     create(data){
         console.log("update users !!! ")
         console.log(data)

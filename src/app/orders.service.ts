@@ -40,14 +40,7 @@ export class OrdersService {
       this.getAllOrders();
     })
   }
-  // addNewOrder(newOrder: Order): void{
-  //   this.http.post<Order>(this.OrdersServiceUrl+'/add',{order: newOrder}).subscribe(() => {
-  //    this.allOrders.push(newOrder);
-  //   })
-  // }
-
   
-
   getOrderById(id: number): void{
     this.http.get<Order>(this.OrdersServiceUrl + `/${id}`).subscribe((order) => {
       // this.selectedOrder = order;
@@ -55,14 +48,25 @@ export class OrdersService {
     });
   }
 
-  updateOrder(data, id) {
-    console.log(id)
-    this.http.put<Order>(`ordersApi/update/${id}`, data).subscribe(() => {
+  // updateOrder(order, id) {
+  //   console.log(order.statusId)
+  //   this.http.put<Order>(`ordersApi/update/${id}`, order).subscribe(() => {
+  //     console.log("order was updated"+ id)
+  //     this.getAllOrders();
+  //   })
+  // }
+
+  
+  updateOrderStatus(order, id, status) {
+    order.status.statusId = status
+    console.log(order.status.statusId)
+    console.log(order)
+    console.log("=============================================")
+    this.http.put<Order>(`ordersApi/updateStatus/${id}`, order).subscribe(() => {
       console.log("order was updated"+ id)
       this.getAllOrders();
     })
   }
-
   sendSmsToCustomer(order: Order){
      this.http.post('/send', {
       from: 'Acme Inc',
@@ -73,17 +77,6 @@ export class OrdersService {
     })
   }
 
-  updateStatus(order,newStatus, motoBoy) {
-      order.motoboyId = motoBoy.motoboyId;
-      order.statusId = newStatus;
-      
-      this.updateOrder(order,order.orderId)
-      // this.sendSmsToCustomer(order);----------------------------------SMS----------------------
-      //Needs to be define 
-    
-    
-  }
-  
   cancelAssignToOrder(order) {
     order.motoboy = null;
     order.status = 1;
@@ -93,7 +86,6 @@ export class OrdersService {
 
   confirmEmail(order) {
     console.log("send email ........")
-    //this.updateOrder(order, order.orderId)
     this.http.post('/sendEmail', order).subscribe((data) => {
       
     //this.http.post('uploadSign', this.formData).subscribe((data) => {

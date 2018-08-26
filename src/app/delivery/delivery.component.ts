@@ -84,7 +84,6 @@ export class DeliveryComponent implements OnInit {
     
     this.order.orderDate = new Date();
     this.order.statusId = 1
-    moment().format('MMMM Do YYYY, h:mm:ss a');(this.order.orderDate)
     this.orderService.addNewOrder(this.order)
    
     let dialogRef = this.dialog.open(OrderDialogComponent, {
@@ -104,11 +103,7 @@ export class DeliveryComponent implements OnInit {
   
 
   ngOnInit() {
-    //set order customer
-this.order.customerId = this.authService.currentUser.customerId;
-this.authService.authUpdated.subscribe((user)=>{
-  this.order.customerId = user.customerId;
-})
+  
 
     this.mapsApiLoader.load().then( () => 
   {

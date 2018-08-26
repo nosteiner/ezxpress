@@ -9,9 +9,10 @@ import { Order } from '../Order';
 })
 export class StepperComponent implements OnInit { 
 
-  @Input() order: Order = new Order();
+  @Input() order: Order;
   @Input() userType: string;
   ngOnInit() {
-
+    console.log("this.order.statusId")
+console.log(this.order.statusId)
   }
 }

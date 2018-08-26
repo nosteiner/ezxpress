@@ -5,25 +5,7 @@ import { OrdersService} from '../orders.service';
 import { AuthService } from '../auth.service';
 
 export interface DialogData {
-  orderId: number;
-  customerId: number;
-  motoboyId: number;
-  orderDate: Date;
-  localAddress: string;
-  latitudeOriginAddress: number;
-  longitudeOriginAddress: number;
-  destAddress:string;
-  latitudeDestAddress:number;
-  longitudeDestAddress: number;
-  price: number;
-  collectDate: Date;
-  deliveryDate: Date;
-  contactDestination: string;
-  phoneDestination:string;
-  phoneNumber: string;
-  deliveryType: string;
-  status: string;
-  active: boolean;
+ order: Order;
 }
 
 @Component({
@@ -36,16 +18,17 @@ export class OrderScreenComponent implements OnInit {
   currentUser;
   userType: string;
   showButton : boolean = true;
-  order = new Order();
-  constructor(private authService: AuthService, private ordersService: OrdersService, public dialogRef: MatDialogRef<OrderScreenComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
-    console.log(data);
-    this.order = data;
+  order : Order;
+  constructor(private authService: AuthService, private ordersService: OrdersService, public dialogRef: MatDialogRef<OrderScreenComponent>, @Inject(MAT_DIALOG_DATA) public dialogData: DialogData) {
+    
+    this.order = this.dialogData.order
   }
 
   
    
 
   ngOnInit() {
+    console.log(this.order)
     if (this.order.orderId > 0){
       this.showButton = false;
     }
@@ -65,7 +48,7 @@ export class OrderScreenComponent implements OnInit {
   }
 
   handleChangeStatus(newStatus) {
-    this.ordersService.updateStatus(this.order, newStatus, this.currentUser);
+    this.ordersService.updateOrderStatus(this.order,this.order.orderId, newStatus);
     // if (newStatus == 4) {
     //   setTimeout(function(){ this.dialogRef.close(); }, 3000);
     // }

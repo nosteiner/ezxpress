@@ -25,28 +25,41 @@ router.get('/',checkIfAuthenticated, (req, res) => {
 //     });
 // });
 
-router.post('/add', (req, res) => {
-    console.log(res)
-    console.log("post request work")
-    order.create(req.body).then(data => {
+router.post('/add',checkIfAuthenticated, (req, res) => {
+   let  newOrder = req.body;
+   newOrder.customerId = req.user.customerId;
+    order.create(newOrder).then(data => {
     res.send(JSON.stringify(data));
   }).catch((error) => {
     res.send("error:" + error)
 });
 });
 
- router.put('/update/:id',(req,res)=>{
-     dataUpdate = req.body
-     orderId = req.params.id;
-     console.log(orderId)
-     order.update(dataUpdate, orderId).then(data => {
-        res.send(JSON.stringify(data));
-        })  
-        err => {
-            console.error(err)
-          } 
- });
+//  router.put('/update/:id',(req,res)=>{
+//      dataUpdate = req.body
+     
+//      orderId = req.params.id;
+//      console.log(orderId)
+//      order.update(dataUpdate, orderId).then(data => {
+//          console.log("first wrong api")
+//         res.send(JSON.stringify(data));
+//         })  
+//         err => {
+//             console.error(err)
+//           } 
+//  });
 
+ router.put('/updateStatus/:id',checkIfAuthenticated ,(req,res)=>{
+    let  data = req.body;
+    data.motoboyId = req.user.motoboyId;
+    orderId = req.params.id;
+    order.update(data, orderId).then(data => {
+        console.log("good api")
+       res.send(JSON.stringify(data));
+       }).catch((error) => {
+        res.send("error:" + error)
+    });
+});
  
 
 router.delete('/delete/:id', (req, res) => {
