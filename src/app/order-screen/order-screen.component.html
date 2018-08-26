@@ -35,8 +35,8 @@
             </mat-card-content>
 
 
-            <button mat-raised-button class="w3-theme" *ngIf="order.status.statusId == 2" (click)="handleChangeStatus(3)">pickedup order</button>
-            <button mat-raised-button class="w3-theme" *ngIf="order.status.statusId == 3" (click)="handleChangeStatus(4)">order deliverd</button>
+            <button mat-raised-button class="w3-theme" *ngIf="order.statusId == 2" (click)="handleChangeStatus(3)">pickedup order</button>
+            <button mat-raised-button class="w3-theme" *ngIf="order.statusId == 3" (click)="handleChangeStatus(4)">order deliverd</button>
 
         </mat-card>
     </mat-dialog-content>

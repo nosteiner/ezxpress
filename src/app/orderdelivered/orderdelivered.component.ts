@@ -25,16 +25,12 @@ export class OrderdeliveredComponent implements OnInit {
   }
   confirmDelivered(order){
     this.handleChangeStatus(888, order)
-    
-   
-    this.ordersService.confirmEmail(order)
+ 
   }
 
   handleChangeStatus(newStatus, order) {
     this.ordersService.updateOrderStatus(order, order.orderId, newStatus)
-    // if (newStatus == 4) {
-    //   setTimeout(function(){ this.dialogRef.close(); }, 3000);
-    // }
+   
   }
 
   ngOnInit() {

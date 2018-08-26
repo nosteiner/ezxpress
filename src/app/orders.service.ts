@@ -48,22 +48,15 @@ export class OrdersService {
     });
   }
 
-  // updateOrder(order, id) {
-  //   console.log(order.statusId)
-  //   this.http.put<Order>(`ordersApi/update/${id}`, order).subscribe(() => {
-  //     console.log("order was updated"+ id)
-  //     this.getAllOrders();
-  //   })
-  // }
 
   
   updateOrderStatus(order, id, status) {
-    order.status.statusId = status
-    console.log(order.status.statusId)
-    console.log(order)
-    console.log("=============================================")
+    order.statusId = status
     this.http.put<Order>(`ordersApi/updateStatus/${id}`, order).subscribe(() => {
       console.log("order was updated"+ id)
+      if(status == 888){
+        this.confirmEmail(order)
+      }
       this.getAllOrders();
     })
   }
@@ -87,27 +80,12 @@ export class OrdersService {
   confirmEmail(order) {
     console.log("send email ........")
     this.http.post('/sendEmail', order).subscribe((data) => {
-      
-    //this.http.post('uploadSign', this.formData).subscribe((data) => {
-      //update motoboys array?
-      //this.currentMotoBoy = data;
+      console.log(data)
+      this.snackBar.open("Email Sent to the client", " ", {
+        duration: 3000,
+      });
+      this.router.navigate([''])
     })
-    this.snackBar.open("Email Sent to the client", " ", {
-      duration: 3000,
-    });
-    this.router.navigate([''])
-
-  // uploadSignature(signFile) {
-  //   console.log(signFile)
-  //   let sendFile = {sign: signFile }
-  //   let orderId = 1
-  //   let signFileName = orderId + 'sign.png'
-  //   this.formData.append("uploads", signFile, signFileName);
-  //   this.http.post('/sendEmail', sendFile).subscribe((data) => {
-  //   //this.http.post('uploadSign', this.formData).subscribe((data) => {
-  //     //update motoboys array?
-  //     //this.currentMotoBoy = data;
-  //   })
         
   }
 }
