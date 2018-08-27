@@ -173,10 +173,10 @@ app.post('/sendEmail', (req, res) => {
           '<p>That was easy!</p>'+
           '<p> From:'+req.body.localAddress+'</p>'+
           '<p> To:'+req.body.destAddress+'</p>'+
-          '<p> Bike Delivery:'+req.body.motoboy.firstName+ ' '+req.body.motoboy.lastName+'</p>'+
+          '<p> Delivery person:'+req.body.motoboy.firstName+ ' '+req.body.motoboy.lastName+'</p>'+
           '<img src="'+req.body.signature+'"/>'+
-          '<h3> Dont forget to send your comments about the service ! Is very important to improve our service<h3> '+
-          '<h2> Thanks to use ezXpress !! </h2>'
+          '<h3> Dont forget to send your comments about the service ! It is very important for us to improve the service<h3> '+
+          '<h2> Thanks you for choosing ezXpress !! </h2>'
         };
       transporter.use('compile', inlineBase64({cidPrefix: 'somePrefix_'}));
       transporter.sendMail(mailOptions, function(error, info){
@@ -187,7 +187,10 @@ app.post('/sendEmail', (req, res) => {
         }
       });
 
-      res.send('Email Sent')
+      res.send({
+        success: true,
+        message: 'Emails sent',
+      });
 
 });
 
