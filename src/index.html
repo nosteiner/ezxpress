@@ -4,11 +4,25 @@
       <meta charset="utf-8">
       <title>Ezxpress</title>
       <base href="/">
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g&libraries=places&language=en-US"> async; defer</script>
+      
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body>
     <app-root></app-root>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g&libraries=places&language=en-US"> async; defer</script>
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCxdG6P9sPkGqgI3E26MjOgmeysN0WG1Jg",
+    authDomain: "ezxpress-1529850544497.firebaseapp.com",
+    databaseURL: "https://ezxpress-1529850544497.firebaseio.com",
+    projectId: "ezxpress-1529850544497",
+    storageBucket: "ezxpress-1529850544497.appspot.com",
+    messagingSenderId: "35879900496"
+  };
+  firebase.initializeApp(config);
+</script>
   </body>
 </html>

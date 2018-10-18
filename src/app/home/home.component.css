@@ -1,4 +1,4 @@
-html, body
+/* html, body
 {
     height: 100%;
 }
@@ -22,10 +22,10 @@ html, body
     width: 33.33%;
     height: auto;
     padding: 50px 15px 15px 15px
-}
+} */
 
 /* Clearfix (clear floats) */
-.row:after {
+/* .row:after {
     content: "";
     clear: both;
     display: table;
@@ -58,4 +58,5 @@ h6{
 
 .space{
     line-height: 10%; 
-}
+} */
+

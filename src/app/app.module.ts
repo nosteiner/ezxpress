@@ -21,6 +21,8 @@ import {FileUploadModule} from 'primeng/fileupload';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 import { AppComponent } from './app.component';
 import { EzxpressService } from './ezxpress.service';
@@ -125,7 +127,8 @@ import { InfoComponent } from './info/info.component';
     MatSelectModule,
     MatRadioModule,
     MatStepperModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule
   
 
     

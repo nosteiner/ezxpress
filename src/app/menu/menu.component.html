@@ -1,11 +1,52 @@
-<div class="w3-theme" id="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="">Ezexpress</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="head" >
-        <app-user-connected></app-user-connected>
-        <h1>EzExpress</h1>
-        <h2>Because it's easy to receive your package with our service</h2>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/aboutUs">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/info">Info</a>
+            </li>
+            <li class="nav-item" *ngIf="userType">
+                <a class="nav-link" routerLink="/profile">My Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/table">
+                    <span *ngIf="userType === 'customer'"> My orders</span>
+                    <span *ngIf="userType === 'motoboy'"> Open orders</span>
+                </a>
+
+            </li>
+            <li class="nav-item" *ngIf="userType === 'customer'">
+                <a class="nav-link" routerLink="/add-delivery">Express Delivery</a>
+            </li>
+        </ul>
+        <button mat-raised-button color="accent" *ngIf='currentUser == null' routerLink="/login">
+
+            <span>Signin/Signup</span>
+        </button>
+        <div *ngIf='currentUser != null'>
+            <div>
+                    You are connected as 
+                <b>{{currentUser.firstName}}
+                    {{currentUser.lastName}}</b>
+                </div>
+            <button mat-raised-button color="accent" (click)="this.authService.logoff()">Logout</button>
+            </div>
     </div>
-    
+</nav>
+
+<!-- <div class="container">
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>reorder</mat-icon>
     </button>
@@ -14,11 +55,11 @@
             <mat-icon>home</mat-icon>
             <span>Home Page</span>
         </button>
-        <button  class="white-icon" mat-menu-item routerLink="/aboutUs">
+        <button class="white-icon" mat-menu-item routerLink="/aboutUs">
             <mat-icon>group</mat-icon>
             <span>About Us</span>
         </button>
-        <button  class="white-icon" mat-menu-item routerLink="/info">
+        <button class="white-icon" mat-menu-item routerLink="/info">
             <mat-icon>info</mat-icon>
             <span>Info</span>
         </button>
@@ -37,7 +78,7 @@
                 <mat-icon>send</mat-icon>
                 <span>Xpress Delivery</span>
             </button>
-            <button  class="white-icon" mat-menu-item routerLink="/aboutUs">
+            <button class="white-icon" mat-menu-item routerLink="/aboutUs">
                 <mat-icon>group</mat-icon>
                 <span>About Us</span>
             </button>
@@ -52,6 +93,11 @@
             <span>Signin/Signup</span>
         </button>
 
-      
-    </mat-menu>
+
+    </mat-menu> -->
+
+<div class="head">
+    <app-user-connected></app-user-connected>
+
 </div>
+<!-- </div> -->

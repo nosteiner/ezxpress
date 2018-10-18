@@ -33,11 +33,8 @@ export class DestinationComponent implements OnInit {
           this.order.destAddress = place.formatted_address
           this.order.latitudeDestAddress = place.geometry.location.lat();
           this.order.longitudeDestAddress = place.geometry.location.lng();
-          
-            
         })
       })
     })
   }
-
 }
