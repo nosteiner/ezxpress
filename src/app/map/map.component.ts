@@ -31,9 +31,6 @@ export class MapComponent  {
   lat: number //= 51.678418;
   lng: number //= 7.809007;
   
-  // moto1 = new MotoBoy();
-  // moto2 = new MotoBoy();
-  // moto3 = new MotoBoy();
   motoBoys: Array<MotoBoy>
   motoBoyIcon: string;
   localAddress :string;

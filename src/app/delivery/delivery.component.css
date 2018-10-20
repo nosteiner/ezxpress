@@ -1,4 +1,20 @@
-.container {
+.radio_item{
+display: none !important;
+}
+
+.label_item {
+opacity: 0.3;
+}
+
+.radio_item:checked + label {
+opacity: 1;
+}
+
+img {
+    height: 70px;
+    width: 70px;
+}
+/* .container {
   display: flex;
   padding: 10px;
 }
@@ -37,16 +53,19 @@ img {
  
 #spinner{
   margin-left: 10px;
-}
-  label > input{ /* HIDE RADIO */
-    visibility: hidden; /* Makes input not-clickable */
-    position: absolute; /* Remove input from document flow */
-  }
-  label > input + img{ /* IMAGE STYLES */
+} */
+  /* label > input{  */
+    /* HIDE RADIO */
+    /* visibility: hidden;  */
+    /* Makes input not-clickable */
+    /* position: absolute;  */
+    /* Remove input from document flow */
+  /* }
+  label > input + img{ 
     cursor:pointer;
     border:2px solid transparent;
   }
-  label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  label > input:checked + img{ 
     border:2px solid #E3C298;
   }
   h2{
@@ -54,4 +73,4 @@ img {
   }
   p{
     color: #3f51b5;;
-  }
+  } */
