@@ -6,7 +6,9 @@
 
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field> -->
-  <mat-icon class="click"(click)="refresh()">refresh</mat-icon>
+  
+  <mat-icon class="click"(click)="refresh()" >refresh</mat-icon>
+
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="orderId">
       <mat-header-cell *matHeaderCellDef> Order Id </mat-header-cell>
