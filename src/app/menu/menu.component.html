@@ -1,103 +1,44 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" routerLink="">Ezexpress</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark indigo scrolling-navbar intro-fixed-nav"
+    [containerInside]="false">
+    <mdb-navbar-brand>
+        <a class="logo navbar-brand" href="#"><strong>Navbar</strong></a>
+    </mdb-navbar-brand>
+    <links>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item waves-light" mdbWavesEffect>
                 <a class="nav-link" routerLink="">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item waves-light" mdbWavesEffect>
                 <a class="nav-link" routerLink="/aboutUs">About</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/info">Info</a>
-            </li>
-            <li class="nav-item" *ngIf="userType">
+            <li class="nav-item waves-light" *ngIf="userType" mdbWavesEffect>
                 <a class="nav-link" routerLink="/profile">My Profile</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item waves-light" mdbWavesEffect>
                 <a class="nav-link" routerLink="/table">
                     <span *ngIf="userType === 'customer'"> My orders</span>
                     <span *ngIf="userType === 'motoboy'"> Open orders</span>
                 </a>
-
             </li>
-            <li class="nav-item" *ngIf="userType === 'customer'">
+            <li class="nav-item waves-light" *ngIf="userType === 'customer'" mdbWavesEffect>
                 <a class="nav-link" routerLink="/add-delivery">Express Delivery</a>
             </li>
         </ul>
-        <button mat-raised-button color="accent" *ngIf='currentUser == null' routerLink="/login">
 
-            <span>Signin/Signup</span>
-        </button>
-        <div *ngIf='currentUser != null'>
-            <div>
-                    You are connected as 
-                <b>{{currentUser.firstName}}
-                    {{currentUser.lastName}}</b>
-                </div>
-            <button mat-raised-button color="accent" (click)="this.authService.logoff()">Logout</button>
-            </div>
-    </div>
-</nav>
+        <span class="navbar-text white-text" *ngIf='currentUser != null'>
+            You are connected as
+            <b>{{currentUser.firstName}}
+                {{currentUser.lastName}}</b>
+        </span>
+        <form class="form-inline">
+            <form class="form-inline">
+                <button mdbBtn type="button" color="primary" class="waves-light" *ngIf='currentUser == null' routerLink="/login"
+                    mdbWavesEffect> Signin/Signup</button>
+                <button mdbBtn type="button" color="primary" class="waves-light" (click)="this.authService.logoff()"
+                    *ngIf='currentUser != null'>Logout</button>
+            </form>
+        </form>
 
-<!-- <div class="container">
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>reorder</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu" class="w3-theme">
-        <button class="white-icon" mat-menu-item routerLink="">
-            <mat-icon>home</mat-icon>
-            <span>Home Page</span>
-        </button>
-        <button class="white-icon" mat-menu-item routerLink="/aboutUs">
-            <mat-icon>group</mat-icon>
-            <span>About Us</span>
-        </button>
-        <button class="white-icon" mat-menu-item routerLink="/info">
-            <mat-icon>info</mat-icon>
-            <span>Info</span>
-        </button>
-        <div class="menupart" *ngIf="userType">
-            <button class="white-icon" mat-menu-item routerLink="/profile">
-                <mat-icon>account_circle</mat-icon>
-                <span>My profile</span>
-            </button>
+    </links>
 
-            <button class="white-icon" mat-menu-item routerLink="/table">
-                <mat-icon>mail</mat-icon>
-                <span *ngIf="userType === 'customer'"> My orders</span>
-                <span *ngIf="userType === 'motoboy'"> Open orders</span>
-            </button>
-            <button *ngIf="userType === 'customer'" class="white-icon" mat-menu-item routerLink="/add-delivery">
-                <mat-icon>send</mat-icon>
-                <span>Xpress Delivery</span>
-            </button>
-            <button class="white-icon" mat-menu-item routerLink="/aboutUs">
-                <mat-icon>group</mat-icon>
-                <span>About Us</span>
-            </button>
-            <button class="white-icon" mat-menu-item (click)="this.authService.logoff()">
-                <mat-icon>exit_to_app</mat-icon>
-                <span>Logout</span>
-            </button>
-        </div>
-
-        <button *ngIf='currentUser == null' class="white-icon" mat-menu-item routerLink="/login">
-            <mat-icon>how_to_reg</mat-icon>
-            <span>Signin/Signup</span>
-        </button>
-
-
-    </mat-menu> -->
-
-<div class="head">
-    <app-user-connected></app-user-connected>
-
-</div>
-<!-- </div> -->
+</mdb-navbar>

@@ -5,7 +5,7 @@ import { Order } from '../Order';
 @Component({
   selector: 'app-orderdelivered',
   templateUrl: './orderdelivered.component.html',
-  styleUrls: ['./orderdelivered.component.css']
+  styleUrls: ['./orderdelivered.component.scss']
 })
 export class OrderdeliveredComponent implements OnInit {
   @Input() order: any;

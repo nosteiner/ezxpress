@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 @Component({
   selector: 'app-order-dialog',
   templateUrl: './order-dialog.component.html',
-  styleUrls: ['./order-dialog.component.css']
+  styleUrls: ['./order-dialog.component.scss']
 })
 export class OrderDialogComponent {
 

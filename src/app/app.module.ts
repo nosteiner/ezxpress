@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,  NO_ERRORS_SCHEMA } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatSelectModule, MatDividerModule } from '@angular/material';
@@ -110,6 +111,7 @@ import { InfoComponent } from './info/info.component';
       apiKey: 'AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g',
       libraries: ["places"]
     }),
+    MDBBootstrapModule.forRoot(),
     AgmDirectionModule,
     HttpClientModule,
     MatToolbarModule,
@@ -140,6 +142,8 @@ import { InfoComponent } from './info/info.component';
       useClass: AuthInterceptor,
       multi: true
     }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ NO_ERRORS_SCHEMA ]
+
 })
 export class AppModule { }

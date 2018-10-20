@@ -8,7 +8,7 @@ import { DeliveryComponent } from '../delivery/delivery.component'
 @Component({
   selector: 'app-destination',
   templateUrl: './destination.component.html',
-  styleUrls: ['./destination.component.css']
+  styleUrls: ['./destination.component.scss']
 })
 export class DestinationComponent implements OnInit {
 

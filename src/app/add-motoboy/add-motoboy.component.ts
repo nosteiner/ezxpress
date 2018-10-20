@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'add-motoboy',
   templateUrl: './add-motoboy.component.html',
-  styleUrls: ['./add-motoboy.component.css']
+  styleUrls: ['./add-motoboy.component.scss']
 })
 export class AddMotoboyComponent implements OnInit {
   selectPhoto = "";

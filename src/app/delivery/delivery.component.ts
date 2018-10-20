@@ -15,7 +15,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-delivery',
   templateUrl: './delivery.component.html',
-  styleUrls: ['./delivery.component.css']
+  styleUrls: ['./delivery.component.scss']
 })
 export class DeliveryComponent implements OnInit {
   @ViewChild('search') public searchElement: ElementRef;

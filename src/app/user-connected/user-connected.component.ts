@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-user-connected',
   templateUrl: './user-connected.component.html',
-  styleUrls: ['./user-connected.component.css']
+  styleUrls: ['./user-connected.component.scss']
 })
 export class UserConnectedComponent implements OnInit {
 
