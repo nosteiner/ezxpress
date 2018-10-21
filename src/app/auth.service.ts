@@ -36,7 +36,7 @@ export class AuthService {
     },
       (err) => {
 
-        this.msgSubject.next("Login Invalid")
+        this.msgSubject.next("Invalid user name or password")
       }
     );
   }
