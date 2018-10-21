@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,  NO_ERRORS_SCHEMA } from '@angular/core';
+import { ButtonsModule, WavesModule, IconsModule } from 'angular-bootstrap-md';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -47,7 +48,6 @@ import { LoginComponent } from './login/login.component';
 import { EditMotoComponent } from './edit-moto/edit-moto.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { OrderScreenComponent } from './order-screen/order-screen.component';
-import { UserConnectedComponent } from './user-connected/user-connected.component';
 import { StarsComponent } from './stars/stars.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { StepperComponent } from './stepper/stepper.component';
@@ -59,6 +59,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MsgsnackComponent } from './msgsnack/msgsnack.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { InfoComponent } from './info/info.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -83,13 +84,13 @@ import { InfoComponent } from './info/info.component';
     EditMotoComponent,
     EditCustomerComponent,
     OrderScreenComponent,
-    UserConnectedComponent,
     StarsComponent,
     StepperComponent,
     MenuComponent,
     MsgsnackComponent,
     AboutUsComponent,
     InfoComponent,
+    FooterComponent,
   
 
     
@@ -130,7 +131,8 @@ import { InfoComponent } from './info/info.component';
     MatRadioModule,
     MatStepperModule,
     MatSnackBarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ButtonsModule, WavesModule, IconsModule
   
 
     

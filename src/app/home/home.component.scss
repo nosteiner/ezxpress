@@ -1,62 +1,22 @@
-/* html, body
-{
-    height: 100%;
-}
 
-.container {
-    width:100%;
-    height:100%;
-    min-width: 1000px;
-    min-height: 600px;
-    margin-top: 0%;
-    margin-bottom: 0%;
- }
+.intro-header {
+    height: unset !important;
+  }
+  .intro-2 {
+    background: url("https://ksr-ugc.imgix.net/assets/015/781/101/9bfd0b23738429e5645c9b865d84cded_original.png?ixlib=rb-1.1.0&crop=faces&w=1552&h=873&fit=crop&v=1489536055&auto=format&frame=1&q=92&s=2db5e22eba467d03a0a3df15caa9ca27")no-repeat center center;
+    background-size: cover;
+  }
+  .view {
+   height: 100vh !important;
+  }
+  .btn .fa {
+    margin-left: 3px;
+  }
 
-
-* {
-    box-sizing: border-box;
-}
-
-.column {
-    float: left;
-    width: 33.33%;
-    height: auto;
-    padding: 50px 15px 15px 15px
-} */
-
-/* Clearfix (clear floats) */
-/* .row:after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.img-card {
-    max-height: 20vw;
-    min-height: 20vw;
-    max-width: 20vw;
-    min-width: 20vw;
-    margin-top: 4px;
-    margin-left: 4px;
-    margin-right: 4px;
-    margin-bottom: 4px;
-    left: 71px;
-}
-
-.title{
-    font-family: 'Roboto', serif;
-}
-
-h5{
-    text-align: center;
-   
-}
-h6{
-    text-align: center;
-   
-}
-
-.space{
-    line-height: 10%; 
-} */
-
+  h6 {
+    line-height: 1.7;
+  }
+  .rgba-gradient .full-bg-img {
+    background: linear-gradient(45deg, rgba(207, 250, 15, 0.384), rgba(0, 195, 255, 0.384) 100%);
+    height: 100vh !important;
+  }

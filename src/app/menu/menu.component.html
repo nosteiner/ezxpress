@@ -1,7 +1,7 @@
-<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark indigo scrolling-navbar intro-fixed-nav"
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark  mdb-color lighten-2 scrolling-navbar intro-fixed-nav"
     [containerInside]="false">
     <mdb-navbar-brand>
-        <a class="logo navbar-brand" href="#"><strong>Navbar</strong></a>
+        <a class="logo navbar-brand font-weight-bold" routerLink=""> <strong>ezXpress</strong> </a>
     </mdb-navbar-brand>
     <links>
         <ul class="navbar-nav mr-auto">
@@ -32,9 +32,9 @@
         </span>
         <form class="form-inline">
             <form class="form-inline">
-                <button mdbBtn type="button" color="primary" class="waves-light" *ngIf='currentUser == null' routerLink="/login"
+                <button mdbBtn type="button" color="cyan" class="waves-light" *ngIf='currentUser == null' routerLink="/login"
                     mdbWavesEffect> Signin/Signup</button>
-                <button mdbBtn type="button" color="primary" class="waves-light" (click)="this.authService.logoff()"
+                <button mdbBtn type="button" color="cyan" class="waves-light" (click)="this.authService.logoff()"
                     *ngIf='currentUser != null'>Logout</button>
             </form>
         </form>
