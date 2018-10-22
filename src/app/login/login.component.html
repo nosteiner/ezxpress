@@ -1,40 +1,38 @@
 <div class="container">
-  <div class="row justify-content-md-center mt-5 pt-5">
+  <div class="row justify-content-lg-center mt-5 pt-5">
     <div class="col-12 col-md-auto">
       <div class="text-center border border-light mt-3 p-5">
-        <p class="h4 mb-4">Sign in</p>
 
+        <p class="h4 mb-4">Sign in</p>
+        
         <input type="text" class="form-control mb-4" [(ngModel)]="userName" placeholder="User name">
 
         <div class="input-group">
-
-          <input type="password" class="form-control" [(ngModel)]="password"
-            placeholder="Password" [type]="hide ? 'password' : 'text'">
-            <div class="input-group-append">
-                <span class="input-group-text">
-                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-                 </span>
-              </div>
+          <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" [type]="hide ? 'password' : 'text'">
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </span>
+          </div>
         </div>
 
         <p *ngIf="msg ==='Invalid user name or password'" class="msg">
           <mat-icon>warning</mat-icon>
-         {{ msg }}
+          {{ msg }}
         </p>
-      
+
 
         <button mdbBtn type="button" color="mdb-color" class="waves-light m-4" mdbWavesEffect (click)="login()">Login</button>
-        <p class="blue-grey-text">Don't have an account? <a class="font-weight-bold"  (click)="signup()">Sign up</a> </p>
-       
+        <p class="blue-grey-text">Don't have an account? <a class="font-weight-bold" (click)="signup()">Sign up</a>
+        </p>
+
         <div class="row justify-content-md-center" *ngIf="toogle==1">
-            <button mdbBtn type="button" color="default" outline="true" mdbWavesEffect routerLink="/add-motoboy">New
-              Delivery Person</button>
-            <button mdbBtn type="button" color="default" outline="true" mdbWavesEffect routerLink="/add-customer">New
-              Customer</button>
-          </div>
+          <button mdbBtn type="button" color="default" outline="true" mdbWavesEffect routerLink="/add-motoboy">New
+            Delivery Person</button>
+          <button mdbBtn type="button" color="default" outline="true" mdbWavesEffect routerLink="/add-customer">New
+            Customer</button>
+        </div>
       </div>
-
-
     </div>
   </div>
 </div>
