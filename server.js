@@ -43,6 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/ezxpress')));
+app.use(express.static(path.join(__dirname, 'node_modules')));
 
 
 // // Point static path to dist
@@ -197,7 +198,7 @@ app.post('/sendEmail', (req, res) => {
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
   console.log('yooooo')
-  res.sendFile(path.join(__dirname, 'dist','index.html'));
+  res.sendFile(path.join(__dirname  + 'ezxpress/index.html'));
 });
 
 /**
