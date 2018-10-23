@@ -16,5 +16,4 @@ export class RegisterDialogComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 }
