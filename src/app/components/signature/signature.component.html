@@ -3,7 +3,6 @@
 
 </signature-pad>
 <br>
-<button class="btn" (click)='drawComplete()'  mat-raised-button color="primary">Save</button>
-<button class="btn" (click)='this.signaturePad.clear()'  mat-raised-button color="accent">Clear</button>
-
+<button mdbBtn type="button" color="mdb-color" outline="true" class="waves-light m-4" mdbWavesEffect (click)='drawComplete()'>Save</button>
+<button mdbBtn type="button" color="blue-grey"  outline="true" class="waves-light m-4" mdbWavesEffect (click)='this.signaturePad.clear()'>Clear</button>
 </div>

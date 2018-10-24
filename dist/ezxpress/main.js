@@ -462,7 +462,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<app-menu></app-menu>\r\n<div class=\"app-container\">\r\n<router-outlet></router-outlet>\r\n</div>\r\n<app-footer></app-footer>\r\n"
+module.exports = "\r\n<app-menu></app-menu>\r\n<div class=\"app-container mt-5\">\r\n    <div class=\"row justify-content-lg-center\"></div>\r\n<router-outlet></router-outlet>\r\n</div>\r\n<app-footer></app-footer>\r\n"
 
 /***/ }),
 
@@ -2138,7 +2138,7 @@ var OrderScreenComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"order-card\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n  <mat-card-header>\r\n    <div mat-card-avatar class=\"example-header-image\"></div>\r\n    <mat-card-title><h3>Delivery Confirmation</h3></mat-card-title>\r\n  </mat-card-header>\r\n    <span>  Customer: <span class=\"field\"> {{ order.customer.firstName}} {{ order.customer.lastName}} </span></span>\r\n    <span>  From: <span class=\"field\"> {{order.localAddress }} </span> </span> \r\n    <span>  To:  <span class=\"field\">{{order.contactDestination}} </span></span> \r\n    <span>  Dest Address: <span class=\"field\">  {{order.destAddress}} </span></span>\r\n    <span>  Date:<span class=\"field\"> {{order.dateDelivery}} </span></span>\r\n    <span>>  Date Received: <span class=\"field\"> {{order.deliveryDate}} </span></span> \r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <app-signature [order]=\"order\"></app-signature>\r\n    <button class=\"btn\" (click)='confirmDelivered(order)'  mat-raised-button color=\"primary\">Confirm</button>\r\n  </div>\r\n</div>\r\n</mat-card>\r\n"
+module.exports = "<mat-card class=\"order-card\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6 vertical-center\">\r\n\r\n        <mat-card-title>\r\n          <h3>Delivery Confirmation</h3>\r\n        </mat-card-title>\r\n\r\n      <span> Customer: <span class=\"field\"> {{ order.customer.firstName}} {{ order.customer.lastName}} </span></span><br>\r\n      <span> Receiver: <span class=\"field\">{{order.contactDestination}} </span></span> <br>\r\n      <span> Origin Address: <span class=\"field\"> {{order.localAddress }} </span> </span><br>\r\n      <span> Destenation Address: <span class=\"field\"> {{order.destAddress}} </span></span><br>\r\n      <span> Order Date:<span class=\"field\"> {{order.dateDelivery}} </span></span><br>\r\n      <span> Delivery Date: <span class=\"field\"> {{order.deliveryDate}} </span></span> <br>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n      <app-signature [order]=\"order\"></app-signature>\r\n      <button mdbBtn type=\"button\" color=\"mdb-color\" class=\"waves-light m-4\" mdbWavesEffect (click)='confirmDelivered(order)'>submit</button>\r\n    </div>\r\n  </div>\r\n</mat-card>"
 
 /***/ }),
 
@@ -2149,7 +2149,7 @@ module.exports = "<mat-card class=\"order-card\">\r\n  <div class=\"row\">\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".order-card {\n  width: 660px;\n  color: #E3C298; }\n\n.field {\n  color: #910bdf; }\n"
+module.exports = ".order-card {\n  width: 800px; }\n\n.field {\n  color: #19807a; }\n"
 
 /***/ }),
 
@@ -2299,7 +2299,7 @@ var ProfileComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pad\">\r\n<signature-pad [options]=\"signaturePadOptions\" (onBeginEvent)=\"drawStart()\">\r\n\r\n</signature-pad>\r\n<br>\r\n<button class=\"btn\" (click)='drawComplete()'  mat-raised-button color=\"primary\">Save</button>\r\n<button class=\"btn\" (click)='this.signaturePad.clear()'  mat-raised-button color=\"accent\">Clear</button>\r\n\r\n</div>"
+module.exports = "<div class=\"pad\">\r\n<signature-pad [options]=\"signaturePadOptions\" (onBeginEvent)=\"drawStart()\">\r\n\r\n</signature-pad>\r\n<br>\r\n<button mdbBtn type=\"button\" color=\"mdb-color\" outline=\"true\" class=\"waves-light m-4\" mdbWavesEffect (click)='drawComplete()'>Save</button>\r\n<button mdbBtn type=\"button\" color=\"blue-grey\"  outline=\"true\" class=\"waves-light m-4\" mdbWavesEffect (click)='this.signaturePad.clear()'>Clear</button>\r\n</div>"
 
 /***/ }),
 
@@ -2310,7 +2310,7 @@ module.exports = "<div class=\"pad\">\r\n<signature-pad [options]=\"signaturePad
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".pad {\n  border: 1px solid orange;\n  text-align: center; }\n"
+module.exports = ".pad {\n  border: 1px solid;\n  text-align: center; }\n"
 
 /***/ }),
 

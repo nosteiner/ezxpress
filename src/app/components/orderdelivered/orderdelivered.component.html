@@ -1,20 +1,21 @@
 <mat-card class="order-card">
   <div class="row">
+    <div class="col-md-6 vertical-center">
+
+        <mat-card-title>
+          <h3>Delivery Confirmation</h3>
+        </mat-card-title>
+
+      <span> Customer: <span class="field"> {{ order.customer.firstName}} {{ order.customer.lastName}} </span></span><br>
+      <span> Receiver: <span class="field">{{order.contactDestination}} </span></span> <br>
+      <span> Origin Address: <span class="field"> {{order.localAddress }} </span> </span><br>
+      <span> Destenation Address: <span class="field"> {{order.destAddress}} </span></span><br>
+      <span> Order Date:<span class="field"> {{order.dateDelivery}} </span></span><br>
+      <span> Delivery Date: <span class="field"> {{order.deliveryDate}} </span></span> <br>
+    </div>
     <div class="col-md-6">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title><h3>Delivery Confirmation</h3></mat-card-title>
-  </mat-card-header>
-    <span>  Customer: <span class="field"> {{ order.customer.firstName}} {{ order.customer.lastName}} </span></span>
-    <span>  From: <span class="field"> {{order.localAddress }} </span> </span> 
-    <span>  To:  <span class="field">{{order.contactDestination}} </span></span> 
-    <span>  Dest Address: <span class="field">  {{order.destAddress}} </span></span>
-    <span>  Date:<span class="field"> {{order.dateDelivery}} </span></span>
-    <span>>  Date Received: <span class="field"> {{order.deliveryDate}} </span></span> 
+      <app-signature [order]="order"></app-signature>
+      <button mdbBtn type="button" color="mdb-color" class="waves-light m-4" mdbWavesEffect (click)='confirmDelivered(order)'>submit</button>
+    </div>
   </div>
-  <div class="col-md-6">
-    <app-signature [order]="order"></app-signature>
-    <button class="btn" (click)='confirmDelivered(order)'  mat-raised-button color="primary">Confirm</button>
-  </div>
-</div>
 </mat-card>
