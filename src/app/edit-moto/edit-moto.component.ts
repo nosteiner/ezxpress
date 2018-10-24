@@ -7,7 +7,7 @@ import {UsersService} from '../users.service'
 @Component({
   selector: 'app-edit-moto',
   templateUrl: './edit-moto.component.html',
-  styleUrls: ['./edit-moto.component.css']
+  styleUrls: ['./edit-moto.component.scss']
 })
 export class EditMotoComponent implements OnInit {
 

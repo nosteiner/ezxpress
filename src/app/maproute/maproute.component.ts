@@ -8,7 +8,7 @@ import {} from '@types/google-maps';
 @Component({
   selector: 'app-maproute',
   templateUrl: './maproute.component.html',
-  styleUrls: ['./maproute.component.css']
+  styleUrls: ['./maproute.component.scss']
 })
 export class MaprouteComponent implements OnInit {
   //@ViewChild('mapDiv') mapDiv: ElementRef;

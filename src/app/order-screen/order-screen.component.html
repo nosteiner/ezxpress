@@ -34,10 +34,10 @@
 
             </mat-card-content>
 
-
+<span *ngIf="u">userType == "motoboy"
             <button mat-raised-button class="w3-theme" *ngIf="order.statusId == 2" (click)="handleChangeStatus(3)">pickedup order</button>
             <button mat-raised-button class="w3-theme" *ngIf="order.statusId == 3" (click)="handleChangeStatus(4)">order deliverd</button>
-
+        </span>
         </mat-card>
     </mat-dialog-content>
 

@@ -25,9 +25,9 @@ CREATE TABLE motoboys (
 );
 
  CREATE TABLE users (
- userId   INT AUTO_INCREMENT PRIMARY KEY,
+ id INT AUTO_INCREMENT PRIMARY KEY,
  userName VARCHAR(10), 
- password  VARCHAR(5),
+ password  VARCHAR(8),
  customerId INT,
  motoboyId INT, 
  FOREIGN KEY(customerId) REFERENCES customers(customerId),
@@ -48,6 +48,7 @@ CREATE TABLE orders (
  longitudeOriginAddress float,
  latitudeDestAddress float,
  longitudeDestAddress float,
+ destAddress VARCHAR(40),
  price INT ,
  orderDate DATETIME,
  collectDate DATETIME,
@@ -55,23 +56,13 @@ CREATE TABLE orders (
  contactDestination  VARCHAR(20),
  phoneDestination  VARCHAR(20),
  deliveryType VARCHAR(20),
- description VARCHAR(100),
+ description LONGTEXT,
  statusId INT,
  active BOOLEAN,
+ signature VARCHAR(200),
  FOREIGN KEY(statusId) REFERENCES status(statusId),
  FOREIGN KEY(customerId) REFERENCES customers(customerId),
  FOREIGN KEY(motoboyId) REFERENCES motoboys(motoboyId)
 );
-CREATE TABLE comments (
- commentId INT  not null AUTO_INCREMENT PRIMARY KEY, 
- comment  VARCHAR(20),
- customerId INT,
- motoboyId INT,
- orderId INT,
- rate INT,
- active BOOLEAN,
- FOREIGN KEY(customerId) REFERENCES customers(customerId),
- FOREIGN KEY(motoboyId) REFERENCES motoboys(motoboyId),
- FOREIGN KEY(orderId) REFERENCES orders(orderId)
- );
+
  

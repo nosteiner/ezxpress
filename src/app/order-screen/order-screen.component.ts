@@ -11,7 +11,7 @@ export interface DialogData {
 @Component({
   selector: 'app-order-screen',
   templateUrl: './order-screen.component.html',
-  styleUrls: ['./order-screen.component.css']
+  styleUrls: ['./order-screen.component.scss']
 })
 export class OrderScreenComponent implements OnInit {
   //@Output() closeOrder : EventEmitter<any> = new EventEmitter();

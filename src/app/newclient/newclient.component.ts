@@ -18,7 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-newclient',
   templateUrl: './newclient.component.html',
-  styleUrls: ['./newclient.component.css']
+  styleUrls: ['./newclient.component.scss']
 })
 export class NewclientComponent implements OnInit {
   user : User = new User();

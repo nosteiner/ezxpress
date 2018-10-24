@@ -14,11 +14,10 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 
 export class LoginComponent implements OnInit {
- scroll
   loginParms : Object;
   tokenid : Object = {token: ''}
   msg : string
@@ -27,6 +26,7 @@ export class LoginComponent implements OnInit {
   userName = '';
   password = '';
   toogle =0;
+  
   constructor(
     private usersService:UsersService,
     public customerService:CustomerService,
@@ -36,32 +36,21 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-  
     this.authService.msgUpdated.subscribe((data)=>{
       this.msg = data; })
   }
 
   login(){
-
     this.loginParms = {username: this.userName, password: this.password}
-    this.authService.login(this.loginParms)
-    
+    this.authService.login(this.loginParms) 
   }
-  signup(){
 
+  signup(){
     if (this.toogle==1){
       this.toogle=0;
     }
     if (this.toogle==0){
       this.toogle=1;
     }
-    this.scroll = setInterval(function(){ window.scrollBy(0,10); }, 20);
   }
-
-  clear(){
-    clearInterval(this.scroll);
-  }
-	
- 
 }

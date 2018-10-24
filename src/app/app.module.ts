@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,  NO_ERRORS_SCHEMA } from '@angular/core';
+import { ButtonsModule, WavesModule, IconsModule } from 'angular-bootstrap-md';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatSelectModule, MatDividerModule } from '@angular/material';
@@ -21,6 +23,8 @@ import {FileUploadModule} from 'primeng/fileupload';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 import { AppComponent } from './app.component';
 import { EzxpressService } from './ezxpress.service';
@@ -44,7 +48,6 @@ import { LoginComponent } from './login/login.component';
 import { EditMotoComponent } from './edit-moto/edit-moto.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { OrderScreenComponent } from './order-screen/order-screen.component';
-import { UserConnectedComponent } from './user-connected/user-connected.component';
 import { StarsComponent } from './stars/stars.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { StepperComponent } from './stepper/stepper.component';
@@ -55,7 +58,7 @@ import { AuthInterceptor } from '../../AuthInterceptor';
 import { MenuComponent } from './menu/menu.component';
 import { MsgsnackComponent } from './msgsnack/msgsnack.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { InfoComponent } from './info/info.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -80,13 +83,12 @@ import { InfoComponent } from './info/info.component';
     EditMotoComponent,
     EditCustomerComponent,
     OrderScreenComponent,
-    UserConnectedComponent,
     StarsComponent,
     StepperComponent,
     MenuComponent,
     MsgsnackComponent,
     AboutUsComponent,
-    InfoComponent,
+    FooterComponent,
   
 
     
@@ -108,6 +110,7 @@ import { InfoComponent } from './info/info.component';
       apiKey: 'AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g',
       libraries: ["places"]
     }),
+    MDBBootstrapModule.forRoot(),
     AgmDirectionModule,
     HttpClientModule,
     MatToolbarModule,
@@ -125,7 +128,9 @@ import { InfoComponent } from './info/info.component';
     MatSelectModule,
     MatRadioModule,
     MatStepperModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    ButtonsModule, WavesModule, IconsModule
   
 
     
@@ -137,6 +142,8 @@ import { InfoComponent } from './info/info.component';
       useClass: AuthInterceptor,
       multi: true
     }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ NO_ERRORS_SCHEMA ]
+
 })
 export class AppModule { }

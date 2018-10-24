@@ -5,7 +5,7 @@ import { Order } from '../Order';
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
-  styleUrls: ['./stepper.component.css']
+  styleUrls: ['./stepper.component.scss']
 })
 export class StepperComponent implements OnInit { 
 

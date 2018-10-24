@@ -7,7 +7,7 @@ import { Order } from '../Order';
 @Component({
   selector: 'app-signature',
   templateUrl: './signature.component.html',
-  styleUrls: ['./signature.component.css']
+  styleUrls: ['./signature.component.scss']
 })
 export class SignatureComponent  {
   @Input() order: Order
