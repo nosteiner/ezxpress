@@ -168,7 +168,7 @@ app.post('/sendEmail', (req, res) => {
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
   console.log('yooooo')
-  res.sendFile(path.join(__dirname + 'dist/ezxpress/index.html'));
+  res.sendFile(path.join(__dirname, './dist/ezxpress/index.html'));
 });
 
 /**
