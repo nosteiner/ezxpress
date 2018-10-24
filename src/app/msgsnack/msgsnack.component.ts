@@ -5,7 +5,7 @@ import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'app-msgsnack',
   templateUrl: './msgsnack.component.html',
-  styleUrls: ['./msgsnack.component.css']
+  styleUrls: ['./msgsnack.component.scss']
 })
 export class MsgsnackComponent implements OnInit {
 

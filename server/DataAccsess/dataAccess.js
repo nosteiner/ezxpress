@@ -5,7 +5,7 @@ class DataAccess  {
 
   constructor() {
       this.connection = new Sequelize('ezxpress', 'root', '1234', {
-        host: 'localhost',
+        host: '35.224.141.69',
         dialect: 'mysql',
         pool: {
           max: 5,
@@ -16,8 +16,7 @@ class DataAccess  {
         define: {
           timestamps: false
         }
-      });    
-     
+      });
   }
 }
 const DA = new DataAccess() ;

@@ -1,12 +1,11 @@
-<div class="container">
-  <div class="map">
+
+ <div>
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">  
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
       <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode">
       </agm-direction>
-      <agm-marker class="mapMarker" *ngFor="let motoBoy of motoBoys" [latitude]="motoBoy.latitude" [longitude]="motoBoy.longitude"
+      <!-- <agm-marker class="mapMarker" *ngFor="let motoBoy of motoBoys" [latitude]="motoBoy.latitude" [longitude]="motoBoy.longitude"
         [iconUrl]='"https://png.icons8.com/ios/40/3CBC32/cycling-road-filled.png"'>
-      </agm-marker>
+      </agm-marker> -->
     </agm-map>
   </div>
-</div>

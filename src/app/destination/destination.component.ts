@@ -8,7 +8,7 @@ import { DeliveryComponent } from '../delivery/delivery.component'
 @Component({
   selector: 'app-destination',
   templateUrl: './destination.component.html',
-  styleUrls: ['./destination.component.css']
+  styleUrls: ['./destination.component.scss']
 })
 export class DestinationComponent implements OnInit {
 
@@ -33,11 +33,8 @@ export class DestinationComponent implements OnInit {
           this.order.destAddress = place.formatted_address
           this.order.latitudeDestAddress = place.geometry.location.lat();
           this.order.longitudeDestAddress = place.geometry.location.lng();
-          
-            
         })
       })
     })
   }
-
 }

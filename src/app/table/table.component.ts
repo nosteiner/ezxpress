@@ -14,7 +14,7 @@ import { OrderScreenComponent } from '../order-screen/order-screen.component';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
   userType;
@@ -63,13 +63,10 @@ export class TableComponent implements OnInit {
     let order = this.ordersService.findOrder(order_id)
     //let companySelected = this.companyService.findCompany(client.company_id)
     //client.company = companySelected.name;
-
-
     let dialogRef = this.dialog.open(OrderScreenComponent, {
       width: '900px',
       data:{order: order}
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });
@@ -78,7 +75,6 @@ export class TableComponent implements OnInit {
   closeOrder(order){
     this.selectedOrder = order;
     console.log(order)
-
   }
 
   applyFilter(filterValue: string) {
@@ -87,6 +83,7 @@ export class TableComponent implements OnInit {
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+
   refresh() {
     this.ordersService.getAllOrders();
   }
@@ -94,7 +91,6 @@ export class TableComponent implements OnInit {
   initColumns() {
     if (this.authService.userType === "motoboy") {
       console.log("show moto columns")
-
       this.displayedColumns = ['orderId', 'description', 'customerId', 'customerPhone', 'localAddress', 'destAddress', 'orderDate','status', 'active', 'actions']
 
     } else if (this.authService.userType === "customer") {
@@ -110,6 +106,4 @@ export class TableComponent implements OnInit {
       return 1;
     return 0;
   }
-  
-  
 }

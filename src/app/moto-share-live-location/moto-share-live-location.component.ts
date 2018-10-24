@@ -5,7 +5,7 @@ import { MotoBoy } from '../MotoBoy';
 @Component({
   selector: 'app-moto-share-live-location',
   templateUrl: './moto-share-live-location.component.html',
-  styleUrls: ['./moto-share-live-location.component.css']
+  styleUrls: ['./moto-share-live-location.component.scss']
 })
 export class MotoShareLiveLocationComponent implements OnInit {
 

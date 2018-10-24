@@ -2,7 +2,6 @@
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title><h1>Order Delivered Confirmation</h1></mat-card-title>
-    
   </mat-card-header>
   
   <mat-card-content>
@@ -13,13 +12,9 @@
     <p>  Date:<span class="field"> {{order.dateDelivery}} </span></p>
     <p>  Date Received: <span class="field"> {{order.deliveryDate}} </span></p> 
 
-
-    
-
     <app-signature [order]="order"></app-signature>
   </mat-card-content>
-  <mat-card-actions>
+
     <button class="btn" (click)='confirmDelivered(order)'  mat-raised-button color="primary">Confirm</button>
-    
-  </mat-card-actions>
+ 
 </mat-card>

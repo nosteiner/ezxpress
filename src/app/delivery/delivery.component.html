@@ -1,49 +1,56 @@
-<div class="container" fxLayout="fxFill">
-  <div class="order-container">
-    <h2 > From </h2>
-    <div id="localAddress">
+<div class="container">
+ 
+  <div class="row">
+    <div class="col-5">
+      <h2> From </h2>
       <mat-form-field>
-        <input matInput color="primary" type='text' [(ngModel)]='order.localAddress' placeholder="Pickup Address" #search>
+        <input matInput color="primary" type='text' [(ngModel)]='order.localAddress' placeholder="Pickup Address"
+          #search>
       </mat-form-field>
       <mat-form-field>
         <input matInput color="primary" type='text' [(ngModel)]='order.description' placeholder="Description" #search>
       </mat-form-field>
+      <br>
+      <h2> Destination </h2>
+      <app-destination></app-destination>
     </div>
-    <br>
-    
-    <h2> Destination </h2>
-    <app-destination></app-destination>
-    <br>
-    <!-- <button class="btn" (click)='addReturn()' mat-raised-button color="accent">Add Return</button> -->
-    <br>
-    <div type-cargo>
-      <h2> Type of Delivery</h2>
+
+    <div class="col-3">
       <mat-spinner id="spinner" *ngIf='this.calcOrder == true' [color]="color" [mode]="mode" [value]="value"></mat-spinner>
-      <div id="labels" fxLayout="row" fxLayoutAlign="space-around center" >
-        <label>
-          <input type="radio" name="order.deliveryType" [checked]="order.deliveryType === 'envelope'" (change)="setValue('envelope')"  value="envelope" />
-          <img src="https://png.icons8.com/office/80/3CBC32/secured-letter.png">
-          <p class="legendDelivery">Up to 300g</p>
-        </label>
-        <label>
-          <input type="radio" name="order.deliveryType" [checked]="order.deliveryType === 'box'"  (change)="setValue('box')" value="box" />
-          <img src="https://png.icons8.com/material/80/3CBC32/product.png">
+      <div class="delivery-type" *ngIf='this.calcOrder == false'>
+        
+        <h2> Delivery Type</h2>
+        <div id="labels" fxLayout="row" fxLayoutAlign="space-around center">
+          
+          <input type="radio" class="radio_item" id="radio1" name="order.deliveryType" [checked]="order.deliveryType === 'envelope'"
+            (change)="setValue('envelope')" value="envelope" />
+          <label class="label_item" for="radio1">
+            <img src="https://www.editor.ru/wp-content/uploads/2015/07/par-avion-open.png"> </label>
+          <p class="legendDelivery">Up to 300gr</p>
+
+          <input type="radio" class="radio_item" id="radio2" name="order.deliveryType" [checked]="order.deliveryType === 'box'"
+            (change)="setValue('box')" value="box" />
+          <label class="label_item" for="radio2">
+            <img src="http://pngimg.com/uploads/box/box_PNG139.png"> </label>
           <p class="legendDelivery1">Up to 5Kg</p>
-        </label>
+
+        </div>
+
+        <button class="btn" *ngIf="(this.order.deliveryType != undefined)" (click)='calculateRate()' mat-raised-button
+          color="primary">Calculate</button>
       </div>
-      <button class="btn" *ngIf="(this.order.deliveryType != undefined)" (click)='calculateRate()' mat-raised-button color="primary">Calculate</button>
-    </div>
-    <div id="price" *ngIf="this.order.price > 0">
-      <h2> Distance: {{ dist }} Km</h2>
-      <h2> Price : {{ order.price | currency:"₪"}} <span id="minimumPrice" *ngIf="this.dist<=4"> - Minimum Price</span> </h2>
       
-      <button class="btn" (click)='confirmOrder()' mat-raised-button color="primary">Confirm</button>
-     
-      <button class="btn" routerLink='/' mat-raised-button color="accent">Cancel</button>
+      <div id="price" *ngIf="this.order.price > 0">
+        <h2> Distance: {{ dist }} Km</h2>
+        <h2> Price : {{ order.price | currency:"₪"}}</h2>
+        <button class="btn" (click)='confirmOrder()' mat-raised-button color="primary">Confirm</button>
+        <button class="btn" routerLink='/' mat-raised-button color="accent">Cancel</button>
+      </div>
+
     </div>
 
+    <div class="col-4">
+      <app-map [order]="order"></app-map>
+    </div>
   </div>
-  <app-map [order]="order"></app-map>
-  
-
 </div>

@@ -43,6 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/ezxpress')));
+app.use(express.static(path.join(__dirname, 'node_modules')));
 
 
 // // Point static path to dist

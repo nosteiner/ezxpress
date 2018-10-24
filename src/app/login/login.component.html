@@ -1,47 +1,38 @@
+<div class="container">
+  <div class="row justify-content-lg-center mt-5 pt-5">
+    <div class="col-12 col-md-auto">
+      <div class="text-center border border-light mt-3 p-5">
 
-<div>
-<div class="space"></div>
-<div  class="main"  >
-<mat-card class="example-container">
-  <div class="tada"><h1 class="tada" >Please login</h1></div>
-  <mat-form-field>
-    <input matInput  [(ngModel)]="userName" placeholder="User name">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput  [(ngModel)]="password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" >
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-  </mat-form-field>
- 
-<p *ngIf="msg ==='Login Invalid'" class="msg"  ><mat-icon>warning</mat-icon></p>
-<p id="msg" class="msg" >{{ msg }}</p>
+        <p class="h4 mb-4">Sign in</p>
+        
+        <input type="text" class="form-control mb-4" [(ngModel)]="userName" placeholder="User name">
 
-  <button mat-raised-button color="accent" type="button" (click)="login()"  (click)="clear()">Login</button>
-  <p>or</p> 
-  <button mat-raised-button color="accent" type="button" (click)="signup()" >Register</button>
-</mat-card>
-</div>
+        <div class="input-group">
+          <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" [type]="hide ? 'password' : 'text'">
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </span>
+          </div>
+        </div>
 
-</div>
+        <p *ngIf="msg ==='Invalid user name or password'" class="msg">
+          <mat-icon>warning</mat-icon>
+          {{ msg }}
+        </p>
 
 
-<div *ngIf="toogle==1" >
-    
-<div class="space2"></div>
-<div  class="main2">
-    <div class="space2"></div>
-    <mat-card class="form-buttons">
-        <button  mat-raised-button color="accent" type="button" class="white-icon" routerLink="/add-motoboy"  (click)="clear()">
-          <mat-icon>directions_bike</mat-icon>
-          <span>Register as A Motoboy</span>
-      </button>
-    </mat-card>
-    <div class="space3"></div>
-  <mat-card>
-      <button  mat-raised-button color="accent"  type="button" class="white-icon" routerLink="/add-customer"  (click)="clear()" >
-        <mat-icon>add_to_photos</mat-icon>
-        <span> Register as A New Customer</span>
-    </button>
-    </mat-card>
-    <div class="space2"></div>
-</div>
+        <button mdbBtn type="button" color="mdb-color" class="waves-light m-4" mdbWavesEffect (click)="login()">Login</button>
+        <p class="blue-grey-text">Don't have an account? <a class="font-weight-bold" (click)="signup()">Sign up</a>
+        </p>
+
+        <div class="row justify-content-md-center" *ngIf="toogle==1">
+          <button mdbBtn type="button" color="default" outline="true" mdbWavesEffect routerLink="/add-motoboy">New
+            Delivery Person</button>
+          <button mdbBtn type="button" color="default" outline="true" mdbWavesEffect routerLink="/add-customer">New
+            Customer</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
