@@ -408,15 +408,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_table_table_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/table/table.component */ "./src/app/components/table/table.component.ts");
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
 /* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/profile/profile.component */ "./src/app/components/profile/profile.component.ts");
-/* harmony import */ var _components_stars_stars_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/stars/stars.component */ "./src/app/components/stars/stars.component.ts");
-/* harmony import */ var _components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/about-us/about-us.component */ "./src/app/components/about-us/about-us.component.ts");
+/* harmony import */ var _components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/about-us/about-us.component */ "./src/app/components/about-us/about-us.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -436,8 +434,7 @@ var routes = [
     { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"] },
     { path: 'profile', component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_8__["ProfileComponent"] },
     { path: 'table', component: _components_table_table_component__WEBPACK_IMPORTED_MODULE_6__["TableComponent"] },
-    { path: 'star', component: _components_stars_stars_component__WEBPACK_IMPORTED_MODULE_9__["StarsComponent"] },
-    { path: 'aboutUs', component: _components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_10__["AboutUsComponent"] },
+    { path: 'aboutUs', component: _components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_9__["AboutUsComponent"] },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -462,7 +459,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<app-menu></app-menu>\r\n<div class=\"app-container mt-5\">\r\n    <div class=\"row justify-content-lg-center\"></div>\r\n<router-outlet></router-outlet>\r\n</div>\r\n<app-footer></app-footer>\r\n"
+module.exports = "<app-menu></app-menu>\r\n<div class=\"app-container mt-5\">\r\n        <router-outlet></router-outlet>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -572,20 +569,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_orderdelivered_orderdelivered_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/orderdelivered/orderdelivered.component */ "./src/app/components/orderdelivered/orderdelivered.component.ts");
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
 /* harmony import */ var _components_order_screen_order_screen_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/order-screen/order-screen.component */ "./src/app/components/order-screen/order-screen.component.ts");
-/* harmony import */ var _components_stars_stars_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/stars/stars.component */ "./src/app/components/stars/stars.component.ts");
-/* harmony import */ var _components_stepper_stepper_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/stepper/stepper.component */ "./src/app/components/stepper/stepper.component.ts");
-/* harmony import */ var _components_menu_menu_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/menu/menu.component */ "./src/app/components/menu/menu.component.ts");
-/* harmony import */ var _components_msgsnack_msgsnack_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/msgsnack/msgsnack.component */ "./src/app/components/msgsnack/msgsnack.component.ts");
-/* harmony import */ var _components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/about-us/about-us.component */ "./src/app/components/about-us/about-us.component.ts");
-/* harmony import */ var _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/footer/footer.component */ "./src/app/components/footer/footer.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _components_stepper_stepper_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/stepper/stepper.component */ "./src/app/components/stepper/stepper.component.ts");
+/* harmony import */ var _components_menu_menu_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/menu/menu.component */ "./src/app/components/menu/menu.component.ts");
+/* harmony import */ var _components_msgsnack_msgsnack_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/msgsnack/msgsnack.component */ "./src/app/components/msgsnack/msgsnack.component.ts");
+/* harmony import */ var _components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/about-us/about-us.component */ "./src/app/components/about-us/about-us.component.ts");
+/* harmony import */ var _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/footer/footer.component */ "./src/app/components/footer/footer.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -649,25 +644,24 @@ var AppModule = /** @class */ (function () {
                 _components_orderdelivered_orderdelivered_component__WEBPACK_IMPORTED_MODULE_32__["OrderdeliveredComponent"],
                 _components_login_login_component__WEBPACK_IMPORTED_MODULE_33__["LoginComponent"],
                 _components_order_screen_order_screen_component__WEBPACK_IMPORTED_MODULE_34__["OrderScreenComponent"],
-                _components_stars_stars_component__WEBPACK_IMPORTED_MODULE_35__["StarsComponent"],
-                _components_stepper_stepper_component__WEBPACK_IMPORTED_MODULE_36__["StepperComponent"],
-                _components_menu_menu_component__WEBPACK_IMPORTED_MODULE_37__["MenuComponent"],
-                _components_msgsnack_msgsnack_component__WEBPACK_IMPORTED_MODULE_38__["MsgsnackComponent"],
-                _components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_39__["AboutUsComponent"],
-                _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_40__["FooterComponent"],
+                _components_stepper_stepper_component__WEBPACK_IMPORTED_MODULE_35__["StepperComponent"],
+                _components_menu_menu_component__WEBPACK_IMPORTED_MODULE_36__["MenuComponent"],
+                _components_msgsnack_msgsnack_component__WEBPACK_IMPORTED_MODULE_37__["MsgsnackComponent"],
+                _components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_38__["AboutUsComponent"],
+                _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_39__["FooterComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_material_form_field__WEBPACK_IMPORTED_MODULE_3__["MatFormFieldModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatCheckboxModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatMenuModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatIconModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatCardModule"],
                 _agm_core__WEBPACK_IMPORTED_MODULE_6__["AgmCoreModule"].forRoot({
                     apiKey: 'AIzaSyB-G0WodfAOEjuc9WcD0lC70UesBjzJG9g',
                     libraries: ["places"]
@@ -675,21 +669,21 @@ var AppModule = /** @class */ (function () {
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["MDBBootstrapModule"].forRoot(),
                 agm_direction__WEBPACK_IMPORTED_MODULE_7__["AgmDirectionModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_18__["AppRoutingModule"],
                 ngx_google_places_autocomplete__WEBPACK_IMPORTED_MODULE_8__["GooglePlaceModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatSortModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatDialogModule"],
                 primeng_fileupload__WEBPACK_IMPORTED_MODULE_10__["FileUploadModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatDividerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatDividerModule"],
                 angular2_signaturepad__WEBPACK_IMPORTED_MODULE_11__["SignaturePadModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatProgressSpinnerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatProgressSpinnerModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatSelectModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatRadioModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatStepperModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_41__["MatSnackBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatRadioModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatStepperModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_40__["MatSnackBarModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["ButtonsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["WavesModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["IconsModule"]
@@ -1224,7 +1218,7 @@ var DestinationComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Footer -->\r\n<footer class=\"page-footer font-small teal pt-4\">\r\n  <!-- Footer Text -->\r\n  <div class=\"container-fluid text-center text-md-left\">\r\n\r\n    <!-- Grid row -->\r\n    <div class=\"row\">\r\n\r\n      <!-- Grid column -->\r\n      <div class=\"col-md-6 mt-md-0 mt-3\">\r\n\r\n        <!-- Content -->\r\n        <h5 class=\"text-uppercase font-weight-bold\">Footer text 1</h5>\r\n        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil repudiandae\r\n          commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae harum esse fugiat.\r\n          Itaque, culpa?</p>\r\n\r\n      </div>\r\n      <!-- Grid column -->\r\n\r\n      <hr class=\"clearfix w-100 d-md-none pb-3\">\r\n\r\n      <!-- Grid column -->\r\n      <div class=\"col-md-6 mb-md-0 mb-3\">\r\n\r\n        <!-- Content -->\r\n        <h5 class=\"text-uppercase font-weight-bold\">Footer text 2</h5>\r\n        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum commodi\r\n          aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id excepturi hic.</p>\r\n\r\n      </div>\r\n      <!-- Grid column -->\r\n\r\n    </div>\r\n    <!-- Grid row -->\r\n\r\n  </div>\r\n  <!-- Footer Text -->\r\n\r\n  <!-- Copyright -->\r\n  <div class=\"footer-copyright p-3\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-9\">\r\n        © 2018 Copyright: <a class=\"align-middle\" href=\"http://www.noamsteiner.com/\"> Noam Steiner</a>\r\n      </div>\r\n \r\n      <!-- Grid column -->\r\n      <div class=\"col-md-2\">\r\n        <a href=\"mailto:no.steiner@gmail.com\">Contact us</a> | <a href=\"mailto:no.steiner@gmail.com\">Careers</a>\r\n      </div>\r\n\r\n      <div class=\"col-md-1\">\r\n        <a class=\"fb-ic\" href=\"https://github.com/nosteiner/ezxpress\">\r\n          <mdb-icon icon=\"github\" size=\"2x\" class=\"white-text\"></mdb-icon>\r\n        </a>\r\n      </div>\r\n      <!-- Grid column -->\r\n\r\n    </div>\r\n\r\n  </div>\r\n  <!-- Copyright -->\r\n\r\n</footer>\r\n<!-- Footer -->"
+module.exports = "<!-- Footer -->\r\n<footer class=\"page-footer font-small cyan darken-4 pt-4\">\r\n  <!-- Footer Text -->\r\n  <div class=\"container-fluid text-center text-md-left\">\r\n\r\n    <!-- Grid row -->\r\n    <div class=\"row\">\r\n\r\n      <!-- Grid column -->\r\n      <div class=\"col  mt-md-0 mt-3\">\r\n\r\n        <!-- Content -->\r\n\r\n        <h5 class=\"text-uppercase font-weight-bold\">Technologies used to build this project</h5>\r\n        <div class=\"d-flex justify-content-around flex-wrap align-items-center\">\r\n          <img class=\"m-1\" style=\"width: 50px;\" src=\"./../../../assets/logos/passport.png\" alt=\"passport\">\r\n          <img class=\"m-1\" style=\"width: 70px;\" src=\"./../../../assets/logos/nodejs.png\" alt=\"node.js\">\r\n          <img class=\"m-1\" style=\"width: 50px;\" src=\"./../../../assets/logos/Angular.png\" alt=\"angular\">\r\n          <img class=\"m-1\" style=\"width: 90px;\" src=\"./../../../assets/logos/msql.png\" alt=\"mysql\">\r\n          <img class=\"m-1\" style=\"width: 50px;\" src=\"./../../../assets/logos/google-cloud-sql.png\" alt=\"google cloud sql\">\r\n          <img class=\"m-1\" style=\"width: 50px;\" src=\"./../../../assets/logos/google-maps.png\" alt=\"google maps\">\r\n          <img class=\"m-1\" style=\"width: 90px;\" src=\"./../../../assets/logos/nexmo (2).png\" alt=\"nexmo\">\r\n          <img class=\"m-1\" style=\"width: 70px;\" src=\"./../../../assets/logos/nodemailer.png\" alt=\"nodemailer\">\r\n          <img class=\"m-1\" style=\"width: 90px;\" src=\"./../../../assets/logos/expressjs.png\" alt=\"express\">\r\n          <img class=\"m-1\" style=\"width: 80px;\" src=\"./../../../assets/logos/mdb.png\" alt=\"mdbootstrap\">\r\n          <img class=\"m-1\" style=\"width: 90px;\"src=\"./../../../assets/logos/jwt_05.jpg\" alt=\"jwt\">\r\n        </div>\r\n      </div>\r\n      <!-- Grid column -->\r\n\r\n      <hr class=\"clearfix w-100 d-md-none pb-3\">\r\n\r\n    </div>\r\n    <!-- Grid row -->\r\n\r\n  </div>\r\n  <!-- Footer Text -->\r\n\r\n  <!-- Copyright -->\r\n  <div class=\"footer-copyright p-3\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-10\">\r\n        © 2018 Copyright: <a class=\"align-middle\" href=\"http://www.noamsteiner.com/\"> Noam Steiner</a>\r\n      </div>\r\n\r\n      <!-- Grid column -->\r\n      <div class=\"col-md-1\">\r\n        <a href=\"mailto:no.steiner@gmail.com\">Contact us</a> \r\n      </div>\r\n\r\n      <div class=\"col-md-1\">\r\n        <a class=\"fb-ic\" href=\"https://github.com/nosteiner/ezxpress\">\r\n          <mdb-icon icon=\"github\" size=\"2x\" class=\"white-text\"></mdb-icon>\r\n        </a>\r\n      </div>\r\n      <!-- Grid column -->\r\n\r\n    </div>\r\n\r\n  </div>\r\n  <!-- Copyright -->\r\n\r\n</footer>\r\n<!-- Footer -->"
 
 /***/ }),
 
@@ -1235,7 +1229,7 @@ module.exports = "<!-- Footer -->\r\n<footer class=\"page-footer font-small teal
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "img {\n  width: 50px; }\n"
 
 /***/ }),
 
@@ -2389,70 +2383,6 @@ var SignatureComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/stars/stars.component.html":
-/*!*******************************************************!*\
-  !*** ./src/app/components/stars/stars.component.html ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<mat-card>\r\n    <mat-radio-group>\r\n        <mat-radio-button value=\"1\"> <mat-icon>sentiment_very_satisfied</mat-icon></mat-radio-button>\r\n        <mat-radio-button value=\"2\"><mat-icon>insert_emoticon</mat-icon></mat-radio-button>\r\n        <mat-radio-button value=\"3\"><mat-icon>sentiment_satisfied_alt</mat-icon></mat-radio-button>\r\n        <mat-radio-button value=\"4\"><mat-icon>sentiment_dissatisfied</mat-icon></mat-radio-button>\r\n        <mat-radio-button value=\"5\"><mat-icon>sentiment_very_dissatisfied</mat-icon></mat-radio-button>\r\n      </mat-radio-group>\r\n</mat-card>\r\n<app-stepper></app-stepper>\r\n\r\n<div class=\"rate\">\r\n        <input type=\"radio\" id=\"star5\" name=\"rate\" value=\"5\" />\r\n        <label for=\"star5\" title=\"text\">5 stars</label>\r\n        <input type=\"radio\" id=\"star4\" name=\"rate\" value=\"4\" />\r\n        <label for=\"star4\" title=\"text\">4 stars</label>\r\n        <input type=\"radio\" id=\"star3\" name=\"rate\" value=\"3\" />\r\n        <label for=\"star3\" title=\"text\">3 stars</label>\r\n        <input type=\"radio\" id=\"star2\" name=\"rate\" value=\"2\" />\r\n        <label for=\"star2\" title=\"text\">2 stars</label>\r\n        <input type=\"radio\" id=\"star1\" name=\"rate\" value=\"1\" />\r\n        <label for=\"star1\" title=\"text\">1 star</label>\r\n      </div>"
-
-/***/ }),
-
-/***/ "./src/app/components/stars/stars.component.scss":
-/*!*******************************************************!*\
-  !*** ./src/app/components/stars/stars.component.scss ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "@charset \"UTF-8\";\n.mat-radio-button ~ .mat-radio-button {\n  padding-right: 16px; }\n.rate {\n  border: 1px solid #cccccc;\n  float: left;\n  height: 46px;\n  padding: 0 10px; }\n.rate:not(:checked) > input {\n  position: absolute;\n  top: -9999px; }\n.rate:not(:checked) > label {\n  float: right;\n  width: 1em;\n  overflow: hidden;\n  white-space: nowrap;\n  cursor: pointer;\n  font-size: 30px;\n  color: #ccc; }\n.rate:not(:checked) > label:before {\n  content: '★ '; }\n.rate > input:checked ~ label {\n  color: #ffc700; }\n.rate:not(:checked) > label:hover, .rate:not(:checked) > label:hover ~ label {\n  color: #deb217; }\n.rate > input:checked + label:hover, .rate > input:checked + label:hover ~ label, .rate > input:checked ~ label:hover, .rate > input:checked ~ label:hover ~ label, .rate > label:hover ~ input:checked ~ label {\n  color: #c59b08; }\n"
-
-/***/ }),
-
-/***/ "./src/app/components/stars/stars.component.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/components/stars/stars.component.ts ***!
-  \*****************************************************/
-/*! exports provided: StarsComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarsComponent", function() { return StarsComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var StarsComponent = /** @class */ (function () {
-    function StarsComponent() {
-        this.edditing = false;
-    }
-    StarsComponent.prototype.ngOnInit = function () {
-    };
-    StarsComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-stars',
-            template: __webpack_require__(/*! ./stars.component.html */ "./src/app/components/stars/stars.component.html"),
-            styles: [__webpack_require__(/*! ./stars.component.scss */ "./src/app/components/stars/stars.component.scss")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], StarsComponent);
-    return StarsComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/components/stepper/stepper.component.html":
 /*!***********************************************************!*\
   !*** ./src/app/components/stepper/stepper.component.html ***!
@@ -2534,7 +2464,7 @@ var StepperComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row mt-5 pt-5\">\r\n    <div class=\"col\">\r\n      <div *ngIf='!selectedOrder'>\r\n        <mat-icon class=\"click\" (click)=\"refresh()\">refresh</mat-icon>\r\n        <div class=\"example-container mat-elevation-z8\">\r\n          <table mat-table [dataSource]=\"dataSource\">\r\n\r\n            <ng-container matColumnDef=\"orderId\">\r\n              <th mat-header-cell *matHeaderCellDef> Order Id </th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.orderId}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"customerId\">\r\n              <th mat-header-cell *matHeaderCellDef> Customer </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n                <div *ngIf=\"order.customerId != null\">{{order.customer.firstName}} {{order.customer.lastName}}</div>\r\n              </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"customerPhone\">\r\n              <th mat-header-cell *matHeaderCellDef> Customer Phone number </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n                <div *ngIf=\"order.customerId != null\">{{order.customer.phone}}</div>\r\n              </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"description\">\r\n              <th mat-header-cell *matHeaderCellDef> Description </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n                <div *ngIf=\"order.customerId != null\">{{order.description}}</div>\r\n              </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"motoboyName\">\r\n              <th mat-header-cell *matHeaderCellDef> Moto Boy </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n                <div *ngIf=\"order.motoboyId == null\" style=\"color: red\">waiting</div>\r\n                <div *ngIf=\"order.motoboyId && order.customerId != null\">{{order.motoboy.firstName}}\r\n                  {{order.motoboy.lastName}}</div>\r\n                </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"localAddress\">\r\n              <th mat-header-cell *matHeaderCellDef> Collecting Address </th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.localAddress}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"destAddress\">\r\n              <th mat-header-cell *matHeaderCellDef> Delivery Address </th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.destAddress}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"price\">\r\n              <th mat-header-cell *matHeaderCellDef> Price</th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.price}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"orderDate\">\r\n              <th mat-header-cell *matHeaderCellDef> Order Time </th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.orderDate}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"active\">\r\n              <th mat-header-cell *matHeaderCellDef> Take an Order </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n                <mat-icon class=\"click\" *ngIf=\"order.motoboy === null\" (click)=\"handleAsignToOrder(order,2)\">add_circle</mat-icon>\r\n                <mat-icon class=\"lock-click\" style=\"color: burlywood\" *ngIf=\"order.motoboyId\">how_to_reg</mat-icon>\r\n              </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"status\">\r\n              <th mat-header-cell *matHeaderCellDef> Status </th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.status.name}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"actions\">\r\n              <th mat-header-cell *matHeaderCellDef> Actions </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n\r\n                <span>\r\n                  <mat-icon matTooltip=\"Edit Order\" class=\"click\" mat-raised-button (click)=\"editOrder(order.orderId)\">visibility</mat-icon>\r\n                </span>\r\n                <span *ngIf=\"order.statusId == 4\">\r\n                  <mat-icon matTooltip=\"Close Order\" class=\"click\" mat-raised-button (click)=\"closeOrder(order)\">check_circle_outline</mat-icon>\r\n                </span>\r\n              </td>\r\n            </ng-container>\r\n            \r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n\r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<app-orderdelivered *ngIf='selectedOrder' [order]=\"selectedOrder\"></app-orderdelivered>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row mt-5 pt-5\">\r\n    <div class=\"col\">\r\n      <div *ngIf='!selectedOrder'>\r\n        <mat-icon class=\"click\" (click)=\"refresh()\">refresh</mat-icon>\r\n        <div class=\"example-container mat-elevation-z8\">\r\n          <table mat-table [dataSource]=\"dataSource\">\r\n\r\n            <ng-container matColumnDef=\"orderId\">\r\n              <th mat-header-cell *matHeaderCellDef> Order Id </th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.orderId}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"customerId\">\r\n              <th mat-header-cell *matHeaderCellDef> Customer </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n                <div *ngIf=\"order.customerId != null\">{{order.customer.firstName}} {{order.customer.lastName}}</div>\r\n              </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"customerPhone\">\r\n              <th mat-header-cell *matHeaderCellDef> Customer Phone number </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n                <div *ngIf=\"order.customerId != null\">{{order.customer.phone}}</div>\r\n              </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"description\">\r\n              <th mat-header-cell *matHeaderCellDef> Description </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n                <div *ngIf=\"order.customerId != null\">{{order.description}}</div>\r\n              </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"motoboyName\">\r\n              <th mat-header-cell *matHeaderCellDef> Delivery person </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n                <div *ngIf=\"order.motoboyId == null\" style=\"color: red\">waiting</div>\r\n                <div *ngIf=\"order.motoboyId && order.customerId != null\">{{order.motoboy.firstName}}\r\n                  {{order.motoboy.lastName}}</div>\r\n                </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"localAddress\">\r\n              <th mat-header-cell *matHeaderCellDef> Collecting Address </th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.localAddress}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"destAddress\">\r\n              <th mat-header-cell *matHeaderCellDef> Delivery Address </th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.destAddress}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"price\">\r\n              <th mat-header-cell *matHeaderCellDef> Price</th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.price}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"orderDate\">\r\n              <th mat-header-cell *matHeaderCellDef> Order Time </th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.orderDate}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"active\">\r\n              <th mat-header-cell *matHeaderCellDef> Take an Order </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n                <mat-icon class=\"click\" *ngIf=\"order.motoboy === null\" (click)=\"handleAsignToOrder(order,2)\">add_circle</mat-icon>\r\n                <mat-icon class=\"lock-click\" style=\"color: burlywood\" *ngIf=\"order.motoboyId\">how_to_reg</mat-icon>\r\n              </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"status\">\r\n              <th mat-header-cell *matHeaderCellDef> Status </th>\r\n              <td mat-cell *matCellDef=\"let order\"> {{order.status.name}} </td>\r\n            </ng-container>\r\n            <ng-container matColumnDef=\"actions\">\r\n              <th mat-header-cell *matHeaderCellDef> Actions </th>\r\n              <td mat-cell *matCellDef=\"let order\">\r\n\r\n                <span>\r\n                  <mat-icon matTooltip=\"Edit Order\" class=\"click\" mat-raised-button (click)=\"editOrder(order.orderId)\">visibility</mat-icon>\r\n                </span>\r\n                <span *ngIf=\"order.statusId == 4\">\r\n                  <mat-icon matTooltip=\"Close Order\" class=\"click\" mat-raised-button (click)=\"closeOrder(order)\">check_circle_outline</mat-icon>\r\n                </span>\r\n              </td>\r\n            </ng-container>\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n\r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<app-orderdelivered *ngIf='selectedOrder' [order]=\"selectedOrder\"></app-orderdelivered>"
 
 /***/ }),
 

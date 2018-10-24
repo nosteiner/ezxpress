@@ -36,7 +36,6 @@ import { SignatureComponent } from './components/signature/signature.component';
 import { OrderdeliveredComponent } from './components/orderdelivered/orderdelivered.component';
 import { LoginComponent } from './components/login/login.component';
 import { OrderScreenComponent } from './components/order-screen/order-screen.component';
-import { StarsComponent } from './components/stars/stars.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MsgsnackComponent } from './components/msgsnack/msgsnack.component';
@@ -81,7 +80,6 @@ import {
     OrderdeliveredComponent,
     LoginComponent,
     OrderScreenComponent,
-    StarsComponent,
     StepperComponent,
     MenuComponent,
     MsgsnackComponent,

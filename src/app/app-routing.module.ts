@@ -7,7 +7,6 @@ import { DeliveryComponent } from './components/delivery/delivery.component'
 import { TableComponent } from './components/table/table.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { StarsComponent } from './components/stars/stars.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
@@ -21,7 +20,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'table', component: TableComponent },
-  { path: 'star', component: StarsComponent },
   { path: 'aboutUs', component: AboutUsComponent },
 ];
 
