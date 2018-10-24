@@ -2694,7 +2694,7 @@ var OrderScreenComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"order-card\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n  <mat-card-header>\r\n    <div mat-card-avatar class=\"example-header-image\"></div>\r\n    <mat-card-title>Delivery Confirmation</mat-card-title>\r\n  </mat-card-header>\r\n  \r\n\r\n    <p>  Customer: <span class=\"field\"> {{ order.customer.firstName}} {{ order.customer.lastName}} </span></p>\r\n    <p>  From: <span class=\"field\"> {{order.localAddress }} </span> </p> \r\n    <p>  To:  <span class=\"field\">{{order.contactDestination}} </span></p> \r\n    <p>  Dest Address: <span class=\"field\">  {{order.destAddress}} </span></p>\r\n    <p>  Date:<span class=\"field\"> {{order.dateDelivery}} </span></p>\r\n    <p>  Date Received: <span class=\"field\"> {{order.deliveryDate}} </span></p> \r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <app-signature [order]=\"order\"></app-signature>\r\n    <button class=\"btn\" (click)='confirmDelivered(order)'  mat-raised-button color=\"primary\">Confirm</button>\r\n  </div>\r\n</div>\r\n</mat-card>\r\n"
+module.exports = "<mat-card class=\"order-card\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n  <mat-card-header>\r\n    <div mat-card-avatar class=\"example-header-image\"></div>\r\n    <mat-card-title><h3>Delivery Confirmation</h3></mat-card-title>\r\n  </mat-card-header>\r\n    <p>  Customer: <span class=\"field\"> {{ order.customer.firstName}} {{ order.customer.lastName}} </span></p>\r\n    <p>  From: <span class=\"field\"> {{order.localAddress }} </span> </p> \r\n    <p>  To:  <span class=\"field\">{{order.contactDestination}} </span></p> \r\n    <p>  Dest Address: <span class=\"field\">  {{order.destAddress}} </span></p>\r\n    <p>  Date:<span class=\"field\"> {{order.dateDelivery}} </span></p>\r\n    <p>  Date Received: <span class=\"field\"> {{order.deliveryDate}} </span></p> \r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <app-signature [order]=\"order\"></app-signature>\r\n    <button class=\"btn\" (click)='confirmDelivered(order)'  mat-raised-button color=\"primary\">Confirm</button>\r\n  </div>\r\n</div>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -2705,7 +2705,7 @@ module.exports = "<mat-card class=\"order-card\">\r\n  <div class=\"row\">\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".order-card {\n  width: 400px;\n  color: #E3C298; }\n\n.field {\n  color: #910bdf; }\n"
+module.exports = ".order-card {\n  width: 660px;\n  color: #E3C298; }\n\n.field {\n  color: #910bdf; }\n"
 
 /***/ }),
 
