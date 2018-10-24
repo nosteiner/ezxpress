@@ -1,0 +1,20 @@
+<mat-card class="order-card">
+  <div class="row">
+    <div class="col-md-6 text-center">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title><h3>Delivery Confirmation</h3></mat-card-title>
+  </mat-card-header>
+    <p>  Customer: <span class="field"> {{ order.customer.firstName}} {{ order.customer.lastName}} </span></p>
+    <p>  From: <span class="field"> {{order.localAddress }} </span> </p> 
+    <p>  To:  <span class="field">{{order.contactDestination}} </span></p> 
+    <p>  Dest Address: <span class="field">  {{order.destAddress}} </span></p>
+    <p>  Date:<span class="field"> {{order.dateDelivery}} </span></p>
+    <p>  Date Received: <span class="field"> {{order.deliveryDate}} </span></p> 
+  </div>
+  <div class="col-md-6">
+    <app-signature [order]="order"></app-signature>
+    <button class="btn" (click)='confirmDelivered(order)'  mat-raised-button color="primary">Confirm</button>
+  </div>
+</div>
+</mat-card>

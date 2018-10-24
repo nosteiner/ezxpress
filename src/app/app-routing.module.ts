@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { NewclientComponent } from './newclient/newclient.component';
-import { AddMotoboyComponent } from './add-motoboy/add-motoboy.component'
-import { DeliveryComponent } from './delivery/delivery.component'
-import { TableComponent } from './table/table.component';
-import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
-import { EditMotoComponent } from './edit-moto/edit-moto.component';
-import { EditCustomerComponent } from './edit-customer/edit-customer.component';
-import { StarsComponent } from './stars/stars.component';
-import { AboutUsComponent } from './about-us/about-us.component';
+import { HomeComponent } from './components/home/home.component';
+import { NewclientComponent } from './components/newclient/newclient.component';
+import { AddMotoboyComponent } from './components/add-motoboy/add-motoboy.component'
+import { DeliveryComponent } from './components/delivery/delivery.component'
+import { TableComponent } from './components/table/table.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { StarsComponent } from './components/stars/stars.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 
@@ -22,8 +20,6 @@ const routes: Routes = [
   { path: 'orders', component: TableComponent},
   { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'app-edit-moto', component: EditMotoComponent},
-  { path: 'app-edit-customer', component: EditCustomerComponent},
   { path: 'table', component: TableComponent },
   { path: 'star', component: StarsComponent },
   { path: 'aboutUs', component: AboutUsComponent },

@@ -29,8 +29,6 @@ export class MotoService {
   public addressUpdated : Observable<any>;
   public addressSubject: Subject<any>;
 
-
-
   constructor(private http: HttpClient, public snackBar: MatSnackBar) {
     this.singleMotoObservable = this.singleMotoSubject.asObservable();
     this.allMotoObservable = this.allMotoSubject.asObservable();
@@ -43,17 +41,13 @@ export class MotoService {
     this.http.get<Array<MotoBoy>>('motoboysApi/').subscribe(data => {
       this.motoBoys = data
       this.allMotoSubject.next(this.motoBoys)
-      
      })
-
   }
 
   getMoto(id) {
     this.http.get<MotoBoy>('motoboysApi/' + id).subscribe(data => {
       this.currentMotoBoy = data[0];
       this.singleMotoSubject.next(data[0])
-      console.log(this.currentMotoBoy)
-
     })
   }
 
@@ -64,15 +58,11 @@ export class MotoService {
     this.getMoto(id);
   }
 
-
-
   updateMotoBoy(currentMotoBoy) {
     let id = currentMotoBoy.motoboyId
     this.http.put<MotoBoy>('motoboysApi/update/' + id, { motoboy: currentMotoBoy }).subscribe((data) => {
-      //update motoboys array
       this.currentMotoBoy = data;
       this.singleMotoSubject.next(data);
-
     })
   }
 
@@ -96,10 +86,7 @@ export class MotoService {
     }
   }
 
-
-
   reverseAddress(lat, lng){
-   
     var geocoder: google.maps.Geocoder = new google.maps.Geocoder; 
     var latlng = {lat: lat , lng: lng};
     geocoder.geocode({"location": latlng }, (results, status) => {
@@ -135,7 +122,6 @@ export class MotoService {
   }
 
   // Fucntions to Calculate a distance between 2 points =====>
-
   getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
     var R = 6371; // Radius of the earth in km
     var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
@@ -157,11 +143,9 @@ export class MotoService {
 /// ================>
 
   uploadPhoto(photoFile) {
-    
     let photoFileName = this.currentMotoBoy.motoboyId + '.png'
     this.formData.append("uploads", photoFile, photoFileName);
     this.http.post('uploadPhoto', this.formData).subscribe((data) => {
     })
-    
   }
 }

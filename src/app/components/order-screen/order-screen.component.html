@@ -1,0 +1,51 @@
+<div class="main">
+    <mat-dialog-content>
+
+        <mat-card>
+            <mat-card-header>
+                <h2 id="container" style="color: indigo">Order no: {{order.orderId}}</h2>
+            </mat-card-header>
+
+            <mat-card-content>
+                <label>Order date:
+                    <span> {{order.orderDate}}</span>
+                </label>
+
+                <label>Customer:
+                    <span> {{order.customer.firstName}} {{order.customer.lastName}}</span>
+                </label>
+
+                <label *ngIf="order.motoboyId">First name motoboy:
+                    <span> {{order.motoboy.firstName}}</span>
+                </label>
+
+                <label>Destination Address:
+                    <span> {{order.destAddress}}</span>
+                </label>
+
+                <label>Description:
+                    <span> {{order.description}}</span>
+                </label>
+
+                <label>Price:
+                    <span> {{order.price}}₪</span>
+                </label>
+
+
+            </mat-card-content>
+
+            <span *ngIf="userType == motoboy">
+                <button  *ngIf="order.statusId == 2" (click)="handleChangeStatus(3)">pickedup
+                    order</button>
+                <button  *ngIf="order.statusId == 3" (click)="handleChangeStatus(4)">order
+                    deliverd</button>
+            </span>
+        </mat-card>
+    </mat-dialog-content>
+
+    <app-stepper [order]="order" [userType]="userType"></app-stepper>
+    <mat-dialog-actions>
+        <button mat-raised-button class="w3-theme" (click)="close()">Close</button>
+    </mat-dialog-actions>
+
+</div>

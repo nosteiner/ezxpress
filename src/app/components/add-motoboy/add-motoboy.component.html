@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row justify-content-lg-center mt-5 pt-5">
+    <div class="col-12 col-md-auto">
+      <div class="text-center border border-light mt-3 p-5">
+
+        <p class="h4 mb-4">Register as a delivery person</p>
+
+        <input type="text" class="form-control mb-4" [(ngModel)]=motoboy.userName placeholder="User Name">
+        <input type="email" class="form-control mb-4" [(ngModel)]=motoboy.email placeholder="Email">
+        <input type="text" class="form-control mb-4" [(ngModel)]=motoboy.firstName placeholder="First Name">
+        <input type="text" class="form-control mb-4" [(ngModel)]=motoboy.lastName placeholder="Last Name">
+        <input type="text" class="form-control mb-4" [(ngModel)]=motoboy.phoneNumber placeholder="Phone Number">
+        <div class="input-group">
+          <input type="password"  class="form-control" placeholder="Password" [type]="hide ? 'password' : 'text'">
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="password"  class="form-control" [(ngModel)]=motoboy.password placeholder="Password" [type]="hide ? 'password' : 'text'">
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </span>
+          </div>
+        </div>
+
+        <button mdbBtn type="button" color="mdb-color" class="waves-light m-4" mdbWavesEffect (click)='submitMotoBoy()'>Submit</button>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,65 +1,66 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,  NO_ERRORS_SCHEMA } from '@angular/core';
-import { ButtonsModule, WavesModule, IconsModule } from 'angular-bootstrap-md';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { MDBBootstrapModule, ButtonsModule, WavesModule, IconsModule } from 'angular-bootstrap-md';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatSelectModule, MatDividerModule } from '@angular/material';
-import { MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction'
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material';
-import {MatSortModule} from '@angular/material/sort';
-import {MatDialogModule} from '@angular/material/dialog';
-import {FileUploadModule} from 'primeng/fileupload';
-import { SignaturePadModule } from 'angular2-signaturepad';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { FileUploadModule } from 'primeng/fileupload';
+import { SignaturePadModule } from 'angular2-signaturepad';
+import { AuthInterceptor } from '../../AuthInterceptor';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+import { AuthService } from './auth.service';
+import { EzxpressService } from './ezxpress.service';
+import { MotoService } from './moto.service';
+import { OrdersService } from './orders.service';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { EzxpressService } from './ezxpress.service';
-import { AddMotoboyComponent } from './add-motoboy/add-motoboy.component';
-import { MapComponent } from './map/map.component';
-import { NewclientComponent } from './newclient/newclient.component';
-import { HomeComponent } from './home/home.component';
-import { DeliveryComponent } from './delivery/delivery.component';
-import { MotoService } from './moto.service';
-import { DestinationComponent } from './destination/destination.component';
-import { MaprouteComponent } from './maproute/maproute.component';
-import { MotoShareLiveLocationComponent } from './moto-share-live-location/moto-share-live-location.component';
-import { AppRoutingModule } from './/app-routing.module';
-import { TableComponent } from './table/table.component';
-import { OrderDialogComponent } from './order-dialog/order-dialog.component';
-import { OrdersService } from './orders.service';
-import { ProfileComponent } from './profile/profile.component';
-import { SignatureComponent } from './signature/signature.component';
-import { OrderdeliveredComponent } from './orderdelivered/orderdelivered.component';
-import { LoginComponent } from './login/login.component';
-import { EditMotoComponent } from './edit-moto/edit-moto.component';
-import { EditCustomerComponent } from './edit-customer/edit-customer.component';
-import { OrderScreenComponent } from './order-screen/order-screen.component';
-import { StarsComponent } from './stars/stars.component';
-import {MatRadioModule} from '@angular/material/radio';
-import { StepperComponent } from './stepper/stepper.component';
-import {MatStepperModule} from '@angular/material/stepper';
-import { AuthService } from './auth.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { AuthInterceptor } from '../../AuthInterceptor';
-import { MenuComponent } from './menu/menu.component';
-import { MsgsnackComponent } from './msgsnack/msgsnack.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { FooterComponent } from './footer/footer.component';
+import { AddMotoboyComponent } from './components/add-motoboy/add-motoboy.component';
+import { MapComponent } from './components/map/map.component';
+import { NewclientComponent } from './components/newclient/newclient.component';
+import { HomeComponent } from './components/home/home.component';
+import { DeliveryComponent } from './components/delivery/delivery.component';
+import { DestinationComponent } from './components/destination/destination.component';
+import { MaprouteComponent } from './components/maproute/maproute.component';
+import { MotoShareLiveLocationComponent } from './components/moto-share-live-location/moto-share-live-location.component';
+import { TableComponent } from './components/table/table.component';
+import { OrderDialogComponent } from './components/order-dialog/order-dialog.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SignatureComponent } from './components/signature/signature.component';
+import { OrderdeliveredComponent } from './components/orderdelivered/orderdelivered.component';
+import { LoginComponent } from './components/login/login.component';
+import { OrderScreenComponent } from './components/order-screen/order-screen.component';
+import { StarsComponent } from './components/stars/stars.component';
+import { StepperComponent } from './components/stepper/stepper.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { MsgsnackComponent } from './components/msgsnack/msgsnack.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { FooterComponent } from './components/footer/footer.component';
 
-
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatSelectModule,
+  MatDividerModule,
+  MatInputModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatCardModule,
+  MatTableModule,
+  MatSortModule,
+  MatDialogModule,
+  MatProgressSpinnerModule,
+  MatSnackBarModule,
+  MatStepperModule,
+  MatRadioModule,
+} from '@angular/material';
 
 
 @NgModule({
@@ -79,8 +80,6 @@ import { FooterComponent } from './footer/footer.component';
     SignatureComponent,
     OrderdeliveredComponent,
     LoginComponent,
-    EditMotoComponent,
-    EditCustomerComponent,
     OrderScreenComponent,
     StarsComponent,
     StepperComponent,
@@ -88,16 +87,16 @@ import { FooterComponent } from './footer/footer.component';
     MsgsnackComponent,
     AboutUsComponent,
     FooterComponent,
-  
 
-    
+
+
 
   ],
   imports: [
     BrowserModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
     MatMenuModule,
@@ -115,7 +114,7 @@ import { FooterComponent } from './footer/footer.component';
     MatToolbarModule,
     AppRoutingModule,
     GooglePlaceModule,
-    MatTableModule, 
+    MatTableModule,
     MatSortModule,
     MatDialogModule,
     FileUploadModule,
@@ -127,11 +126,9 @@ import { FooterComponent } from './footer/footer.component';
     MatRadioModule,
     MatStepperModule,
     MatSnackBarModule,
-    MatSidenavModule,
-    ButtonsModule, WavesModule, IconsModule
-  
-
-    
+    ButtonsModule,
+    WavesModule,
+    IconsModule
   ],
   entryComponents: [OrderDialogComponent, OrderScreenComponent],
   providers: [EzxpressService, MotoService, OrdersService, AuthService, JwtHelperService,
@@ -141,7 +138,7 @@ import { FooterComponent } from './footer/footer.component';
       multi: true
     }],
   bootstrap: [AppComponent],
-  schemas: [ NO_ERRORS_SCHEMA ]
+  schemas: [NO_ERRORS_SCHEMA]
 
 })
 export class AppModule { }
