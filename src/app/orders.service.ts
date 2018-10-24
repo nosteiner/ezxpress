@@ -34,8 +34,9 @@ export class OrdersService {
   }
   
   addNewOrder(order){
-    console.log("inside Add")
+ 
     this.http.post<Order>('ordersApi/add',order).subscribe(() => {
+      console.log("added succesfuly")
       this.getAllOrders();
     })
   }
@@ -44,8 +45,6 @@ export class OrdersService {
     this.http.get<Order>(this.OrdersServiceUrl + `/${id}`).subscribe((order) => {
     });
   }
-
-
   
   updateOrderStatus(order, id, status) {
     order.statusId = status
@@ -79,7 +78,6 @@ export class OrdersService {
         duration: 3000,
       });
       this.router.navigate([''])
-    })
-        
+    })      
   }
 }

@@ -9,8 +9,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EzxpressService {
-
-
   motoBoy = []
   client = [];
   order = [] ;
