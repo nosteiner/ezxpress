@@ -113,7 +113,6 @@ import { FooterComponent } from './footer/footer.component';
     AgmDirectionModule,
     HttpClientModule,
     MatToolbarModule,
-    FlexLayoutModule,
     AppRoutingModule,
     GooglePlaceModule,
     MatTableModule, 

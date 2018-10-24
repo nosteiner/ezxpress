@@ -867,7 +867,6 @@ var AppModule = /** @class */ (function () {
                 agm_direction__WEBPACK_IMPORTED_MODULE_8__["AgmDirectionModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"],
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_9__["MatToolbarModule"],
-                FlexLayoutModule,
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_33__["AppRoutingModule"],
                 ngx_google_places_autocomplete__WEBPACK_IMPORTED_MODULE_10__["GooglePlaceModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableModule"],
