@@ -14,10 +14,8 @@ export class AppComponent  {
 
   }
   ngOnInit(){
-this.authService.isLoggedIn();
+  this.authService.isLoggedIn();
   }
-  
-  
 }
 
 

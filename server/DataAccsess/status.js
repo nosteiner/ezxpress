@@ -3,9 +3,9 @@ var DA = require('./dataAccess');
 
 class Status {
     constructor() {
-        this.model = this.initStatus();
-        
+        this.model = this.initStatus(); 
     }
+    
     initStatus() {
         let status = DA.connection.define('status', {
             statusId: { type: Sequelize.INTEGER, primaryKey: true },

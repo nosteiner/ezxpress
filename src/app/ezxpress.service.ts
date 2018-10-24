@@ -22,17 +22,10 @@ export class EzxpressService {
 
   addMotoBoy(motoboy){
     this.motoBoy.push(motoboy);
-    console.log(this.motoBoy);
-    
   }
-
 
   addNewOrder(order){
-    console.log("inside Add")
     this.http.post<Order>('ordersApi/add',order).subscribe((data) => {
-      //update  array?
-      //this.order = data;
     })
-  }
-  
+  }  
 }

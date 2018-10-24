@@ -21,10 +21,6 @@ class MotoBoy {
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
-
-           //customer.belongsTo(Company.model, { foreignKey: 'company_id' });
-           // Company.model.hasMany(customer, { foreignKey: 'company_id' });
-
         return motoboy;
     }
     getAll() {
@@ -51,12 +47,8 @@ class MotoBoy {
     }
 
     getClosesMoto(lat, lng) {
-    //  console.log("dentro do model")
-    //     this.model.findAll().then( data => console.log(data))
-
      var attributes = Object.keys(this.model.attributes);
      var location = Sequelize.literal(`ST_GeomFromText('POINT(${lng} ${lat})')`);
-     //var distance = Sequelize.literal("( 6371 * acos( cos( radians("+lat+" ) )* cos( radians( Sequelize.literal('latitude')  ) )* cos( radians(Sequelize.literal('longitude')  ) - radians("+lng+" ) ) + sin( radians("+lat+" ) )* sin( radians(Sequelize.literal('latitude')  ) ) ) ) " );
      var distance = Sequelize.fn('ST_Distance', Sequelize.literal('position'), location);
      attributes.push([distance,'distance']);
  
@@ -66,11 +58,7 @@ class MotoBoy {
        where: Sequelize.where(distance, {$lte: 1000}),
        logging: console.log
      })
-     
-    
     }
-
-   
 }
 const motoboy = new MotoBoy();
 

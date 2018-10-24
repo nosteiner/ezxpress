@@ -1,6 +1,4 @@
 export class Order{
-
-    
     orderId : number;
     customerId : number;
     motoboyId : number;
@@ -23,7 +21,5 @@ export class Order{
     signature: string;
     description: string;
 
-
     constructor() {}
-
 }

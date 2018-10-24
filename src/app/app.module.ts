@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction'
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { MatMenuModule } from '@angular/material/menu';

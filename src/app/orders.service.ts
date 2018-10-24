@@ -36,15 +36,12 @@ export class OrdersService {
   addNewOrder(order){
     console.log("inside Add")
     this.http.post<Order>('ordersApi/add',order).subscribe(() => {
-      // this.allOrders.push(order);
       this.getAllOrders();
     })
   }
   
   getOrderById(id: number): void{
     this.http.get<Order>(this.OrdersServiceUrl + `/${id}`).subscribe((order) => {
-      // this.selectedOrder = order;
-      // this.selectedOrderSubject.next(order)
     });
   }
 
@@ -53,7 +50,6 @@ export class OrdersService {
   updateOrderStatus(order, id, status) {
     order.statusId = status
     this.http.put<Order>(`ordersApi/updateStatus/${id}`, order).subscribe(() => {
-      console.log("order was updated"+ id)
       if(status == 888){
         this.confirmEmail(order)
       }
@@ -73,8 +69,6 @@ export class OrdersService {
   cancelAssignToOrder(order) {
     order.motoboy = null;
     order.status = 1;
-    //Needs to be define 
-    //sendNotificationToclient(order){}
   }
 
   confirmEmail(order) {

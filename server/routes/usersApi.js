@@ -26,8 +26,6 @@ router.get('/:id', (req, res) => {
 
   router.get('/currentUser', checkIfAuthenticated,  (req, res) => {
     users.getUserType(req.user.id).then((data)=>{
-         console.log(data)
-         console.log("noam test")
          res.send(data.customerId);
      }).catch((error) => {
          res.send("error:" + error)
@@ -36,7 +34,6 @@ router.get('/:id', (req, res) => {
  
 
 router.post('/add', (req, res) => {
-    console.log('add new user' + req.body.position)
     users.create(req.body).then(data => {
     res.send(JSON.stringify(data));
   }).catch((error) => {
@@ -52,7 +49,6 @@ router.put('/update/:id', (req, res) => {
 });
 
 router.get('/getClosesMoto/:lat/:lng', (req, res) => {
-    
     users.getClosesMoto(req.params.lat,req.params.lng)
            .then((data) => {
                 res.send(data);

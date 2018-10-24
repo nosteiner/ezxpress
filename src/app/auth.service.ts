@@ -25,8 +25,6 @@ export class AuthService {
 
   }
 
-
-
   login(user) {
     this.http.post<any>('/login', user).subscribe(result => {
 
@@ -52,18 +50,14 @@ export class AuthService {
     localStorage.removeItem('token')
     this.currentUser = null;
     this.authSubject.next(null)
-   
-    // this.authSubject.next(this.user)
     this.router.navigate([''])
   }
-
 
   setUser(user: User) {
     if (user.motoboyId === null) {
       this.customerService.singleCustomerObservable.subscribe((customer)=>{
         this.currentUser = customer;
-        this.authSubject.next(customer)
-        console.log("user set");
+        this.authSubject.next(customer);
       })
       this.customerService.getCustomer(user.customerId);
       this.userType = "customer";
@@ -72,14 +66,10 @@ export class AuthService {
       this.motoService.singleMotoObservable.subscribe((motoboy)=>{
         this.currentUser = motoboy;
         this.authSubject.next(motoboy)
-        console.log("user set");
       });
       this.motoService.getMoto(user.motoboyId);
       this.userType = "motoboy";
       
-    }
-    console.log("user type" + this.userType)
-   
+    }  
   }
-  
 }

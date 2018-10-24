@@ -17,22 +17,9 @@ class User {
            
         }, {
                 freezeTableName: true // Model tableName will be the same as the model name
-            });
-           // user.hasOne(customers.model, { foreignKey: 'customerId' , onUpdate: 'CASCADE', hooks: true})
-           // user.hasOne(motoboys.model, { foreignKey: 'motoboyId', onUpdate: 'CASCADE', hooks: true})
-
-           
+            }); 
         return user;
     }
-
-    // getOneUser(username, password) {
-    //     return this.model.findOne({
-    //       where: {
-    //         userName: username,
-    //         password: password
-    //       }
-    //     });
-    // }
 
     getAll(){
         return this.model.findAll({
@@ -69,8 +56,6 @@ class User {
     }
 
     create(data){
-        console.log("update users !!! ")
-        console.log(data)
         return this.model.create(data);
     }
 

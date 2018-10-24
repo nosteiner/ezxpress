@@ -24,9 +24,6 @@ class Customer {
                 freezeTableName: true // Model tableName will be the same as the model name
             });
 
-           //customer.hasOne(users.model , { foreignKey: 'customerId', onUpdate: 'CASCADE', hooks: true} )
-           // Company.model.hasMany(customer, { foreignKey: 'company_id' });
-
         return customer;
     }
     getAll() {

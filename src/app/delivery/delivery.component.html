@@ -20,7 +20,7 @@
       <div class="delivery-type" *ngIf='this.calcOrder == false'>
         
         <h2> Delivery Type</h2>
-        <div id="labels" fxLayout="row" fxLayoutAlign="space-around center">
+        <div id="labels">
           
           <input type="radio" class="radio_item" id="radio1" name="order.deliveryType" [checked]="order.deliveryType === 'envelope'"
             (change)="setValue('envelope')" value="envelope" />

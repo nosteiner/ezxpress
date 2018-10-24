@@ -7,6 +7,5 @@ export class User{
     motoboyId :  number;
     token: string;
     constructor() {}
-
 }
 

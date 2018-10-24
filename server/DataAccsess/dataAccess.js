@@ -21,7 +21,3 @@ class DataAccess  {
 }
 const DA = new DataAccess() ;
 module.exports =   DA;
-
-
-//password
-//gKA6erG2f53$RV1g

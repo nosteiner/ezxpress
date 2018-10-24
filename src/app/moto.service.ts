@@ -103,23 +103,16 @@ export class MotoService {
     var geocoder: google.maps.Geocoder = new google.maps.Geocoder; 
     var latlng = {lat: lat , lng: lng};
     geocoder.geocode({"location": latlng }, (results, status) => {
-        console.log(results)
-     
         this.localAddress = results[0].formatted_address
         console.log(this.localAddress)
         this.addressSubject.next({localAddress: this.localAddress, lat: lat, lng: lng})
-        
-     
-    
       });
   }
 
   addMotoBoy(motoboy) {
-    console.log("inside Add")
     let photo = motoboy.photo;
     motoboy.photo = " ";
     this.http.post<MotoBoy>('motoboysApi/add', motoboy).subscribe((data) => {
-      //update motoboys array?
       this.currentMotoBoy = data;
       this.currentMotoBoy.userName = motoboy.userName;
       this.currentMotoBoy.password = motoboy.password
@@ -137,16 +130,8 @@ export class MotoService {
     for ( let i=0 ; i < this.motoBoys.length; i++){
       let distance = this.getDistanceFromLatLonInKm(lat,lng,this.motoBoys[i].latitude,this.motoBoys[i].longitude)
       if (distance <= 1){ 
-      //send SMS to deliveries 
       }
     }
-    
-
-    // //this.http.get<Array<MotoBoy>>('motoboysApi/getClosesMoto/' + lat + '/' + lng).subscribe(data => {
-    //  // send SMS to deliveries in data if dat.length > 0
-    //   console.log(data)
-             
-    // })
   }
 
   // Fucntions to Calculate a distance between 2 points =====>
@@ -176,8 +161,6 @@ export class MotoService {
     let photoFileName = this.currentMotoBoy.motoboyId + '.png'
     this.formData.append("uploads", photoFile, photoFileName);
     this.http.post('uploadPhoto', this.formData).subscribe((data) => {
-      //update motoboys array?
-      //this.currentMotoBoy = data;
     })
     
   }

@@ -21,7 +21,6 @@ const inlineBase64 = require('nodemailer-plugin-inline-base64');
 
 
 // Get our API routes
-const commentsAPI = require('./server/routes/commentsApi');
 const customerAPI = require('./server/routes/customersApi');
 const motoboysAPI = require('./server/routes/motoboysApi');
 const ordersAPI = require('./server/routes/ordersApi');
@@ -42,10 +41,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/ezxpress')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
 
 // Set our api routes
-app.use('/commentsApi', commentsAPI); // use enables the midddleware, which is customerAPI
 app.use('/customersApi', customerAPI);
 app.use('/motoboysApi', motoboysAPI);
 app.use('/ordersApi', ordersAPI);
@@ -168,7 +165,7 @@ app.post('/sendEmail', (req, res) => {
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
   console.log('yooooo')
-  res.sendFile(path.join(__dirname, './dist/ezxpress/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/ezxpress/index.html'));
 });
 
 /**
