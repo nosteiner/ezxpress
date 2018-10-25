@@ -14,7 +14,7 @@
       <app-destination></app-destination>
     </div>
 
-    <div class="col-3">
+    <div class="col-4">
       <mat-spinner id="spinner" *ngIf='this.calcOrder == true' [color]="color" [mode]="mode" [value]="value"></mat-spinner>
       <div class="delivery-type" *ngIf='this.calcOrder == false'>
 
@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-3">
       <app-map [order]="order"></app-map>
     </div>
   </div>

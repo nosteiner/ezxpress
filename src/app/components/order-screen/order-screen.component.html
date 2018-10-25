@@ -5,41 +5,45 @@
             <mat-card-header>
                 <h2 id="container" style="color: indigo">Order no: {{order.orderId}}</h2>
             </mat-card-header>
+            <div class="row">
+            <div class="col-8">
+                <mat-card-content>
+                    <label>Order date:
+                        <span> {{order.orderDate}}</span>
+                    </label>
 
-            <mat-card-content>
-                <label>Order date:
-                    <span> {{order.orderDate}}</span>
-                </label>
+                    <label>Customer:
+                        <span> {{order.customer.firstName}} {{order.customer.lastName}}</span>
+                    </label>
 
-                <label>Customer:
-                    <span> {{order.customer.firstName}} {{order.customer.lastName}}</span>
-                </label>
+                    <label *ngIf="order.motoboyId">First name motoboy:
+                        <span> {{order.motoboy.firstName}}</span>
+                    </label>
 
-                <label *ngIf="order.motoboyId">First name motoboy:
-                    <span> {{order.motoboy.firstName}}</span>
-                </label>
+                    <label>Destination Address:
+                        <span> {{order.destAddress}}</span>
+                    </label>
 
-                <label>Destination Address:
-                    <span> {{order.destAddress}}</span>
-                </label>
+                    <label>Description:
+                        <span> {{order.description}}</span>
+                    </label>
 
-                <label>Description:
-                    <span> {{order.description}}</span>
-                </label>
-
-                <label>Price:
-                    <span> {{order.price}}₪</span>
-                </label>
-
-
-            </mat-card-content>
-
-            <span *ngIf="userType == 'motoboy' ">
-                <button  *ngIf="order.statusId == 2" mdbBtn type="button" outline="true" color="mdb-color" class="waves-light m-4" mdbWavesEffect  (click)="handleChangeStatus(3)">pickedup
-                    order</button>
-                <button  *ngIf="order.statusId == 3" mdbBtn type="button" outline="true" color="mdb-color" class="waves-light m-4" mdbWavesEffect  (click)="handleChangeStatus(4)">order
-                    deliverd</button>
-            </span>
+                    <label>Price:
+                        <span> {{order.price}}₪</span>
+                    </label>
+                </mat-card-content>
+            </div>
+            <div class="col-4">
+                <span *ngIf="userType == 'motoboy' ">
+                    <button *ngIf="order.statusId == 2" mdbBtn type="button" outline="true" color="mdb-color" class="waves-light m-4"
+                        mdbWavesEffect (click)="handleChangeStatus(3)">pickedup
+                        order</button>
+                    <button *ngIf="order.statusId == 3" mdbBtn type="button" outline="true" color="mdb-color" class="waves-light m-4"
+                        mdbWavesEffect (click)="handleChangeStatus(4)">order
+                        deliverd</button>
+                </span>
+            </div>
+        </div>
         </mat-card>
     </mat-dialog-content>
 

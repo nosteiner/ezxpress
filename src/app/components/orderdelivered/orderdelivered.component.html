@@ -1,6 +1,6 @@
 <mat-card class="order-card">
   <div class="row">
-    <div class="col-md-6 vertical-center">
+    <div class="col-md-6">
 
         <mat-card-title>
           <h3>Delivery Confirmation</h3>
@@ -15,7 +15,7 @@
     </div>
     <div class="col-md-6">
       <app-signature [order]="order"></app-signature>
-      <button mdbBtn type="button" color="mdb-color" class="waves-light m-4" mdbWavesEffect (click)='confirmDelivered(order)'>submit</button>
+      <button mdbBtn type="button" color="mdb-color" class="waves-light m-4" mdbWavesEffect (click)='confirmDelivered(order)' routerLink="/">submit</button>
     </div>
   </div>
 </mat-card>
