@@ -78,7 +78,7 @@ export class DeliveryComponent implements OnInit {
     this.orderService.addNewOrder(this.order)
 
     let dialogRef = this.dialog.open(OrderDialogComponent, {
-      width: '300px'
+      width: '500px'
     })
 
     dialogRef.afterClosed().subscribe(result => {

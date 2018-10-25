@@ -34,10 +34,10 @@
 
             </mat-card-content>
 
-            <span *ngIf="userType == motoboy">
-                <button  *ngIf="order.statusId == 2" (click)="handleChangeStatus(3)">pickedup
+            <span *ngIf="userType == 'motoboy' ">
+                <button  *ngIf="order.statusId == 2" mdbBtn type="button" outline="true" color="mdb-color" class="waves-light m-4" mdbWavesEffect  (click)="handleChangeStatus(3)">pickedup
                     order</button>
-                <button  *ngIf="order.statusId == 3" (click)="handleChangeStatus(4)">order
+                <button  *ngIf="order.statusId == 3" mdbBtn type="button" outline="true" color="mdb-color" class="waves-light m-4" mdbWavesEffect  (click)="handleChangeStatus(4)">order
                     deliverd</button>
             </span>
         </mat-card>
@@ -45,7 +45,7 @@
 
     <app-stepper [order]="order" [userType]="userType"></app-stepper>
     <mat-dialog-actions>
-        <button mat-raised-button class="w3-theme" (click)="close()">Close</button>
+        <button mdbBtn type="button" color="mdb-color" class="waves-light m-4" mdbWavesEffect (click)="close()">close</button>
     </mat-dialog-actions>
 
 </div>
