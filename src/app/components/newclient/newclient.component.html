@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row justify-content-lg-center pt-5">
+<div class="container  d-flex justify-content-center">
+  <div class="row pt-5">
     <div class="col-12 col-md-auto">
       <div class="text-center border border-light m-5 p-5">
 
@@ -12,7 +12,7 @@
         <input type="text" class="form-control mb-4" [(ngModel)]=newClient.phoneNumber placeholder="Phone Number">
         <input type="text" class="form-control mb-4" [(ngModel)]=newClient.address placeholder="Address">
         <div class="input-group">
-          <input type="password" class="form-control" placeholder="Enter password" [type]="hide ? 'password' : 'text'">
+          <input type="password" class="form-control" [(ngModel)]=password  placeholder="Enter password" [type]="hide ? 'password' : 'text'">
           <div class="input-group-append">
             <span class="input-group-text">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>

@@ -69,7 +69,6 @@ export class DeliveryComponent implements OnInit {
       else
         this.order.price = (this.dist) * multPrice;
       this.calcOrder = false;
-      //this.mapRoute.showRoutes(result)
     })
   }
 
@@ -79,8 +78,7 @@ export class DeliveryComponent implements OnInit {
     this.orderService.addNewOrder(this.order)
 
     let dialogRef = this.dialog.open(OrderDialogComponent, {
-      width: '500px'
-
+      width: '300px'
     })
 
     dialogRef.afterClosed().subscribe(result => {
